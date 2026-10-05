@@ -7,6 +7,7 @@ from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from html.parser import HTMLParser
+import json
 import os
 import sys
 import time
@@ -21,6 +22,7 @@ MAX_URLS = 10_000
 MAX_RESPONSE_BYTES = 4_000_000
 MAX_WORKERS = 12
 RETRIES = 2
+LEGACY_CONTACT_MARKERS = ("Nicole", "13923387986", "163.com")
 
 
 @dataclass(frozen=True)
@@ -47,6 +49,8 @@ class Page:
     canonicals: list[str] | None = None
     robots: list[str] | None = None
     alternates: list[tuple[str, str]] | None = None
+    jsonld_blocks: list[str] | None = None
+    legacy_markers: list[str] | None = None
     error: str = ""
 
 
@@ -58,8 +62,10 @@ class MetadataParser(HTMLParser):
         self.canonicals: list[str] = []
         self.robots: list[str] = []
         self.alternates: list[tuple[str, str]] = []
+        self.jsonld_blocks: list[str] = []
         self._in_title = False
         self._in_h1 = False
+        self._jsonld_buffer: list[str] | None = None
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         values = {key.casefold(): (value or "") for key, value in attrs}
@@ -77,15 +83,22 @@ class MetadataParser(HTMLParser):
                 self.canonicals.append(values["href"])
             if "alternate" in rels and values.get("hreflang") and values.get("href"):
                 self.alternates.append((values["hreflang"].casefold(), values["href"]))
+        elif tag == "script" and values.get("type", "").split(";")[0].strip().casefold() == "application/ld+json":
+            self._jsonld_buffer = []
 
     def handle_endtag(self, tag: str) -> None:
         if tag.casefold() == "title":
             self._in_title = False
         elif tag.casefold() == "h1":
             self._in_h1 = False
+        elif tag.casefold() == "script" and self._jsonld_buffer is not None:
+            self.jsonld_blocks.append("".join(self._jsonld_buffer))
+            self._jsonld_buffer = None
 
     def handle_data(self, data: str) -> None:
         value = data.strip()
+        if self._jsonld_buffer is not None:
+            self._jsonld_buffer.append(data)
         if not value:
             return
         if self._in_title:
@@ -172,8 +185,9 @@ def inspect_page(url: str) -> Page:
         page.status, page.final_url, body = fetch(url)
         if page.status != 200:
             return page
+        text = body.decode("utf-8", "replace")
         parser = MetadataParser()
-        parser.feed(body.decode("utf-8", "replace"))
+        parser.feed(text)
         page.title = " ".join(parser.title.split())
         page.h1 = [" ".join(value.split()) for value in parser.h1]
         page.canonicals = parser.canonicals
@@ -182,17 +196,22 @@ def inspect_page(url: str) -> Page:
             (lang, urllib.parse.urljoin(url, href))
             for lang, href in parser.alternates
         ]
+        page.jsonld_blocks = parser.jsonld_blocks
+        folded = text.casefold()
+        page.legacy_markers = [
+            marker for marker in LEGACY_CONTACT_MARKERS if marker.casefold() in folded
+        ]
     except Exception as error:  # noqa: BLE001
         page.error = f"{type(error).__name__}: {error}"
     return page
 
 
-def audit_site(site: Site) -> tuple[list[str], int]:
+def audit_site(site: Site) -> tuple[list[str], int, int]:
     errors: list[str] = []
     try:
         urls = load_sitemap(site)
     except Exception as error:  # noqa: BLE001
-        return [f"{site.name}: sitemap: {type(error).__name__}: {error}"], 0
+        return [f"{site.name}: sitemap: {type(error).__name__}: {error}"], 0, 0
 
     duplicates = len(urls) - len(set(urls))
     if duplicates:
@@ -212,6 +231,7 @@ def audit_site(site: Site) -> tuple[list[str], int]:
 
     titles: dict[str, list[str]] = defaultdict(list)
     pages_by_url = {page.url: page for page in pages}
+    valid_jsonld = 0
     for page in pages:
         label = f"{site.name}: {page.url}"
         if page.error:
@@ -235,6 +255,15 @@ def audit_site(site: Site) -> tuple[list[str], int]:
             errors.append(f"{label}: canonical host is not {site.canonical_host}")
         if any("noindex" in value for value in (page.robots or [])):
             errors.append(f"{label}: meta robots/googlebot contains noindex")
+        if page.legacy_markers:
+            errors.append(f"{label}: legacy contact marker(s): {', '.join(page.legacy_markers)}")
+
+        for index, raw in enumerate(page.jsonld_blocks or [], start=1):
+            try:
+                json.loads(raw)
+                valid_jsonld += 1
+            except (json.JSONDecodeError, TypeError) as error:
+                errors.append(f"{label}: invalid JSON-LD block {index}: {error}")
 
         alternates = page.alternates or []
         languages = [lang for lang, _ in alternates]
@@ -251,34 +280,34 @@ def audit_site(site: Site) -> tuple[list[str], int]:
                 if target_page and not any(back == page.url for _, back in (target_page.alternates or [])):
                     errors.append(f"{label}: hreflang target does not link back: {target}")
 
-    duplicate_titles = {title: urls for title, urls in titles.items() if len(urls) > 1}
+    duplicate_titles = {title: matching_urls for title, matching_urls in titles.items() if len(matching_urls) > 1}
     for title, matching_urls in duplicate_titles.items():
         errors.append(
             f"{site.name}: duplicate title ({len(matching_urls)} pages): "
             + ", ".join(matching_urls[:5])
             + f" — {title[:120]}"
         )
-    return errors, len(pages)
+    return errors, len(pages), valid_jsonld
 
 
 def main() -> int:
-    summaries: list[tuple[str, int, int]] = []
+    summaries: list[tuple[str, int, int, int]] = []
     all_errors: list[str] = []
     for site in SITES:
-        errors, count = audit_site(site)
-        summaries.append((site.name, count, len(errors)))
+        errors, count, valid_jsonld = audit_site(site)
+        summaries.append((site.name, count, valid_jsonld, len(errors)))
         all_errors.extend(errors)
 
     lines = [
         "# Monthly full-site SEO audit",
         "",
-        "Read-only audit of every URL in each production sitemap: status, final/canonical host, title, H1, noindex, duplicate titles, and hreflang targets/return links.",
+        "Read-only audit of every URL in each production sitemap: status, final/canonical host, title, H1, noindex, legacy contacts, JSON-LD syntax, duplicate titles, and hreflang targets/return links.",
         "",
-        "| Site | Sitemap pages checked | Issues |",
-        "|---|---:|---:|",
+        "| Site | Sitemap pages checked | Valid JSON-LD blocks | Issues |",
+        "|---|---:|---:|---:|",
     ]
-    for name, count, issue_count in summaries:
-        lines.append(f"| {name} | {count} | {issue_count} |")
+    for name, count, valid_jsonld, issue_count in summaries:
+        lines.append(f"| {name} | {count} | {valid_jsonld} | {issue_count} |")
     lines.extend(["", f"Total issues: **{len(all_errors)}**"])
     if all_errors:
         lines.extend(["", "## Issues", ""])
