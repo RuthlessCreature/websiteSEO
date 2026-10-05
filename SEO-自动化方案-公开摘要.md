@@ -1,6 +1,6 @@
 # 三站 SEO 当前状态摘要
 
-更新时间：2026-10-05
+更新时间：2026-10-06
 
 本文件概述三站的统一 SEO 技术基线、已完成的可验证工作和仍待外部平台确认的事项。详细运营日志保留在本地工作区，不在公开仓库发布。
 
@@ -25,17 +25,26 @@
 - 通过 Cloudflare Email Routing 配置三个 `contact@` 地址转发至站点负责人。路由规则、已验证目标地址、公网 MX/SPF 与独立发件端到端测试均已核验。
 - 三站联系入口公开姓名、电话、Gmail 和各自域名邮箱；生产页面抽查通过。
 
-## 最新只读生产审计（2026-10-05）
+## 最新只读生产审计（2026-10-06）
 
-SEO 专项仓库的免费 GitHub Actions 每周审计已运行成功，结果在 [Actions run](https://github.com/RuthlessCreature/websiteSEO/actions/runs/37325202926)。同一轮本地实时复核也通过：
+SEO 专项仓库的 [月度全站审计](https://github.com/RuthlessCreature/websiteSEO/actions/runs/37345205039) 已成功运行，覆盖全部生产 sitemap URL；同一工作流还运行了首页实体关系检查。
 
-| 站点 | Sitemap 唯一 URL | robots、sitemap、`llms.txt` | 代表页面 |
-|---|---:|---|---|
-| Xiaodu | 170 | 通过 | 英文首页、联系页 HTTP 200，title/H1/canonical 正常 |
-| StayChina | 24 | 通过 | 英文首页、联系页、China setup 页 HTTP 200，title/H1/canonical 正常 |
-| Pomerol | 144 | 通过 | 英文首页、联系页、China sourcing 页 HTTP 200，title/H1/canonical 正常 |
+| 站点 | Sitemap 页面检查 | 有效 JSON-LD 块 | 问题 |
+|---|---:|---:|---:|
+| Xiaodu | 170 | 503 | 0 |
+| StayChina | 24 | 48 | 0 |
+| Pomerol | 144 | 144 | 0 |
+| **总计** | **338** | **695** | **0** |
 
-本轮巡检错误数为 0。它不检查 Google/Bing 私有索引状态、固定地域排名、Cloudflare 安全事件日志或 AI 产品是否实际引用内容。IndexNow 曾接受三站 170/24/144 个 URL 的通知；接收成功不代表引擎已抓取、收录或排名提升。StayChina sitemap 的 `lastmod` 日期已与对应页面更新对齐。
+三个首页的 Organization → WebSite → WebPage 实体引用及 Yusuf 联系信息检查均为 PASS，0 个问题。详见 [实体关系巡检日志](https://github.com/RuthlessCreature/websiteSEO/actions/runs/37345205039)。
+
+### IndexNow 通知回执
+
+- **Xiaodu：**[生产部署日志](https://github.com/RuthlessCreature/xWebsite/actions/runs/37309444760)显示 IndexNow 接受 170 个 sitemap URL，HTTP 200。
+- **StayChina：**2026-10-06 重新读取 sitemap-index 及其 2 个子 sitemap，共发现 24 个规范域 URL；验证公钥文件匹配后提交给 IndexNow，HTTP 200。
+- **Pomerol：**[生产部署日志](https://github.com/RuthlessCreature/pWebsiteExport/actions/runs/37297913047)显示 IndexNow 接受 144 个 sitemap URL，HTTP 200。
+
+IndexNow 的 HTTP 200 只证明通知端接受了 URL 列表，不证明搜索引擎已抓取、收录或提升排名。全站巡检也不覆盖 Google/Bing 私有索引状态、固定地域排名、Cloudflare 安全事件日志或 AI 产品是否引用内容。StayChina sitemap 的 `lastmod` 日期已与对应页面更新对齐。
 
 ## AI 搜索与内容策略
 
