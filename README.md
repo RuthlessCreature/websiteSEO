@@ -11,7 +11,7 @@ The live website code remains in each site's own repository. This repository hol
 ## Automated monitoring
 
 - [Weekly production audit workflow](.github/workflows/seo-live-audit.yml) checks crawl signals, sitemap reachability/URL consistency, llms.txt, representative page metadata, and stale contact markers.
-- [Monthly full-site audit workflow](.github/workflows/seo-full-site-audit.yml) checks every URL in the production sitemaps for status, canonical host, title/H1, noindex, duplicate titles, and hreflang targets/return links.
+- [Monthly full-site audit workflow](.github/workflows/seo-full-site-audit.yml) checks every sitemap URL for status/canonical/title/H1/noindex, legacy contact markers, JSON-LD syntax, duplicate titles, and hreflang targets/return links.
 - [Weekly audit script](seo-tools/seo_live_audit.py) and [full-site audit script](seo-tools/seo_full_site_audit.py) contain the read-only checks for all three production domains. Each workflow writes its results to the GitHub Actions run summary.
 
 ## Start here
