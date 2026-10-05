@@ -27,3 +27,7 @@ jobs:
 
       - name: Audit every production sitemap URL
         run: python3 seo-tools/seo_full_site_audit.py
+
+      - name: Audit homepage structured-data entity relationships
+        if: always()
+        run: python3 seo-tools/seo_schema_entity_audit.py
