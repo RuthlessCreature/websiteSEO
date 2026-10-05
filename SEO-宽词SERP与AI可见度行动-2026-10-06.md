@@ -56,3 +56,17 @@
 5. 外部目录/社媒状态分别记为草稿、已提交、审核中、已公开、失败；不把账号创建或提交回执当作排名。
 
 这轮公开抽样只确认 Pomerol 的一个目标页出现在一份宽词结果样本中。Xiaodu、StayChina 的前 20 目标仍缺少可复现位置证据；三站目标排名均未达成验证。
+
+## 2026-10-06 核心着陆页与标题生产复核
+
+05:58（Asia/Shanghai）对三站宽主题入口做 HTTP/HTML 核对，均返回 HTTP 200，title、description 与 H1 清楚对应主题：
+
+| 站点 | 核心 URL | Title / H1 检查 |
+|---|---|---|
+| Xiaodu | `https://xiaodu.tech/en/solutions/` | Title 和 H1 都是 “Industrial Automation System Integrator in China”；description 说明 Zhuhai-based 系统集成范围 |
+| StayChina | `https://www.staychina.org/en/china-setup` | Title “China Company Setup & Work Permit | StayChina”；H1 指向外籍创办人的 China company setup 路径 |
+| Pomerol | `https://pomerol.trade/china-sourcing-agent/` | Title “China Sourcing Agent for Overseas Buyers | Pomerol International”；H1 是对应 China sourcing agent 的主要服务入口 |
+
+本次也抽查了两个 Pomerol illustrative scenario 页。现网 title 分别为 “Machine-vision BOM and motion-control | Pomerol International” 和 “CNC machined parts with dimensional | Pomerol International”，末尾关键名词 “sourcing” 与 “inspection” 被省掉。原因是生成器新增了 “China Sourcing Scenario” 后缀，而最后的 70 字符 title 整理仅处理旧 “China Sourcing Case” 后缀。草稿 PR [#41](https://github.com/RuthlessCreature/pWebsiteExport/pull/41) 增加对新旧后缀的统一处理；按当前 36 个案例标题对生成逻辑作静态比较，预计其中 2 个 title 会恢复完整的产品/验收词。PR 仍待仓库验证及合并，尚未部署。
+
+以上 title/H1 核对是页面元数据检查，不能证明目标关键词达到前 20；宽词排名仍以各站 GSC/Bing 固定市场与日期范围内的 query-page 数据为准。
