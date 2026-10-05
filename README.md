@@ -17,6 +17,7 @@ The live website code remains in each site's own repository. This repository hol
 ## Start here
 
 - [Three-site SEO status](SEO-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%96%B9%E6%A1%88-%E5%85%AC%E5%BC%80%E6%91%98%E8%A6%81.md)
+- [Current three-site live audit (2026-10-06)](SEO-%E5%AE%9E%E6%97%B6%E7%94%9F%E4%BA%A7%E5%B7%A1%E6%A3%80-2026-10-06.md)
 - [StayChina GSC indexing check (2026-10-06)](GSC-%E7%B4%A2%E5%BC%95%E6%A0%B8%E6%9F%A5-2026-10-06.md)
 - [Public search and brand signal audit (2026-10-06)](SEO-%E5%85%AC%E5%BC%80%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%93%81%E7%89%8C%E4%BF%A1%E5%8F%B7%E6%A0%B8%E6%9F%A5-2026-10-06.md)
 - [Broad-keyword competitive gaps and content routes (2026-10-06)](SEO-%E5%AE%BD%E8%AF%8D%E7%AB%9E%E4%BA%89%E7%BC%BA%E5%8F%A3%E4%B8%8E%E5%86%85%E5%AE%B9%E8%B7%AF%E7%BA%BF-2026-10-06.md)
