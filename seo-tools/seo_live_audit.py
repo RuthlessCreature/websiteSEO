@@ -77,11 +77,21 @@ LEGACY_CONTACT_MARKERS = ("Nicole", "13923387986", "163.com")
 class Result:
     rows: list[tuple[str, str, str]] = field(default_factory=list)
     errors: list[str] = field(default_factory=list)
+    warnings: list[str] = field(default_factory=list)
 
-    def add(self, site: str, check: str, outcome: str, error: bool = False) -> None:
+    def add(
+        self,
+        site: str,
+        check: str,
+        outcome: str,
+        error: bool = False,
+        warning: bool = False,
+    ) -> None:
         self.rows.append((site, check, outcome))
         if error:
             self.errors.append(f"{site}: {check}: {outcome}")
+        if warning:
+            self.warnings.append(f"{site}: {check}: {outcome}")
 
 
 def fetch(url: str) -> tuple[int, str, bytes]:
@@ -181,13 +191,21 @@ def parse_sitemap(start_url: str, result: Result, site: str) -> tuple[list[str],
         if root_type != "urlset":
             raise ValueError(f"unexpected sitemap root element: {root_type}")
         sitemap_urls.append(sitemap_url)
-        page_urls.extend(
+        urls = [
             (element.text or "").strip()
             for url_element in root
             if local_name(url_element.tag) == "url"
             for element in url_element
             if local_name(element.tag) == "loc" and (element.text or "").strip()
-        )
+        ]
+        if not urls:
+            result.add(
+                site,
+                f"sitemap {sitemap_url}",
+                "urlset contains no page URLs; confirm there are no active pages to list",
+                warning=True,
+            )
+        page_urls.extend(urls)
         if len(page_urls) > MAX_URLS:
             raise ValueError(f"sitemap contains more than {MAX_URLS} URLs")
     return page_urls, sitemap_urls
@@ -338,6 +356,7 @@ def main() -> int:
             site_result = future.result()
             result.rows.extend(site_result.rows)
             result.errors.extend(site_result.errors)
+            result.warnings.extend(site_result.warnings)
 
     lines = [
         "# Three-site SEO live audit",
@@ -350,7 +369,13 @@ def main() -> int:
     for site, check, outcome in result.rows:
         safe_outcome = outcome.replace("|", "\\|").replace("\n", " ")
         lines.append(f"| {site} | {check} | {safe_outcome} |")
-    lines.extend(["", f"Errors: **{len(result.errors)}**"])
+    lines.extend(
+        [
+            "",
+            f"Warnings: **{len(result.warnings)}**",
+            f"Errors: **{len(result.errors)}**",
+        ]
+    )
     summary = "\n".join(lines) + "\n"
     print(summary)
 
