@@ -70,3 +70,11 @@
 本次也抽查了两个 Pomerol illustrative scenario 页。现网 title 分别为 “Machine-vision BOM and motion-control | Pomerol International” 和 “CNC machined parts with dimensional | Pomerol International”，末尾关键名词 “sourcing” 与 “inspection” 被省掉。原因是生成器新增了 “China Sourcing Scenario” 后缀，而最后的 70 字符 title 整理仅处理旧 “China Sourcing Case” 后缀。草稿 PR [#41](https://github.com/RuthlessCreature/pWebsiteExport/pull/41) 增加对新旧后缀的统一处理；按当前 36 个案例标题对生成逻辑作静态比较，预计其中 2 个 title 会恢复完整的产品/验收词。PR 仍待仓库验证及合并，尚未部署。
 
 以上 title/H1 核对是页面元数据检查，不能证明目标关键词达到前 20；宽词排名仍以各站 GSC/Bing 固定市场与日期范围内的 query-page 数据为准。
+
+
+## 2026-10-06 搜索快照与线上联系信息复核
+
+新一轮公开搜索工具曾返回 StayChina 英文页的旧摘要，摘要中显示旧品牌联系人 “Nicole” 与旧邮箱，且结果标注为上月抓取。为避免把缓存误判为线上故障，今天直接打开线上英文首页、`/en/china-setup` 和 `/en/contact` 复核：三页正文都显示 Yusuf、+86 132 4269 4270、abd.yusuf.ibrahim.mustafa@gmail.com；联系页也列出 contact@staychina.org。公司设立页的标题为 “China Company Setup & Work Permit | StayChina”，H1 为 “China company setup for foreign founders should start with the route, not the licence.”
+
+**判断与动作：**联系人已在当前线上正文统一；旧搜索摘要是过期快照，本轮不改站点代码。继续观察后续搜索摘要是否更新；若主要页面已重新抓取仍展示旧实体信息，再检查缓存/索引状态和页面结构化实体数据。该公开搜索视图没有提供可复现的排名位置，因此不能据此判断目标词排名。
+
