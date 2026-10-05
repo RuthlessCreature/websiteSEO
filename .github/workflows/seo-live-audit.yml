@@ -1,0 +1,25 @@
+name: Weekly three-site SEO live audit
+
+on:
+  schedule:
+    - cron: "17 2 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: website-seo-live-audit
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out SEO operations repository
+        uses: actions/checkout@v6
+
+      - name: Audit production sites
+        run: python3 seo-tools/seo_live_audit.py
+
