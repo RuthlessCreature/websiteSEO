@@ -6,6 +6,7 @@ on:
     paths:
       - ".github/workflows/seo-full-site-audit.yml"
       - "seo-tools/seo_full_site_audit.py"
+      - "seo-tools/seo_content_triage.py"
   schedule:
     - cron: "43 3 1 * *"
   workflow_dispatch:
@@ -27,6 +28,10 @@ jobs:
 
       - name: Audit every production sitemap URL
         run: python3 seo-tools/seo_full_site_audit.py
+
+      - name: Triage English main-content depth and case-page overlap
+        if: always()
+        run: python3 seo-tools/seo_content_triage.py
 
       - name: Audit homepage structured-data entity relationships
         if: always()
