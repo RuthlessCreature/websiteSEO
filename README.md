@@ -8,6 +8,11 @@ SEO implementation notes and operational materials for three Cloudflare-hosted w
 
 The live website code remains in each site's own repository. This repository holds cross-site SEO documentation, directory-submission materials, and social publishing drafts. It excludes website source copies, deployment bundles, credentials, environment files, and private inquiry records.
 
+## Automated monitoring
+
+- [Weekly production audit workflow](.github/workflows/seo-live-audit.yml) runs a free, read-only check of crawl signals, sitemap URLs, llms.txt, representative page metadata, and stale contact markers.
+- [Audit script](seo-tools/seo_live_audit.py) contains the shared checks for all three production domains. The workflow writes its result to the GitHub Actions run summary.
+
 ## Start here
 
 - [Three-site SEO status](SEO-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%96%B9%E6%A1%88-%E5%85%AC%E5%BC%80%E6%91%98%E8%A6%81.md)
