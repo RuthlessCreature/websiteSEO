@@ -20,6 +20,7 @@
 - 生产页面使用各自规范 URL、可抓取 sitemap、robots.txt 与结构化数据；多语言站点需要按真实语言版本配置自指 canonical 和相互对应的 hreflang。
 - 三站提供 `/llms.txt` 作为机器导航文件。它可以给支持该格式的工具提供背景，但 Google 明确表示 `llms.txt` 不会提升或损害 Google 搜索可见度；不要把文件存在本身当作排名或 AI 引用信号。
 - 三站 robots.txt 允许 Google、Bing、Baidu 及所声明的 AI 搜索/检索爬虫访问公开页面，并阻止 GPTBot、ClaudeBot 和 Applebot-Extended 的模型训练抓取。robots 声明只表达站点规则；Cloudflare WAF、速率限制或挑战仍可能拦住请求，需结合 Search Console、Bing Webmaster 与真实抓取日志验证。
+- 2026-10-05 公开检查三站 `robots.txt` 均返回 HTTP 200，均声明 `Content-Signal: search=yes, ai-input=yes, ai-train=no`，并列出 Google、Bing、百度、Yandex 及 OAI/Claude/Perplexity 搜索相关爬虫允许规则。Cloudflare 官方说明 AI Crawl Control 在所有套餐可用，可查看 AI 爬虫活动及逐爬虫管理访问；三个 Zone 的后台活动和挑战/阻断记录本轮未核实，因此 robots 允许不等于边缘实际放行。见 [Cloudflare AI Crawl Control](https://developers.cloudflare.com/ai-crawl-control/)。
 - Cloudflare Crawler Hints 已启用；它可用缓存变化信号通知支持的搜索引擎/IndexNow 参与方内容有更新，不保证抓取、收录或排名。
 - 通过 Cloudflare Email Routing 配置三个 `contact@` 地址转发至站点负责人。路由规则、已验证目标地址、公网 MX/SPF 与独立发件端到端测试均已核验。
 - 三站联系入口公开姓名、电话、Gmail 和各自域名邮箱；生产页面抽查通过。
