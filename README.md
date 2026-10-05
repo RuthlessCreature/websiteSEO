@@ -19,6 +19,7 @@ The live website code remains in each site's own repository. This repository hol
 - [Three-site SEO status](SEO-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%96%B9%E6%A1%88-%E5%85%AC%E5%BC%80%E6%91%98%E8%A6%81.md)
 - [Broad-keyword baseline and competitive gaps](SEO-%E5%AE%BD%E8%AF%8D%E5%9F%BA%E7%BA%BF%E5%92%8C%E7%AB%9E%E4%BA%89%E5%B7%AE%E8%B7%9D-2026-10.md)
 - [Full sitemap page audit](SEO-%E5%85%A8%E9%87%8F%E7%AB%99%E7%82%B9%E5%B7%A1%E6%A3%80-2026-10.md)
+- [Structured-data entity audit](SEO-%E7%BB%93%E6%9E%84%E5%8C%96%E6%95%B0%E6%8D%AE%E5%AE%9E%E4%BD%93%E5%AF%B9%E9%BD%90-2026-10.md)
 - [Directory submission roadmap](SEO-%E7%9B%AE%E5%BD%95%E6%8F%90%E4%BA%A4%E8%B7%AF%E7%BA%BF%E5%9B%BE-2026-10.md)
 - [Directory submission pack](SEO-%E4%B8%89%E7%AB%99%E7%9B%AE%E5%BD%95%E6%8F%90%E4%BA%A4%E5%8C%85-2026-10.md)
 - [Xiaodu Automation-List draft](SEO-%E7%9B%AE%E5%BD%95%E6%8F%90%E4%BA%A4%E8%8D%89%E7%A8%BF-2026-10.md)
