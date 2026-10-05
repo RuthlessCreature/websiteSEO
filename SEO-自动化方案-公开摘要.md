@@ -56,7 +56,7 @@ Google 的官方生成式 AI 搜索指南说明，AI Overviews/AI Mode 延续常
 
 ## 当前外部渠道待办
 
-- Google Search Console：核查 sitemap 处理状态、StayChina 旧结果摘要与宽词曝光；浏览器控制恢复后对代表 URL 执行检查/请求重抓，并记录后台显示结果。
+- Google Search Console（2026-10-05 只读核验）：三站已提交 sitemap 均显示成功；发现 URL 数为 Xiaodu 170、StayChina 24、Pomerol 144，这不等于已收录。StayChina 的 `/en/china-setup` URL 检查显示已收录；索引报告仍列有未收录页面。Xiaodu 与 Pomerol 的索引报告正在处理。当前数据不足以证明竞争性宽词稳定进入前 20；公开搜索仍可能显示 StayChina 的旧品牌/联系人摘要，而实时页面已显示 Yusuf。联系页和首页的 GSC 重新抓取请求尚未提交。
 - Bing Webmaster Tools：核查 sitemap、IndexNow 活动、查询表现与 AI Performance 引用；只有通知接受记录不算收录证明。
 - Yandex Webmaster：添加并验证需要覆盖的站点，再提交 sitemap。
 - 百度站长平台：按官方当前准入流程核验站点验证及 sitemap 提交能力。
