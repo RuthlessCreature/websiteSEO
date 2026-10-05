@@ -25,6 +25,7 @@ The live website code remains in each site's own repository. This repository hol
 - [Public search and brand signal audit (2026-10-06)](SEO-%E5%85%AC%E5%BC%80%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%93%81%E7%89%8C%E4%BF%A1%E5%8F%B7%E6%A0%B8%E6%9F%A5-2026-10-06.md)
 - [Broad-keyword competitive gaps and content routes (2026-10-06)](SEO-%E5%AE%BD%E8%AF%8D%E7%AB%9E%E4%BA%89%E7%BC%BA%E5%8F%A3%E4%B8%8E%E5%86%85%E5%AE%B9%E8%B7%AF%E7%BA%BF-2026-10-06.md)
 - [Broad-keyword search sample and content gaps (2026-10-06)](SEO-%E5%AE%BD%E8%AF%8D%E6%90%9C%E7%B4%A2%E6%A0%B7%E6%9C%AC%E4%B8%8E%E5%86%85%E5%AE%B9%E5%B7%AE%E8%B7%9D-2026-10-06.md)
+- [Main-content depth and template similarity triage (2026-10-06)](SEO-%E6%AD%A3%E6%96%87%E6%B7%B1%E5%BA%A6%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%9B%B8%E4%BC%BC%E5%BA%A6%E5%88%9D%E7%AD%9B-2026-10-06.md)
 - [Broad-keyword baseline and competitive gaps](SEO-%E5%AE%BD%E8%AF%8D%E5%9F%BA%E7%BA%BF%E5%92%8C%E7%AB%9E%E4%BA%89%E5%B7%AE%E8%B7%9D-2026-10.md)
 - [Full sitemap page audit](SEO-%E5%85%A8%E9%87%8F%E7%AB%99%E7%82%B9%E5%B7%A1%E6%A3%80-2026-10.md)
 - [Structured-data entity audit](SEO-%E7%BB%93%E6%9E%84%E5%8C%96%E6%95%B0%E6%8D%AE%E5%AE%9E%E4%BD%93%E5%AF%B9%E9%BD%90-2026-10.md)
