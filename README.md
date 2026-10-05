@@ -25,6 +25,7 @@ The live website code remains in each site's own repository. This repository hol
 - [Search-console and AI visibility report (2026-10-06)](SEO-%E7%AB%99%E9%95%BF%E5%B9%B3%E5%8F%B0%E4%B8%8EAI%E6%95%88%E6%9E%9C%E6%A0%B8%E6%9F%A5-2026-10-06.md)
 - [Public search and brand signal audit (2026-10-06)](SEO-%E5%85%AC%E5%BC%80%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%93%81%E7%89%8C%E4%BF%A1%E5%8F%B7%E6%A0%B8%E6%9F%A5-2026-10-06.md)
 - [Broad-keyword competitive gaps and content routes (2026-10-06)](SEO-%E5%AE%BD%E8%AF%8D%E7%AB%9E%E4%BA%89%E7%BC%BA%E5%8F%A3%E4%B8%8E%E5%86%85%E5%AE%B9%E8%B7%AF%E7%BA%BF-2026-10-06.md)
+- [Broad-keyword SERP and AI visibility actions (2026-10-06)](SEO-%E5%AE%BD%E8%AF%8DSERP%E4%B8%8EAI%E5%8F%AF%E8%A7%81%E5%BA%A6%E8%A1%8C%E5%8A%A8-2026-10-06.md)
 - [Broad-keyword search sample and content gaps (2026-10-06)](SEO-%E5%AE%BD%E8%AF%8D%E6%90%9C%E7%B4%A2%E6%A0%B7%E6%9C%AC%E4%B8%8E%E5%86%85%E5%AE%B9%E5%B7%AE%E8%B7%9D-2026-10-06.md)
 - [Main-content depth and template similarity triage (2026-10-06)](SEO-%E6%AD%A3%E6%96%87%E6%B7%B1%E5%BA%A6%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%9B%B8%E4%BC%BC%E5%BA%A6%E5%88%9D%E7%AD%9B-2026-10-06.md)
 - [Broad-keyword baseline and competitive gaps](SEO-%E5%AE%BD%E8%AF%8D%E5%9F%BA%E7%BA%BF%E5%92%8C%E7%AB%9E%E4%BA%89%E5%B7%AE%E8%B7%9D-2026-10.md)
