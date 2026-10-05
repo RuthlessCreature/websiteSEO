@@ -1,0 +1,29 @@
+name: Monthly full-site SEO audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/seo-full-site-audit.yml"
+      - "seo-tools/seo_full_site_audit.py"
+  schedule:
+    - cron: "43 3 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: website-seo-full-site-audit
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out SEO operations repository
+        uses: actions/checkout@v6
+
+      - name: Audit every production sitemap URL
+        run: python3 seo-tools/seo_full_site_audit.py
