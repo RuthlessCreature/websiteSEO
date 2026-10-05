@@ -26,12 +26,13 @@
 
 - 三站生产 sitemap 页面数量基线：Xiaodu 170，StayChina 24，Pomerol 144。历史全量巡检曾验证页面状态码、标题、H1、描述、canonical 和可索引性；部署后仍须对变更 URL 做回验。
 - IndexNow 曾接受 Xiaodu 170、StayChina 24、Pomerol 144 个 URL 的通知。API 接收不代表搜索引擎已抓取、收录或排名提升。
+- SEO 专项仓库已启用每周一次的免费 GitHub Actions 线上审计。2026-10-05 首次运行成功，三站爬取信号、sitemap、`llms.txt` 和代表页面检查均为 0 错误；结果可在 [Actions run](https://github.com/RuthlessCreature/websiteSEO/actions/runs/37325202926) 复核。
 - StayChina sitemap 的 `lastmod` 日期已与对应页面更新对齐，并在生产 sitemap 回验。
 - Pomerol 示意场景已明确标注为示例，不作为已交付客户案例、业绩或第三方背书。
 
 ## 外部搜索可见度状态
 
-2026-10-06 的公开宽词抽样未见三站出现在对应搜索结果样本中。此抽样不是固定国家/地区、语言、设备和搜索引擎下的排名报告；因此当前没有证据证明三站已进入宽词前两页。目标需要通过 Search Console 与 Bing Webmaster 查询数据持续量测，不能承诺具体名次。
+2026-10-05 的公开宽词抽样未见三站出现在对应搜索结果样本中。此抽样不是固定国家/地区、语言、设备和搜索引擎下的排名报告；因此当前没有证据证明三站已进入宽词前两页。目标需要通过 Search Console 与 Bing Webmaster 查询数据持续量测，不能承诺具体名次。
 
 优先使用有真实需求的宽主题支柱页，补充第一手工程/业务流程证据、负责人和企业信息、真实可公开案例与行业引用。不要批量生成近似地域词页、伪造客户或购买低质量链接。
 
