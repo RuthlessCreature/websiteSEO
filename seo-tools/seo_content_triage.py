@@ -8,6 +8,7 @@ word-count requirements and never trigger page removal or deindexing.
 from __future__ import annotations
 
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from collections import defaultdict
 from html.parser import HTMLParser
 import os
 import re
@@ -40,9 +41,13 @@ class MainTextParser(HTMLParser):
         self.main_depth = 0
         self.skip_depth = 0
         self.parts: list[str] = []
+        self.links: list[str] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         tag = tag.casefold()
+        values = {key.casefold(): (value or "") for key, value in attrs}
+        if tag == "a" and values.get("href") and "nofollow" not in values.get("rel", "").casefold().split():
+            self.links.append(values["href"])
         if tag in self.SKIP_TAGS:
             self.skip_depth += 1
         if tag in {"main", "article"}:
@@ -74,21 +79,35 @@ def is_english_content(site: audit.Site, url: str) -> bool:
     return False
 
 
-def inspect(url: str) -> tuple[str, str, int, str]:
+def inspect(url: str) -> tuple[str, str, int, list[str], str]:
     try:
         status, final_url, body = audit.fetch(url)
         if status != 200:
-            return url, "", 0, f"HTTP {status} -> {final_url}"
+            return url, "", 0, [], f"HTTP {status} -> {final_url}"
         if urllib.parse.urlsplit(final_url).hostname != urllib.parse.urlsplit(url).hostname:
-            return url, "", 0, f"unexpected final host -> {final_url}"
+            return url, "", 0, [], f"unexpected final host -> {final_url}"
         parser = MainTextParser()
         parser.feed(body.decode("utf-8", "replace"))
         text = " ".join(" ".join(parser.parts).split())
         if not text:
-            return url, "", 0, "no visible text in <main>/<article>"
-        return url, text, len(WORD_RE.findall(text)), ""
+            return url, "", 0, parser.links, "no visible text in <main>/<article>"
+        return url, text, len(WORD_RE.findall(text)), parser.links, ""
     except Exception as error:  # noqa: BLE001
-        return url, "", 0, f"{type(error).__name__}: {error}"
+        return url, "", 0, [], f"{type(error).__name__}: {error}"
+
+
+def normalize_internal_url(site: audit.Site, source_url: str, href: str) -> str | None:
+    target = urllib.parse.urljoin(source_url, href)
+    parts = urllib.parse.urlsplit(target)
+    host = (parts.hostname or "").casefold()
+    canonical = site.canonical_host.casefold()
+    root = canonical.removeprefix("www.")
+    if host not in {canonical, root, f"www.{root}"}:
+        return None
+    path = parts.path or "/"
+    if path != "/":
+        path = path.rstrip("/") or "/"
+    return urllib.parse.urlunsplit(("https", canonical, path, "", ""))
 
 
 def similarity_pairs(pages: list[tuple[str, str]]) -> list[tuple[float, str, str, int]]:
@@ -116,20 +135,39 @@ def similarity_pairs(pages: list[tuple[str, str]]) -> list[tuple[float, str, str
 def audit_site(site: audit.Site) -> tuple[str, list[str]]:
     urls = audit.load_sitemap(site)
     selected = sorted({url for url in urls if is_english_content(site, url)})
-    pages: list[tuple[str, str, int, str]] = []
+    sitemap_keys = {normalize_internal_url(site, url, url): url for url in urls}
+    pages: list[tuple[str, str, int, list[str], str]] = []
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-        futures = [executor.submit(inspect, url) for url in selected]
+        futures = [executor.submit(inspect, url) for url in sorted(set(urls))]
         for future in as_completed(futures):
             pages.append(future.result())
 
-    errors = [(url, error) for url, _, _, error in pages if error]
-    flagged = sorted((count, url) for url, _, count, error in pages if not error and count < MIN_WORD_TOKENS)
+    errors = [(url, error) for url, _, _, _, error in pages if error]
+    page_map = {url: (text, word_count, links, error) for url, text, word_count, links, error in pages}
+    flagged = sorted(
+        (count, url) for url, _, count, _, error in pages
+        if url in selected and not error and count < MIN_WORD_TOKENS
+    )
+    inbound_sources: dict[str, set[str]] = defaultdict(set)
+    for source_url, (_, _, links, error) in page_map.items():
+        if error:
+            continue
+        source_key = normalize_internal_url(site, source_url, source_url)
+        for href in links:
+            target_key = normalize_internal_url(site, source_url, href)
+            if target_key in sitemap_keys and target_key != source_key:
+                inbound_sources[target_key].add(source_url)
+    orphan_keys = sorted(key for key in sitemap_keys if not inbound_sources[key])
+    weakly_linked_keys = sorted(key for key in sitemap_keys if len(inbound_sources[key]) == 1)
     report = [
         f"### {site.name}",
         "",
+        f"Sitemap pages fetched for link graph: **{len(urls)}**",
         f"English/default-language non-contact pages checked: **{len(selected)}**",
         f"Fetch or empty-main issues: **{len(errors)}**",
         f"Editorial review candidates below {MIN_WORD_TOKENS} English word tokens: **{len(flagged)}**",
+        f"Sitemap URLs with no same-site HTML inlinks: **{len(orphan_keys)}**",
+        f"Sitemap URLs with only one same-site HTML inlink: **{len(weakly_linked_keys)}**",
         "",
         "Low word count is a review cue, not a quality verdict or indexation recommendation.",
         "",
@@ -141,9 +179,23 @@ def audit_site(site: audit.Site) -> tuple[str, list[str]]:
         report.extend(["Fetch/content extraction issues:", ""])
         report.extend(f"- {url}: {error}" for url, error in errors)
         report.append("")
+    if orphan_keys:
+        report.extend(["No-inlink sitemap URLs (manual review):", ""])
+        report.extend(f"- {sitemap_keys[key]}" for key in orphan_keys[:50])
+        if len(orphan_keys) > 50:
+            report.append(f"- … {len(orphan_keys) - 50} additional URL(s) omitted")
+        report.append("")
+    if weakly_linked_keys:
+        report.extend(["URLs linked by one source page (source is shown for review):", ""])
+        for key in weakly_linked_keys[:50]:
+            source = next(iter(inbound_sources[key]))
+            report.append(f"- {sitemap_keys[key]} ← {source}")
+        if len(weakly_linked_keys) > 50:
+            report.append(f"- … {len(weakly_linked_keys) - 50} additional URL(s) omitted")
+        report.append("")
 
     if site.name == "Pomerol":
-        cases = [(url, text) for url, text, _, error in pages if "/case-studies/" in url and not error]
+        cases = [(url, text) for url, text, _, _, error in pages if "/case-studies/" in url and not error]
         pairs = similarity_pairs(cases)
         report.extend([
             "Case-page similarity screen:",
@@ -168,6 +220,7 @@ def main() -> int:
         "",
         f"Threshold: fewer than {MIN_WORD_TOKENS} English word tokens is a manual review cue only. This is not a Google word-count rule, and the script never removes or deindexes pages.",
         "Case similarity is a lexical Jaccard screen, not a duplicate-content verdict.",
+        "Internal inlinks are collected from same-site HTML anchors in all sitemap pages; no-inlink URLs are review candidates, not automatic errors.",
         "",
     ]
     failures: list[str] = []
