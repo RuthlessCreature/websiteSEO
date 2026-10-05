@@ -1,6 +1,6 @@
 # 三站 SEO 当前状态摘要
 
-更新时间：2026-10-06
+更新时间：2026-10-05
 
 本文件概述三站的统一 SEO 技术基线、已完成的可验证工作和仍待外部平台确认的事项。详细运营日志保留在本地工作区，不在公开仓库发布。
 
@@ -18,34 +18,58 @@
 
 - 三站部署于 Cloudflare；生产页面由 Cloudflare 提供。
 - 生产页面使用各自规范 URL、可抓取 sitemap、robots.txt 与结构化数据；多语言站点需要按真实语言版本配置自指 canonical 和相互对应的 hreflang。
-- 三站提供 `/llms.txt` 作为可选机器导航文件。该文件不应被当作 Google 排名开关；AI 可见度仍依赖抓取、索引、清楚且可信的页面内容和外部引用。
-- 通过 Cloudflare Email Routing 配置三个 `contact@` 地址转发至站点负责人。路由规则、已验证目标地址及公网 MX/SPF 配置已核验；邮件端到端收件测试尚未获得确认收件证据。
-- robots 对搜索与 AI 搜索用途提供可抓取信号，并分别声明模型训练爬虫的站点策略。应定期复核 Cloudflare 安全规则，避免误拦正规搜索爬虫。
+- 三站提供 `/llms.txt` 作为机器导航文件。它可以给支持该格式的工具提供背景，但 Google 明确表示 `llms.txt` 不会提升或损害 Google 搜索可见度；不要把文件存在本身当作排名或 AI 引用信号。
+- 三站 robots.txt 允许 Google、Bing、Baidu 及所声明的 AI 搜索/检索爬虫访问公开页面，并阻止 GPTBot、ClaudeBot 和 Applebot-Extended 的模型训练抓取。robots 声明只表达站点规则；Cloudflare WAF、速率限制或挑战仍可能拦住请求，需结合 Search Console、Bing Webmaster 与真实抓取日志验证。
+- Cloudflare Crawler Hints 已启用；它可用缓存变化信号通知支持的搜索引擎/IndexNow 参与方内容有更新，不保证抓取、收录或排名。
+- 通过 Cloudflare Email Routing 配置三个 `contact@` 地址转发至站点负责人。路由规则、已验证目标地址、公网 MX/SPF 与独立发件端到端测试均已核验。
+- 三站联系入口公开姓名、电话、Gmail 和各自域名邮箱；生产页面抽查通过。
 
-## 已验证的收录通知与页面检查
+## 最新只读生产审计（2026-10-05）
 
-- 三站生产 sitemap 页面数量基线：Xiaodu 170，StayChina 24，Pomerol 144。历史全量巡检曾验证页面状态码、标题、H1、描述、canonical 和可索引性；部署后仍须对变更 URL 做回验。
-- IndexNow 曾接受 Xiaodu 170、StayChina 24、Pomerol 144 个 URL 的通知。API 接收不代表搜索引擎已抓取、收录或排名提升。
-- SEO 专项仓库已启用每周一次的免费 GitHub Actions 线上审计。2026-10-05 首次运行成功，三站爬取信号、sitemap、`llms.txt` 和代表页面检查均为 0 错误；结果可在 [Actions run](https://github.com/RuthlessCreature/websiteSEO/actions/runs/37325202926) 复核。
-- StayChina sitemap 的 `lastmod` 日期已与对应页面更新对齐，并在生产 sitemap 回验。
-- Pomerol 示意场景已明确标注为示例，不作为已交付客户案例、业绩或第三方背书。
+SEO 专项仓库的免费 GitHub Actions 每周审计已运行成功，结果在 [Actions run](https://github.com/RuthlessCreature/websiteSEO/actions/runs/37325202926)。同一轮本地实时复核也通过：
+
+| 站点 | Sitemap 唯一 URL | robots、sitemap、`llms.txt` | 代表页面 |
+|---|---:|---|---|
+| Xiaodu | 170 | 通过 | 英文首页、联系页 HTTP 200，title/H1/canonical 正常 |
+| StayChina | 24 | 通过 | 英文首页、联系页、China setup 页 HTTP 200，title/H1/canonical 正常 |
+| Pomerol | 144 | 通过 | 英文首页、联系页、China sourcing 页 HTTP 200，title/H1/canonical 正常 |
+
+本轮巡检错误数为 0。它不检查 Google/Bing 私有索引状态、固定地域排名、Cloudflare 安全事件日志或 AI 产品是否实际引用内容。IndexNow 曾接受三站 170/24/144 个 URL 的通知；接收成功不代表引擎已抓取、收录或排名提升。StayChina sitemap 的 `lastmod` 日期已与对应页面更新对齐。
+
+## AI 搜索与内容策略
+
+Google 的官方生成式 AI 搜索指南说明，AI Overviews/AI Mode 延续常规搜索的抓取、索引和质量要求；页面需要可抓取、已收录并符合在 Google Search 展示摘要的资格。指南没有要求 AI 专用标记或特殊 schema，且指出 Google Search 忽略 `llms.txt`。因此优先级是：
+
+1. 让重要商业页面可抓取、返回正常状态码、使用正确 canonical，并在 sitemap 和站内链接中可发现。
+2. 页面给出直接、可核实的服务范围、适用条件、流程、负责人和来源；真实案例只在有证据且获准公开时使用。
+3. 建立清楚的实体信息与有用的结构化数据，但结构化数据须与用户可见事实一致。
+4. 在行业相关的真实社区、视频与专业目录中提供原创信息和可靠品牌提及；不购买垃圾链接、不制造虚假背书。
+5. 不批量生成只替换城市名、同义词或问句的近似页面，也不为操纵搜索/AI 回答而规模化生成无独立价值内容。
+
+官方依据：[Google AI 搜索优化指南](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)、[Google Search Essentials](https://developers.google.com/search/docs/essentials)、[Google 生成式 AI 内容指南](https://developers.google.com/search/docs/fundamentals/using-gen-ai-content)、[Google Spam Policies](https://developers.google.com/search/docs/essentials/spam-policies)、[Cloudflare Crawler Hints](https://developers.cloudflare.com/cache/advanced-configuration/crawler-hints/)。
 
 ## 外部搜索可见度状态
 
-2026-10-05 的公开宽词抽样未见三站出现在对应搜索结果样本中。此抽样不是固定国家/地区、语言、设备和搜索引擎下的排名报告；因此当前没有证据证明三站已进入宽词前两页。目标需要通过 Search Console 与 Bing Webmaster 查询数据持续量测，不能承诺具体名次。
+近期公开宽词搜索样本没有证明三站已经稳定进入竞争性宽词前两页。网页搜索抽样会受国家/地区、语言、时间和个性化影响，不能作为固定排名报告。当前还没有足够的 Search Console/Bing 查询数据来声称宽词达到前 1–2 页；应以各站查询、展示、点击、平均排名、目标国家和对应落地页为基线持续比较。排名取决于搜索引擎，不能承诺具体名次。
 
-优先使用有真实需求的宽主题支柱页，补充第一手工程/业务流程证据、负责人和企业信息、真实可公开案例与行业引用。不要批量生成近似地域词页、伪造客户或购买低质量链接。
+优先做有真实需求的宽主题支柱页，补充第一手工程/业务流程证据、信息完整度、内链和可信行业引用。不要虚构客户、业绩或资质。
 
 ## 当前外部渠道待办
 
-- Google Search Console：核查 sitemap 处理状态、旧摘要 URL 和宽词曝光；浏览器控制恢复后完成 URL 检查。
-- Bing Webmaster Tools：核查 sitemap、IndexNow 活动与 AI Performance 查询引用；只有接口接受记录不算收录证明。
+- Google Search Console：核查 sitemap 处理状态、StayChina 旧结果摘要与宽词曝光；浏览器控制恢复后对代表 URL 执行检查/请求重抓，并记录后台显示结果。
+- Bing Webmaster Tools：核查 sitemap、IndexNow 活动、查询表现与 AI Performance 引用；只有通知接受记录不算收录证明。
 - Yandex Webmaster：添加并验证需要覆盖的站点，再提交 sitemap。
-- 百度站长平台：根据实际登录账号与官方当前准入流程核验站点验证及 sitemap 提交能力。
-- Automation-List：Xiaodu 免费档案资料已准备；尚无提交/确认回执，不能记为已上线。
+- 百度站长平台：按官方当前准入流程核验站点验证及 sitemap 提交能力。
+- Automation-List：Xiaodu 免费档案资料已准备；尚无提交/确认回执，不能记作已上线。表单的必选指南确认尚未执行。
+
+## 目录与社媒状态
+
+- Industrial Automation Integrators 已收到 Xiaodu 的编辑审核请求；尚未确认公开档案已经上线。
+- YouTube：Xiaodu 与 StayChina 的品牌频道页面可访问；Pomerol 的 `@PomerolTrade` 返回 HTTP 404，因此不把 Pomerol 频道记为已创建。
+- 目录和社媒注册只提交真实、获准公开的公司信息。目录申请、平台审核、索引通知、搜索排名和 AI 引用是不同结果，逐项记录证据。
 
 ## 可信度与资料保护
 
-- 所有目录、社媒资料只填写网站公开或有凭证的事实。
-- 不公开未授权的客户询盘、私人联系信息、凭据、内部运营日志或未发布账户数据。
-- 免费提交不等于获批；收录通知不等于排名；AI 导航文件不等于 AI 推荐。
+- 不公开客户询盘、凭据、内部运营日志或未经授权的私人资料。
+- 不虚构客户案例、业绩、认证、经营资质、合作伙伴或排名。
+- 免费提交不等于获批；被抓取不等于收录；收录不等于排名；AI 导航文件不等于 AI 推荐。
