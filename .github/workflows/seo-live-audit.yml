@@ -1,6 +1,11 @@
 name: Weekly three-site SEO live audit
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/seo-live-audit.yml"
+      - "seo-tools/seo_live_audit.py"
   schedule:
     - cron: "17 2 * * 1"
   workflow_dispatch:
