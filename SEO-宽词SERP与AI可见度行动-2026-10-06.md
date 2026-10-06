@@ -85,3 +85,17 @@
 
 本轮没有新的 Search Console/Bing Webmaster 查询位置或 AI citations 数据；三站目标宽词是否进入前 20 仍未验证。
 
+
+
+## 2026-10-06 16:02（Asia/Shanghai）宽主题复抽样
+
+通过公开网页搜索分别抽查 `China sourcing agent`、`industrial automation system integrator China`、`company setup in China for foreigners` 与 `teach English in China jobs`。搜索工具没有固定国家/地区、语言界面、设备或可复现 SERP 序号；以下是本轮返回样本，不是排名报告。
+
+| 宽主题 | 本轮样本页面 | 对三站的实际差距与下一步 |
+|---|---|---|
+| China sourcing agent | [YunSource](https://www.yunsource.com/)、[Sourcing Agent China](https://www.sourcingagentchina.org/)、[JiangSourcing](https://jiangsourcing.com/) | 多家页面把供应商筛选、报价、QC、物流、响应流程连成一条可理解的执行路径，并展示其自述运营规模。Pomerol 应强化真实可验证的步骤、费用/职责边界、供应商决策工具和来源清楚的原创证据；不能抄用对方的订单量、客户数、团队规模或认证，也不能把 illustrative case 写成已交付客户项目。本轮返回项未出现 Pomerol，不能据此断言未收录或固定排名。 |
+| Industrial automation system integrator China | [SENTRADO](https://sentrado.com/)、[苏州高西自动化](https://www.sipem.cn/)、[正泰自动化](https://www.chintautomation.com/about/)、[Actemium China](https://www.actemium.cn/) | 结果把工程系统、技术栈、服务范围、认证/组织证据和交付环节写得具体。Xiaodu 应优先发布经业务方确认的实际集成技术、工程流程、测试/调试材料、售后边界和所在地；若没有凭证，不添加第三方品牌授权、产能、团队规模或项目数字。本轮样本没有提供 Xiaodu 可复现位置。 |
+| Company setup in China for foreigners | [Asomerit](https://asomerit.com/)、[Supro](https://suprocorpservice.com/)、[上海市政府英文登记入口](https://english.shanghai.gov.cn/en-Business-BusinessSetup-CompanyRegistration/) | 商业服务页细分设立、银行、税务和合规阶段；政府资源提供权威流程入口。StayChina 应在宽主题主页面显著区分信息支持/协调与政府或持牌专业人士的决定，并给关键步骤加官方原始来源和复核日期。本轮样本未提供 StayChina 可复现位置。 |
+| Teach English in China jobs | [ESL Careers](https://www.esl.careers/teach-in/china)、[TEFL Org](https://www.tefl.org/teach-english-abroad/teach-english-in-china/)、[TES jobs](https://www.tes.com/jobs/browse/english-as-a-foreign-language-china)、[OlaChina](https://olachina.org/recruiting-english-teachers/) | 招聘目录拥有职位库存，TEFL 站点拥有资格/流程指南，招聘机构拥有实际岗位入口。StayChina 如继续争取此宽词，需先界定真实招聘职责，并提供有授权的真实岗位或独有的资格、雇主准备与合规路径信息；没有在招职位时不能把站点包装成职位聚合平台。本轮样本未提供 StayChina 可复现位置。 |
+
+该复抽样揭示的是内容与信任证据模式，不证明这些竞争者数字真实，也不能推出目标站点排名变化。搜索曝光、实际收录、地区化位置、AI 引用和询盘仍须用各平台的 URL/query/country 报表分别验证；公开网页搜索结果只能作发现线索。
