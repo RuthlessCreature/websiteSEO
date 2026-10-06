@@ -23,3 +23,15 @@
 4. 部署后复核线上首页和联系页，再记录新的生产回执。
 
 本记录只用于 SEO 运维跟踪，不代表已修改网站源码或已部署修复。
+
+
+## 后续生产复核：案例页标题修正（2026-10-07）
+
+Pomerol 仓库 PR [#41](https://github.com/RuthlessCreature/pWebsiteExport/pull/41)「Fix SEO title cleanup for illustrative sourcing scenarios」已于 2026-10-06 05:39 UTC 合并到 `main`，合并提交为 `3e31fe8`。合并后的 `main` 部署工作流最近一次运行（2026-10-06 09:29 UTC，提交 `4d62be5`）结果为成功。只读请求线上两个页面，均返回 HTTP 200，且 HTML `<title>` 和 H1 均完整：
+
+| 页面 | 线上 `<title>` | H1 | 状态 |
+|---|---|---|---|
+| [Machine-vision BOM and motion-control sourcing](https://pomerol.trade/case-studies/02-machine-vision-bom-and-motion-control-sourcing/) | `Machine-vision BOM and motion-control sourcing | Pomerol International` | `Machine-vision BOM and motion-control sourcing` | 通过 |
+| [CNC machined parts with dimensional inspection](https://pomerol.trade/case-studies/07-cnc-machined-parts-with-dimensional-inspection/) | `CNC machined parts with dimensional inspection | Pomerol International` | `CNC machined parts with dimensional inspection` | 通过 |
+
+本次仅完成线上回验并更新 SEO 专项记录；未修改或推送 Pomerol 网站仓库。标题修复已在生产生效。该技术修复不代表相关搜索词排名已提升；需要继续以 GSC/Bing Webmaster 后续成熟数据追踪展示和点击。
