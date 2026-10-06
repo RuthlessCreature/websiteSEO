@@ -45,7 +45,7 @@ SITES = (
     Site(
         "StayChina",
         "https://staychina.org/robots.txt",
-        "https://www.staychina.org/sitemap-index.xml",
+        "https://www.staychina.org/sitemap.xml",
         "https://www.staychina.org/sitemap.xml",
         "https://www.staychina.org/llms.txt",
         "www.staychina.org",
