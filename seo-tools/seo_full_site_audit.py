@@ -30,12 +30,19 @@ class Site:
     name: str
     sitemap_url: str
     canonical_host: str
+    default_lang: str
+    path_languages: tuple[tuple[str, str], ...] = ()
+    unsupported_locale_paths: tuple[str, ...] = ()
+    fallback_locale_path: str = ""
 
 
 SITES = (
-    Site("Xiaodu", "https://xiaodu.tech/sitemap.xml", "xiaodu.tech"),
-    Site("StayChina", "https://www.staychina.org/sitemap-index.xml", "www.staychina.org"),
-    Site("Pomerol", "https://pomerol.trade/sitemap.xml", "pomerol.trade"),
+    Site("Xiaodu", "https://xiaodu.tech/sitemap.xml", "xiaodu.tech", "zh-CN",
+         (("/zh-cn", "zh-CN"), ("/en", "en"))),
+    Site("StayChina", "https://www.staychina.org/sitemap-index.xml", "www.staychina.org", "en",
+         (("/zh-cn", "zh-CN"), ("/en", "en")), ("/es", "/ru", "/pt"), "/en"),
+    Site("Pomerol", "https://pomerol.trade/sitemap.xml", "pomerol.trade", "en",
+         (("/en", "en"), ("/es", "es"))),
 )
 
 
@@ -45,6 +52,7 @@ class Page:
     status: int | None = None
     final_url: str = ""
     title: str = ""
+    html_lang: str = ""
     h1: list[str] | None = None
     canonicals: list[str] | None = None
     robots: list[str] | None = None
@@ -59,6 +67,7 @@ class MetadataParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
         self.title = ""
+        self.html_lang = ""
         self.h1: list[str] = []
         self.canonicals: list[str] = []
         self.robots: list[str] = []
@@ -72,7 +81,9 @@ class MetadataParser(HTMLParser):
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         values = {key.casefold(): (value or "") for key, value in attrs}
         tag = tag.casefold()
-        if tag == "title":
+        if tag == "html":
+            self.html_lang = values.get("lang", "").strip()
+        elif tag == "title":
             self._in_title = True
         elif tag == "h1":
             self._in_h1 = True
@@ -205,6 +216,7 @@ def inspect_page(url: str) -> Page:
         parser = MetadataParser()
         parser.feed(text)
         page.title = " ".join(parser.title.split())
+        page.html_lang = parser.html_lang
         page.h1 = [" ".join(value.split()) for value in parser.h1]
         page.canonicals = parser.canonicals
         page.robots = parser.robots
@@ -221,6 +233,38 @@ def inspect_page(url: str) -> Page:
     except Exception as error:  # noqa: BLE001
         page.error = f"{type(error).__name__}: {error}"
     return page
+
+
+def expected_language(site: Site, url: str) -> str:
+    path = (urllib.parse.urlsplit(url).path or "/").rstrip("/") or "/"
+    for prefix, language in sorted(site.path_languages, key=lambda item: len(item[0]), reverse=True):
+        prefix = prefix.rstrip("/") or "/"
+        if path.casefold() == prefix.casefold() or path.casefold().startswith(prefix.casefold() + "/"):
+            return language
+    return site.default_lang
+
+
+def audit_unsupported_locale_paths(site: Site) -> list[str]:
+    errors: list[str] = []
+    if not site.unsupported_locale_paths:
+        return errors
+    fallback = urllib.parse.urljoin(
+        f"https://{site.canonical_host}/", site.fallback_locale_path.lstrip("/")
+    )
+    for path in site.unsupported_locale_paths:
+        url = urllib.parse.urljoin(f"https://{site.canonical_host}/", path.lstrip("/"))
+        try:
+            status, final_url, _ = fetch(url)
+        except Exception as error:  # noqa: BLE001
+            errors.append(f"{site.name}: unsupported locale path {path}: {type(error).__name__}: {error}")
+            continue
+        if status in (404, 410) or normalized_url(final_url) == normalized_url(fallback):
+            continue
+        errors.append(
+            f"{site.name}: unsupported locale path {path} must return 404/410 or redirect to "
+            f"{fallback}; got HTTP {status} at {final_url}"
+        )
+    return errors
 
 
 def audit_site(site: Site) -> tuple[list[str], list[str], int, int]:
@@ -243,6 +287,8 @@ def audit_site(site: Site) -> tuple[list[str], list[str], int, int]:
     if unexpected_hosts:
         errors.append(f"{site.name}: sitemap has unexpected hosts: {', '.join(unexpected_hosts)}")
 
+    errors.extend(audit_unsupported_locale_paths(site))
+
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
         futures = {executor.submit(inspect_page, url): url for url in url_set}
         pages = [future.result() for future in as_completed(futures)]
@@ -260,6 +306,13 @@ def audit_site(site: Site) -> tuple[list[str], list[str], int, int]:
             continue
         if urllib.parse.urlsplit(page.final_url).hostname != site.canonical_host:
             errors.append(f"{label}: final host is {urllib.parse.urlsplit(page.final_url).hostname}")
+        expected_lang = expected_language(site, page.url)
+        if not page.html_lang:
+            errors.append(f"{label}: missing <html lang> (expected {expected_lang})")
+        elif page.html_lang.casefold() != expected_lang.casefold():
+            errors.append(
+                f"{label}: <html lang> is {page.html_lang!r}; expected {expected_lang!r} from URL locale"
+            )
         if not page.title:
             errors.append(f"{label}: missing title")
         else:
