@@ -26,6 +26,7 @@ class Site:
     name: str
     robots_url: str
     sitemap_url: str
+    robots_sitemap_url: str
     llms_url: str
     canonical_host: str
     sample_paths: tuple[str, ...]
@@ -36,6 +37,7 @@ SITES = (
         "Xiaodu",
         "https://xiaodu.tech/robots.txt",
         "https://xiaodu.tech/sitemap.xml",
+        "https://xiaodu.tech/sitemap.xml",
         "https://xiaodu.tech/llms.txt",
         "xiaodu.tech",
         ("/en/", "/en/contact/"),
@@ -44,6 +46,7 @@ SITES = (
         "StayChina",
         "https://staychina.org/robots.txt",
         "https://www.staychina.org/sitemap-index.xml",
+        "https://www.staychina.org/sitemap.xml",
         "https://www.staychina.org/llms.txt",
         "www.staychina.org",
         ("/en/", "/en/contact", "/en/china-setup"),
@@ -51,6 +54,7 @@ SITES = (
     Site(
         "Pomerol",
         "https://pomerol.trade/robots.txt",
+        "https://pomerol.trade/sitemap.xml",
         "https://pomerol.trade/sitemap.xml",
         "https://pomerol.trade/llms.txt",
         "pomerol.trade",
@@ -77,11 +81,21 @@ LEGACY_CONTACT_MARKERS = ("Nicole", "13923387986", "163.com")
 class Result:
     rows: list[tuple[str, str, str]] = field(default_factory=list)
     errors: list[str] = field(default_factory=list)
+    warnings: list[str] = field(default_factory=list)
 
-    def add(self, site: str, check: str, outcome: str, error: bool = False) -> None:
+    def add(
+        self,
+        site: str,
+        check: str,
+        outcome: str,
+        error: bool = False,
+        warning: bool = False,
+    ) -> None:
         self.rows.append((site, check, outcome))
         if error:
             self.errors.append(f"{site}: {check}: {outcome}")
+        if warning:
+            self.warnings.append(f"{site}: {check}: {outcome}")
 
 
 def fetch(url: str) -> tuple[int, str, bytes]:
@@ -289,10 +303,22 @@ def audit_site(site: Site) -> Result:
             result.add(site.name, "AI training bots", "GPTBot, ClaudeBot and Applebot-Extended blocked at /")
 
         sitemap_directives = re.findall(r"(?im)^\s*sitemap\s*:\s*(\S+)", robots)
-        if site.sitemap_url not in sitemap_directives:
-            result.add(site.name, "robots sitemap declaration", f"expected {site.sitemap_url}", error=True)
+        if site.robots_sitemap_url not in sitemap_directives:
+            result.add(
+                site.name,
+                "robots primary sitemap",
+                f"expected {site.robots_sitemap_url}; found {', '.join(sitemap_directives) or 'none'}",
+                warning=True,
+            )
         else:
-            result.add(site.name, "robots sitemap declaration", "matches configured sitemap")
+            result.add(site.name, "robots primary sitemap", f"declares {site.robots_sitemap_url}")
+        if site.sitemap_url != site.robots_sitemap_url and site.sitemap_url in sitemap_directives:
+            result.add(
+                site.name,
+                "robots supplemental sitemap index",
+                "index is also advertised; confirm every child sitemap contains at least one URL",
+                warning=True,
+            )
 
         pages, leaf_sitemaps = parse_sitemap(site.sitemap_url, result, site.name)
         unique_pages = list(dict.fromkeys(pages))
@@ -338,6 +364,7 @@ def main() -> int:
             site_result = future.result()
             result.rows.extend(site_result.rows)
             result.errors.extend(site_result.errors)
+            result.warnings.extend(site_result.warnings)
 
     lines = [
         "# Three-site SEO live audit",
@@ -350,7 +377,7 @@ def main() -> int:
     for site, check, outcome in result.rows:
         safe_outcome = outcome.replace("|", "\\|").replace("\n", " ")
         lines.append(f"| {site} | {check} | {safe_outcome} |")
-    lines.extend(["", f"Errors: **{len(result.errors)}**"])
+    lines.extend(["", f"Warnings: **{len(result.warnings)}**", f"Errors: **{len(result.errors)}**"])
     summary = "\n".join(lines) + "\n"
     print(summary)
 
