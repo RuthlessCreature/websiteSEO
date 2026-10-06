@@ -27,3 +27,22 @@ Cloudflare 官方说明，AI Crawl Control 可以查看 AI 服务的访问情况
 4. 保存后台截图或导出数据，再与 GSC、Bing Webmaster、IndexNow 及公开查询表现合并分析。不要把伪造 UA 返回 200 当作真实 crawler 验证。
 
 本轮没有更改 Cloudflare Zone、WAF、robots.txt、网站代码或部署状态。
+
+
+## 2026-10-06 搜索型 AI UA 与 robots 规则复核
+
+本轮对三个生产域名重新读取 `robots.txt`，并以只读 GET 检查公开 URL：
+
+- Googlebot 与 Bingbot：每站的 `/robots.txt`、`/llms.txt`、`/en/` 均返回 HTTP 200。
+- OAI-SearchBot、Claude-SearchBot 与 PerplexityBot：三站的 `/en/` 均返回 HTTP 200；响应包含 Cloudflare `cf-ray`，没有 `cf-mitigated: challenge`。
+- 所有三站的 `robots.txt` 均返回 HTTP 200，并声明 `Content-Signal: search=yes, ai-input=yes, ai-train=no`；搜索型爬虫 UA 允许访问站点页面并仅排除 `/api/`。
+- `GPTBot`、`ClaudeBot` 与 `Applebot-Extended` 在三站 robots 规则中明确 `Disallow: /`。这与允许 OAI-SearchBot、Claude-SearchBot、PerplexityBot 抓取形成区分：可供搜索/回答使用，不开放训练型爬虫抓取。
+- 这次没有更改 Cloudflare 设置、robots.txt、站点代码或部署。
+
+| 站点 | Googlebot | Bingbot | OAI-SearchBot | Claude-SearchBot | PerplexityBot | robots.txt | llms.txt（Google/Bing UA） |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Xiaodu | 200 | 200 | 200 | 200 | 200 | 200 | 200 |
+| StayChina | 200 | 200 | 200 | 200 | 200 | 200 | 200 |
+| Pomerol | 200 | 200 | 200 | 200 | 200 | 200 | 200 |
+
+UA 探测只能证明这些自报 UA 从本次出口访问时得到的响应，不能认证请求来自对应公司的真实爬虫 IP，也不能证明平台已抓取、引用或收录。真实爬虫到访及边缘挑战状态仍需在 Cloudflare AI Crawl Control / Security Events 与各站长平台中核实。robots 对 User-Agent 的声明才是训练爬虫应遵守的可见策略；不要用伪装成被禁止 UA 的请求来推断合法搜索型爬虫状态。
