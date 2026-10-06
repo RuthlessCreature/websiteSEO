@@ -64,3 +64,13 @@ StayChina 指标页近 7 天显示约 4k AI 爬虫总请求、约 2k 允许、�
 
 Cloudflare 官方定义：安全页“未成功”可以由任何规则或响应错误造成，不仅限于 AI Crawl Control 的 Block 操作；指标页的状态码分布用于区分 2xx、3xx、4xx（包含 403 和 402）与 5xx。[管理 AI 爬虫](https://developers.cloudflare.com/ai-crawl-control/features/manage-ai-crawlers/)、[分析 AI 流量](https://developers.cloudflare.com/ai-crawl-control/features/analyze-ai-traffic/)。本轮没有更改 WAF、Bot Fight Mode、爬虫允许/封锁状态或站点部署。
 
+
+## 2026-10-06 23:35（Asia/Shanghai）StayChina Googlebot 标签的状态码与路径复核
+
+在 Cloudflare Free Zone `staychina.org` 的 AI Crawl Control > Metrics 中选 “Googlebot” 和 “过去 7 天”，图表覆盖 2026-09-30 至 2026-10-06。指标为 653 次请求：584 allowed、69 unsuccessful。状态分布完整相加为 388 个 HTTP 200、174 个 307、22 个 308、69 个 404；本筛选中没有 403 或 5xx。因而这 69 次 unsuccessful 与 Cloudflare 显示的 69 个 404 数量一致；它们不是 Cloudflare Challenge/Block 的证据。
+
+4xx 路径榜前列包括 `/test.php`、`/.git/config`、`/api/.env.bak`、`/dist../.env`、`/push_config.json`、`/.aws/credentials`、`/.env.sample`、`/pt/id_ecdsa` 和 `/pt/telescope/requests`，还出现指向 `:8080`、`:8443` 的主机项。它们是漏洞扫描式路径，不是站点公开 sitemap 页面。3xx 路径榜约 165/196 条为根路径 `/` 的重复分组；榜中还出现 `/dist../.env`、`/.ssh/config`、随机字符串路径以及非标准端口探测。普通只读 GET 复核中，规范域根路径 `/` 返回 307 并指向 `/en`；`/en/` 返回 308 并指向 `/en`。所以可见的根路径和语言尾斜杠跳转与预期主机/路径归一化相符；其余 3xx 仍不能逐条从聚合面板确定目标。
+
+**身份边界：**此 Zone 当前为 Cloudflare Free。Cloudflare 文档说明 User-Agent 过滤值可被伪造，可靠验证需 Bot Management 的 detection ID；因此本页标注 “Googlebot” 不能单独证明请求来自 Google。Google 官方也提醒 Googlebot User-Agent 经常被伪装，并建议用来源 IP 的反向 DNS 或其公布 IP 段验证。故不能将这批扫描式 404 归为 Google 的真实索引抓取问题，也不能据此封锁或放宽 Googlebot。参考：[Cloudflare GraphQL Analytics API](https://developers.cloudflare.com/ai-crawl-control/reference/graphql-api/)、[Cloudflare 管理 AI 爬虫](https://developers.cloudflare.com/ai-crawl-control/features/manage-ai-crawlers/)、[Googlebot 验证说明](https://developers.google.com/search/docs/crawling-indexing/googlebot)、[Google Search Console Crawl Stats](https://support.google.com/webmasters/answer/9679690?hl=en)。
+
+后续低风险核验顺序：先以 GSC Crawl Stats 的 Google 爬取历史/响应类别为准；若需要逐请求归属，再从可用安全日志取得来源 IP 并按 Google 官方方法校验。只有确认是 Google 来源且是索引目标 URL 的失败，才考虑调整重定向或边缘规则。本轮没有更改 DNS、WAF、爬虫策略或网站部署。
