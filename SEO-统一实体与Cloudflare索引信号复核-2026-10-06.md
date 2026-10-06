@@ -69,3 +69,15 @@
 同一信号页记录到 BingBot 请求 `/api/social-image/...` 路径，并因 robots.txt 的 `Disallow: /api/` 被判为 robots violation；出现于 contact、products 等页面路径。这是 Bing 声称的 crawler 活动与 robots 合规事件，不能据此确认请求身份或断言分享预览已损坏。后续应核对线上 Open Graph 图片声明与这些图片 URL 的实际抓取需要，再决定是否为特定公开图片路径添加最窄的 robots Allow；保持其他 `/api/` 私有接口不开放。
 
 该次只读复核没有更改 Zone、机器人规则、robots.txt 或部署。当前证据只覆盖 StayChina；Xiaodu 与 Pomerol 的控制台开关及 signals 面板尚未复核，不能将 StayChina 的状态外推到另外两站。
+
+## 社交预览抓取抽查（公开生产页面，2026-10-06）
+
+从三站英文联系页各读取一个样例，并对页面声明的 Open Graph 图片进行只读 HEAD 请求：
+
+| 站点/页面 | `og:image` 声明 | 图片响应 | 观察 |
+|---|---|---|---|
+| StayChina `/en/contact` | `/api/social-image/en/contact` | HTTP 200，`image/png` | 声明与公开端点均可用；robots 对 `/api/social-image/` 有更具体的 Allow，但 Cloudflare 最近 7 天仍记录到 BingBot 访问此类 URL 的 robots violation。需用 Bing robots tester 并观察下一轮 Cloudflare 信号确认是否为历史记录或解析差异。 |
+| Xiaodu `/en/contact/` | 无 `og:image`；仅 `twitter:card=summary` | 不适用 | 该样例没有大图社交预览标签。源代码中已有其他分支实现了动态分享图标签，但当前生产页面仍未呈现；需要在 Xiaodu 当前发布源码中统一生成 `og:image`、`twitter:image` 与 `summary_large_image`，再部署并回验。 |
+| Pomerol `/contact/` | `/assets/photos/product-development.jpg` | HTTP 200，`image/jpeg` | 声明的静态社交图片端点可用。 |
+
+这是每站各一个页面的抽样，不代表所有 sitemap URL 的分享图片覆盖情况。Bing 官方说明，针对 Bingbot 的专属 robots 组会覆盖通用 `User-agent: *` 指令，并支持用 `Allow` 放行被目录规则覆盖的路径；因此排查时要同时看匹配的专属规则组与路径，而不是只看通用规则。[Bing robots.txt 指南](https://www.bing.com/webmasters/help/how-to-create-a-robots-txt-file-cb7c31ec)。本次只改动此 SEO 仓库中的记录，没有改站点代码或部署。
