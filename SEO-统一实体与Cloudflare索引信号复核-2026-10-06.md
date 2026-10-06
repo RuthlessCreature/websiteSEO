@@ -36,3 +36,14 @@
 2. 在可访问的 GSC 中核查 StayChina 旧摘要 URL 的 live test、selected canonical、last crawl；观察已有重抓队列的 `/en/contact`，不重复提交。
 3. 在 Bing Webmaster Tools 读取三站的 IndexNow 提交历史和 URL inspection，确认 Cloudflare 或部署流水线通知被接收；当前公开页面能被搜索工具抽取，不替代这个状态。
 4. 后续用各站目标服务的广义、高意图词分别做非品牌词表现跟踪；不把 `site:` 查询、搜索摘要或索引请求状态写成目标词排名。
+
+## 部署流水线与 IndexNow 运行证据（2026-10-06）
+
+本轮通过 GitHub Actions REST 元数据检查公开可读的两个生产仓库最近运行：
+
+- [Xiaodu run 37418374232](https://github.com/RuthlessCreature/xWebsite/actions/runs/37418374232)，提交 `2ee3c679`，2026-10-06 05:24 UTC 完成成功；步骤 `Deploy Workers Static Assets`、`Verify all production sites`、`Notify IndexNow` 均为 success。
+- [Pomerol run 37421595583](https://github.com/RuthlessCreature/pWebsiteExport/actions/runs/37421595583)，提交 `6c039751`，2026-10-06 06:02 UTC 完成成功；构建/SEO gate、`Deploy Worker`、`Verify production SEO and contact routes`、`Verify and notify IndexNow` 均为 success。之前同日 run `37421010573` 的生产路由复核失败，IndexNow 步骤被跳过；随后成功的 run 重新完成了验证及通知。
+- [websiteSEO run 37410796850](https://github.com/RuthlessCreature/websiteSEO/actions/runs/37410796850) 的三站生产巡检成功。
+- GitHub 公共 Actions API 对 StayChina 源码仓库返回 404，无法从匿名数据核实其 Actions 日志；这不等于仓库或线上站点不存在。StayChina 生产连通性仍由本文件上面的实时 HTTP 巡检证明，IndexNow 通知是否执行需要在有权限的站点流水线/Bing Webmaster 中核实。
+
+成功执行 IndexNow 通知只证明站点部署脚本运行完成，不等于每个 URL 都被 Bing、Naver 或其他参与方抓取/收录，也不提供宽泛关键词排名证据。Bing Webmaster 的 IndexNow 报告和 URL Inspection 才是后续确认提交历史、抓取和索引状态的依据。
