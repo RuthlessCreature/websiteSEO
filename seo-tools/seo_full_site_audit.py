@@ -111,6 +111,16 @@ def local_name(tag: str) -> str:
     return tag.rsplit("}", 1)[-1].casefold()
 
 
+def normalized_url(url: str) -> tuple[str, str, int | None, str, str, str]:
+    parts = urllib.parse.urlsplit(url)
+    scheme = parts.scheme.casefold()
+    host = (parts.hostname or "").casefold()
+    port = parts.port
+    if (scheme, port) in (("http", 80), ("https", 443)):
+        port = None
+    return scheme, host, port, parts.path or "/", parts.query, parts.fragment
+
+
 def fetch(url: str) -> tuple[int, str, bytes]:
     request = urllib.request.Request(
         url,
@@ -251,8 +261,13 @@ def audit_site(site: Site) -> tuple[list[str], int, int]:
         canonicals = page.canonicals or []
         if len(canonicals) != 1:
             errors.append(f"{label}: expected one canonical, found {len(canonicals)}")
-        elif urllib.parse.urlsplit(urllib.parse.urljoin(page.url, canonicals[0])).hostname != site.canonical_host:
-            errors.append(f"{label}: canonical host is not {site.canonical_host}")
+        else:
+            canonical_url = urllib.parse.urljoin(page.url, canonicals[0])
+            canonical_parts = urllib.parse.urlsplit(canonical_url)
+            if canonical_parts.hostname != site.canonical_host:
+                errors.append(f"{label}: canonical host is not {site.canonical_host}")
+            elif normalized_url(canonical_url) != normalized_url(page.url):
+                errors.append(f"{label}: canonical does not match sitemap URL: {canonical_url}")
         if any("noindex" in value for value in (page.robots or [])):
             errors.append(f"{label}: meta robots/googlebot contains noindex")
         if page.legacy_markers:
