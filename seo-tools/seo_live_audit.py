@@ -65,6 +65,7 @@ SITES = (
 SEARCH_BOTS = (
     "Googlebot",
     "Bingbot",
+    "YandexBot",
     "Baiduspider",
     "OAI-SearchBot",
     "ChatGPT-User",
@@ -295,7 +296,7 @@ def audit_site(site: Site) -> Result:
         if blocked:
             result.add(site.name, "search/AI retrieval bots", f"blocked: {', '.join(blocked)}", error=True)
         else:
-            result.add(site.name, "search/AI retrieval bots", "Google, Bing, Baidu and AI retrieval bots allowed at /")
+            result.add(site.name, "search/AI retrieval bots", "Google, Bing, Yandex, Baidu and AI retrieval bots allowed at /")
         unblocked_training = [bot for bot in TRAINING_BOTS if robots_allows(groups, bot)]
         if unblocked_training:
             result.add(site.name, "AI training bots", f"not explicitly blocked: {', '.join(unblocked_training)}")
@@ -390,4 +391,5 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+
 
