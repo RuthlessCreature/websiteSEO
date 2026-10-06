@@ -50,6 +50,7 @@ class Page:
     robots: list[str] | None = None
     alternates: list[tuple[str, str]] | None = None
     jsonld_blocks: list[str] | None = None
+    social_meta: dict[str, str] | None = None
     legacy_markers: list[str] | None = None
     error: str = ""
 
@@ -63,6 +64,7 @@ class MetadataParser(HTMLParser):
         self.robots: list[str] = []
         self.alternates: list[tuple[str, str]] = []
         self.jsonld_blocks: list[str] = []
+        self.social_meta: dict[str, str] = {}
         self._in_title = False
         self._in_h1 = False
         self._jsonld_buffer: list[str] | None = None
@@ -77,6 +79,10 @@ class MetadataParser(HTMLParser):
             self.h1.append("")
         elif tag == "meta" and values.get("name", "").casefold() in ("robots", "googlebot"):
             self.robots.append(values.get("content", "").casefold())
+        elif tag == "meta":
+            key = (values.get("property") or values.get("name") or "").casefold()
+            if key in ("og:image", "twitter:image", "twitter:card") and values.get("content"):
+                self.social_meta[key] = values["content"].strip()
         elif tag == "link":
             rels = set(values.get("rel", "").casefold().split())
             if "canonical" in rels and values.get("href"):
@@ -207,6 +213,7 @@ def inspect_page(url: str) -> Page:
             for lang, href in parser.alternates
         ]
         page.jsonld_blocks = parser.jsonld_blocks
+        page.social_meta = parser.social_meta
         folded = text.casefold()
         page.legacy_markers = [
             marker for marker in LEGACY_CONTACT_MARKERS if marker.casefold() in folded
@@ -216,12 +223,13 @@ def inspect_page(url: str) -> Page:
     return page
 
 
-def audit_site(site: Site) -> tuple[list[str], int, int]:
+def audit_site(site: Site) -> tuple[list[str], list[str], int, int]:
     errors: list[str] = []
+    warnings: list[str] = []
     try:
         urls = load_sitemap(site)
     except Exception as error:  # noqa: BLE001
-        return [f"{site.name}: sitemap: {type(error).__name__}: {error}"], 0, 0
+        return [f"{site.name}: sitemap: {type(error).__name__}: {error}"], warnings, 0, 0
 
     duplicates = len(urls) - len(set(urls))
     if duplicates:
@@ -273,6 +281,25 @@ def audit_site(site: Site) -> tuple[list[str], int, int]:
         if page.legacy_markers:
             errors.append(f"{label}: legacy contact marker(s): {', '.join(page.legacy_markers)}")
 
+        social = page.social_meta or {}
+        social_problems: list[str] = []
+        missing_social = [
+            key for key in ("og:image", "twitter:image", "twitter:card")
+            if not social.get(key)
+        ]
+        if missing_social:
+            social_problems.append(f"missing {', '.join(missing_social)}")
+        for key in ("og:image", "twitter:image"):
+            value = social.get(key)
+            if value:
+                image_url = urllib.parse.urljoin(page.final_url or page.url, value)
+                if urllib.parse.urlsplit(image_url).scheme.casefold() != "https":
+                    social_problems.append(f"{key} is not HTTPS")
+        if social.get("twitter:card") and social["twitter:card"].casefold() != "summary_large_image":
+            social_problems.append("twitter:card is not summary_large_image")
+        if social_problems:
+            warnings.append(f"{label}: " + "; ".join(social_problems))
+
         for index, raw in enumerate(page.jsonld_blocks or [], start=1):
             try:
                 json.loads(raw)
@@ -302,33 +329,40 @@ def audit_site(site: Site) -> tuple[list[str], int, int]:
             + ", ".join(matching_urls[:5])
             + f" — {title[:120]}"
         )
-    return errors, len(pages), valid_jsonld
+    return errors, warnings, len(pages), valid_jsonld
 
 
 def main() -> int:
-    summaries: list[tuple[str, int, int, int]] = []
+    summaries: list[tuple[str, int, int, int, int]] = []
     all_errors: list[str] = []
+    all_warnings: list[str] = []
     for site in SITES:
-        errors, count, valid_jsonld = audit_site(site)
-        summaries.append((site.name, count, valid_jsonld, len(errors)))
+        errors, warnings, count, valid_jsonld = audit_site(site)
+        summaries.append((site.name, count, valid_jsonld, len(errors), len(warnings)))
         all_errors.extend(errors)
+        all_warnings.extend(warnings)
 
     lines = [
         "# Monthly full-site SEO audit",
         "",
-        "Read-only audit of every URL in each production sitemap: status, final/canonical host, title, H1, noindex, legacy contacts, JSON-LD syntax, duplicate titles, and hreflang targets/return links.",
+        "Read-only audit of every URL in each production sitemap: status, final/canonical host, title, H1, noindex, legacy contacts, JSON-LD syntax, duplicate titles, hreflang targets/return links, and social preview metadata.",
         "",
-        "| Site | Sitemap pages checked | Valid JSON-LD blocks | Issues |",
-        "|---|---:|---:|---:|",
+        "| Site | Sitemap pages checked | Valid JSON-LD blocks | Issues | Pages with social preview warnings |",
+        "|---|---:|---:|---:|---:|",
     ]
-    for name, count, valid_jsonld, issue_count in summaries:
-        lines.append(f"| {name} | {count} | {valid_jsonld} | {issue_count} |")
-    lines.extend(["", f"Total issues: **{len(all_errors)}**"])
+    for name, count, valid_jsonld, issue_count, warning_count in summaries:
+        lines.append(f"| {name} | {count} | {valid_jsonld} | {issue_count} | {warning_count} |")
+    lines.extend(["", f"Total issues: **{len(all_errors)}**", f"Pages with social preview warnings: **{len(all_warnings)}**"])
     if all_errors:
         lines.extend(["", "## Issues", ""])
         lines.extend(f"- {message}" for message in all_errors[:200])
         if len(all_errors) > 200:
             lines.append(f"- Output truncated; {len(all_errors) - 200} additional issue(s) omitted.")
+    if all_warnings:
+        lines.extend(["", "## Social preview warnings", ""])
+        lines.extend(f"- {message}" for message in all_warnings[:200])
+        if len(all_warnings) > 200:
+            lines.append(f"- Output truncated; {len(all_warnings) - 200} additional warning(s) omitted.")
     report = "\n".join(lines) + "\n"
     print(report)
 

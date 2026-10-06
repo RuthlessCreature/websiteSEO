@@ -68,7 +68,7 @@
 
 同一信号页记录到 BingBot 请求 `/api/social-image/...` 路径，并因 robots.txt 的 `Disallow: /api/` 被判为 robots violation；出现于 contact、products 等页面路径。这是 Bing 声称的 crawler 活动与 robots 合规事件，不能据此确认请求身份或断言分享预览已损坏。后续应核对线上 Open Graph 图片声明与这些图片 URL 的实际抓取需要，再决定是否为特定公开图片路径添加最窄的 robots Allow；保持其他 `/api/` 私有接口不开放。
 
-该次只读复核没有更改 Zone、机器人规则、robots.txt 或部署。当前证据只覆盖 StayChina；Xiaodu 与 Pomerol 的控制台开关及 signals 面板尚未复核，不能将 StayChina 的状态外推到另外两站。
+该次只读复核没有更改 Zone、机器人规则、robots.txt 或部署。随后在 Cloudflare 三个 Zone 的 Caching → Configuration 页面逐一核对，`Crawler Hints Beta` 均显示已开启：`xiaodu.tech`、`staychina.org`、`pomerol.trade`。AI Crawl Control → Signals 的机器人请求、robots violations 与 robots 偏好同步明细本次仍只在 StayChina 核查；不能把 StayChina 的 signals 数据外推到另外两站。
 
 ## 社交预览抓取抽查（公开生产页面，2026-10-06）
 
@@ -81,3 +81,15 @@
 | Pomerol `/contact/` | `/assets/photos/product-development.jpg` | HTTP 200，`image/jpeg` | 声明的静态社交图片端点可用。 |
 
 这是每站各一个页面的抽样，不代表所有 sitemap URL 的分享图片覆盖情况。Bing 官方说明，针对 Bingbot 的专属 robots 组会覆盖通用 `User-agent: *` 指令，并支持用 `Allow` 放行被目录规则覆盖的路径；因此排查时要同时看匹配的专属规则组与路径，而不是只看通用规则。[Bing robots.txt 指南](https://www.bing.com/webmasters/help/how-to-create-a-robots-txt-file-cb7c31ec)。本次只改动此 SEO 仓库中的记录，没有改站点代码或部署。
+
+## 全站社交预览标签巡检（2026-10-06）
+
+将 `og:image`、`twitter:image`、`twitter:card=summary_large_image` 纳入每月全 sitemap 检查，并以独立提醒呈现，不与 HTTP 状态、canonical、noindex 等可索引性问题混在一起。对当前 338 个 sitemap URL 的只读检查结果：
+
+| 站点 | 页面数 | 既有 SEO 检查问题 | 社交预览标签提醒 |
+|---|---:|---:|---:|
+| Xiaodu | 170 | 0 | 28 页缺少 `og:image` / `twitter:image`，且卡片为摘要类型 |
+| StayChina | 24 | 0 | 0 |
+| Pomerol | 144 | 0 | 46 页有提醒：45 个资源页缺少 Twitter 图片/大图卡片字段；`/sitemap/` 工具页缺全部三个字段 |
+
+检查仅确认 HTML 标签与图片 URL 是否声明为 HTTPS，未对全部 338 个图片 URL 逐一发请求，也不证明社交平台当前已生成预览。此前三页 HEAD 抽查只证实 StayChina 联系页动态 PNG 与 Pomerol 首页素材 JPEG 返回 200。需要在站点源码中统一分享标签后部署，再抽查主要页面的 Open Graph debugger / 社媒预览，并观察下一轮月度覆盖率变化。
