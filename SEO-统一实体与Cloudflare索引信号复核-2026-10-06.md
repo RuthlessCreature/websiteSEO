@@ -62,3 +62,10 @@
 
 复查两个公开部署 workflow 后发现 IndexNow 步骤设置了 `continue-on-error: true`；即使通知脚本异常，部署 job 仍可成功。GitHub 日志下载接口本轮返回 HTTP 403，无法读取脚本的逐条提交回执。因此前文 `Notify IndexNow` / `Verify and notify IndexNow` 的 Actions `conclusion: success` 只证明 job 未被该步骤阻断，**不能单独证明 endpoint 接收**。本轮另行直连 `api.indexnow.org/indexnow`，已对上面三组页面分别取得 HTTP 200；这些才是本轮 URL 通知被 IndexNow endpoint 接受的证据。
 
+## Cloudflare 控制台只读复核（StayChina，2026-10-06）
+
+通过已登录的 Cloudflare 控制台查看 `staychina.org`：Caching → Configuration 中 `Crawler Hints Beta` 当前为开启状态。AI Crawl Control → Signals 显示 robots 偏好同步已开启；最近 7 天 `www.staychina.org/robots.txt` 成功读取 97 次、失败 0 次，根域 `staychina.org/robots.txt` 成功读取 38 次、失败 0 次，两个端点均由 Cloudflare 托管并声明内容信号。
+
+同一信号页记录到 BingBot 请求 `/api/social-image/...` 路径，并因 robots.txt 的 `Disallow: /api/` 被判为 robots violation；出现于 contact、products 等页面路径。这是 Bing 声称的 crawler 活动与 robots 合规事件，不能据此确认请求身份或断言分享预览已损坏。后续应核对线上 Open Graph 图片声明与这些图片 URL 的实际抓取需要，再决定是否为特定公开图片路径添加最窄的 robots Allow；保持其他 `/api/` 私有接口不开放。
+
+该次只读复核没有更改 Zone、机器人规则、robots.txt 或部署。当前证据只覆盖 StayChina；Xiaodu 与 Pomerol 的控制台开关及 signals 面板尚未复核，不能将 StayChina 的状态外推到另外两站。
