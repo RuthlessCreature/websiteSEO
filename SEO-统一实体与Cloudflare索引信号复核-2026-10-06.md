@@ -47,3 +47,18 @@
 - GitHub 公共 Actions API 对 StayChina 源码仓库返回 404，无法从匿名数据核实其 Actions 日志；这不等于仓库或线上站点不存在。StayChina 生产连通性仍由本文件上面的实时 HTTP 巡检证明，IndexNow 通知是否执行需要在有权限的站点流水线/Bing Webmaster 中核实。
 
 成功执行 IndexNow 通知只证明站点部署脚本运行完成，不等于每个 URL 都被 Bing、Naver 或其他参与方抓取/收录，也不提供宽泛关键词排名证据。Bing Webmaster 的 IndexNow 报告和 URL Inspection 才是后续确认提交历史、抓取和索引状态的依据。
+
+## 手动补发变更 URL 的 IndexNow 接收回执（2026-10-06）
+
+对 sitemap 中仍公开、当前返回 HTTP 200 且域名根目录 IndexNow 校验文件与密钥内容匹配的 URL，直接向 `api.indexnow.org/indexnow` 发送小批量变更通知。三站分别返回 HTTP 200：
+
+- Xiaodu：42 个含 `/industries/` 路径的当前 sitemap URL。该筛选包含行业栏目与相关行业内容页，范围比单一栏目首页更广；这 42 个请求已被 IndexNow endpoint 接受。
+- StayChina：3 个已更正的联系/招聘说明 URL：`/en/contact`、`/zh-cn/contact`、`/zh-cn/kindergarten-foreign-teacher-recruitment`。
+- Pomerol：6 个当前 sitemap 中的多语言联系页。
+
+本次没有把密钥写入本记录。HTTP 200 是 IndexNow 接收回执，不等于 Bing/Naver/Seznam 等已抓取、已收录或排名变化。Google 不参与 IndexNow；Google 侧仍需依赖 sitemap 和 Search Console 的索引报告/URL 检查。Bing 官方也说明 IndexNow 通知不保证收录，后续应查看 Bing Webmaster Tools 的 IndexNow 与 URL Inspection 报告。
+
+### 对 Actions 步骤状态的证据修正
+
+复查两个公开部署 workflow 后发现 IndexNow 步骤设置了 `continue-on-error: true`；即使通知脚本异常，部署 job 仍可成功。GitHub 日志下载接口本轮返回 HTTP 403，无法读取脚本的逐条提交回执。因此前文 `Notify IndexNow` / `Verify and notify IndexNow` 的 Actions `conclusion: success` 只证明 job 未被该步骤阻断，**不能单独证明 endpoint 接收**。本轮另行直连 `api.indexnow.org/indexnow`，已对上面三组页面分别取得 HTTP 200；这些才是本轮 URL 通知被 IndexNow endpoint 接受的证据。
+
