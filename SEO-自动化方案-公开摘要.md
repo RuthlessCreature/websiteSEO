@@ -83,3 +83,16 @@ Google 的官方生成式 AI 搜索指南说明，AI Overviews/AI Mode 延续常
 - 不公开客户询盘、凭据、内部运营日志或未经授权的私人资料。
 - 不虚构客户案例、业绩、认证、经营资质、合作伙伴或排名。
 - 免费提交不等于获批；被抓取不等于收录；收录不等于排名；AI 导航文件不等于 AI 推荐。
+
+
+## 2026-10-07 生产修复与 AI 搜索跟踪补充
+
+以下记录更新本文件此前的巡检与通知状态：
+
+- StayChina 已部署多语言根布局修复。生产 `/zh-cn`、`/zh-cn/contact` 返回 HTTP 200，根 HTML 语言为 `zh-CN`，页面自规范且允许索引；`/en` 为 `en`。部署工作流 [#37513527528](https://github.com/RuthlessCreature/pWebsite/actions/runs/37513527528) 的 Worker 发布、生产 SEO/联系入口检查和 IndexNow 步骤均通过。
+- 部署后 SEO 全站审计 [#37514644759](https://github.com/RuthlessCreature/websiteSEO/actions/runs/37514644759) 覆盖三站共 338 个 sitemap URL：Xiaodu 170、StayChina 24、Pomerol 144；有效 JSON-LD 分别为 503、48、144；页面与实体关系审计均为 0 问题。该结果检查生产可访问性和页面技术规则，不代表搜索引擎已全部收录。
+- 最新生产工作流分别记录 Xiaodu 170 个 URL、StayChina 24 个 URL、Pomerol 144 个 URL 的 IndexNow 请求被接受（HTTP 200）。这只代表通知端接受 URL，后续抓取和收录仍须在各搜索引擎站长平台确认。
+- Bing Webmaster Tools 的 [AI Performance 报告](https://www.bing.com/webmasters/help/ai-performance-9f8e7d6c)可查看被 AI 回答引用的页面、引用趋势及 grounding queries，涵盖 Microsoft Copilot、Bing AI 摘要和部分合作体验。它显示的是聚合引用活动，不是排名、权威度或业务效果。本轮浏览器读取报告遇到连接超时，因此尚无三站引用数量或查询数据可记录；应在浏览器恢复后分别选择三站导出/记录 30 天区间的总引用、被引 URL 与 grounding query。
+- Google 当前的[生成式 AI 搜索指南](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)仍把标准抓取、索引、独特且有帮助的内容作为基础，并明确建议优先有效 SEO，而非所谓 AEO/GEO 技巧、无必要的内容切块或不真实提及。Google 的[有帮助内容指南](https://developers.google.com/search/docs/fundamentals/creating-helpful-content)强调原创信息、第一手经验和相对搜索结果的实质增值。故下一轮内容工作优先补充可核验的第一手流程和证据、官方来源及清楚的服务边界；不继续堆叠同义词页或未证实案例。
+- Search Console 的固定日期宽词表现和索引状态本轮未能重新读取，不能据此宣称 Google 收录已变化或排名上升；继续以站长平台实际报告为准。
+
