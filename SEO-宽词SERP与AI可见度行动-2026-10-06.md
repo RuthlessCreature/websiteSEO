@@ -70,3 +70,18 @@
 本次也抽查了两个 Pomerol illustrative scenario 页。现网 title 分别为 “Machine-vision BOM and motion-control | Pomerol International” 和 “CNC machined parts with dimensional | Pomerol International”，末尾关键名词 “sourcing” 与 “inspection” 被省掉。原因是生成器新增了 “China Sourcing Scenario” 后缀，而最后的 70 字符 title 整理仅处理旧 “China Sourcing Case” 后缀。草稿 PR [#41](https://github.com/RuthlessCreature/pWebsiteExport/pull/41) 增加对新旧后缀的统一处理；按当前 36 个案例标题对生成逻辑作静态比较，预计其中 2 个 title 会恢复完整的产品/验收词。PR 仍待仓库验证及合并，尚未部署。
 
 以上 title/H1 核对是页面元数据检查，不能证明目标关键词达到前 20；宽词排名仍以各站 GSC/Bing 固定市场与日期范围内的 query-page 数据为准。
+
+## 2026-10-06 09:25 当前宽词搜索样本补充
+
+用公开网页搜索对三组商业宽词再次抽样。工具没有提供可复现的引擎、国家、语言界面、设备或排名位置，因此只记搜索结果样本与竞争内容特征，不记名次，也不推断未显示即未收录。
+
+| 宽主题 | 本次样本可见结果 | 可采取的内容动作 | 证据边界 |
+|---|---|---|---|
+| China sourcing agent | YunSource、Sourcing Agent China、NovaLink 等服务商结果；本次可见列表未出现 Pomerol | 在主服务页提供可核验的服务范围、采购决策步骤、质量/物流交接边界和原创空白工具；只有业务资料能证明的团队、订单数、国家覆盖或检测能力才可公开 | 竞争者的团队、客户和订单数字是各自网站自述，不是第三方核验，也不是可复制的文案 |
+| China industrial automation system integrator | 出现 RevenueBase 的中国集成商目录，说明其匹配会读取公司自己的公开描述、网站和 LinkedIn；样本没有呈现可确认的 Xiaodu 名次 | 统一官网和 LinkedIn 的公司简介，准确写出实际系统集成类别、控制平台、项目边界与服务地区；如目录资料不准确，用其公开纠错渠道处理，不购买数据产品来制造排名信号 | RevenueBase 的列表按其追踪到的团队规模排序，且只展示 824 家中的前 25；未展示 Xiaodu 不足以判断是否被收录 |
+| company setup in China for foreigners | 上海市政府登记服务入口、TKEG 外籍人士设立指南等结果；TKEG 页面显示 2026-09-30 更新并引用官方规则 | StayChina 重点补强法规原文链接、适用主体/城市、最近复核日期、文件与流程决策路径，并清晰区分信息整理、协调服务和主管机关/专业服务方的决定 | 搜索样本不能证明 StayChina 固定排名。TKEG 对流程、成本和时限的描述属于该页面内容，须逐项以官方来源核实 |
+
+来源： [上海市政府公司登记入口](https://english.shanghai.gov.cn/en-Business-BusinessSetup-CompanyRegistration/)、[TKEG 外籍投资者设立指南](https://tkegexpat.com/guide/cn/china-company-incorporation)、[RevenueBase 中国工业自动化集成商列表](https://revenuebase.ai/companies/industrial-automation-system-integrators/china)、[YunSource 中国采购服务](https://www.yunsource.com/)、[Sourcing Agent China](https://www.sourcingagentchina.org/)。
+
+本轮没有新的 Search Console/Bing Webmaster 查询位置或 AI citations 数据；三站目标宽词是否进入前 20 仍未验证。
+
