@@ -46,3 +46,21 @@ Cloudflare 官方说明，AI Crawl Control 可以查看 AI 服务的访问情况
 | Pomerol | 200 | 200 | 200 | 200 | 200 | 200 | 200 |
 
 UA 探测只能证明这些自报 UA 从本次出口访问时得到的响应，不能认证请求来自对应公司的真实爬虫 IP，也不能证明平台已抓取、引用或收录。真实爬虫到访及边缘挑战状态仍需在 Cloudflare AI Crawl Control / Security Events 与各站长平台中核实。robots 对 User-Agent 的声明才是训练爬虫应遵守的可见策略；不要用伪装成被禁止 UA 的请求来推断合法搜索型爬虫状态。
+
+
+## 2026-10-06 22:30（Asia/Shanghai）Cloudflare 已验证爬虫活动复核
+
+在 Cloudflare 控制台逐 Zone 查看 Crawler Hints 和 AI Crawl Control：三站 `Crawler Hints Beta` 开关均为开启。AI Crawl Control 安全页选择“过去 7 天”，该页面所列为 Cloudflare 识别的爬虫实体活动，不是本地伪造 UA 测试。下表分别记录“允许请求 / 未成功请求”；未成功请求不等于该爬虫在 AI Crawl Control 被封锁，Cloudflare 将其定义为其他规则或响应错误也可能导致的失败。
+
+| Zone | Googlebot | BingBot | OAI-SearchBot | Claude-SearchBot | PerplexityBot | Baidu |
+|---|---:|---:|---:|---:|---:|---:|
+| Xiaodu | 292 / 13 | 151 / 3 | 145 / 7 | 349 / 6 | 125 / 8 | 63 / 20 |
+| StayChina | 584 / 69 | 689 / 29 | 398 / 42 | 175 / 231 | 125 / 193 | 151 / 62 |
+| Pomerol | 624 / 4 | 590 / 0 | 396 / 0 | 642 / 0 | 269 / 0 | 100 / 0 |
+
+三个 Zone 的上表搜索/检索爬虫阻止开关均为关闭（即允许）；Xiaodu、StayChina、Pomerol 的 GPTBot 与 ClaudeBot 阻止开关均为开启，符合当前区分 AI 搜索/回答与训练用途的策略。StayChina 还阻止 Claude-User；这是独立的 AI 助手访问策略，robots.txt 中该 UA 的声明与 Cloudflare 控制台应继续保持一致复核。此次没有修改任何 Cloudflare 开关。
+
+StayChina 指标页近 7 天显示约 4k AI 爬虫总请求、约 2k 允许、约 1k 未成功。状态码分布可见 2xx 约 1.35k（另有 3 个 204）、3xx 约 1.1k（307 为 761、308 为 341）、4xx 约 1.4k（403 为 657、404 为 741）。热门路径中 `/en` 有 724 次允许请求，`/en/china-setup` 有 47 次，`/en/contact` 有 37 次。该面板没有在本轮筛选到逐爬虫的状态码/URL 对应关系，因此目前不能确认 403 是否来自 Cloudflare Challenge、WAF、robots 不合规、上游响应或其他规则，也不能将全部 404 归因于某个爬虫。后续应在指标页以爬虫和状态码过滤，再用 Security Events 对应时间、主机、路径与规则 ID 定位；只针对确认误拦截的检索爬虫调整规则。
+
+Cloudflare 官方定义：安全页“未成功”可以由任何规则或响应错误造成，不仅限于 AI Crawl Control 的 Block 操作；指标页的状态码分布用于区分 2xx、3xx、4xx（包含 403 和 402）与 5xx。[管理 AI 爬虫](https://developers.cloudflare.com/ai-crawl-control/features/manage-ai-crawlers/)、[分析 AI 流量](https://developers.cloudflare.com/ai-crawl-control/features/analyze-ai-traffic/)。本轮没有更改 WAF、Bot Fight Mode、爬虫允许/封锁状态或站点部署。
+
