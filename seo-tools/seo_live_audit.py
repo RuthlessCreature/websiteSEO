@@ -30,6 +30,7 @@ class Site:
     llms_url: str
     canonical_host: str
     sample_paths: tuple[str, ...]
+    llms_required_urls: tuple[str, ...]
 
 
 SITES = (
@@ -41,6 +42,13 @@ SITES = (
         "https://xiaodu.tech/llms.txt",
         "xiaodu.tech",
         ("/en/", "/en/contact/"),
+        (
+            "https://xiaodu.tech/en/",
+            "https://xiaodu.tech/en/solutions/",
+            "https://xiaodu.tech/en/contact/",
+            "https://xiaodu.tech/ai-overview.md",
+            "https://xiaodu.tech/sitemap.xml",
+        ),
     ),
     Site(
         "StayChina",
@@ -50,6 +58,13 @@ SITES = (
         "https://www.staychina.org/llms.txt",
         "www.staychina.org",
         ("/en/", "/en/contact", "/en/china-setup"),
+        (
+            "https://www.staychina.org/en",
+            "https://www.staychina.org/en/china-setup",
+            "https://www.staychina.org/en/contact",
+            "https://www.staychina.org/ai-overview.md",
+            "https://www.staychina.org/sitemap.xml",
+        ),
     ),
     Site(
         "Pomerol",
@@ -59,6 +74,13 @@ SITES = (
         "https://pomerol.trade/llms.txt",
         "pomerol.trade",
         ("/en/", "/contact/", "/china-sourcing-agent/"),
+        (
+            "https://pomerol.trade/en/",
+            "https://pomerol.trade/china-sourcing-agent/",
+            "https://pomerol.trade/contact/",
+            "https://pomerol.trade/ai-overview.md",
+            "https://pomerol.trade/sitemap.xml",
+        ),
     ),
 )
 
@@ -348,7 +370,28 @@ def audit_site(site: Site) -> Result:
         if llms_status != 200 or not llms_body.strip():
             result.add(site.name, "llms.txt", f"HTTP {llms_status} or empty", error=True)
         else:
-            result.add(site.name, "llms.txt", f"HTTP 200; {len(llms_body)} bytes")
+            llms_text = llms_body.decode("utf-8", "replace")
+            required_sections = (
+                "## About and services",
+                "## Primary pages",
+                "## Contact",
+                "## Machine-readable overview and discovery",
+            )
+            missing_sections = [section for section in required_sections if section not in llms_text]
+            missing_urls = [url for url in site.llms_required_urls if url not in llms_text]
+            if missing_sections or missing_urls:
+                problems = []
+                if missing_sections:
+                    problems.append(f"missing sections: {', '.join(missing_sections)}")
+                if missing_urls:
+                    problems.append(f"missing primary/discovery URLs: {', '.join(missing_urls)}")
+                result.add(site.name, "llms.txt", "; ".join(problems), error=True)
+            else:
+                result.add(
+                    site.name,
+                    "llms.txt",
+                    f"HTTP 200; {len(llms_body)} bytes; standard discovery sections and {len(site.llms_required_urls)} canonical routes present",
+                )
 
         for path in site.sample_paths:
             page_checks(site, path, result)
