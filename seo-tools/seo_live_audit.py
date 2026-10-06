@@ -26,6 +26,7 @@ class Site:
     name: str
     robots_url: str
     sitemap_url: str
+    robots_sitemap_url: str
     llms_url: str
     canonical_host: str
     sample_paths: tuple[str, ...]
@@ -36,6 +37,7 @@ SITES = (
         "Xiaodu",
         "https://xiaodu.tech/robots.txt",
         "https://xiaodu.tech/sitemap.xml",
+        "https://xiaodu.tech/sitemap.xml",
         "https://xiaodu.tech/llms.txt",
         "xiaodu.tech",
         ("/en/", "/en/contact/"),
@@ -44,6 +46,7 @@ SITES = (
         "StayChina",
         "https://staychina.org/robots.txt",
         "https://www.staychina.org/sitemap-index.xml",
+        "https://www.staychina.org/sitemap.xml",
         "https://www.staychina.org/llms.txt",
         "www.staychina.org",
         ("/en/", "/en/contact", "/en/china-setup"),
@@ -51,6 +54,7 @@ SITES = (
     Site(
         "Pomerol",
         "https://pomerol.trade/robots.txt",
+        "https://pomerol.trade/sitemap.xml",
         "https://pomerol.trade/sitemap.xml",
         "https://pomerol.trade/llms.txt",
         "pomerol.trade",
@@ -191,21 +195,13 @@ def parse_sitemap(start_url: str, result: Result, site: str) -> tuple[list[str],
         if root_type != "urlset":
             raise ValueError(f"unexpected sitemap root element: {root_type}")
         sitemap_urls.append(sitemap_url)
-        urls = [
+        page_urls.extend(
             (element.text or "").strip()
             for url_element in root
             if local_name(url_element.tag) == "url"
             for element in url_element
             if local_name(element.tag) == "loc" and (element.text or "").strip()
-        ]
-        if not urls:
-            result.add(
-                site,
-                f"sitemap {sitemap_url}",
-                "urlset contains no page URLs; confirm there are no active pages to list",
-                warning=True,
-            )
-        page_urls.extend(urls)
+        )
         if len(page_urls) > MAX_URLS:
             raise ValueError(f"sitemap contains more than {MAX_URLS} URLs")
     return page_urls, sitemap_urls
@@ -307,10 +303,22 @@ def audit_site(site: Site) -> Result:
             result.add(site.name, "AI training bots", "GPTBot, ClaudeBot and Applebot-Extended blocked at /")
 
         sitemap_directives = re.findall(r"(?im)^\s*sitemap\s*:\s*(\S+)", robots)
-        if site.sitemap_url not in sitemap_directives:
-            result.add(site.name, "robots sitemap declaration", f"expected {site.sitemap_url}", error=True)
+        if site.robots_sitemap_url not in sitemap_directives:
+            result.add(
+                site.name,
+                "robots primary sitemap",
+                f"expected {site.robots_sitemap_url}; found {', '.join(sitemap_directives) or 'none'}",
+                warning=True,
+            )
         else:
-            result.add(site.name, "robots sitemap declaration", "matches configured sitemap")
+            result.add(site.name, "robots primary sitemap", f"declares {site.robots_sitemap_url}")
+        if site.sitemap_url != site.robots_sitemap_url and site.sitemap_url in sitemap_directives:
+            result.add(
+                site.name,
+                "robots supplemental sitemap index",
+                "index is also advertised; confirm every child sitemap contains at least one URL",
+                warning=True,
+            )
 
         pages, leaf_sitemaps = parse_sitemap(site.sitemap_url, result, site.name)
         unique_pages = list(dict.fromkeys(pages))
@@ -369,13 +377,7 @@ def main() -> int:
     for site, check, outcome in result.rows:
         safe_outcome = outcome.replace("|", "\\|").replace("\n", " ")
         lines.append(f"| {site} | {check} | {safe_outcome} |")
-    lines.extend(
-        [
-            "",
-            f"Warnings: **{len(result.warnings)}**",
-            f"Errors: **{len(result.errors)}**",
-        ]
-    )
+    lines.extend(["", f"Warnings: **{len(result.warnings)}**", f"Errors: **{len(result.errors)}**"])
     summary = "\n".join(lines) + "\n"
     print(summary)
 
