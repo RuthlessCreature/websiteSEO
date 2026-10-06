@@ -38,11 +38,13 @@ class Site:
 
 SITES = (
     Site("Xiaodu", "https://xiaodu.tech/sitemap.xml", "xiaodu.tech", "zh-CN",
-         (("/zh-cn", "zh-CN"), ("/en", "en"))),
+         (("/zh-cn", "zh-CN"), ("/en", "en"), ("/es", "es"), ("/pt", "pt"),
+          ("/ja", "ja"), ("/ru", "ru"), ("/zh-tw", "zh-TW"))),
     Site("StayChina", "https://www.staychina.org/sitemap-index.xml", "www.staychina.org", "en",
          (("/zh-cn", "zh-CN"), ("/en", "en")), ("/es", "/ru", "/pt"), "/en"),
     Site("Pomerol", "https://pomerol.trade/sitemap.xml", "pomerol.trade", "en",
-         (("/en", "en"), ("/es", "es"))),
+         (("/en", "en"), ("/es", "es"), ("/zh", "zh-CN"), ("/ru", "ru"),
+          ("/ja", "ja"), ("/pt", "pt"))),
 )
 
 
