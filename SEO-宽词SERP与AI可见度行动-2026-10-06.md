@@ -99,3 +99,12 @@
 | Teach English in China jobs | [ESL Careers](https://www.esl.careers/teach-in/china)、[TEFL Org](https://www.tefl.org/teach-english-abroad/teach-english-in-china/)、[TES jobs](https://www.tes.com/jobs/browse/english-as-a-foreign-language-china)、[OlaChina](https://olachina.org/recruiting-english-teachers/) | 招聘目录拥有职位库存，TEFL 站点拥有资格/流程指南，招聘机构拥有实际岗位入口。StayChina 如继续争取此宽词，需先界定真实招聘职责，并提供有授权的真实岗位或独有的资格、雇主准备与合规路径信息；没有在招职位时不能把站点包装成职位聚合平台。本轮样本未提供 StayChina 可复现位置。 |
 
 该复抽样揭示的是内容与信任证据模式，不证明这些竞争者数字真实，也不能推出目标站点排名变化。搜索曝光、实际收录、地区化位置、AI 引用和询盘仍须用各平台的 URL/query/country 报表分别验证；公开网页搜索结果只能作发现线索。
+
+
+## 2026-10-06 23:24（Asia/Shanghai）品牌宽词页面公开发现抽样
+
+以公开搜索抽查三个站点的主要商业主题页。当前返回结果中，Pomerol 的 `https://pomerol.trade/china-sourcing-agent/` 明确出现，页面标题为 “China Sourcing Agent for Overseas Buyers”；摘要呈现供应商筛选、报价比较、样品与变更、质量检查规划和出口交接等流程，搜索工具标记该页面两天前抓取。[Pomerol China sourcing agent 页面](https://pomerol.trade/china-sourcing-agent/)
+
+本轮搜索样本没有返回 Xiaodu 的 system integrator 主页面或 StayChina 的 company setup 主页面。这只说明它们没有出现在本次工具结果中，不代表未被索引，也不代表固定排名。该搜索工具没有提供可复现的国家、语言界面、设备、自然结果序号或完整结果页，因此不据此判定三站进入前 20/前 10。
+
+下一步证据优先级：在 Bing Webmaster 的 Search Performance 数据可用后读取每站非品牌查询、页面、国家/地区和平均位置；Google Search Console 采用同样的 query-page-country 切片；再用指定国家和语言的普通搜索结果作单独快照。Pomerol 已有一次公开发现信号，仍需靠稳定曝光、点击及询盘证明宽词竞争进展。
