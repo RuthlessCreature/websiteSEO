@@ -256,15 +256,26 @@ def audit_unsupported_locale_paths(site: Site) -> list[str]:
     for path in site.unsupported_locale_paths:
         url = urllib.parse.urljoin(f"https://{site.canonical_host}/", path.lstrip("/"))
         try:
-            status, final_url, _ = fetch(url)
+            status, final_url, body = fetch(url)
         except Exception as error:  # noqa: BLE001
             errors.append(f"{site.name}: unsupported locale path {path}: {type(error).__name__}: {error}")
             continue
         if status in (404, 410) or normalized_url(final_url) == normalized_url(fallback):
             continue
+        if status == 200:
+            parser = MetadataParser()
+            parser.feed(body.decode("utf-8", "replace"))
+            canonicals = [urllib.parse.urljoin(url, value) for value in parser.canonicals]
+            has_noindex = any("noindex" in value for value in parser.robots)
+            if (
+                len(canonicals) == 1
+                and normalized_url(canonicals[0]) == normalized_url(fallback)
+                and has_noindex
+            ):
+                continue
         errors.append(
-            f"{site.name}: unsupported locale path {path} must return 404/410 or redirect to "
-            f"{fallback}; got HTTP {status} at {final_url}"
+            f"{site.name}: unsupported locale path {path} must return 404/410, redirect to {fallback}, "
+            f"or return HTTP 200 with noindex and a canonical to that fallback; got HTTP {status} at {final_url}"
         )
     return errors
 
