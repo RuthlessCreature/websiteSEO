@@ -93,3 +93,18 @@
 | Pomerol | 144 | 0 | 46 页有提醒：45 个资源页缺少 Twitter 图片/大图卡片字段；`/sitemap/` 工具页缺全部三个字段 |
 
 检查仅确认 HTML 标签与图片 URL 是否声明为 HTTPS，未对全部 338 个图片 URL 逐一发请求，也不证明社交平台当前已生成预览。此前三页 HEAD 抽查只证实 StayChina 联系页动态 PNG 与 Pomerol 首页素材 JPEG 返回 200。需要在站点源码中统一分享标签后部署，再抽查主要页面的 Open Graph debugger / 社媒预览，并观察下一轮月度覆盖率变化。
+
+
+## 2026-10-07 00:02（Asia/Shanghai）三站 IndexNow 校验与 sitemap 新鲜度
+
+从三个生产站直接读取 sitemap 与 IndexNow 校验文件，结果如下：
+
+| 站点 | 规范页面 URL | sitemap 最近 lastmod | 公网 IndexNow key file |
+|---|---:|---|---|
+| Xiaodu | 170 | 2026-10-05（170 项均有 lastmod） | HTTP 200，正文与该站配置值匹配 |
+| StayChina | 24 | 2026-10-05（24 项均有 lastmod） | HTTP 200，正文与该站配置值匹配 |
+| Pomerol | 144 | sitemap 未提供 lastmod | HTTP 200，正文与该站配置值匹配 |
+
+通过 GitHub Actions API 查看 2026-10-06 的最新公开部署运行：Xiaodu run [37443093920](https://github.com/RuthlessCreature/xWebsite/actions/runs/37443093920) 与 Pomerol run [37443324993](https://github.com/RuthlessCreature/pWebsiteExport/actions/runs/37443324993) 中 IndexNow 步骤显示 `conclusion: success`。两个 workflow 均配置 `continue-on-error: true`，所以该字段不能排除步骤内部失败；不把它当作新的 endpoint 接收证明。StayChina 的私有仓库运行日志无法从公开 Actions API 读取，但此前三条已更新 URL 已单独取得 IndexNow HTTP 200 回执。当前没有发现 2026-10-06 之后的 sitemap lastmod 更新，也没有重复提交全站 URL。
+
+结论：三站当前具备可验证的 IndexNow key 文件；已变更 URL 的历史 endpoint 接收回执按原记录保留。校验文件可达、部署步骤结束或 endpoint 接收都不表示 Bing/Naver/其他参与端已抓取或收录。下一步需在 Bing Webmaster 的 IndexNow history / URL inspection 对照具体 URL；Google 不参与 IndexNow，继续以 GSC sitemap、URL 检查与抓取统计为准。Pomerol 若后续依赖 lastmod 增量判断，应先补上准确页面更新时间；不能编造或在无内容变化时批量改写日期。
