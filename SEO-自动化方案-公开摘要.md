@@ -96,3 +96,13 @@ Google 的官方生成式 AI 搜索指南说明，AI Overviews/AI Mode 延续常
 - Google 当前的[生成式 AI 搜索指南](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)仍把标准抓取、索引、独特且有帮助的内容作为基础，并明确建议优先有效 SEO，而非所谓 AEO/GEO 技巧、无必要的内容切块或不真实提及。Google 的[有帮助内容指南](https://developers.google.com/search/docs/fundamentals/creating-helpful-content)强调原创信息、第一手经验和相对搜索结果的实质增值。故下一轮内容工作优先补充可核验的第一手流程和证据、官方来源及清楚的服务边界；不继续堆叠同义词页或未证实案例。
 - Search Console 的固定日期宽词表现和索引状态本轮未能重新读取，不能据此宣称 Google 收录已变化或排名上升；继续以站长平台实际报告为准。
 
+
+
+## 2026-10-07 Pomerol 联系入口线上修复
+
+- 线上抽查发现 `/china-sourcing-agent/` 页脚把 “Business email” 显示两遍；部分非英语联系页页脚也缺少统一电话/邮箱标签和 `contact@pomerol.trade`。
+- 已把本地化页脚规范化移到所有语言页面生成步骤之后，并让它对标点/空格差异不重复插入标签。生产烟测现在逐项检查六种语言联系页及 China Sourcing Agent 支柱页的电话、个人邮箱和业务邮箱链接；Cloudflare 部署状态仅在生产烟测也成功后标绿。
+- Pomerol 主分支部署提交 [6f0d3c7](https://github.com/RuthlessCreature/pWebsiteExport/commit/6f0d3c7b18540c66c01eef4969dd6afac0d994a4) 的 `cloudflare-worker` 状态为 success。生产烟测通过；自动 IndexNow 步骤仅在烟测通过后运行。
+- 只读回验：`/zh/contact/`、`/es/contact/` 和 `/china-sourcing-agent/` 均 HTTP 200；中文、西班牙语页脚各自显示一份本地化电话、直邮、业务邮箱标签；采购代理页的 “Business email” 恰好出现一次。
+- 这是联系入口与部署校验质量修复，不代表索引、AI 引用或关键词排名已有变化。
+
