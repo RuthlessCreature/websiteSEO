@@ -108,3 +108,11 @@
 本轮搜索样本没有返回 Xiaodu 的 system integrator 主页面或 StayChina 的 company setup 主页面。这只说明它们没有出现在本次工具结果中，不代表未被索引，也不代表固定排名。该搜索工具没有提供可复现的国家、语言界面、设备、自然结果序号或完整结果页，因此不据此判定三站进入前 20/前 10。
 
 下一步证据优先级：在 Bing Webmaster 的 Search Performance 数据可用后读取每站非品牌查询、页面、国家/地区和平均位置；Google Search Console 采用同样的 query-page-country 切片；再用指定国家和语言的普通搜索结果作单独快照。Pomerol 已有一次公开发现信号，仍需靠稳定曝光、点击及询盘证明宽词竞争进展。
+
+## 2026-10-07 品牌限定宽词公开发现复查
+
+按三个核心商业主题分别检索并限定自有域名。公开搜索工具返回了 Pomerol 的 [China sourcing agent 服务页](https://pomerol.trade/china-sourcing-agent/)，抓取标记为 2 天前；结果正文能读到服务范围、六步执行路径与 illustrative/pseudonymized 案例说明。当前这是一项页面被搜索工具发现并可抽取内容的证据，但工具没有给出 Google/Bing 引擎、国家、自然排名序号或稳定 SERP，**不能据此判断已进前 20**。
+
+本轮结果没有返回 staychina.org 对应的 company setup in China 主页，也没有返回 xiaodu.tech 对应的 industrial automation system integrator 主页。这只是本工具、本次查询下未出现，不证明未索引或未进入其他国家/个性化结果。新返回的竞争页面强调的差异包括完整服务阶段、可核查的办事范围/时限、定价或主体证据；三站需要继续依托业务事实建立这种证明力，不复制竞争者未经第三方核验的数字。
+
+后续可比较的量化信号仍是各站 Search Console/Bing Webmaster 的非品牌 query × country × landing page × 日期窗报表。本轮没有站长平台的目标词位置数据。
