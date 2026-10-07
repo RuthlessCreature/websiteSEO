@@ -28,12 +28,30 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Audit every production sitemap URL
-        run: python3 seo-tools/seo_full_site_audit.py
+        run: |
+          mkdir -p audit-reports
+          set -o pipefail
+          python3 seo-tools/seo_full_site_audit.py | tee audit-reports/full-site-audit.md
 
       - name: Triage English main-content depth and case-page overlap
         if: always()
-        run: python3 seo-tools/seo_content_triage.py
+        run: |
+          mkdir -p audit-reports
+          set -o pipefail
+          python3 seo-tools/seo_content_triage.py | tee audit-reports/content-triage.md
 
       - name: Audit homepage structured-data entity relationships
         if: always()
-        run: python3 seo-tools/seo_schema_entity_audit.py
+        run: |
+          mkdir -p audit-reports
+          set -o pipefail
+          python3 seo-tools/seo_schema_entity_audit.py | tee audit-reports/schema-entity-audit.md
+
+      - name: Save full-site audit reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-full-site-audit-${{ github.run_number }}
+          path: audit-reports/*.md
+          if-no-files-found: warn
+          retention-days: 90
