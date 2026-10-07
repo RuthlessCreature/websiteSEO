@@ -29,6 +29,7 @@ These reports separate technical crawl health, search-engine indexing evidence, 
 - [Pomerol China Supply Chain Directory registration review (2026-10-08)](SEO-Pomerol-China-Supply-Chain-Directory-%E5%A4%8D%E6%A0%B8-2026-10-08.md)
 - [Pomerol pre-shipment inspection broad-keyword page expansion plan (2026-10-08)](SEO-Pomerol-%E5%87%BA%E8%B4%A7%E5%89%8D%E6%A3%80%E9%AA%8C%E5%AE%BD%E8%AF%8D%E9%A1%B5%E9%9D%A2%E6%89%A9%E5%B1%95%E6%96%B9%E6%A1%88-2026-10-08.md)
 - [Pomerol GSC index and sitemap check (2026-10-08)](SEO-Pomerol-GSC%E7%B4%A2%E5%BC%95%E4%B8%8Esitemap%E5%A4%8D%E6%A0%B8-2026-10-08.md)
+- [StayChina broad-query discovery and content gaps (2026-10-08)](SEO-StayChina-%E5%AE%BD%E8%AF%8D%E5%85%AC%E5%BC%80%E5%8F%91%E7%8E%B0%E4%B8%8E%E5%86%85%E5%AE%B9%E5%B7%AE%E8%B7%9D-2026-10-08.md)
 - [Broad-query public discovery sample (2026-10-07)](SEO-%E5%AE%BD%E8%AF%8D%E5%85%AC%E5%BC%80%E5%8F%91%E7%8E%B0%E6%A0%B7%E6%9C%AC-2026-10-07.md)
 - [YouTube brand-channel visibility check (2026-10-07)](SEO-YouTube%E5%93%81%E7%89%8C%E9%A2%91%E9%81%93%E7%8A%B6%E6%80%81-2026-10-07.md)
 - [Live technical audit and broad-keyword baseline (2026-10-07)](SEO-%E5%AE%9E%E6%97%B6%E5%B7%A1%E6%A3%80%E4%B8%8E%E5%AE%BD%E8%AF%8D%E5%9F%BA%E7%BA%BF-2026-10-07.md)
