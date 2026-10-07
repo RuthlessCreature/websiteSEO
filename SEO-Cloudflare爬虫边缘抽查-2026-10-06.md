@@ -119,3 +119,17 @@ Cloudflare 官方定义：安全页“未成功”可以由任何规则或响应
 4. Google 侧继续维护已提交 sitemap、关键页自然内链，并从 URL Inspection 查抓取状态；不要用 Google Indexing API 提交普通服务页。
 
 Cloudflare 官方资料：[Crawler Hints](https://developers.cloudflare.com/cache/advanced-configuration/crawler-hints/)、[Cloudflare SEO 指引](https://developers.cloudflare.com/fundamentals/performance/improve-seo/)。这次没有更改 Cloudflare Zone、网站代码或部署。
+
+## 2026-10-07 IndexNow 定向通知回执
+
+对照三个网站 main 上近期确有变更的内容，并先验证各域名根目录的 IndexNow key 文件与 sitemap 后，向 IndexNow 通用端点提交一次定向通知：
+
+| Host | 通知 URL 范围 | 依据 | API 回执 |
+|---|---:|---|---|
+| xiaodu.tech | 7 个语言首页（zh-cn、zh-tw、en、ja、es、pt、ru） | [本轮主页 metadata 精简变更](https://github.com/RuthlessCreature/xWebsite/commit/c32012546246eb169f9fd4932c221d871aca4d75)；生产 sitemap 中的 7 个首页均返回 HTTP 200 | HTTP 200，已接收 7 个 URL |
+| www.staychina.org | 24 个 sitemap URL | [全站 publisher metadata 变更](https://github.com/RuthlessCreature/pWebsite/commit/1f294fdd45c54a873d60a66a702a0ef93b3e0a34)；当前 sitemap-index 展开后共 24 个页面 | HTTP 200，已接收 24 个 URL |
+| pomerol.trade | /china-sourcing-agent/ | [sourcing 支柱页买家指引/RFQ 模块变更](https://github.com/RuthlessCreature/pWebsiteExport/commit/0fbdd5ecfcfc97aeff2b0bb4bb3381beed13fad5)；该 canonical URL 在 sitemap 且生产页面返回 HTTP 200 | HTTP 200，已接收 1 个 URL |
+
+三站 key 文件在此次请求中均返回 HTTP 200，文件内容与请求 key 一致。总计提交 **32 个近期确有变更的 URL**，没有把 Pomerol 当前 sitemap 的 298 个 URL 全量重发。此处的 IndexNow HTTP 200 是提交 API 接受回执，不证明每个参与引擎已抓取、收录、展示或排名提升；后续需在 Bing Webmaster 的 IndexNow 页面、Yandex Webmaster 与各搜索平台报告中查看接收/抓取/索引结果。Google 不使用这条 IndexNow 通知作为其网页提交路径，继续以 Search Console、sitemap 和 URL Inspection 为准。
+
+该操作是一次性的 targeted submission。不要在每次部署时无差别重复提交整份 sitemap；后续自动化应只发送真实新增、更新或删除的 URL，并以一次实际发布后的 Bing/Yandex 接收记录验证 Cloudflare Crawler Hints 是否已足够。参考：[IndexNow 协议文档](https://www.indexnow.org/documentation)、[Bing IndexNow 提交说明](https://www.bing.com/webmasters/help/indexnow-0z209wby)、[Yandex IndexNow 支持](https://yandex.com/support/webmaster/en/indexing-options/index-now)。
