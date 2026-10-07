@@ -43,6 +43,12 @@ A representative office is different: official local guidance describes it as a 
 
 “WFOE” remains widely used as a search term, but it can obscure the current legal and registration framework. Use the investor’s actual ownership and operating plan to compare available structures instead of selecting a form from an old label alone.
 
+## Treat registered capital as a funding commitment
+
+For a limited liability company, the registered capital stated in the articles is not just a marketing number. Under the Company Law currently in force, shareholders generally must pay their subscribed contributions in full within five years from the company’s establishment, unless another law, administrative regulation or State Council decision sets a different rule. Contribution amount, form and schedule should therefore match a credible funding and operating plan; check sector-specific exceptions and the local filing requirements before selecting the figure. A licensed adviser should review the proposed articles and contribution schedule for the actual entity.
+
+Companies registered by 30 June 2024 may be subject to transitional adjustment rules. The State Administration for Market Regulation explains that a pre-existing limited liability company whose remaining contribution period would exceed five years from 1 July 2027 generally must adjust that period by 30 June 2027, subject to the stated exceptions. This is a transition rule for existing companies, not a general extension for a newly established company.
+
 ## Build a document and decision checklist
 
 Before filing, ask the local registration authority or adviser to confirm the current form and supporting documents for the selected city, entity and activity. A planning file commonly needs to resolve:
@@ -85,6 +91,8 @@ To start, share the planned activity, target city, investor type, likely operati
 ## Sources and update policy
 
 - [Ministry of Commerce, Foreign Investment Guide of the People’s Republic of China (2025 Edition)](https://fdi.mofcom.gov.cn/EN/come-newzonghe.html?comeID=5&name=Procedures+for+Business+Operation&parentId=133) — incorporation/modification and related post-establishment topics.
+- [State Administration for Market Regulation, Measures for the Implementation of Company Registration (Chinese)](https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/fgs/art/2024/art_6580c00811be45bfa304c1273b74e294.html) — Article 5 describes the general five-year contribution period for limited liability companies and preserves exceptions provided by higher-level rules; Article 8 gives the transition rule for companies registered by 30 June 2024.
+- [State Council, Regulations on Implementing the Registered Capital Management System of the Company Law (Chinese)](https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2024/art_3867dfd78196475b89486bfbb343666f.html) — official transition provisions for companies registered by 30 June 2024.
 - [State Council, A Guide to Working and Living in China for Business Expatriates (2025 Edition)](https://english.www.gov.cn/AssetsZi/A_Guide_to_Working_and_Living_in_China_as_Business_Expatriates_2025.pdf) — official information on work permits, residence and related services; assess the founder's circumstances separately.
 - [National Development and Reform Commission, 2024 Foreign Investment Access Negative List announcement](https://www.ndrc.gov.cn/xxgk/jd/jd/202409/t20240907_1392878.html) — national list issued 8 September 2024 and effective 1 November 2024.
 - [Beijing Investment Promotion Service Center, foreign-invested enterprise incorporation FAQ](https://invest.beijing.gov.cn/english/Service/Association/202509/t20250919_4206074.html) — city-specific registration channel and document example; not a nationwide checklist.
