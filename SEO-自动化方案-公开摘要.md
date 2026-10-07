@@ -70,7 +70,7 @@ Google 的官方生成式 AI 搜索指南说明，AI Overviews/AI Mode 延续常
 - Bing Webmaster Tools：核查 sitemap、IndexNow 活动、查询表现与 AI Performance 引用；只有通知接受记录不算收录证明。
 - Yandex Webmaster：添加并验证需要覆盖的站点，再提交 sitemap。
 - 百度站长平台：按官方当前准入流程核验站点验证及 sitemap 提交能力。
-- Automation-List：Xiaodu 免费档案资料已准备；尚无提交/确认回执，不能记作已上线。表单的必选指南确认尚未执行。
+- Automation-List：Xiaodu 免费档案资料已准备；表单曾返回 “Unable to submit listing”。2026-10-07 已发邮件至官方 `contact@automation-list.com` 核实是否进入审核队列；尚无对方回复、提交回执或公开档案链接，不能记作已上线。表单的必选指南确认尚未执行。
 
 ## 目录与社媒状态
 
