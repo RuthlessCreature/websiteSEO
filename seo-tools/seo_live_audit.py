@@ -368,8 +368,29 @@ def edge_discovery_checks(site: Site, result: Result) -> None:
             result.add(site.name, f"Cloudflare edge / {bot}", "HTTP 200; no challenge marker observed for this User-Agent smoke probe")
 
 
+def http_canonicalization_checks(site: Site, result: Result) -> None:
+    """Check HTTP redirects for both the canonical host and its www/apex alias."""
+    canonical_host = site.canonical_host
+    alternate_host = canonical_host.removeprefix("www.") if canonical_host.startswith("www.") else f"www.{canonical_host}"
+    for host in sorted({canonical_host, alternate_host}):
+        label = f"HTTP canonicalization / {host}"
+        try:
+            status, final_url, _ = fetch(f"http://{host}/")
+        except Exception as error:  # noqa: BLE001
+            result.add(site.name, label, f"{type(error).__name__}: {error}", error=True)
+            continue
+        final = urllib.parse.urlsplit(final_url)
+        if status != 200:
+            result.add(site.name, label, f"final HTTP {status} at {final_url}", error=True)
+        elif final.scheme != "https" or final.hostname != canonical_host:
+            result.add(site.name, label, f"unexpected final URL {final_url}", error=True)
+        else:
+            result.add(site.name, label, f"final HTTPS 200 at {final_url}")
+
+
 def audit_site(site: Site) -> Result:
     result = Result()
+    http_canonicalization_checks(site, result)
     try:
         robots_status, _, robots_body = fetch(site.robots_url)
         if robots_status != 200:
@@ -483,7 +504,7 @@ def main() -> int:
     lines = [
         "# Three-site SEO live audit",
         "",
-        "Read-only production checks for robots/content signals, sitemap reachability and URL consistency, llms.txt, representative page metadata, and Cloudflare challenge responses to discovery-bot User-Agent smoke probes. User-Agent probes do not authenticate verified crawler IPs.",
+        "Read-only production checks for HTTP-to-HTTPS and apex/www canonicalization, robots/content signals, sitemap reachability and URL consistency, llms.txt, representative page metadata, and Cloudflare challenge responses to discovery-bot User-Agent smoke probes. User-Agent probes do not authenticate verified crawler IPs.",
         "",
         "| Site | Check | Result |",
         "|---|---|---|",
