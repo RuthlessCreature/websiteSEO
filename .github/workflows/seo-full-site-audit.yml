@@ -1,4 +1,4 @@
-name: Monthly full-site SEO audit
+name: Weekly full-site SEO audit
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - "seo-tools/seo_content_triage.py"
       - "README.md"
   schedule:
-    - cron: "43 3 1 * *"
+    - cron: "43 3 * * 0"
   workflow_dispatch:
 
 permissions:

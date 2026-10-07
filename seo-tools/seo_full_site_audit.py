@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Monthly, read-only audit of every URL in the three public production sitemaps."""
+"""Weekly, read-only audit of every URL in the three public production sitemaps."""
 
 from __future__ import annotations
 
@@ -447,7 +447,7 @@ def main() -> int:
         all_warnings.extend(warnings)
 
     lines = [
-        "# Monthly full-site SEO audit",
+        "# Weekly full-site SEO audit",
         "",
         "Read-only audit of every URL in each production sitemap: status, final/canonical host, title, meta description, H1, image alt attributes, noindex, legacy contacts, JSON-LD syntax, duplicate titles, hreflang targets/return links, and social preview metadata.",
         "",
