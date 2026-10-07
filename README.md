@@ -15,7 +15,8 @@ The live website code remains in each site's own repository. This repository hol
 - [Weekly audit script](seo-tools/seo_live_audit.py), [full-site audit script](seo-tools/seo_full_site_audit.py), [English body-depth/editorial triage](seo-tools/seo_content_triage.py), and [structured-data entity audit](seo-tools/seo_schema_entity_audit.py) contain the read-only checks for all three production domains. The full-site audit validates locale metadata and known unsupported-locale fallbacks in addition to sitemap and hreflang integrity. The weekly audit checks the expected primary sitemap separately from any supplemental sitemap index and reports mismatches or advertised indexes with empty child sitemaps as warnings; the monthly workflow checks homepage Organization → WebSite → WebPage references and contact aliases. Each workflow writes results to the GitHub Actions run summary and saves Markdown reports as downloadable workflow artifacts for 90 days.
 
 ## Latest verified checkpoints
-## Latest verified checkpoints- [Three-site broad-keyword page updates and production verification (2026-10-08)](SEO-%E4%B8%89%E7%AB%99%E5%AE%BD%E8%AF%8D%E9%A1%B5%E9%9D%A2%E4%BC%98%E5%8C%96%E4%B8%8E%E4%B8%8A%E7%BA%BF%E8%AE%B0%E5%BD%95-2026-10-08.md)
+
+- [Three-site broad-keyword page updates and production verification (2026-10-08)](SEO-%E4%B8%89%E7%AB%99%E5%AE%BD%E8%AF%8D%E9%A1%B5%E9%9D%A2%E4%BC%98%E5%8C%96%E4%B8%8E%E4%B8%8A%E7%BA%BF%E8%AE%B0%E5%BD%95-2026-10-08.md)
 
 These reports separate technical crawl health, search-engine indexing evidence, public discovery samples, and third-party publishing status. A clean crawl or an accepted sitemap does not prove rankings.
 
