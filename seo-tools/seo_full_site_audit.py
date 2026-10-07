@@ -359,10 +359,11 @@ def expected_language(site: Site, url: str) -> str:
     return site.default_lang
 
 
-def audit_unsupported_locale_paths(site: Site) -> list[str]:
+def audit_unsupported_locale_paths(site: Site) -> tuple[list[str], list[str]]:
     errors: list[str] = []
+    warnings: list[str] = []
     if not site.unsupported_locale_paths:
-        return errors
+        return errors, warnings
     fallback = urllib.parse.urljoin(
         f"https://{site.canonical_host}/", site.fallback_locale_path.lstrip("/")
     )
@@ -385,12 +386,19 @@ def audit_unsupported_locale_paths(site: Site) -> list[str]:
                 and normalized_url(canonicals[0]) == normalized_url(fallback)
                 and has_noindex
             ):
+                expected_lang = expected_language(site, fallback)
+                if parser.html_lang.casefold() != expected_lang.casefold():
+                    warnings.append(
+                        f"{site.name}: unsupported locale path {path} falls back to {fallback} "
+                        f"but <html lang> is {parser.html_lang!r}; expected {expected_lang!r} "
+                        "to match the fallback content"
+                    )
                 continue
         errors.append(
             f"{site.name}: unsupported locale path {path} must return 404/410, redirect to {fallback}, "
             f"or return HTTP 200 with noindex and a canonical to that fallback; got HTTP {status} at {final_url}"
         )
-    return errors
+    return errors, warnings
 
 
 def audit_site(site: Site) -> tuple[list[str], list[str], int, int, int]:
@@ -413,7 +421,9 @@ def audit_site(site: Site) -> tuple[list[str], list[str], int, int, int]:
     if unexpected_hosts:
         errors.append(f"{site.name}: sitemap has unexpected hosts: {', '.join(unexpected_hosts)}")
 
-    errors.extend(audit_unsupported_locale_paths(site))
+    locale_errors, locale_warnings = audit_unsupported_locale_paths(site)
+    errors.extend(locale_errors)
+    warnings.extend(locale_warnings)
 
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
         futures = {executor.submit(inspect_page, url): url for url in url_set}
