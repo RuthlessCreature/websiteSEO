@@ -26,6 +26,29 @@ SIMILARITY_STOPWORDS = {
     "our", "project", "sourcing", "supplier", "that", "their", "there", "these",
     "they", "this", "through", "with", "work", "your",
 }
+CASE_TEMPLATE_PATTERNS = (
+    re.compile(
+        r"This page is an illustrative .*? Product photography shows a category, not a customer shipment\.",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"Transparency note: the client name and selected commercial details are pseudonymized or illustrative\. "
+        r"The sourcing risks and control methods are representative examples, not third-party endorsements\.",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"This expanded control plan is a representative procurement method for this product category\. "
+        r"It does not claim that every listed step was performed for a named client or shipment\.",
+        re.IGNORECASE,
+    ),
+)
+CASE_TEMPLATE_LABELS = re.compile(
+    r"\b(?:illustrative buyer profile|illustrative scenario|illustrative market|illustrative buyer type|"
+    r"example buyer requirement|possible sourcing workstream|buyer control points|possible process objective|"
+    r"detailed sourcing control plan|from requirement freeze to shipment handover|requirement snapshot|"
+    r"supplier screening|validation gates|buyer handover pack|scenario\s+\d+)\b",
+    re.IGNORECASE,
+)
 NON_CONTENT_PATHS = ("/contact", "/terms", "/privacy")
 LOCALIZED_PREFIXES = {"zh", "es", "pt", "ru", "ja"}
 MAX_WORKERS = 12
@@ -113,6 +136,9 @@ def normalize_internal_url(site: audit.Site, source_url: str, href: str) -> str 
 def similarity_pairs(pages: list[tuple[str, str]]) -> list[tuple[float, str, str, int]]:
     docs: list[tuple[str, set[str]]] = []
     for url, text in pages:
+        for pattern in CASE_TEMPLATE_PATTERNS:
+            text = pattern.sub(" ", text)
+        text = CASE_TEMPLATE_LABELS.sub(" ", text)
         tokens = {
             token for token in WORD_RE.findall(text.casefold())
             if len(token) > 2 and token not in SIMILARITY_STOPWORDS
@@ -201,8 +227,8 @@ def audit_site(site: audit.Site) -> tuple[str, list[str]]:
             "Case-page similarity screen:",
             "",
             f"- Case-study pages checked: **{len(cases)}**",
-            f"- Page pairs above Jaccard {SIMILARITY_THRESHOLD:.2f}: **{len(pairs)}**",
-            "- This lexical overlap screen flags candidates for editorial review; it does not prove duplication or predict a search penalty.",
+            f"- Page pairs above template-normalized Jaccard {SIMILARITY_THRESHOLD:.2f}: **{len(pairs)}**",
+            "- Shared scenario disclosures and fixed control-plan labels are excluded before comparison; this lexical screen flags candidates for editorial review and does not prove duplication or predict a search penalty.",
             "",
         ])
         report.extend(f"- `{score:.2f}` ({shared} shared tokens) — {left} ↔ {right}" for score, left, right, shared in pairs[:20])
