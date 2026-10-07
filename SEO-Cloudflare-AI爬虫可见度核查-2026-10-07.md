@@ -9,7 +9,7 @@
 - 三个站的 `robots.txt`、`llms.txt` 均返回 HTTP 200。三站都声明 `search=yes`、`ai-input=yes`、`ai-train=no`；显式允许主要 AI 搜索/访问爬虫，并对 GPTBot、ClaudeBot、Applebot-Extended 设置 `Disallow: /`。
 - OpenAI 把 `OAI-SearchBot`（自动搜索抓取）与 `ChatGPT-User`（用户触发的页面访问）用途分开。若目标是 ChatGPT 搜索结果中的摘要和引用，关键是允许 `OAI-SearchBot` 并让它通过 Cloudflare；仅允许 `ChatGPT-User` 不等于可进入 ChatGPT 搜索结果。三站当前 robots 已允许 `OAI-SearchBot`。
 - 这套 robots 规则把“搜索/回答时取用页面”和“训练语料抓取”分开，方向符合当前希望争取引用、同时不开放训练抓取的偏好。仅有 `Allow` 规则不保证实际抓取、索引或引用；Cloudflare WAF、自定义规则、Bot Fight Mode 或挑战页仍可能拦截请求。
-- StayChina 根域 robots 写的是 `https://www.staychina.org/sitemap.xml`。检查该 sitemap 返回 HTTP 200，最终主机为 `www.staychina.org`，与规范主机一致。
+- StayChina 根域实际转向 `www`；robots 声明的 sitemap 为 `https://www.staychina.org/sitemap.xml`，检查返回 200 且最终主机为 `www.staychina.org`，与规范主机一致。
 - Google 官方说明：生成式搜索功能沿用基础搜索技术要求与有帮助、可靠、以用户为先的内容原则；没有专门的 AI schema 或理想字数。Google 也说明 `llms.txt` 不会帮助或损害 Google 搜索可见度。因此，`llms.txt` 应作为其他工具的可选导航文件，SEO 投入优先放在可索引正文、可靠来源、独特经验、内部链接和 Search Console 诊断。
 - Cloudflare AI Crawl Control 免费方案可以按 User-Agent 识别已知 AI 爬虫并显示最近 24 小时数据；升级 Bot Management 才能使用更深入的检测 ID。它适合边缘层观察与策略管理，不等于搜索引擎站长平台，也不证明页面已被索引。
 
