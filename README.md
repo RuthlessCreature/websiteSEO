@@ -14,6 +14,16 @@ The live website code remains in each site's own repository. This repository hol
 - [Weekly full-site audit workflow](.github/workflows/seo-full-site-audit.yml) checks every sitemap URL for status, final host, self-canonical equality with its sitemap URL, `<html lang>` against the site's URL-language map, title/H1/noindex, legacy contact markers, JSON-LD syntax, duplicate titles, hreflang targets/return links, and social preview tags. It maps every locale prefix currently present in the Xiaodu and Pomerol production sitemaps (including Chinese, Spanish, Portuguese, Japanese, and Russian routes), and checks that unsupported StayChina locale aliases return 404/410, redirect to the English fallback, or serve a `noindex` page canonicalized to that fallback; the fallback's `<html lang>` is also checked against the language of its canonical target. Missing `og:image`, `twitter:image`, or a large-image Twitter card is reported as a warning, separate from crawl/indexing errors.
 - [Weekly audit script](seo-tools/seo_live_audit.py), [full-site audit script](seo-tools/seo_full_site_audit.py), [English body-depth/editorial triage](seo-tools/seo_content_triage.py), and [structured-data entity audit](seo-tools/seo_schema_entity_audit.py) contain the read-only checks for all three production domains. The full-site audit validates locale metadata and known unsupported-locale fallbacks in addition to sitemap and hreflang integrity. The weekly audit checks the expected primary sitemap separately from any supplemental sitemap index and reports mismatches or advertised indexes with empty child sitemaps as warnings; the monthly workflow checks homepage Organization → WebSite → WebPage references and contact aliases. Each workflow writes its results to the GitHub Actions run summary.
 
+## Latest verified checkpoints
+
+These reports separate technical crawl health, search-engine indexing evidence, public discovery samples, and third-party publishing status. A clean crawl or an accepted sitemap does not prove rankings.
+
+- [Latest production crawl and directory status (2026-10-07)](SEO-%E7%94%9F%E4%BA%A7%E5%A4%8D%E6%A0%B8%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%8A%B6%E6%80%81-2026-10-07.md)
+- [Google indexing validation notices and live sitemap audit (2026-10-07)](SEO-GSC%E6%9C%80%E6%96%B0%E7%B4%A2%E5%BC%95%E9%AA%8C%E8%AF%81%E7%8A%B6%E6%80%81-2026-10-07.md)
+- [Broad-query public discovery sample (2026-10-07)](SEO-%E5%AE%BD%E8%AF%8D%E5%85%AC%E5%BC%80%E5%8F%91%E7%8E%B0%E6%A0%B7%E6%9C%AC-2026-10-07.md)
+- [YouTube brand-channel visibility check (2026-10-07)](SEO-YouTube%E5%93%81%E7%89%8C%E9%A2%91%E9%81%93%E7%8A%B6%E6%80%81-2026-10-07.md)
+- [Live technical audit and broad-keyword baseline (2026-10-07)](SEO-%E5%AE%9E%E6%97%B6%E5%B7%A1%E6%A3%80%E4%B8%8E%E5%AE%BD%E8%AF%8D%E5%9F%BA%E7%BA%BF-2026-10-07.md)
+
 ## Start here
 
 - [Live technical audit and broad-keyword baseline (2026-10-07)](SEO-%E5%AE%9E%E6%97%B6%E5%B7%A1%E6%A3%80%E4%B8%8E%E5%AE%BD%E8%AF%8D%E5%9F%BA%E7%BA%BF-2026-10-07.md)
