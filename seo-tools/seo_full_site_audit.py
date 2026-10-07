@@ -63,6 +63,7 @@ class Page:
     social_meta: dict[str, str] | None = None
     descriptions: list[str] | None = None
     missing_alt_images: int = 0
+    empty_alt_images: int = 0
     legacy_markers: list[str] | None = None
     error: str = ""
 
@@ -80,6 +81,7 @@ class MetadataParser(HTMLParser):
         self.social_meta: dict[str, str] = {}
         self.descriptions: list[str] = []
         self.missing_alt_images = 0
+        self.empty_alt_images = 0
         self._in_title = False
         self._in_h1 = False
         self._jsonld_buffer: list[str] | None = None
@@ -106,6 +108,8 @@ class MetadataParser(HTMLParser):
         elif tag == "img":
             if "alt" not in values:
                 self.missing_alt_images += 1
+            elif not values.get("alt", "").strip():
+                self.empty_alt_images += 1
         elif tag == "link":
             rels = set(values.get("rel", "").casefold().split())
             if "canonical" in rels and values.get("href"):
@@ -240,6 +244,7 @@ def inspect_page(url: str) -> Page:
         page.social_meta = parser.social_meta
         page.descriptions = parser.descriptions
         page.missing_alt_images = parser.missing_alt_images
+        page.empty_alt_images = parser.empty_alt_images
         folded = text.casefold()
         page.legacy_markers = [
             marker for marker in LEGACY_CONTACT_MARKERS if marker.casefold() in folded
@@ -357,6 +362,11 @@ def audit_site(site: Site) -> tuple[list[str], list[str], int, int]:
         if page.missing_alt_images:
             warnings.append(
                 f"{label}: {page.missing_alt_images} image(s) missing an alt attribute"
+            )
+        if page.empty_alt_images:
+            warnings.append(
+                f"{label}: {page.empty_alt_images} image(s) have empty alt text; "
+                "review whether they are decorative (decorative images may keep alt=\"\")"
             )
         if not page.h1 or not any(page.h1):
             errors.append(f"{label}: missing H1")
