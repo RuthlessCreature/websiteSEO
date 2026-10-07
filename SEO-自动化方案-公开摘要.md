@@ -137,3 +137,10 @@ Google 的官方生成式 AI 搜索指南说明，AI Overviews/AI Mode 延续常
 5. Cloudflare：保留当前 HTTPS 规范化与 Crawler Hints；StayChina 的挑战偏好维持用户此前选择，后续通过真实安全事件/已验证爬虫数据评估抓取影响，而不是用可伪造的 User-Agent 测试推断机器人身份。
 
 以上是当前证据和待办，不承诺排名、收录、流量、询盘或 AI 引用结果。
+
+### Cloudflare 真实处置日志补充（2026-10-08）
+
+最近 7 天只读 Security Events 查询发现：StayChina 对声称为 PerplexityBot、Claude-SearchBot、Bingbot、OAI-SearchBot、Googlebot 的请求累计记录 **309 条 Bot Fight Mode managed challenge**，并有 23 条 ClaudeBot 及 5 条其他匹配 UA 的 block；Xiaodu 有 10 条 ClaudeBot 与 1 条 Baiduspider block；Pomerol 有 2 条 ClaudeBot block。StayChina 的 Claude-SearchBot/PerplexityBot 标签多天反复访问首页。
+
+这证明规则正在对相应 User-Agent 声称请求执行 challenge/block，但不证明对方属于真实官方爬虫。当前 Cloudflare Free GraphQL 可按 User-Agent 过滤，不能用 Bot Management 的可靠 bot detection ID 验证身份。由于用户此前明确要求 StayChina 继续 challenge，本次保留原设置；此项仍是搜索/AI抓取风险待核实点，需与 Cloudflare 可靠身份信号及站长平台抓取结果交叉确认。详见[完整事件核查](SEO-实时巡检-2026-10-08.md)。
+
