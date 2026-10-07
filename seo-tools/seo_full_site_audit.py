@@ -61,6 +61,8 @@ class Page:
     alternates: list[tuple[str, str]] | None = None
     jsonld_blocks: list[str] | None = None
     social_meta: dict[str, str] | None = None
+    descriptions: list[str] | None = None
+    missing_alt_images: int = 0
     legacy_markers: list[str] | None = None
     error: str = ""
 
@@ -76,6 +78,8 @@ class MetadataParser(HTMLParser):
         self.alternates: list[tuple[str, str]] = []
         self.jsonld_blocks: list[str] = []
         self.social_meta: dict[str, str] = {}
+        self.descriptions: list[str] = []
+        self.missing_alt_images = 0
         self._in_title = False
         self._in_h1 = False
         self._jsonld_buffer: list[str] | None = None
@@ -93,9 +97,15 @@ class MetadataParser(HTMLParser):
         elif tag == "meta" and values.get("name", "").casefold() in ("robots", "googlebot"):
             self.robots.append(values.get("content", "").casefold())
         elif tag == "meta":
+            name = values.get("name", "").casefold()
+            if name == "description":
+                self.descriptions.append(values.get("content", "").strip())
             key = (values.get("property") or values.get("name") or "").casefold()
             if key in ("og:image", "twitter:image", "twitter:card") and values.get("content"):
                 self.social_meta[key] = values["content"].strip()
+        elif tag == "img":
+            if "alt" not in values:
+                self.missing_alt_images += 1
         elif tag == "link":
             rels = set(values.get("rel", "").casefold().split())
             if "canonical" in rels and values.get("href"):
@@ -228,6 +238,8 @@ def inspect_page(url: str) -> Page:
         ]
         page.jsonld_blocks = parser.jsonld_blocks
         page.social_meta = parser.social_meta
+        page.descriptions = parser.descriptions
+        page.missing_alt_images = parser.missing_alt_images
         folded = text.casefold()
         page.legacy_markers = [
             marker for marker in LEGACY_CONTACT_MARKERS if marker.casefold() in folded
@@ -330,6 +342,22 @@ def audit_site(site: Site) -> tuple[list[str], list[str], int, int]:
             errors.append(f"{label}: missing title")
         else:
             titles[page.title.casefold()].append(page.url)
+        descriptions = [value for value in (page.descriptions or []) if value]
+        if not descriptions:
+            warnings.append(f"{label}: missing meta description")
+        elif len(descriptions) > 1:
+            warnings.append(f"{label}: multiple meta descriptions ({len(descriptions)})")
+        else:
+            description_length = len(descriptions[0])
+            if description_length < 25 or description_length > 160:
+                warnings.append(
+                    f"{label}: meta description is {description_length} characters; "
+                    "Bing's URL inspection guidance recommends 25–160"
+                )
+        if page.missing_alt_images:
+            warnings.append(
+                f"{label}: {page.missing_alt_images} image(s) missing an alt attribute"
+            )
         if not page.h1 or not any(page.h1):
             errors.append(f"{label}: missing H1")
         canonicals = page.canonicals or []
@@ -411,21 +439,21 @@ def main() -> int:
     lines = [
         "# Monthly full-site SEO audit",
         "",
-        "Read-only audit of every URL in each production sitemap: status, final/canonical host, title, H1, noindex, legacy contacts, JSON-LD syntax, duplicate titles, hreflang targets/return links, and social preview metadata.",
+        "Read-only audit of every URL in each production sitemap: status, final/canonical host, title, meta description, H1, image alt attributes, noindex, legacy contacts, JSON-LD syntax, duplicate titles, hreflang targets/return links, and social preview metadata.",
         "",
-        "| Site | Sitemap pages checked | Valid JSON-LD blocks | Issues | Pages with social preview warnings |",
+        "| Site | Sitemap pages checked | Valid JSON-LD blocks | Issues | Warnings |",
         "|---|---:|---:|---:|---:|",
     ]
     for name, count, valid_jsonld, issue_count, warning_count in summaries:
         lines.append(f"| {name} | {count} | {valid_jsonld} | {issue_count} | {warning_count} |")
-    lines.extend(["", f"Total issues: **{len(all_errors)}**", f"Pages with social preview warnings: **{len(all_warnings)}**"])
+    lines.extend(["", f"Total issues: **{len(all_errors)}**", f"Total warnings: **{len(all_warnings)}**"])
     if all_errors:
         lines.extend(["", "## Issues", ""])
         lines.extend(f"- {message}" for message in all_errors[:200])
         if len(all_errors) > 200:
             lines.append(f"- Output truncated; {len(all_errors) - 200} additional issue(s) omitted.")
     if all_warnings:
-        lines.extend(["", "## Social preview warnings", ""])
+        lines.extend(["", "## Page quality and social preview warnings", ""])
         lines.extend(f"- {message}" for message in all_warnings[:200])
         if len(all_warnings) > 200:
             lines.append(f"- Output truncated; {len(all_warnings) - 200} additional warning(s) omitted.")
