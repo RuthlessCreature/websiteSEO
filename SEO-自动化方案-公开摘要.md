@@ -170,3 +170,7 @@ Google 的官方生成式 AI 搜索指南说明，AI Overviews/AI Mode 延续常
 ## 2026-10-08 StayChina 挑战与巡检告警说明
 
 GitHub Actions 最近一次生产巡检对 StayChina 的五种未经验证 discovery UA 均收到 HTTP 403 `cf-mitigated=challenge`。较早运行把该现象计为 5 errors；最新运行将其改作身份未验证的 UA 警告后成功结束（0 errors、5 warnings）。这是对模拟 UA 的挑战证据，不是 Google/Bing/AI 官方爬虫被挑战的证据。StayChina 的挑战设置按用户既定要求保留，实际影响仍需站长平台官方抓取数据确认。详见[实时记录](SEO-实时巡检-2026-10-08.md)及[最新 Actions 运行](https://github.com/RuthlessCreature/websiteSEO/actions/runs/37697026534)。
+
+## 2026-10-08 AI/搜索检索发现抽样
+
+本次公开检索工具直接返回 Pomerol 的出货前检验指南，并抽取了页面中验收标准、抽样、缺陷处置和放行决策的正文，证明该页面至少可被这个搜索服务发现和解析；不等同 Google/Bing 排名或其他 AI 产品引用。Xiaodu/StayChina 本轮结果未返回品牌页，但搜索结果不完整，不能据此判定未收录。GSC 页面仍无法读取。
