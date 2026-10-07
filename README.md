@@ -19,6 +19,7 @@ The live website code remains in each site's own repository. This repository hol
 These reports separate technical crawl health, search-engine indexing evidence, public discovery samples, and third-party publishing status. A clean crawl or an accepted sitemap does not prove rankings.
 
 - [Latest production crawl and directory status (2026-10-07)](SEO-%E7%94%9F%E4%BA%A7%E5%A4%8D%E6%A0%B8%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%8A%B6%E6%80%81-2026-10-07.md)
+- [Cloudflare AI crawler readiness and live robots.txt check (2026-10-07)](SEO-Cloudflare-AI%E7%88%AC%E8%99%AB%E5%8F%AF%E8%A7%81%E5%BA%A6%E6%A0%B8%E6%9F%A5-2026-10-07.md)
 - [Google indexing validation notices and live sitemap audit (2026-10-07)](SEO-GSC%E6%9C%80%E6%96%B0%E7%B4%A2%E5%BC%95%E9%AA%8C%E8%AF%81%E7%8A%B6%E6%80%81-2026-10-07.md)
 - [Broad-query public discovery sample (2026-10-07)](SEO-%E5%AE%BD%E8%AF%8D%E5%85%AC%E5%BC%80%E5%8F%91%E7%8E%B0%E6%A0%B7%E6%9C%AC-2026-10-07.md)
 - [YouTube brand-channel visibility check (2026-10-07)](SEO-YouTube%E5%93%81%E7%89%8C%E9%A2%91%E9%81%93%E7%8A%B6%E6%80%81-2026-10-07.md)
@@ -26,6 +27,7 @@ These reports separate technical crawl health, search-engine indexing evidence, 
 
 ## Start here
 
+- [Cloudflare AI crawler readiness and live robots.txt check (2026-10-07)](SEO-Cloudflare-AI%E7%88%AC%E8%99%AB%E5%8F%AF%E8%A7%81%E5%BA%A6%E6%A0%B8%E6%9F%A5-2026-10-07.md)
 - [Live technical audit and broad-keyword baseline (2026-10-07)](SEO-%E5%AE%9E%E6%97%B6%E5%B7%A1%E6%A3%80%E4%B8%8E%E5%AE%BD%E8%AF%8D%E5%9F%BA%E7%BA%BF-2026-10-07.md)
 - [Latest production crawl and broad-query sample (2026-10-07)](SEO-%E7%94%9F%E4%BA%A7%E5%B7%A1%E6%A3%80%E4%B8%8E%E5%AE%BD%E8%AF%8D%E6%90%9C%E7%B4%A2%E5%BF%AB%E7%85%A7-2026-10-07-2.md)
 - [StayChina China company setup pillar-page publication draft](StayChina-China-Company-Setup-%E5%AE%BD%E8%AF%8D%E6%94%AF%E6%9F%B1%E9%A1%B5%E5%8F%91%E5%B8%83%E7%A8%BF.md)
