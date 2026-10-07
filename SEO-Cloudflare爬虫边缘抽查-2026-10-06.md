@@ -89,3 +89,33 @@ Cloudflare 官方定义：安全页“未成功”可以由任何规则或响应
 所有 robots 内容都保留对公开页面的搜索/检索放行，同时只禁止明确的训练型 UA 与私有 API 路径。StayChina 的社交图 URL 有更具体 Allow，当前没有证据要求调整；不要因 Cloudflare 表里显示短 Disallow 而移除 `/api/` 保护。Pomerol 根域 robots 最近出现 2 次历史失败但当前 GET 正常，先观察后续 7 天成功/失败计数；只有复现并取得失败状态/时间后再排查 Worker、重定向或边缘规则。
 
 本轮没有改动 Cloudflare 开关、WAF、robots.txt、DNS、网站代码或部署。
+
+## 2026-10-07 Cloudflare Crawler Hints / IndexNow 实施核对
+
+### 官方能力与边界
+
+- Cloudflare 官方文档（2026-08-14 更新）说明：Crawler Hints 所有方案均可用；功能使用 Cloudflare 缓存信号识别可能更新的内容，并通过 IndexNow 通知搜索引擎。官方举例说明缓存状态 MISS 用于识别可能更新的 URL；状态码大于 4xx 的响应不会发送 IndexNow 信号。[Cloudflare Crawler Hints 文档](https://developers.cloudflare.com/cache/advanced-configuration/crawler-hints/)
+- Bing 目前建议多数站点使用 IndexNow；Bing 官方列出 Bing、Seznam.cz、Naver 等支持方，也说明通知会在采用 IndexNow 的搜索引擎间共享。[Bing IndexNow 指南](https://www.bing.com/webmasters/help/indexnow-0z209wby)、[IndexNow 协议文档](https://www.indexnow.org/documentation)
+- Yandex 官方支持 IndexNow，并明确提醒提交不保证页面被收录；可以在 Yandex Webmaster 查看处理结果。[Yandex IndexNow 支持](https://yandex.com/support/webmaster/en/indexing-options/index-now)
+- Google 不采用 IndexNow。Google 的 Indexing API 只允许用于含 JobPosting 或直播视频结构化数据的页面，不适用于三站一般服务与案例页；常规页面继续使用 Sitemap、内部链接与 Search Console URL Inspection。[Google Indexing API 范围](https://developers.google.com/search/apis/indexing-api/v3/quickstart)、[Google Sitemap 提交说明](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)
+
+### 三站配置与 Worker 响应抽样
+
+2026-10-06 控制台记录显示三站 Crawler Hints 均开启；本次没有重新读取控制台开关。2026-10-07 对各站抽取两条公开页面进行只读 GET，全部 HTTP 200；但返回的缓存标头并不一致：
+
+| 网站 | 页面抽样 | 缓存观察 |
+|---|---|---|
+| Xiaodu | /en/、/en/industries/ | 首页显示 CF-Cache-Status: HIT；行业页未返回该头 |
+| StayChina | /en/、/en/china-setup/ | 均未返回 CF-Cache-Status；Cache-Control 为 s-maxage=31536000 |
+| Pomerol | /en/、/china-sourcing-agent/ | 均显示 CF-Cache-Status: HIT |
+
+这些请求只是即时响应抽样，不能证明 Cache API/边缘内部的全部缓存状态，也没有观察到一次真实内容发布对应的 IndexNow 发出记录。因此三站“功能开关开启”有此前控制台证据，但“每次 Worker 发布都被识别为缓存 MISS 并向 IndexNow 成功送达”尚未被验证。
+
+### 执行准则
+
+1. 保持 Crawler Hints 作为免费、低维护的 IndexNow 信号来源；不要把它当作 Google 提交方式或收录保证。
+2. 在 Bing Webmaster Tools 的 IndexNow 页面和 Yandex Webmaster 中分别查看 URL Received / 处理状态。一次正常内容发布后，只用实际新增或实质更新的 URL 对照接收记录，不批量重发整站 URL。
+3. 若真实发布后索引引擎没有接收到该 URL，再检查 Worker/CDN 缓存路径；必要时为各网站 CI/CD 增加发布后 IndexNow 通知。单独部署 API key 和站点文件需在对应网站仓库实施；当前只记录架构与证据，不改网站仓库。
+4. Google 侧继续维护已提交 sitemap、关键页自然内链，并从 URL Inspection 查抓取状态；不要用 Google Indexing API 提交普通服务页。
+
+Cloudflare 官方资料：[Crawler Hints](https://developers.cloudflare.com/cache/advanced-configuration/crawler-hints/)、[Cloudflare SEO 指引](https://developers.cloudflare.com/fundamentals/performance/improve-seo/)。这次没有更改 Cloudflare Zone、网站代码或部署。
