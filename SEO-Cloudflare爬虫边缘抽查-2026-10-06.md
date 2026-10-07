@@ -130,6 +130,8 @@ Cloudflare 官方资料：[Crawler Hints](https://developers.cloudflare.com/cach
 | www.staychina.org | 24 个 sitemap URL | [全站 publisher metadata 变更](https://github.com/RuthlessCreature/pWebsite/commit/1f294fdd45c54a873d60a66a702a0ef93b3e0a34)；当前 sitemap-index 展开后共 24 个页面 | HTTP 200，已接收 24 个 URL |
 | pomerol.trade | /china-sourcing-agent/ | [sourcing 支柱页买家指引/RFQ 模块变更](https://github.com/RuthlessCreature/pWebsiteExport/commit/0fbdd5ecfcfc97aeff2b0bb4bb3381beed13fad5)；该 canonical URL 在 sitemap 且生产页面返回 HTTP 200 | HTTP 200，已接收 1 个 URL |
 
-三站 key 文件在此次请求中均返回 HTTP 200，文件内容与请求 key 一致。总计提交 **32 个近期确有变更的 URL**，没有把 Pomerol 当前 sitemap 的 298 个 URL 全量重发。此处的 IndexNow HTTP 200 是提交 API 接受回执，不证明每个参与引擎已抓取、收录、展示或排名提升；后续需在 Bing Webmaster 的 IndexNow 页面、Yandex Webmaster 与各搜索平台报告中查看接收/抓取/索引结果。Google 不使用这条 IndexNow 通知作为其网页提交路径，继续以 Search Console、sitemap 和 URL Inspection 为准。
+三站 key 文件在此次请求中均返回 HTTP 200，文件内容与请求 key 一致。总计提交 **32 个近期确有变更的 URL**，没有把 Pomerol 当前 sitemap 的 154 个页面 URL 全量重发。此处的 IndexNow HTTP 200 是提交 API 接受回执，不证明每个参与引擎已抓取、收录、展示或排名提升；后续需在 Bing Webmaster 的 IndexNow 页面、Yandex Webmaster 与各搜索平台报告中查看接收/抓取/索引结果。Google 不使用这条 IndexNow 通知作为其网页提交路径，继续以 Search Console、sitemap 和 URL Inspection 为准。
 
 该操作是一次性的 targeted submission。不要在每次部署时无差别重复提交整份 sitemap；后续自动化应只发送真实新增、更新或删除的 URL，并以一次实际发布后的 Bing/Yandex 接收记录验证 Cloudflare Crawler Hints 是否已足够。参考：[IndexNow 协议文档](https://www.indexnow.org/documentation)、[Bing IndexNow 提交说明](https://www.bing.com/webmasters/help/indexnow-0z209wby)、[Yandex IndexNow 支持](https://yandex.com/support/webmaster/en/indexing-options/index-now)。
+
+计数订正：首次递归统计 Pomerol sitemap 时，通用 XML 读取器把图片结构中的 loc 也计入，得到 298 条 loc；SEO 全站审计按 sitemap 的页面 URL 计数，确认 Pomerol 为 154 页。因此上表与提交说明均以 154 个页面 URL 为准。本次 IndexNow 实际只通知 /china-sourcing-agent/ 这一页。
