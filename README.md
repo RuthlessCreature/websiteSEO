@@ -46,3 +46,6 @@ The live website code remains in each site's own repository. This repository hol
 - [First social posts](%E7%A4%BE%E5%AA%92%E9%A6%96%E5%8F%91%E5%86%85%E5%AE%B9%E5%8C%85.md)
 
 Submission drafts are not evidence of registration, approval, indexing, or ranking. Follow each platform's current rules and publish only verified business information.
+
+- [Xiaodu Automation List submission profile](SEO-Xiaodu-Automation-List-申请资料-2026-10.md) — prepared from verifiable production-site claims; pending required acceptance of the directory listing guidelines.
+
