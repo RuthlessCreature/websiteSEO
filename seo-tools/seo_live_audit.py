@@ -97,6 +97,19 @@ SEARCH_BOTS = (
     "Perplexity-User",
 )
 TRAINING_BOTS = ("GPTBot", "ClaudeBot", "Applebot-Extended")
+EDGE_DISCOVERY_BOTS = (
+    ("Googlebot", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"),
+    ("Bingbot", "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)"),
+    ("OAI-SearchBot", "Mozilla/5.0 (compatible; OAI-SearchBot/1.0; +https://openai.com/searchbot)"),
+    ("Claude-SearchBot", "Mozilla/5.0 (compatible; Claude-SearchBot/1.0; +https://www.anthropic.com/claude-searchbot)"),
+    ("PerplexityBot", "Mozilla/5.0 (compatible; PerplexityBot/1.0; +https://docs.perplexity.ai/docs/perplexity-crawlers)"),
+)
+CHALLENGE_MARKERS = (
+    b"cf_chl_opt",
+    b"cf-challenge",
+    b"attention required! | cloudflare",
+    b"just a moment...",
+)
 LEGACY_CONTACT_MARKERS = ("Nicole", "13923387986", "163.com")
 
 
@@ -138,6 +151,27 @@ def fetch(url: str) -> tuple[int, str, bytes]:
             return response.status, response.geturl(), data
     except urllib.error.HTTPError as error:
         return error.code, error.geturl(), error.read(MAX_RESPONSE_BYTES)
+
+
+def fetch_edge_probe(url: str, user_agent: str) -> tuple[int, str, bytes, str]:
+    """Fetch one page with a discovery-bot UA and report Cloudflare's challenge header."""
+    request = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": user_agent,
+            "Accept": "text/html,application/xhtml+xml,*/*;q=0.8",
+            "Accept-Encoding": "identity",
+            "Connection": "close",
+        },
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=20) as response:
+            body = response.read(MAX_RESPONSE_BYTES + 1)
+            if len(body) > MAX_RESPONSE_BYTES:
+                raise ValueError(f"response exceeds {MAX_RESPONSE_BYTES} bytes")
+            return response.status, response.geturl(), body, response.headers.get("cf-mitigated", "")
+    except urllib.error.HTTPError as error:
+        return error.code, error.geturl(), error.read(MAX_RESPONSE_BYTES), error.headers.get("cf-mitigated", "")
 
 
 def local_name(tag: str) -> str:
@@ -299,6 +333,34 @@ def page_checks(site: Site, path: str, result: Result) -> None:
     result.add(site.name, f"page {path}", f"HTTP 200; title, H1 and canonical present; final {final_url}")
 
 
+def edge_discovery_checks(site: Site, result: Result) -> None:
+    """Detect User-Agent-based edge challenges on one representative public page.
+
+    This is a smoke check only: sending a crawler User-Agent from this audit runner
+    does not authenticate it as a verified search-engine crawler IP.
+    """
+    path = site.sample_paths[0]
+    url = f"https://{site.canonical_host}{path}"
+    for bot, user_agent in EDGE_DISCOVERY_BOTS:
+        try:
+            status, final_url, body, mitigated = fetch_edge_probe(url, user_agent)
+        except Exception as error:  # noqa: BLE001
+            result.add(site.name, f"Cloudflare edge / {bot}", f"{type(error).__name__}: {error}", error=True)
+            continue
+        folded = body.lower()
+        challenged = mitigated.casefold() == "challenge" or any(marker in folded for marker in CHALLENGE_MARKERS)
+        final_host = urllib.parse.urlsplit(final_url).hostname
+        if status != 200 or challenged:
+            details = [f"HTTP {status}"]
+            if mitigated:
+                details.append(f"cf-mitigated={mitigated}")
+            result.add(site.name, f"Cloudflare edge / {bot}", "; ".join(details), error=True)
+        elif final_host != site.canonical_host:
+            result.add(site.name, f"Cloudflare edge / {bot}", f"unexpected final host {final_host!r}", error=True)
+        else:
+            result.add(site.name, f"Cloudflare edge / {bot}", "HTTP 200; no challenge marker observed for this User-Agent smoke probe")
+
+
 def audit_site(site: Site) -> Result:
     result = Result()
     try:
@@ -395,6 +457,7 @@ def audit_site(site: Site) -> Result:
 
         for path in site.sample_paths:
             page_checks(site, path, result)
+        edge_discovery_checks(site, result)
     except Exception as error:  # noqa: BLE001
         result.add(site.name, "audit", f"{type(error).__name__}: {error}", error=True)
     return result
@@ -413,7 +476,7 @@ def main() -> int:
     lines = [
         "# Three-site SEO live audit",
         "",
-        "Read-only production checks for robots/content signals, sitemap reachability and URL consistency, llms.txt, and representative page metadata.",
+        "Read-only production checks for robots/content signals, sitemap reachability and URL consistency, llms.txt, representative page metadata, and Cloudflare challenge responses to discovery-bot User-Agent smoke probes. User-Agent probes do not authenticate verified crawler IPs.",
         "",
         "| Site | Check | Result |",
         "|---|---|---|",
