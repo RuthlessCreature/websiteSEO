@@ -178,3 +178,5 @@ GitHub Actions 最近一次生产巡检对 StayChina 的五种未经验证 disco
 ## 2026-10-08 StayChina 旧搜索摘要复核
 
 公开搜索服务仍缓存上月的 StayChina 旧联系人摘要；当前 `/en` 生产页 HTTP 200，已展示 Yusuf 当前信息且不含旧联系人标记。规范首页在 sitemap 内，最近一次部署已将 24 个 sitemap URL 通知给 IndexNow（HTTP 200 接收回执）。因此不重复通知；待 GSC 可读后对 `/en` 进行 URL 级重新抓取请求并监控摘要刷新。详细对照见[实时巡检记录](SEO-实时巡检-2026-10-08.md)。
+
+补充核验：StayChina sitemap 的 `/en` 首页 `lastmod` 为 `2026-10-07T06:00:00Z`，且该首页随 24 个 sitemap URL 一起获 IndexNow 接收回执。当前站点、sitemap 与通知状态已一致；陈旧摘要等待搜索服务重抓，不能靠重复发送同一通知来证明已更新。
