@@ -4,6 +4,8 @@
 
 本记录补充 GSC 网域属性 `sc-domain:xiaodu.tech` 的实时 URL Inspection。检查针对一条此前出现在“已发现 - 尚未编入索引”示例中的商业行业页，并对照一条已收录的解决方案页。
 
+GSC 站点地图专页在 2026-10-08 复核显示 `https://xiaodu.tech/sitemap.xml` 状态为**成功**，提交日期为 2026-10-05、上次读取为 2026-10-06，已发现 **170 个网页、0 个视频**。因此 `/en/solutions/` URL Inspection 单页上出现的“临时处理错误”不能解释为 sitemap 汇总读取失败；当前汇总报告没有提交失败或处理失败。
+
 | URL | GSC URL Inspection / 实时测试 | 采取的动作 |
 |---|---|---|
 | https://xiaodu.tech/en/solutions/ | 2026-10-08 复核显示已编入索引；Googlebot 智能手机版于 2026-10-06 05:39:53 抓取成功；抓取和索引许可均为是；用户声明 canonical 指向自身。发现信息中 sitemap 字段显示“临时处理错误”，并列出 `/en/solutions/custom-equipment-integration/` 与 `/en/solutions/automated-sampling-lab/` 两个引荐页。 | 页面已收录且近期抓取成功，不重复请求；记录 sitemap 单 URL 提示，待后续 GSC 状态刷新后再判断。 |
@@ -21,6 +23,7 @@
 ## 可复核入口
 
 - [Xiaodu GSC 网页索引报告](https://search.google.com/search-console/index?resource_id=sc-domain%3Axiaodu.tech)
+- [Xiaodu GSC 站点地图报告](https://search.google.com/search-console/sitemaps?resource_id=sc-domain%3Axiaodu.tech)
 - [待抓取页面](https://xiaodu.tech/en/industries/mining-bulk-materials/)
 - [已收录对照页](https://xiaodu.tech/en/solutions/robotic-automation/)
 - [未索引样本及站内链接图复核](SEO-%E5%B0%8F%E5%BA%A6-GSC%E6%9C%AA%E7%B4%A2%E5%BC%95%E6%A0%B7%E6%9C%AC%E4%B8%8E%E5%86%85%E9%93%BE%E5%A4%8D%E6%A0%B8-2026-10-08.md)
