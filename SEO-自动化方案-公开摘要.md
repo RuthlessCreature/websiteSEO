@@ -148,3 +148,8 @@ Google 的官方生成式 AI 搜索指南说明，AI Overviews/AI Mode 延续常
 
 为确认 Yandex 本身收到本轮更新，已按 Yandex 官方 IndexNow API 直提 6 个本周更新的核心页面：Xiaodu 2 页、StayChina 3 页、Pomerol 1 页。提交前三个站的生产 sitemap 和 key 文件均 HTTP 200，且线上 key 内容与网站 main 配置一致；三个 API 批次均返回 HTTP 202、`success: true`。这只证明接口接收了通知，不证明页面已抓取或收录；Yandex Webmaster 属性及其索引/查询报告仍需后续核验。详见[完整提交记录](SEO-实时巡检-2026-10-08.md)。Yandex 官方说明其支持 IndexNow，同时不保证 URL 会被收录：[IndexNow 文档](https://www.yandex.com/support/webmaster/en/indexing-options/index-now.html)。
 
+
+
+## 2026-10-08 Yandex 公共搜索结果核验限制
+
+针对 `industrial automation system integrator China`、`China company setup`、`pre-shipment inspection China` 三个宽主题，直接读取 Yandex 公共搜索页面时，页面返回 HTTP 200，但内容是自动化访问拦截页（captcha/robot-check 提示），不是可解析的搜索结果。该检查因此标记为**受限 / 无法核验排名**；不能把目标域名未出现在拦截页中解读为未收录或排名缺失，也未尝试绕过拦截。Yandex Webmaster 的索引与搜索表现报告仍是后续核对该引擎实际抓取和可见度的首选来源。此前 IndexNow 的 HTTP 202 回执只证明通知已被接收，不能替代索引状态或排名证据。
