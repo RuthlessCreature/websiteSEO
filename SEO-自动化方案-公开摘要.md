@@ -106,3 +106,34 @@ Google 的官方生成式 AI 搜索指南说明，AI Overviews/AI Mode 延续常
 - 只读回验：`/zh/contact/`、`/es/contact/` 和 `/china-sourcing-agent/` 均 HTTP 200；中文、西班牙语页脚各自显示一份本地化电话、直邮、业务邮箱标签；采购代理页的 “Business email” 恰好出现一次。
 - 这是联系入口与部署校验质量修复，不代表索引、AI 引用或关键词排名已有变化。
 
+## 2026-10-08 当前增长与复测状态（覆盖较早快照）
+
+### 当前技术与搜索引擎证据
+
+- Cloudflare 已在三个 Free Zone 开启 Always Use HTTPS。HTTP apex/www 首页及 Pomerol 三个历史 HTTP URL 的抽样请求均最终到达 HTTPS 规范主机并返回 200；每周 SEO 巡检已纳入 6 个 apex/www 入口回归检查。
+- 最新生产全量审计覆盖 348 个 sitemap URL（Xiaodu 170、StayChina 24、Pomerol 154），707 个有效 JSON-LD 区块，0 issue、0 warning。它证明公开页面在审计时可抓取和解析，不证明引擎已收录或已排名。
+- 最新部署日志记录 IndexNow 接受 Xiaodu 170、StayChina 24、Pomerol 154 个 URL 的 HTTP 200 回执；通知接受不保证后续抓取、收录或排序。
+- Google 索引报告（最后更新 2026-10-04）：Xiaodu 75 indexed / 105 not indexed；StayChina 27 / 51；Pomerol 140 / 22。非索引原因需按 URL 和页面价值区分，不能把所有未索引计数都当作修复缺陷。
+- 目前可见的 Google 搜索效果快照：StayChina 2 clicks / 50 impressions / 平均位置 24.3；Pomerol 1 / 31 / 62.6；Xiaodu 在当前可见报告窗口为 0 / 0。窗口数据截止 2026-10-04，之后的趋势尚不能据此判断。
+
+### 查询与页面优先级
+
+- **StayChina：**GSC 当前筛选状态中，`company setup in china` 显示 2 次展示、平均位置 35.5，页面拆分落在 `/es`。该 URL 是英文回退页，保持 noindex 并 canonical 到英文首页；不应为获取这两个低量展示而开放它索引。真正的 `/en/china-setup` 已编入索引，最近成功抓取时间为 2026-10-07。继续通过该页面本身的标题、摘要和相关内链加强商业意图，并以之后累积的 query × page × country 数据复测。教师指南的 `guide to teaching in china` 有 28 展示，但本轮无法重新读取其页面拆分，不把旧窗口数说成实时值。
+- **Pomerol：**围绕出货前检验和采购主页面持续观察查询×页面，而不是复制近似词页。GSC 尚未证明目标宽词进入前 20；现有报告平均位置 62.6。
+- **Xiaodu：**英文 `/en/solutions/` 已索引且 2026-10-06 抓取成功，但当前报告窗口无展示数据。优先积累可公开、可核验的工程流程和验收材料，再从核心解决方案页建立主题内链。
+
+### 目录与品牌实体
+
+- YouTube 公开核验：Xiaodu（Channel ID `UCQYlG-WsgjLUaZUruqAsrVA`）与 StayChina（`UCejnhaXLiO9fpdnXfeSt1Kw`）About 页 HTTP 200；Pomerol `@PomerolTrade` HTTP 404，不能写入站点社交链接或结构化实体，需先在账号内完成公开创建并验证。
+- Xiaodu 在 Industrial Automation Integrators 的档案申请显示已收到，但站内搜索仍为 0 profiles；不重复提交，待出现公开档案后再补核链接。
+- 社媒与目录执行顺序：先完成各品牌官方账号资料、准确站点链接和简介，再逐个平台核对免费/付费条件与用户协议；优先发布原创、可验证的行业内容，把用户带回相应支柱页。公开发帖与接受平台法律条款须在具体平台操作前按其实际内容处理，不以注册成功当作曝光或 SEO 成果。
+
+### 下一轮免费复测顺序
+
+1. GSC：按同一日期窗口分别读取三个站的查询、页面、国家和设备；先复测 StayChina `company setup in china` 的真实展示 URL，再记录教师指南和两个站的商业查询变化。数据刷新前保留报告日期。
+2. Bing Webmaster Tools：在连接可用时复核 Sitemap、Search Performance、IndexNow URL 抓取/索引报告和 AI Performance；不得把通知回执替代索引/引用数据。
+3. Yandex 与百度：核对站点是否已验证、sitemap 状态、抓取/索引和关键词报告；没有后台数据时只记录公开结果样本并注明地区、语言及查询条件。
+4. 第三方目录：优先检查已提交申请是否出现公开档案；不为数量重复创建条目，也不购买垃圾外链。
+5. Cloudflare：保留当前 HTTPS 规范化与 Crawler Hints；StayChina 的挑战偏好维持用户此前选择，后续通过真实安全事件/已验证爬虫数据评估抓取影响，而不是用可伪造的 User-Agent 测试推断机器人身份。
+
+以上是当前证据和待办，不承诺排名、收录、流量、询盘或 AI 引用结果。
