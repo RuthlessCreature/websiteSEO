@@ -17,6 +17,7 @@ The live website code remains in each site's own repository. This repository hol
 ## Latest verified checkpoints
 
 - [Three-site broad-keyword page updates and production verification (2026-10-08)](SEO-%E4%B8%89%E7%AB%99%E5%AE%BD%E8%AF%8D%E9%A1%B5%E9%9D%A2%E4%BC%98%E5%8C%96%E4%B8%8E%E4%B8%8A%E7%BA%BF%E8%AE%B0%E5%BD%95-2026-10-08.md)
+- [Xiaodu brand entity differentiation and search visibility (2026-10-08)](SEO-Xiaodu-%E5%AE%9E%E4%BD%93%E5%8C%BA%E5%88%86%E4%B8%8E%E6%A3%80%E7%B4%A2%E4%BC%98%E5%8C%96-2026-10-08.md)
 
 These reports separate technical crawl health, search-engine indexing evidence, public discovery samples, and third-party publishing status. A clean crawl or an accepted sitemap does not prove rankings.
 
