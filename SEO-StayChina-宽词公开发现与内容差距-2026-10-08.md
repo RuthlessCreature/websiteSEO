@@ -17,7 +17,7 @@
 - 竞争结果主要包含两类：职位目录/招聘平台，以及提供真实招聘服务的机构。职位类页面通常展示职位、城市、学校类型、工资或福利；面向学校的页面会解释如何招聘并提供单独的雇主入口。
 - 本轮样本里出现了 [Teaching Job China](https://www.teachingjobchina.com/)、[ESL Careers 的中国职位页](https://www.esl.careers/teach-in/china)、[China Link ESL](https://chinalinkesl.com/)、[DiscoverChinaTEFL 的学校入口](https://www.discoverchinatefl.com/for-schools) 和其 [学校招聘指南](https://www.discoverchinatefl.com/guides/hire-foreign-english-teachers-china)。这些是结果页观察，不代表经过独立验证的市场份额或服务质量。
 - StayChina 的学校入口清楚收集城市、学生年龄、课表、待遇、住宿、到岗时间和决策人，并说明正式雇佣由真实雇主承担。另有已上线的 /en/guides/teaching-jobs-china 求职者宽词指南，标题为 “Teaching Jobs in China for Foreign Teachers”；当前源码包含学校类型、薪酬比较、合法雇佣、申请资料清单和 FAQ。
-- 当前本站搜索可见性明显弱于已有职位目录和拥有招聘内容资产的竞争站。技术抓取健康本身不能弥补内容供给与市场证据不足。
+- 本轮发现样本出现了职位目录及招聘指南，但没有稳定地区、语言、设备与重复查询条件，因此只能记录为内容/发现差距信号，不能据此断言固定排名或市场份额。技术抓取健康本身也不能替代用户实际需要的职位供给与信任证据。
 
 ## 优先级与执行边界
 
@@ -33,6 +33,16 @@
 - Bing Webmaster Tools：核对 URL 抓取、索引和查询表现；不要把 sitemap 接受或 IndexNow HTTP 200 当作排名证据。
 - 内容运营：职位数据需有到期复核；过期后及时关闭申请并从职位列表和 sitemap 移除，按产品需要返回 404/410 或保留说明页。
 - 外部发现：只提交到受众匹配且条款、费用和公开字段清楚的平台；目录提交草稿不等于已发布或获得链接。
+
+
+## 已实施与生产回验（2026-10-08）
+
+针对已存在的 /en/guides/teaching-jobs-china 指南，本轮只作增量更新，没有创建重复页面：
+
+- 添加商务部《Foreign Investment Guide of the PRC (2025 edition)》和国家移民管理局就业法规、外国人居留证件办事指南三个官方来源，并显示链接核对日期。
+- Article JSON-LD 的更新日期改为由页面数据提供；只有本指南标记为 2026-10-08，其他指南继续使用原有日期。
+- 生产页面回验：HTTP 200；canonical 指向自身；来源区块和三个官方来源链接均存在，官方链接各返回 HTTP 200；Article JSON-LD 解析到一条记录且 dateModified 为 2026-10-08。
+- 页面及社媒/搜索元数据标题未更改，避免为追词牺牲原有准确表达。该改动改善政策来源、时效信号与 AI/搜索系统可核验的引用关系，但不构成排名保证。
 
 ## 本轮结论
 
