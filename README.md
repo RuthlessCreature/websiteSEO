@@ -16,6 +16,8 @@ The live website code remains in each site's own repository. This repository hol
 
 ## Latest verified checkpoints
 
+- [Contact details live but search result stale; refresh checklist (2026-10-08)](SEO-%E4%B8%89%E7%AB%99%E8%81%94%E7%B3%BB%E6%96%B9%E5%BC%8F%E7%B4%A2%E5%BC%95%E6%BB%9E%E5%90%8E%E5%A4%8D%E6%A0%B8%E4%B8%8E%E5%88%B7%E6%96%B0%E6%B8%85%E5%8D%95-2026-10-08.md)
+
 - [Three-site broad-keyword page updates and production verification (2026-10-08)](SEO-%E4%B8%89%E7%AB%99%E5%AE%BD%E8%AF%8D%E9%A1%B5%E9%9D%A2%E4%BC%98%E5%8C%96%E4%B8%8E%E4%B8%8A%E7%BA%BF%E8%AE%B0%E5%BD%95-2026-10-08.md)
 - [Xiaodu brand entity differentiation and search visibility (2026-10-08)](SEO-Xiaodu-%E5%AE%9E%E4%BD%93%E5%8C%BA%E5%88%86%E4%B8%8E%E6%A3%80%E7%B4%A2%E4%BC%98%E5%8C%96-2026-10-08.md)
 
@@ -39,6 +41,8 @@ These reports separate technical crawl health, search-engine indexing evidence, 
 - [Live technical audit and broad-keyword baseline (2026-10-07)](SEO-%E5%AE%9E%E6%97%B6%E5%B7%A1%E6%A3%80%E4%B8%8E%E5%AE%BD%E8%AF%8D%E5%9F%BA%E7%BA%BF-2026-10-07.md)
 
 ## Start here
+
+- [Contact details live but search result stale; refresh checklist (2026-10-08)](SEO-%E4%B8%89%E7%AB%99%E8%81%94%E7%B3%BB%E6%96%B9%E5%BC%8F%E7%B4%A2%E5%BC%95%E6%BB%9E%E5%90%8E%E5%A4%8D%E6%A0%B8%E4%B8%8E%E5%88%B7%E6%96%B0%E6%B8%85%E5%8D%95-2026-10-08.md)
 
 - [Live technical SEO audit (2026-10-08)](SEO-%E5%AE%9E%E6%97%B6%E5%B7%A1%E6%A3%80-2026-10-08.md)
 - [Xiaodu targeted GSC crawl request record (2026-10-08)](SEO-Xiaodu-GSC-%E5%AE%9A%E5%90%91%E6%8A%93%E5%8F%96%E8%AF%B7%E6%B1%82%E8%AE%B0%E5%BD%95-2026-10-08.md)
