@@ -297,13 +297,13 @@ def audit_unsupported_locale_paths(site: Site) -> list[str]:
     return errors
 
 
-def audit_site(site: Site) -> tuple[list[str], list[str], int, int]:
+def audit_site(site: Site) -> tuple[list[str], list[str], int, int, int]:
     errors: list[str] = []
     warnings: list[str] = []
     try:
         urls = load_sitemap(site)
     except Exception as error:  # noqa: BLE001
-        return [f"{site.name}: sitemap: {type(error).__name__}: {error}"], warnings, 0, 0
+        return [f"{site.name}: sitemap: {type(error).__name__}: {error}"], warnings, 0, 0, 0
 
     duplicates = len(urls) - len(set(urls))
     if duplicates:
@@ -362,11 +362,6 @@ def audit_site(site: Site) -> tuple[list[str], list[str], int, int]:
         if page.missing_alt_images:
             warnings.append(
                 f"{label}: {page.missing_alt_images} image(s) missing an alt attribute"
-            )
-        if page.empty_alt_images:
-            warnings.append(
-                f"{label}: {page.empty_alt_images} image(s) have empty alt text; "
-                "review whether they are decorative (decorative images may keep alt=\"\")"
             )
         if not page.h1 or not any(page.h1):
             errors.append(f"{label}: missing H1")
@@ -433,29 +428,30 @@ def audit_site(site: Site) -> tuple[list[str], list[str], int, int]:
             + ", ".join(matching_urls[:5])
             + f" — {title[:120]}"
         )
-    return errors, warnings, len(pages), valid_jsonld
+    empty_alt_images = sum(page.empty_alt_images for page in pages if page.status == 200 and not page.error)
+    return errors, warnings, len(pages), valid_jsonld, empty_alt_images
 
 
 def main() -> int:
-    summaries: list[tuple[str, int, int, int, int]] = []
+    summaries: list[tuple[str, int, int, int, int, int]] = []
     all_errors: list[str] = []
     all_warnings: list[str] = []
     for site in SITES:
-        errors, warnings, count, valid_jsonld = audit_site(site)
-        summaries.append((site.name, count, valid_jsonld, len(errors), len(warnings)))
+        errors, warnings, count, valid_jsonld, empty_alt_images = audit_site(site)
+        summaries.append((site.name, count, valid_jsonld, empty_alt_images, len(errors), len(warnings)))
         all_errors.extend(errors)
         all_warnings.extend(warnings)
 
     lines = [
         "# Weekly full-site SEO audit",
         "",
-        "Read-only audit of every URL in each production sitemap: status, final/canonical host, title, meta description, H1, image alt attributes, noindex, legacy contacts, JSON-LD syntax, duplicate titles, hreflang targets/return links, and social preview metadata.",
+        "Read-only audit of every URL in each production sitemap: status, final/canonical host, title, meta description, H1, image alt attributes, noindex, legacy contacts, JSON-LD syntax, duplicate titles, hreflang targets/return links, and social preview metadata. Empty alt values are reported as an informational count because they are valid for decorative images; images without an alt attribute remain warnings.",
         "",
-        "| Site | Sitemap pages checked | Valid JSON-LD blocks | Issues | Warnings |",
-        "|---|---:|---:|---:|---:|",
+        "| Site | Sitemap pages checked | Valid JSON-LD blocks | Images with empty alt (info) | Issues | Warnings |",
+        "|---|---:|---:|---:|---:|---:|",
     ]
-    for name, count, valid_jsonld, issue_count, warning_count in summaries:
-        lines.append(f"| {name} | {count} | {valid_jsonld} | {issue_count} | {warning_count} |")
+    for name, count, valid_jsonld, empty_alt_images, issue_count, warning_count in summaries:
+        lines.append(f"| {name} | {count} | {valid_jsonld} | {empty_alt_images} | {issue_count} | {warning_count} |")
     lines.extend(["", f"Total issues: **{len(all_errors)}**", f"Total warnings: **{len(all_warnings)}**"])
     if all_errors:
         lines.extend(["", "## Issues", ""])
