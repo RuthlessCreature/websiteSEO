@@ -34,17 +34,29 @@ class Site:
     path_languages: tuple[tuple[str, str], ...] = ()
     unsupported_locale_paths: tuple[str, ...] = ()
     fallback_locale_path: str = ""
+    brand_markers: tuple[str, ...] = ()
+    legal_name: str = ""
+    other_brand_markers: tuple[str, ...] = ()
 
 
 SITES = (
     Site("Xiaodu", "https://xiaodu.tech/sitemap.xml", "xiaodu.tech", "zh-CN",
          (("/zh-cn", "zh-CN"), ("/en", "en"), ("/es", "es"), ("/pt", "pt"),
-          ("/ja", "ja"), ("/ru", "ru"), ("/zh-tw", "zh-TW"))),
+          ("/ja", "ja"), ("/ru", "ru"), ("/zh-tw", "zh-TW")),
+         brand_markers=("Xiaodu", "小度"),
+         legal_name="Zhuhai Xiaodu Intelligent Technology Co., Ltd.",
+         other_brand_markers=("StayChina", "Pomerol International")),
     Site("StayChina", "https://www.staychina.org/sitemap-index.xml", "www.staychina.org", "en",
-         (("/zh-cn", "zh-CN"), ("/en", "en")), ("/es", "/ru", "/pt"), "/en"),
+         (("/zh-cn", "zh-CN"), ("/en", "en")), ("/es", "/ru", "/pt"), "/en",
+         brand_markers=("StayChina",),
+         legal_name="Pomerol International Trade (Zhuhai) Co., Ltd.",
+         other_brand_markers=("Xiaodu", "小度", "Pomerol International")),
     Site("Pomerol", "https://pomerol.trade/sitemap.xml", "pomerol.trade", "en",
          (("/en", "en"), ("/es", "es"), ("/zh", "zh-CN"), ("/ru", "ru"),
-          ("/ja", "ja"), ("/pt", "pt"))),
+          ("/ja", "ja"), ("/pt", "pt")),
+         brand_markers=("Pomerol International",),
+         legal_name="Pomerol International Trade (Zhuhai) Co., Ltd.",
+         other_brand_markers=("StayChina", "Xiaodu", "小度")),
 )
 
 
@@ -61,6 +73,7 @@ class Page:
     alternates: list[tuple[str, str]] | None = None
     jsonld_blocks: list[str] | None = None
     social_meta: dict[str, str] | None = None
+    brand_meta: dict[str, str] | None = None
     descriptions: list[str] | None = None
     missing_alt_images: int = 0
     empty_alt_images: int = 0
@@ -79,6 +92,7 @@ class MetadataParser(HTMLParser):
         self.alternates: list[tuple[str, str]] = []
         self.jsonld_blocks: list[str] = []
         self.social_meta: dict[str, str] = {}
+        self.brand_meta: dict[str, str] = {}
         self.descriptions: list[str] = []
         self.missing_alt_images = 0
         self.empty_alt_images = 0
@@ -103,8 +117,10 @@ class MetadataParser(HTMLParser):
             if name == "description":
                 self.descriptions.append(values.get("content", "").strip())
             key = (values.get("property") or values.get("name") or "").casefold()
-            if key in ("og:image", "twitter:image", "twitter:card") and values.get("content"):
+            if key in ("og:image", "og:title", "twitter:image", "twitter:title", "twitter:card") and values.get("content"):
                 self.social_meta[key] = values["content"].strip()
+            if key in ("og:site_name", "publisher", "application-name") and values.get("content"):
+                self.brand_meta[key] = values["content"].strip()
         elif tag == "img":
             if "alt" not in values:
                 self.missing_alt_images += 1
@@ -142,6 +158,85 @@ class MetadataParser(HTMLParser):
 
 def local_name(tag: str) -> str:
     return tag.rsplit("}", 1)[-1].casefold()
+
+
+def jsonld_nodes(value):
+    if isinstance(value, dict):
+        yield value
+        for nested in value.values():
+            yield from jsonld_nodes(nested)
+    elif isinstance(value, list):
+        for nested in value:
+            yield from jsonld_nodes(nested)
+
+
+def contains_marker(value: str, markers: tuple[str, ...]) -> bool:
+    folded = value.casefold()
+    return any(marker.casefold() in folded for marker in markers)
+
+
+def normalized_text(value: str) -> str:
+    return " ".join(value.split()).casefold()
+
+
+def audit_entity_identity(site: Site, page: Page, label: str) -> list[str]:
+    problems: list[str] = []
+    if not site.brand_markers:
+        return problems
+
+    for field, value in (page.brand_meta or {}).items():
+        if contains_marker(value, site.other_brand_markers):
+            problems.append(f"{field} contains another site's brand: {value!r}")
+        elif not contains_marker(value, site.brand_markers):
+            problems.append(f"{field} does not identify {site.name}: {value!r}")
+
+    for value in [page.title, *(page.h1 or [])]:
+        if contains_marker(value, site.other_brand_markers):
+            problems.append(f"title/H1 contains another site's brand: {value!r}")
+    for field in ("og:title", "twitter:title"):
+        value = (page.social_meta or {}).get(field, "")
+        if value and contains_marker(value, site.other_brand_markers):
+            problems.append(f"{field} contains another site's brand: {value!r}")
+
+    expected_org_id = f"https://{site.canonical_host}#organization"
+    expected_website_id = f"https://{site.canonical_host}#website"
+    for raw in page.jsonld_blocks or []:
+        try:
+            data = json.loads(raw)
+        except (json.JSONDecodeError, TypeError):
+            continue
+        for node in jsonld_nodes(data):
+            node_type = node.get("@type", [])
+            types = (
+                {item.casefold() for item in node_type}
+                if isinstance(node_type, list)
+                else {str(node_type).casefold()}
+            )
+            if "organization" in types:
+                expected_id = expected_org_id
+            elif "website" in types:
+                expected_id = expected_website_id
+            else:
+                expected_id = ""
+            if not expected_id:
+                continue
+            node_id = node.get("@id")
+            if not isinstance(node_id, str):
+                continue
+            resolved_id = urllib.parse.urljoin(f"https://{site.canonical_host}/", node_id).replace("/#", "#")
+            if resolved_id.casefold() != expected_id.casefold():
+                continue
+            name = node.get("name")
+            if isinstance(name, str) and name.strip():
+                if contains_marker(name, site.other_brand_markers):
+                    problems.append(f"JSON-LD {node_type} name contains another site's brand: {name!r}")
+                elif not contains_marker(name, site.brand_markers):
+                    problems.append(f"JSON-LD {node_type} name does not identify {site.name}: {name!r}")
+            legal_name = node.get("legalName")
+            if isinstance(legal_name, str) and legal_name.strip() and normalized_text(legal_name) != normalized_text(site.legal_name):
+                problems.append(f"JSON-LD Organization legalName differs from the configured entity: {legal_name!r}")
+
+    return [f"{label}: {problem}" for problem in dict.fromkeys(problems)]
 
 
 def normalized_url(url: str) -> tuple[str, str, int | None, str, str, str]:
@@ -242,6 +337,7 @@ def inspect_page(url: str) -> Page:
         ]
         page.jsonld_blocks = parser.jsonld_blocks
         page.social_meta = parser.social_meta
+        page.brand_meta = parser.brand_meta
         page.descriptions = parser.descriptions
         page.missing_alt_images = parser.missing_alt_images
         page.empty_alt_images = parser.empty_alt_images
@@ -405,6 +501,7 @@ def audit_site(site: Site) -> tuple[list[str], list[str], int, int, int]:
                 valid_jsonld += 1
             except (json.JSONDecodeError, TypeError) as error:
                 errors.append(f"{label}: invalid JSON-LD block {index}: {error}")
+        errors.extend(audit_entity_identity(site, page, label))
 
         alternates = page.alternates or []
         languages = [lang for lang, _ in alternates]
@@ -445,7 +542,7 @@ def main() -> int:
     lines = [
         "# Weekly full-site SEO audit",
         "",
-        "Read-only audit of every URL in each production sitemap: status, final/canonical host, title, meta description, H1, image alt attributes, noindex, legacy contacts, JSON-LD syntax, duplicate titles, hreflang targets/return links, and social preview metadata. Empty alt values are reported as an informational count because they are valid for decorative images; images without an alt attribute remain warnings.",
+        "Read-only audit of every URL in each production sitemap: status, final/canonical host, title, meta description, H1, image alt attributes, noindex, legacy contacts, JSON-LD syntax and entity identity, duplicate titles, hreflang targets/return links, and social preview metadata. Organization and WebSite names, legal names and publisher/site-name metadata are checked against each site's configured brand. Empty alt values are informational because they are valid for decorative images; images without an alt attribute remain warnings.",
         "",
         "| Site | Sitemap pages checked | Valid JSON-LD blocks | Images with empty alt (info) | Issues | Warnings |",
         "|---|---:|---:|---:|---:|---:|",
