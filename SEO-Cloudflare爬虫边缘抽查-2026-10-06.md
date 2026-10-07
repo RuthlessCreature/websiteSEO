@@ -97,7 +97,7 @@ Cloudflare 官方定义：安全页“未成功”可以由任何规则或响应
 - Cloudflare 官方文档（2026-08-14 更新）说明：Crawler Hints 所有方案均可用；功能使用 Cloudflare 缓存信号识别可能更新的内容，并通过 IndexNow 通知搜索引擎。官方举例说明缓存状态 MISS 用于识别可能更新的 URL；状态码大于 4xx 的响应不会发送 IndexNow 信号。[Cloudflare Crawler Hints 文档](https://developers.cloudflare.com/cache/advanced-configuration/crawler-hints/)
 - Bing 目前建议多数站点使用 IndexNow；Bing 官方列出 Bing、Seznam.cz、Naver 等支持方，也说明通知会在采用 IndexNow 的搜索引擎间共享。[Bing IndexNow 指南](https://www.bing.com/webmasters/help/indexnow-0z209wby)、[IndexNow 协议文档](https://www.indexnow.org/documentation)
 - Yandex 官方支持 IndexNow，并明确提醒提交不保证页面被收录；可以在 Yandex Webmaster 查看处理结果。[Yandex IndexNow 支持](https://yandex.com/support/webmaster/en/indexing-options/index-now)
-- Google 不采用 IndexNow。Google 的 Indexing API 只允许用于含 JobPosting 或直播视频结构化数据的页面，不适用于三站一般服务与案例页；常规页面继续使用 Sitemap、内部链接与 Search Console URL Inspection。[Google Indexing API 范围](https://developers.google.com/search/apis/indexing-api/v3/quickstart)、[Google Sitemap 提交说明](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)
+- IndexNow 不属于 Google 的官方网页提交路径；Google 的 Indexing API 只允许用于含 JobPosting 或直播视频结构化数据的页面，不适用于三站一般服务与案例页。常规页面继续使用 Sitemap、内部链接与 Search Console URL Inspection。[Google Indexing API 范围](https://developers.google.com/search/apis/indexing-api/v3/quickstart)、[Google Sitemap 提交说明](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)
 
 ### 三站配置与 Worker 响应抽样
 
