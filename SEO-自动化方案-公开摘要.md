@@ -153,3 +153,8 @@ Google 的官方生成式 AI 搜索指南说明，AI Overviews/AI Mode 延续常
 ## 2026-10-08 Yandex 公共搜索结果核验限制
 
 针对 `industrial automation system integrator China`、`China company setup`、`pre-shipment inspection China` 三个宽主题，直接读取 Yandex 公共搜索页面时，页面返回 HTTP 200，但内容是自动化访问拦截页（captcha/robot-check 提示），不是可解析的搜索结果。该检查因此标记为**受限 / 无法核验排名**；不能把目标域名未出现在拦截页中解读为未收录或排名缺失，也未尝试绕过拦截。Yandex Webmaster 的索引与搜索表现报告仍是后续核对该引擎实际抓取和可见度的首选来源。此前 IndexNow 的 HTTP 202 回执只证明通知已被接收，不能替代索引状态或排名证据。
+
+
+## 2026-10-08 生产巡检续检
+
+仓库只读实时巡检脚本再次直接请求三站生产环境，结果 0 errors、0 warnings；主 sitemap 页面数为 Xiaodu 170、StayChina 24、Pomerol 154；`llms.txt`、代表服务/联系页及五种 discovery User-Agent smoke probes 均通过 HTTP 检查。此处仅验证端点技术可达，UA 探针不能证明真实爬虫身份、搜索引擎收录、AI 引用或排名。Search Console 当前标签读取超时，暂时没有新的索引/查询数据；最新可用 GSC 数字应继续按历史快照标注，不能声称宽词已进入前两页。详情见[实时巡检记录](SEO-实时巡检-2026-10-08.md)。
