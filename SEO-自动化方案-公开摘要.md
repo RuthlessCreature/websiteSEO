@@ -166,3 +166,7 @@ Google 的官方生成式 AI 搜索指南说明，AI Overviews/AI Mode 延续常
 ## 2026-10-08 全站实体与目录状态续检
 
 再次完成三站 348 个 sitemap 页面及首页实体图谱的只读审计：707 个有效 JSON-LD 区块，Organization → WebSite → WebPage 关系均通过，0 issues、0 warnings。Automation-List Xiaodu 申请仍没有提交成功回执；官方表单浏览器会话超时，本轮未通过其他机制绕过提交。基础技术标记当前没有发现阻塞项，增长重点继续放在可核验业务证据、相关第三方提及和站长平台页面级表现。审计与状态详见[实时巡检记录](SEO-实时巡检-2026-10-08.md)。
+
+## 2026-10-08 StayChina 挑战与巡检告警说明
+
+GitHub Actions 最近一次生产巡检对 StayChina 的五种未经验证 discovery UA 均收到 HTTP 403 `cf-mitigated=challenge`。较早运行把该现象计为 5 errors；最新运行将其改作身份未验证的 UA 警告后成功结束（0 errors、5 warnings）。这是对模拟 UA 的挑战证据，不是 Google/Bing/AI 官方爬虫被挑战的证据。StayChina 的挑战设置按用户既定要求保留，实际影响仍需站长平台官方抓取数据确认。详见[实时记录](SEO-实时巡检-2026-10-08.md)及[最新 Actions 运行](https://github.com/RuthlessCreature/websiteSEO/actions/runs/37697026534)。
