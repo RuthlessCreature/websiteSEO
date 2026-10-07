@@ -350,11 +350,18 @@ def edge_discovery_checks(site: Site, result: Result) -> None:
         folded = body.lower()
         challenged = mitigated.casefold() == "challenge" or any(marker in folded for marker in CHALLENGE_MARKERS)
         final_host = urllib.parse.urlsplit(final_url).hostname
-        if status != 200 or challenged:
+        if challenged:
             details = [f"HTTP {status}"]
             if mitigated:
                 details.append(f"cf-mitigated={mitigated}")
-            result.add(site.name, f"Cloudflare edge / {bot}", "; ".join(details), error=True)
+            result.add(
+                site.name,
+                f"Cloudflare edge / {bot}",
+                "; ".join(details) + "; unverified audit-runner User-Agent probe only, not proof that the verified crawler is challenged",
+                warning=True,
+            )
+        elif status != 200:
+            result.add(site.name, f"Cloudflare edge / {bot}", f"HTTP {status}", error=True)
         elif final_host != site.canonical_host:
             result.add(site.name, f"Cloudflare edge / {bot}", f"unexpected final host {final_host!r}", error=True)
         else:
