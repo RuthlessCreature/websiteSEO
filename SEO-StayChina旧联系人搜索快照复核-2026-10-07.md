@@ -38,3 +38,10 @@
 ## SEO 影响
 
 旧联系人摘要可能削弱品牌实体一致性和询盘可信度。由于生产页面已经正确，应优先推动搜索引擎刷新规范 URL 的索引；同时确保 sitemap 的 `lastmod` 与真实内容更新时间一致，但不可虚构更新时间。
+
+## 补充复核：`/en/institutions` 搜索摘要与生产页（2026-10-07 15:31 UTC）
+
+本次公开网页搜索样本仍返回 `https://www.staychina.org/en/institutions` 的旧标题和摘要：“For institutions: foreign-teacher role preparation | Pomerol International”，正文摘要含 Nicole、`+86 13923387986` 和 `13923387986@163.com`；该结果标记的抓取时间约为上月。打开该结果目标后，页面当前展示标题 `Schools hiring: share the role first | StayChina`、自指 canonical `https://www.staychina.org/en/institutions`，联系区为 Yusuf、`+86 132 4269 4270`、`abd.yusuf.ibrahim.mustafa@gmail.com` 和 `contact@staychina.org`。随后对同一规范 URL 发起生产 GET，返回 HTTP 200；原始 HTML 包含全部新联系人字段，未发现 Nicole、旧电话或 `163.com`。
+
+这进一步支持“该搜索结果所用摘要/标题快照过期”，并与当前生产 HTML 一致性相符。公开搜索工具没有披露所对应的具体搜索引擎、国家、设备或固定 SERP 位置；打开页面和本次 GET 也不等于 GSC 已重新抓取。因此，Google Search Console 的 URL Inspection 与索引状态仍待在后台核实，本次没有提交新的索引请求。
+
