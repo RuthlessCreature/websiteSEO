@@ -144,3 +144,7 @@ Google 的官方生成式 AI 搜索指南说明，AI Overviews/AI Mode 延续常
 
 这证明规则正在对相应 User-Agent 声称请求执行 challenge/block，但不证明对方属于真实官方爬虫。当前 Cloudflare Free GraphQL 可按 User-Agent 过滤，不能用 Bot Management 的可靠 bot detection ID 验证身份。由于用户此前明确要求 StayChina 继续 challenge，本次保留原设置；此项仍是搜索/AI抓取风险待核实点，需与 Cloudflare 可靠身份信号及站长平台抓取结果交叉确认。详见[完整事件核查](SEO-实时巡检-2026-10-08.md)。
 
+### Yandex 直接通知补充（2026-10-08）
+
+为确认 Yandex 本身收到本轮更新，已按 Yandex 官方 IndexNow API 直提 6 个本周更新的核心页面：Xiaodu 2 页、StayChina 3 页、Pomerol 1 页。提交前三个站的生产 sitemap 和 key 文件均 HTTP 200，且线上 key 内容与网站 main 配置一致；三个 API 批次均返回 HTTP 202、`success: true`。这只证明接口接收了通知，不证明页面已抓取或收录；Yandex Webmaster 属性及其索引/查询报告仍需后续核验。详见[完整提交记录](SEO-实时巡检-2026-10-08.md)。Yandex 官方说明其支持 IndexNow，同时不保证 URL 会被收录：[IndexNow 文档](https://www.yandex.com/support/webmaster/en/indexing-options/index-now.html)。
+
