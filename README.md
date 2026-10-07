@@ -17,6 +17,7 @@ The live website code remains in each site's own repository. This repository hol
 ## Start here
 
 - [Live technical audit and broad-keyword baseline (2026-10-07)](SEO-%E5%AE%9E%E6%97%B6%E5%B7%A1%E6%A3%80%E4%B8%8E%E5%AE%BD%E8%AF%8D%E5%9F%BA%E7%BA%BF-2026-10-07.md)
+- [Latest production crawl and broad-query sample (2026-10-07)](SEO-%E7%94%9F%E4%BA%A7%E5%B7%A1%E6%A3%80%E4%B8%8E%E5%AE%BD%E8%AF%8D%E6%90%9C%E7%B4%A2%E5%BF%AB%E7%85%A7-2026-10-07-2.md)
 - [Content-depth and case-distinctiveness review (2026-10-07)](SEO-%E5%86%85%E5%AE%B9%E6%B7%B1%E5%BA%A6%E4%B8%8E%E6%A1%88%E4%BE%8B%E5%8C%BA%E5%88%86%E5%A4%8D%E6%A0%B8-2026-10-07.md)
 
 - [Three-site SEO status](SEO-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%96%B9%E6%A1%88-%E5%85%AC%E5%BC%80%E6%91%98%E8%A6%81.md)
