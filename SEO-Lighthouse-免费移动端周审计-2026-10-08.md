@@ -27,3 +27,21 @@ StayChina Cloudflare 对部分未验证的 crawler User-Agent 曾产生挑战响
 - [Lighthouse v13.5.0 release](https://github.com/GoogleChrome/lighthouse/releases/tag/v13.5.0)
 - [GitHub Actions 托管 runner 说明及公开仓库免费用量](https://docs.github.com/en/actions/how-tos/write-workflows/choose-where-workflows-run/choose-the-runner-for-a-job)
 - [Google PageSpeed Insights API 入门](https://developers.google.com/speed/docs/insights/v5/get-started?hl=en)
+
+## 2026-10-08 首轮原始 Lighthouse 报告发现
+
+读取首次周审计原始 JSON（GitHub Actions run `37708824335`，Lighthouse `13.5.0`）后，确认三条命令都执行成功之外，页面还存在以下真实改进项。它们是一轮移动端实验室样本，需在修复后用同一配置复测；不能代替 CrUX 现场数据或 Search Console 排名证据。
+
+| 页面 | Performance | Accessibility | Best Practices | SEO | 主要发现 |
+|---|---:|---:|---:|---:|---|
+| Xiaodu `/en/solutions/` | 94 | 78 | 73 | 100 | 三处文字对比度低于 Lighthouse 检查值；卡片 `h3` 出现标题层级跳级；语言选择器没有可访问名称；浏览器记录一个 404 资源错误（本 JSON 未定位具体 URL）；Pexels 图片估算可节省约 388 KiB。 |
+| StayChina `/en/china-setup` | 77 | 97 | 81 | 100 | LCP 3.6 秒、TBT 490 毫秒、TTI 4.7 秒；主线程 JavaScript 执行约 2.3 秒。报告归因包含 Cloudflare `/cdn-cgi/challenge-platform/scripts/jsd/main.js` 与 Next.js chunk；Unsplash 主图估算可节省约 126 KiB。 |
+| Pomerol 出货前检验指南 | 96 | 95 | 92 | 100 | 两处低对比度文字、页脚标题层级跳级、首屏图片显示比例与实际比例不一致且分辨率不足；图片估算可节省约 91 KiB。 |
+
+### 实施顺序
+
+1. **StayChina：先拆解慢交互来源。** 先对 Next.js 页面 bundle 与 Cloudflare JavaScript Detections/挑战注入分别做归因，确认 Lighthouse 普通浏览器请求的 `jsd` 脚本是否来自现有安全配置、适用范围和实际访客触发比例；不为拿分直接绕过挑战或降低边缘保护。并优先压缩/裁剪首页图片、减少非关键客户端 JavaScript，再以同一 Lighthouse 配置复测。
+2. **Xiaodu：修复可直接定位的无障碍项。** 提升低对比度文字颜色；为语言选择器添加明确标签；理顺页面标题层级；优先提供尺寸匹配、压缩后的同源图片。404 需从下一轮浏览器网络日志定位后再改。
+3. **Pomerol：修复图片比例/分辨率与对比度。** 给首屏图片匹配自然比例并生成合适尺寸/格式变体；调整日期与品牌小字的对比度；把页脚标题级别接入连续的页面层级。
+
+相关节点来自原始 Lighthouse JSON：Xiaodu 对比度分别测得 2.17、4.09、2.54（该小号正文需满足更高的可读对比标准）；StayChina 两个主要执行项为 Cloudflare 挑战平台脚本与 Next.js chunk；Pomerol 对比度最低为 2.82，图片自然比例与指定显示尺寸不符。修复应落在对应网站源码/Cloudflare配置后再复测；本报告更新只记录诊断，不代表生产站已修复或排名已提升。
