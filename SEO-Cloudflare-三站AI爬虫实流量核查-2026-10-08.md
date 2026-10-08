@@ -54,7 +54,6 @@ Metrics 的 4xx 过滤中可见疑似扫描器探测的环境变量、配置文�
 4. 对 scanner 风格 4xx 保持边缘保护；只有能用安全事件日志定位到真实搜索爬虫访问了 sitemap 目标 URL，才进一步排查挑战或 Worker 路由。
 5. 在下个周期按同一筛选记录三站的 allowed、HTTP 状态、主要 URL 与 Search Console 索引变化。用同一时间窗比较，不以单次流量峰值宣称 SEO 改善。
 
-<<<<<<< HEAD
 Cloudflare 指标定义与免费计划身份限制见官方文档：[AI Crawl Control](https://developers.cloudflare.com/ai-crawl-control/)、[管理 AI 爬虫](https://developers.cloudflare.com/ai-crawl-control/features/manage-ai-crawlers/)、[分析 AI 流量](https://developers.cloudflare.com/ai-crawl-control/features/analyze-ai-traffic/)。
 
 
@@ -83,20 +82,3 @@ Cloudflare 指标定义与免费计划身份限制见官方文档：[AI Crawl Co
 Cloudflare 官方 Workers 缓存说明明确：Zone 级 Cache Rules、Cache Response Rules 和默认缓存等级不控制 Workers Cache；Worker 响应中的 Cache-Control 才是 Workers Cache 的主要控制面。[Workers Cache 官方文档](https://developers.cloudflare.com/workers/cache/)；[Workers 与 Cache Rules 的优先级](https://developers.cloudflare.com/cache/interaction-cloudflare-products/workers-cache-rules/)。因此本轮没有为了“统一”而新建 Zone Cache Rules；这类规则不能可靠解决上述 Worker 返回头差异。
 
 若要统一缓存行为，应在三套 Worker 源码/构建策略中统一公共 HTML 与静态端点的 Cache-Control，单独保持 API/个性化/表单请求为 no-store，并明确部署版本、静态资源哈希和页面更新的失效策略。StayChina 的一年 s-maxage 与 Pomerol 的 max-age=0 策略各自都需要先确认部署后缓存版本/更新路径，再决定改动；不能简单把所有 HTML 改成相同的高 TTL。
-=======
-Cloudflare 指标定义与免费计划身份限制见官方文档：[AI Crawl Control](https://developers.cloudflare.com/ai-crawl-control/)、[管理 AI 爬虫](https://developers.cloudflare.com/ai-crawl-control/features/manage-ai-crawlers/)、[分析 AI 流量](https://developers.cloudflare.com/ai-crawl-control/features/analyze-ai-traffic/)。
-
-## 2026-10-08 Accept: text/markdown 线上复核
-
-对三站当前代表性核心页面分别发送普通 HTTP GET，并带上 `Accept: text/markdown`：
-
-| 页面 | HTTP | 实际 Content-Type | Markdown 转换标记 |
-|---|---:|---|---|
-| `https://xiaodu.tech/en/solutions/` | 200 | `text/html; charset=utf-8` | 未返回 `x-markdown-tokens`，也未返回 `Vary: Accept` |
-| `https://www.staychina.org/en/china-setup` | 200 | `text/html; charset=utf-8` | 未返回 `x-markdown-tokens`；`Vary` 仅含 Next.js 路由相关值 |
-| `https://pomerol.trade/resources/guides/china-pre-shipment-inspection-guide/` | 200 | `text/html` | 未返回 `x-markdown-tokens`，也未返回 `Vary: Accept` |
-
-这说明这些生产 Zone 当前没有按该请求协商输出 Markdown；页面本身正常返回 HTML。Cloudflare 官方 [Markdown for Agents 文档](https://developers.cloudflare.com/fundamentals/reference/markdown-for-agents/)说明，功能启用时可通过 `Accept: text/markdown` 获取转换内容，且仅适用于 Pro、Business、Enterprise（功能本身不另收费）。三个 Zone 目前为 Free，且不升级套餐，因此本轮不启用该功能。
-
-AI/搜索可发现性继续使用已在线的语义化 HTML、可抓取 canonical 页面、站点地图、robots 声明和 `/llms.txt` 导航；Cloudflare Markdown 转换不是收录或排名条件，也没有证据表明仅启用它会提高搜索/AI 引用。上面的 Header 检查只验证三个代表 URL，不代表逐页检查整个站点或 AI 答案引用状态。
->>>>>>> origin/main
