@@ -69,3 +69,16 @@ Cloudflare 指标定义与免费计划身份限制见官方文档：[AI Crawl Co
 | Pomerol `/china-sourcing-agent/` | `CF-Cache-Status: HIT`、`Cache-Control: public, max-age=0, must-revalidate` | 本次 Cloudflare 明确返回 HIT，但 Cache-Control 要求复核；不表示浏览器可长期本地缓存。 |
 
 三站 `/llms.txt` 抽查均 HTTP 200 且 Cloudflare 标记 HIT。该信号证明相应请求当前由边缘响应缓存，不代表 AI 机器人已读取或引用该文件。当前生产页面的缓存头不一致；先确认 Worker/Cache Rules 的真实缓存策略与部署 purge，再统一静态资源和 HTML 的规则，避免 StayChina 的一年共享缓存声明在无失效保障时长期提供旧联系或服务信息。不要在未确认缓存清除机制前盲目延长 HTML TTL。
+
+
+## 2026-10-08 Cloudflare Cache Rules 与 Workers 响应策略交叉核对
+
+已在三站 Zone 的 Cloudflare Dashboard 只读查看 Cache Rules 页面：Xiaodu、StayChina、Pomerol 均显示未创建 Cache Rules，也未创建 Cache Response Rules。结合已测响应头，三站页面缓存差异来自 Worker/框架返回，而不是当前 Zone Cache Rule：
+
+- Xiaodu 的主解决方案 Worker 路由在当前 GitHub main 源码中明确为 HTML 响应设置 `Cache-Control: public, max-age=600`。
+- StayChina 主公司设立页的线上响应为 `s-maxage=31536000`；当前 main 的 app/middleware 源码未发现该长 TTL 的直接声明，具体由构建/Next-on-Workers 运行时产生的头仍待核实。
+- Pomerol Worker 对静态页面调用 `env.ASSETS.fetch(request)`，线上 HTML 响应为 `public, max-age=0, must-revalidate` 并显示 CF-Cache-Status HIT。
+
+Cloudflare 官方 Workers 缓存说明明确：Zone 级 Cache Rules、Cache Response Rules 和默认缓存等级不控制 Workers Cache；Worker 响应中的 Cache-Control 才是 Workers Cache 的主要控制面。[Workers Cache 官方文档](https://developers.cloudflare.com/workers/cache/)；[Workers 与 Cache Rules 的优先级](https://developers.cloudflare.com/cache/interaction-cloudflare-products/workers-cache-rules/)。因此本轮没有为了“统一”而新建 Zone Cache Rules；这类规则不能可靠解决上述 Worker 返回头差异。
+
+若要统一缓存行为，应在三套 Worker 源码/构建策略中统一公共 HTML 与静态端点的 Cache-Control，单独保持 API/个性化/表单请求为 no-store，并明确部署版本、静态资源哈希和页面更新的失效策略。StayChina 的一年 s-maxage 与 Pomerol 的 max-age=0 策略各自都需要先确认部署后缓存版本/更新路径，再决定改动；不能简单把所有 HTML 改成相同的高 TTL。
