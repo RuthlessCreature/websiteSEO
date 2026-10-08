@@ -27,3 +27,9 @@ PowerShell 默认 User-Agent 收到过 YouTube 通用语言页；本记录使用
 | Pomerol | HTTP 404 | 没有公开频道元数据；`@PomerolTrade` 仍未创建或未公开可访问 |
 
 近期通过电话验证码只证明某个 YouTube 验证步骤完成，不能证明 Pomerol 品牌频道创建成功。针对“创建 Pomerol 频道”的浏览器会话在页面读取阶段超时，本轮没有发出创建请求，也没有接受新的 YouTube 服务条款；不把 404 的 handle 写入 Pomerol 网站或结构化数据。后续应在账号页面可正常操作时创建并确认公开频道，再将已验证的频道 URL 加入 Pomerol 官网社交链接和 `sameAs`。
+
+## 2026-10-08 登录账号内创建流程复核
+
+在已登录的 Yusuf YouTube 账号 `abd.yusuf.ibrahim.mustafa@gmail.com` 的“所有频道”页查看创建流程，当前可见频道仅有 Xiaodu Automation（`@XiaoduAutomation`）与 StayChina（`@StayChinaOrg`）；没有 Pomerol 频道。选择“创建频道”后，YouTube 要求先完成高级功能验证，页面给出的路径为 6 秒自拍视频、身份证件照片或继续使用频道并积累历史（说明通常需保持活跃约两个月后自动解锁）。
+
+本次没有选择或上传自拍/证件，没有完成高级验证，没有接受新的服务条款，也没有创建频道。Studio 面板显示 Xiaodu 当前已有一条 2026-10-07 的社区欢迎帖，0 赞、0 评论；不能记为视频发布。Pomerol 频道仍未创建。当前可行的无证件路径需要等待频道历史积累，且无法承诺具体解锁日；不能以电话验证已完成推断该门槛已解除。
