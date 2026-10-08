@@ -1,0 +1,82 @@
+name: Weekly three-site mobile Lighthouse audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/lighthouse-audit.yml"
+      - "seo-tools/lighthouse_audit.py"
+  schedule:
+    - cron: "29 5 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: website-seo-lighthouse-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out SEO operations repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Install pinned Lighthouse CLI
+        run: npm install --global lighthouse@13.5.0
+
+      - name: Run mobile Lighthouse on three representative pages
+        shell: bash
+        run: |
+          mkdir -p lighthouse-reports
+          failed=0
+          run_audit() {
+            local name="$1"
+            local url="$2"
+            echo "::group::Lighthouse: $name"
+            lighthouse "$url" \
+              --only-categories=performance,accessibility,best-practices,seo \
+              --output=json \
+              --output-path="lighthouse-reports/$name.json" \
+              --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
+              --quiet
+            local status=$?
+            if [ "$status" -ne 0 ]; then
+              echo "::warning::Lighthouse failed for $name (exit $status)"
+              failed=1
+            fi
+            echo "::endgroup::"
+          }
+          run_audit "xiaodu-solutions" "https://xiaodu.tech/en/solutions/"
+          run_audit "staychina-setup" "https://www.staychina.org/en/china-setup"
+          run_audit "pomerol-psi-guide" "https://pomerol.trade/resources/guides/china-pre-shipment-inspection-guide/"
+          exit "$failed"
+
+      - name: Summarize reports
+        if: always()
+        run: python3 seo-tools/lighthouse_audit.py
+
+      - name: Add summary to workflow run
+        if: always()
+        shell: bash
+        run: |
+          if [ -f lighthouse-reports/summary.md ]; then
+            cat lighthouse-reports/summary.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Save raw Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-lighthouse-audit-${{ github.run_number }}
+          path: lighthouse-reports/
+          if-no-files-found: warn
+          retention-days: 90
