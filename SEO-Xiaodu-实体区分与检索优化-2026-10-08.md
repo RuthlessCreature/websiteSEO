@@ -79,3 +79,29 @@
 - GSC 中目标查询具有真实展示，且目标页是相关规范页面；
 - 若要求前 1–2 页，必须用目标国家和宽主题查询的 Search Console / 搜索跟踪数据验证，不能用网站可访问或关键词长尾结果代替。
 
+
+## 2026-10-08 品牌实体歧义再核验与执行点
+
+### 本轮公开检索
+
+使用当前公开网页搜索分别查询 `珠海小度智能科技有限公司`、`"Zhuhai Xiaodu Intelligent Technology"`、`"Xiaodu Automation" Zhuhai` 与 `"xiaodu.tech" Zhuhai`。本轮返回样本没有出现 `xiaodu.tech` 或该工业自动化主体的对应结果；结果主要指向百度旗下的小度/DuerOS、上海小度人工智能有限公司，以及其他无关的同名内容。搜索接口没有完整分页、固定国家和可复现 SERP 位置，因此该快照只能确认品牌歧义与站外实体信号薄弱，不能当作未收录或固定排名证明。
+
+参考公开来源：
+
+- [DuerOS 官方网站](https://duer.baidu.com/index.html) 将 DuerOS 介绍为百度产品，并列出百度相关企业与产品信息。
+- [Apple App Store 的小度应用页](https://apps.apple.com/cn/app/%E5%B0%8F%E5%BA%A6/id1437733193) 将开发者列为上海小度人工智能有限公司；这是另一个同名实体，不应纳入 Xiaodu Automation 的 `sameAs`。
+- [Xiaodu Automation 当前英文首页](https://xiaodu.tech/en/) 的标题已出现工业自动化与珠海定位，但首页标题和站外结果仍不足以单独建立跨站实体关系。
+
+### 当前 main 源码状态
+
+只读读取 `RuthlessCreature/xWebsite` 的 `main:src/index.js`。Organization JSON-LD 的 `name` 与 `legalName` 是 `Zhuhai Xiaodu Intelligent Technology Co., Ltd.`，`alternateName` 目前只有中文名 `珠海小度智能科技有限公司`，`sameAs` 只有已核验的 YouTube `@XiaoduAutomation`。没有发现英文品牌 `Xiaodu Automation` 被声明为该组织的别名。
+
+### 下一步可直接实施
+
+1. 将 `Xiaodu Automation` 加入 Organization 的 `alternateName`，保留现有 `name`、`legalName` 与中文名称；不把百度小度、无关同名企业或未核验目录写入 `sameAs`。
+2. 在首页可见 About 文案中用一句清晰定义连接品牌、法定主体、珠海和工业自动化系统集成；保持 title、社媒频道名、目录名称与站内实体用语一致。
+3. 在 GSC 可读取时，按 `Xiaodu Automation`、公司全称、`industrial automation system integrator China` 查询并拆分国家与落地页，确认展示是否进入规范首页/服务页，再评估是否扩展内容。
+4. 只有获得可公开核验的官方档案或目录上线页后，才把新链接加入 `sameAs`；目录审核回执不算公开实体页面。
+
+本轮没有改动 xWebsite/pWebsite/pWebsiteExport 源码或生产网站。本记录只更新 `websiteSEO` 的 SEO 操作材料；公开检索样本不构成排名证据，源码建议仍需进入网站仓库并部署后才会影响线上实体数据。
+
