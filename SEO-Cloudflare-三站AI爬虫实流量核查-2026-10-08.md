@@ -56,3 +56,16 @@ Metrics 的 4xx 过滤中可见疑似扫描器探测的环境变量、配置文�
 
 Cloudflare 指标定义与免费计划身份限制见官方文档：[AI Crawl Control](https://developers.cloudflare.com/ai-crawl-control/)、[管理 AI 爬虫](https://developers.cloudflare.com/ai-crawl-control/features/manage-ai-crawlers/)、[分析 AI 流量](https://developers.cloudflare.com/ai-crawl-control/features/analyze-ai-traffic/)。
 
+
+
+## 2026-10-08 公共页面 Cloudflare 缓存头抽查
+
+从外部 HTTP 请求抽查三站的重要服务页与 AI 摘要文件，全部目标返回 HTTP 200，响应头可见 Server: cloudflare。主要 HTML 响应呈现不同的缓存策略：
+
+| 页面 | 观测到的响应头 | 能确认的内容 |
+|---|---|---|
+| Xiaodu `/en/solutions/` | `Cache-Control: public, max-age=600`；未返回 `CF-Cache-Status` | 浏览器/缓存客户端可缓存 10 分钟；本次无法从响应头确认边缘 HIT/MISS。 |
+| StayChina `/en/china-setup` | `Cache-Control: s-maxage=31536000`；未返回 `CF-Cache-Status` | 声明共享缓存新鲜期 365 天；响应头未提供 Cloudflare HIT/MISS 或 Age，不能单凭它断定 Cloudflare 实际缓存命中。上线后页面内容变更时应确认 purge/失效链路。 |
+| Pomerol `/china-sourcing-agent/` | `CF-Cache-Status: HIT`、`Cache-Control: public, max-age=0, must-revalidate` | 本次 Cloudflare 明确返回 HIT，但 Cache-Control 要求复核；不表示浏览器可长期本地缓存。 |
+
+三站 `/llms.txt` 抽查均 HTTP 200 且 Cloudflare 标记 HIT。该信号证明相应请求当前由边缘响应缓存，不代表 AI 机器人已读取或引用该文件。当前生产页面的缓存头不一致；先确认 Worker/Cache Rules 的真实缓存策略与部署 purge，再统一静态资源和 HTML 的规则，避免 StayChina 的一年共享缓存声明在无失效保障时长期提供旧联系或服务信息。不要在未确认缓存清除机制前盲目延长 HTML TTL。
