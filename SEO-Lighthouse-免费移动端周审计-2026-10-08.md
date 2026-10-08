@@ -10,7 +10,7 @@
 - StayChina：`https://www.staychina.org/en/china-setup`
 - Pomerol：`https://pomerol.trade/resources/guides/china-pre-shipment-inspection-guide/`
 
-公开仓库的 GitHub Actions 标准托管 runner 可免费使用。工作流固定 Lighthouse 版本并运行在移动端配置，减少版本变化带来的噪声。首个生产运行会在本次工作流提交后触发；本记录不虚报尚未产生的运行分数。
+公开仓库的 GitHub Actions 标准托管 runner 可免费使用。工作流固定 Lighthouse 版本并运行在移动端配置，减少版本变化带来的噪声。首轮 GitHub Actions 运行 [37708232369](https://github.com/RuthlessCreature/websiteSEO/actions/runs/37708232369) 已完成，工作流结果为 success，三条 Lighthouse CLI 调用均执行完成，并上传了包含原始 JSON 与 Markdown 汇总的 artifact（保留 90 天）。该结果只证明审计作业完成；Cloudflare 可能向 CI 返回挑战页，需查看报告中的最终页面响应与各项数据，不把作业 success 视为每个页面内容均可抓取。分数不抄录进此记录，以免把一次波动的 lab 样本当成长期基线。
 
 ## 如何解读
 
