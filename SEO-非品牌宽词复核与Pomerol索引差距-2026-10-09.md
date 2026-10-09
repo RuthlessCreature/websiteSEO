@@ -30,6 +30,17 @@
 - 已登录 Google Search Console 的 Pomerol「站点地图」报告当前显示同一 sitemap.xml 的状态为“成功”，上次读取为 **2026-10-07**，发现 154 个网页。该读取时间早于新工具上线，且比当前 sitemap URL 数少 1；因此目前只能证明 Google 曾成功处理旧版本 sitemap，**不能证明新工具 URL 已被 Google 发现或收录**。
 - 本轮尝试从该 GSC 页面继续进行 URL Inspection 时，浏览器交互没有完成；没有请求新页面索引，也没有重复提交 sitemap。下一步仍是用 GSC 的正式 URL Inspection 检查新工具页，只有显示可编入索引后才请求一次索引，并等待后续抓取报告回验。
 
+### 2026-10-09 GSC 搜索表现复核
+
+在已登录的 `sc-domain:pomerol.trade` 属性中查看网页搜索表现，时间范围选择“3 个月”，搜索类型为“网络”。界面最后更新约 13.5 小时前，但当前图表日期只覆盖 **2026-09-30 至 2026-10-06**；报告实际日期范围以图表为准，不将其描述成完整三个月数据：
+
+- 站点共 **1 次点击、157 次展示、CTR 0.6%、平均排名 72.6**。
+- 可见查询包括 `china supplier verification`（12 展示）、`oem china`（6）、`factory audit china`（6）、`odm alternative to china`（6）、`odm manufacturing china`（6）、`pre shipment inspection china`（6）、`china export agent`（5）、`oem manufacturing china`（5）和 `qc china`（5）。GSC 查询表共 50 行；低量查询可能受隐私阈值隐藏。
+- 页面维度显示 `/china-oem-odm-sourcing/` 有 33 展示、`/china-sourcing-agent/` 17、出货前检验指南 14、供应商核验清单 12、`/china-factory-audit/` 12、`/china-quality-inspection/` 12、`/china-supplier-sourcing/` 8、OEM/ODM 指南 7。`/zh/` 有 1 次点击和 1 次展示。
+- 单独筛选 `/china-oem-odm-sourcing/` 后，该页获得 33 展示、0 点击、平均排名 88.3。可见查询主要是 `oem china`（6）、`odm manufacturing china`（6）、`oem manufacturing china`（5）；另有 `china manufacturing agent odm`、`manufacturing agent oem china` 等更长查询。该页目前获得主题相关展示，但仍处于很靠后的平均位置，不能据此称为宽词排名已建立。
+
+这份 2026-10-09 查询/页面快照与前文 2026-10-08 的 31 展示、平均排名 62.6 属于不同图表日期/报告快照，不应把数字差异解释成排名下滑或增长。新工具 `/tools/china-supplier-verification-kit/` 尚未出现在当前页面前十列表中；这不证明它完全没有展示，仍需后续以 URL 过滤或索引报告复查。Pomerol 工具页索引请求继续保持“已排队、尚未证实重新抓取”的状态，本轮没有再次提交请求。
+
 ## 对排名目标的结论
 
 今日公开样本没有证明三个站点的非品牌商业宽词稳定进入搜索结果前 20。此前可读取的 GSC 基线仍分别显示 Xiaodu 无网页搜索展示、StayChina 指南查询约在 25 位附近、Pomerol 出货前检验查询约在 70–89 位区间；这些是不同日期的历史后台数据，不能把今天的搜索样本解释成排名增长。
