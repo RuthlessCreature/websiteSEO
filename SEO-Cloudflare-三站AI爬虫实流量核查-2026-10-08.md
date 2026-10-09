@@ -82,3 +82,38 @@ Cloudflare 指标定义与免费计划身份限制见官方文档：[AI Crawl Co
 Cloudflare 官方 Workers 缓存说明明确：Zone 级 Cache Rules、Cache Response Rules 和默认缓存等级不控制 Workers Cache；Worker 响应中的 Cache-Control 才是 Workers Cache 的主要控制面。[Workers Cache 官方文档](https://developers.cloudflare.com/workers/cache/)；[Workers 与 Cache Rules 的优先级](https://developers.cloudflare.com/cache/interaction-cloudflare-products/workers-cache-rules/)。因此本轮没有为了“统一”而新建 Zone Cache Rules；这类规则不能可靠解决上述 Worker 返回头差异。
 
 若要统一缓存行为，应在三套 Worker 源码/构建策略中统一公共 HTML 与静态端点的 Cache-Control，单独保持 API/个性化/表单请求为 no-store，并明确部署版本、静态资源哈希和页面更新的失效策略。StayChina 的一年 s-maxage 与 Pomerol 的 max-age=0 策略各自都需要先确认部署后缓存版本/更新路径，再决定改动；不能简单把所有 HTML 改成相同的高 TTL。
+
+## 2026-10-09 Cloudflare AI 检索设置与 7 日流量复核
+
+### 设置状态
+
+逐个打开三站 Cloudflare Dashboard 的 Caching → Configuration 与 AI Crawl Control：
+
+- 三站 **Crawler Hints Beta 均为启用**；这是用户先前已授权的免费 Zone 设置，本轮仅核查，未修改。
+- 三站 **Bot Preference Sync 均为启用**，由 Cloudflare 将当前爬虫偏好同步到 robots.txt。
+- AI Crawl Control 的 **Markdown for Agents 开关均因套餐要求 Pro 而禁用**。另以 `Accept: text/markdown` 对三个真实 HTML 页面发起只读请求，返回类型均为 `text/html`；没有发生 Markdown 转换。
+- Cloudflare 当前官方文档将 Markdown for Agents 列为 Pro、Business 与 Enterprise 功能；用户已明确不充值，因此保持免费功能，不尝试升级。三站继续通过语义化 HTML、JSON-LD、robots Content-Signal 和 llms.txt 支持机器发现。[Cloudflare Markdown for Agents 文档](https://developers.cloudflare.com/fundamentals/reference/markdown-for-agents/)
+- Crawler Hints 官方文档说明，该功能通过缓存更新信号通知 crawler，并支持 IndexNow；Cloudflare 将发生变化的 URL 信号提交给参与的搜索引擎。该机制帮助发现更新，不保证收录或排名。[Cloudflare Crawler Hints 文档](https://developers.cloudflare.com/cache/advanced-configuration/crawler-hints/)，[Cloudflare IndexNow 公告](https://blog.cloudflare.com/cloudflare-now-supports-indexnow/)
+
+### AI Crawl Control 最近 7 天概览
+
+| Zone | AI crawler 总请求 | HTTP 200 | Allowed（概数） | Unsuccessful（概数） | 其他面板信号 |
+|---|---:|---:|---:|---:|---|
+| xiaodu.tech | 2.92k | 2.54k | 约 3k | 302 | OpenAI crawler 读取 3.78 MB HTML；首页 `/` 有 742 次成功请求。Googlebot 395、OAI-SearchBot 366、BingBot 207、PerplexityBot 187、Baidu 81 次 allowed。 |
+| staychina.org | 5.29k | 1.92k | 约 4k | 约 2k | OpenAI crawler 读取 6.48 MB HTML；`/` 有 986 次成功请求，OAI-SearchBot 请求 801 次。BingBot 865、OAI-SearchBot 852、Googlebot 746、Claude-SearchBot 352、PerplexityBot 270、Baidu 181 次 allowed。 |
+| pomerol.trade | 6.32k | 5.21k | 约 6k | 139 | Meta crawler 读取 83.82 MB 图片；`/` 有 1.02k 次成功请求。Googlebot 768、Claude-SearchBot 763、OAI-SearchBot 718、BingBot 695、PerplexityBot 333、Baidu 114 次 allowed。 |
+
+数值来自每个 Zone 页面中的“过去 7 天”聚合卡片，计数和更新时刻以当次控制台为准。AI Crawl Control 按 User-Agent/Cloudflare 分类标签统计；这些数是边缘请求量，既不代表独立访客，也不证明模型引用、搜索曝光或合法来源身份。Meta 的大量图片请求也不能当作 AI 搜索引用。
+
+### StayChina 失败响应与安全策略复核
+
+StayChina 的 7 日 Metrics 显示 HTTP 200 1.92k、204 3；403 为 804、404 为 978、499 为 2；307 为 856、308 为 720、301 为 3。4xx 路径表出现 `/.env`、`/src/.env`、`/firebase-config.json`、`/process.env` 和开发服务器文件路径探测。它们应继续由现有 404/WAF 边界保护，不要为了 AI 抓取而放开这些路径。表中 `/` 也有 279 次 4xx，但聚合图无法归因具体爬虫或规则，不能单凭该数字认定首页阻挡搜索引擎。
+
+Security 面板过去 24 小时对关键检索 UA 显示的动作开关：Googlebot、BingBot、OAI-SearchBot、ChatGPT-User、Claude-SearchBot、PerplexityBot 与 Perplexity-User 未勾选阻止；GPTBot、ClaudeBot、CCBot、Amazonbot 等部分训练/归档 UA 显示被阻止。Xiaodu 与 Pomerol 面板的关键开关一致。OAI-SearchBot、Googlebot、BingBot、Claude-SearchBot、PerplexityBot 的“允许”策略与其 robots 声明一致；部分 User-Agent 的 unsuccessful 计数仍需依具体路径/状态码分析，不能直接归因为 AI Crawl Control 拒绝。
+
+### SEO 决策
+
+1. 保持三站 Crawler Hints、Bot Preference Sync 与搜索/AI 检索 UA 允许状态；训练爬虫策略沿用当前阻止设置。本轮没有改 WAF，也没有放开未知路径。
+2. 保留 Cloudflare Free 方案，不启用 Pro 专属 Markdown for Agents。这个功能不是获得 AI 引用的必要条件，当前语义化 HTML、结构化数据和可读内容仍可被爬取。
+3. 三站每周记录 AI Crawl Control 的请求量与成功状态；若失败量变化，再用 status code × crawler × path 逐层定位，避免把扫描器 404、训练爬虫拒绝或普通重定向误认成搜索检索故障。
+4. 把请求流量与 GSC/Bing 的索引、展现、查询报告分开衡量。当前数据证明 Google/Bing 与 AI Search crawler 确实到达 Cloudflare 边缘，但不能据此声称站点已出现在 AI 回答中。
