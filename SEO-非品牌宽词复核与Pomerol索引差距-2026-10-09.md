@@ -40,3 +40,27 @@
 
 - 今日网络搜索样本：industrial automation integrator China、teaching jobs in China、China sourcing agent、China supplier verification。
 - 对同一查询的搜索结果可能随地区、语言、账号、设备和时间变化；本记录不宣称 Google 或 Bing 的固定位置。
+
+## 2026-10-09 GSC URL Inspection：StayChina 首页与 Pomerol 工具页
+
+### StayChina 英文首页
+
+在已登录的 GSC `sc-domain:staychina.org` 属性检查 `https://www.staychina.org/en`：
+- 状态为“网址已收录到 Google”。Googlebot 智能手机版于 2026-10-07 17:56:53 成功抓取；允许抓取与索引；用户声明 canonical 为 `https://www.staychina.org/en`。
+- 当前生产首页、联系页与新教学指南均 HTTP 200、canonical 自指向，并包含 Yusuf 姓名/联系方式；三页均不含旧联系人 Nicole、旧电话或 163 邮箱。
+- 第三方搜索结果仍出现旧联系信息，但 GSC 已在最近两天抓取当前首页，且生产正文已更新。该搜索摘录不能作为当前 HTML 错误的证据；本轮不重复请求已收录且近期抓取的首页。
+
+### Pomerol 供应商核验工具
+
+在已登录的 GSC `sc-domain:pomerol.trade` 属性检查 `https://pomerol.trade/tools/china-supplier-verification-kit/`：
+- 检查前状态为“网址尚未收录到 Google：Google 无法识别此网址”；GSC 未检测到引荐 sitemap、引荐页面，且没有抓取记录。
+- 同日实时测试于 2026-10-09 11:26 完成，结果为“网址可编入 Google 索引”；增强功能检测到 1 项有效 Breadcrumbs。随后现场 HTTP 复核为 200、自指 canonical、无 noindex，并且当前 sitemap 含此 URL。
+- 实时测试通过后，本次只提交一次 GSC 索引请求。GSC 明确确认“已将网址添加到优先抓取队列中”。这只证明已进入队列，不证明 Google 已重新抓取或收录；不要重复请求同一 URL。
+
+### 同一时点的 GSC 概览数字
+
+- StayChina 概览卡显示 27 个已编入索引、51 个未编入索引、2 次网页搜索点击。
+- Pomerol 概览卡显示 140 个已编入索引、22 个未编入索引、1 次网页搜索点击。
+- 这些是当时概览卡上的汇总数，没有在本次快照中读取其统一的统计时间窗；不能与上一轮的不同日期/时间范围直接比较，也不代表目标宽词排名改善。
+
+下一次回验重点：重新打开该工具 URL Inspection 查看 Google 最近抓取与索引状态；再用同一 GSC 属性、相同过滤条件读取 query × page 报告。索引和宽词排名仍是两个不同的状态。
