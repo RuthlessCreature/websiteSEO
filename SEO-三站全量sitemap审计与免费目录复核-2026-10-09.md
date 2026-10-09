@@ -19,7 +19,9 @@
 
 官方提交页与指南仍面向真正设计、构建或集成工业自动化系统的企业，系统集成、机器视觉和机器人集成都属于可选类别；页面声明免费档案需人工审核，目录发布不等于排名保证。[提交页](https://www.automation-list.com/en/submit-listing) · [Listing Guidelines](https://www.automation-list.com/en/listing-guidelines)
 
-本轮核对到必填项包含 `I have read and agree to the listing guidelines`，以及公司、网站、工作邮箱、国家、服务类别等字段。历史资料显示相同表单曾返回 `Unable to submit listing.`，且没有可确认回执。因此本轮没有重复提交，也不把隐藏的“Listing submitted”成功状态当回执。下一步应解决真实表单错误，之后以实际确认邮件或公开档案 URL 作为完成证据。
+本轮核对到必填项包含 `I have read and agree to the listing guidelines`，以及公司、网站、工作邮箱、国家、服务类别等字段。上一轮审计后曾重新尝试正式表单，页面再次返回 `Unable to submit listing.`，没有申请编号、确认邮件或公开档案。不能把隐藏的“Listing submitted”成功状态当回执；在错误查清前不再重复提交。
+
+表单尝试期间曾取消 Countries Served 的 `Worldwide` 选项，之后回查 Xiaodu 英文首页，发现首页明确说明 “Engineered in China for projects worldwide” 并将 Organization 的 `areaServed` 标为 `Worldwide`。这次失败请求因此低报了服务覆盖范围；后续如通过正式表单重试，应按该公开证据恢复 Worldwide 选项。
 
 ### Industrial Automation (Netherlands) — 暂不填报
 
@@ -38,4 +40,3 @@ The Helpful Panda 的免费目录明确只接受专门从事中国教师招聘�
 - 三站 sitemap 中的生产页面技术信号整体一致且健康，本轮未发现需立刻修复的全站级抓取/结构化数据错误。
 - 技术合规消除了阻碍，但不能替代真实经验、独立案例、外部提及和目标查询的内容竞争力；也不能据此宣称宽词已到前 20。
 - 下轮优先级转为：Automation-List 表单错误的可核实诊断；三站核心宽词页的独立经验/证据增量；按 GSC/Bing 的目标查询和目标国家跟踪实际排名及展示变化。
-
