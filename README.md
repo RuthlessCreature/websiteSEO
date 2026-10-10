@@ -16,6 +16,8 @@ The live website code remains in each site's own repository. This repository hol
 
 ## Latest verified checkpoints
 
+- [Pomerol canonical host and www alias audit (2026-10-10)](SEO-Pomerol%E8%A7%84%E8%8C%83%E4%B8%BB%E6%9C%BA%E4%B8%8Ewww%E5%88%AB%E5%90%8D%E5%A4%8D%E6%A0%B8-2026-10-10.md)
+
 - [Pomerol 新工具页发现与收录状态（2026-10-10）](SEO-Pomerol%E6%96%B0%E5%B7%A5%E5%85%B7%E9%A1%B5%E5%8F%91%E7%8E%B0%E4%B8%8E%E6%94%B6%E5%BD%95%E7%8A%B6%E6%80%81-2026-10-10.md)
 
 - [三站全站实时爬取复核（2026-10-10）](SEO-%E4%B8%89%E7%AB%99%E5%85%A8%E7%AB%99%E5%AE%9E%E6%97%B6%E7%88%AC%E5%8F%96%E5%A4%8D%E6%A0%B8-2026-10-10.md)
