@@ -1,6 +1,6 @@
 # Automation List 申请资料：Zhuhai Xiaodu Intelligent Technology
 
-状态：资料已按线上表单字段整理；尚未提交。Automation List 要求提交者勾选“我已阅读并同意 Listing Guidelines”。该勾选是必填的规则接受动作，提交前需由 Yusuf 确认；网页说明提交后还需通过公司域名邮箱完成一次点击验证，随后进入人工审核，通常 1–2 个工作日。
+状态：资料已按线上表单字段整理并曾递交，但 Automation-List 于 2026-10-08 明确回复**当前档案未获批准**。原因是网站公开案例被描述为 illustrative scenarios，没有证明实际交付的工程/集成项目。当前没有公开 listing；真实且可公开核验的交付项目证据出现前不复申。此前表格字段只可作为资料底稿，不能视为已申请或可获批。
 
 ## 资格核对
 
@@ -34,7 +34,9 @@
 
 > Zhuhai Xiaodu Intelligent Technology designs and integrates automation systems for manufacturers, mines, laboratories and logistics operations. Its published service scope includes robotic cells and machine tending, machine vision and inspection, automated coal and mineral sampling, laboratory workflows, custom equipment and line integration, and industrial data platforms. Project delivery can cover concept, engineering, integration and commissioning, with scope defined around the customer's process and existing equipment. The company is based in Zhuhai, China and presents its services for projects worldwide. Public website case descriptions do not disclose customer identities or independently verified performance metrics.
 
-## 提交后的必要步骤
+## 原申请资料操作步骤（历史记录）
+
+以下是准备表单时的原操作流程。申请后来未获 Automation-List 批准；这些步骤不是当前待办，当前只有取得真实已交付项目证据后才考虑复申。
 
 1. 在表单中照上表填写；不勾选任何可选营销邮件。
 2. 提交前必填的 Listing Guidelines 接受框须由 Yusuf 确认后勾选。
@@ -47,4 +49,11 @@
 - [Automation List 公司提交表单](https://www.automation-list.com/en/submit-listing)
 - [Automation List Listing Guidelines](https://www.automation-list.com/en/listing-guidelines)
 
+## 2026-10-10 审核结果与证据复核
+
+- Automation-List 回信说明，只能列出确有实际交付工作的公司；Xiaodu 网站当前列出的案例被其判断为说明性场景，不足以证明交付。对方允许补充实际交付证据后再提交。
+- 以公司法定中英文名称检索公开网页，并对政府、招投标和知识产权相关域名做限定搜索，本轮没有找到能独立核验且明确归属于该公司的交付项目记录。搜索样本主要指向 Xiaodu 自有网站；这不证明公司内部没有项目。
+- 后续需要真实项目的客户/行业、交付范围、时间、现场/系统证据、结果，以及公开授权边界。取得前维持“未获批”，不虚构、不借用同名公司资料、不重复提交。
+
 2026-10-07
+
