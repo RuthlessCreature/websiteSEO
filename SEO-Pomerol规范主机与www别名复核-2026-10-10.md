@@ -46,5 +46,7 @@ StayChina 的 `/en/china-setup` 在线页面现已显示 Yusuf 联系方式且�
 | `https://www.pomerol.trade/` | HTTP 308，`Location: https://pomerol.trade/en/` | 原有首页语言跳转保持有效 |
 | `https://pomerol.trade/china-sourcing-agent/?seo_probe=cf-rule` | HTTP 200；canonical 为 `https://pomerol.trade/china-sourcing-agent/` | 裸域目标正常且 canonical 自指 |
 
-主机别名问题已修复。后续可复跑三站主机/canonical 全站审计，确认没有其他深层路径别名。
+随后从当前 Pomerol sitemap 逐个取出 **155 个 URL**，将每个路径映射到 `www.pomerol.trade` 并发送不自动跟随重定向的 HTTP 请求：**155/155 均返回预期 301 到相同裸域 path，0 异常**。网站首页 `/` 不在 sitemap URL 集中，已单独确认其仍按原规则 308 到 `/en/`。这证明当前全部 sitemap 页面路径均已覆盖到该主机归一规则。
+
+主机别名问题已修复。后续可复跑三站主机/canonical 全站审计，并通过 GSC 的后续抓取与 canonical 报告观察 Google 是否已处理 www 重定向；这项 HTTP 验收本身不代表 Google 已重新抓取或排名已提升。
 
