@@ -191,3 +191,11 @@ GitHub Actions 最近一次生产巡检对 StayChina 的五种未经验证 disco
 | 百度搜索资源平台 | 打开 `ziyuan.baidu.com` 后显示登录入口；当前浏览器没有已登录的搜索资源平台会话 | 本次无法读取站点验证、提交工具、配额或抓取报告；robots.txt 中可发现 sitemap 只证明公开发现路径，不代表百度已接收 sitemap | 通过已有百度站长账号验证三站，再按后台实际提供的提交能力操作；不要把公开 sitemap 或 API/手动提交流程说明记作已提交 |
 
 以上是当前浏览器会话状态，并不证明用户从未拥有相应账号。没有登录/站点验证证据时，不把平台标为“已接入”，也不声称搜索引擎已索引或排名。Google Search Console 与 Bing Webmaster 的既有状态和历史数据继续见[站长平台与 AI 效果核查](SEO-站长平台与AI效果核查-2026-10-06.md)。
+
+## 2026-10-10 StayChina 搜索摘要旧联系人与品牌名抽查
+
+本日公开搜索结果抽样仍返回 `https://www.staychina.org/en/china-setup` 的旧快照：结果标注“上月抓取”，摘要包含旧联系人 Nicole、旧电话号码及 163 邮箱，标题品牌也显示为 **Pomerol International**。这是搜索结果所用旧内容的证据，不代表当前生产 HTML 仍包含这些数据。
+
+同日直接读取该规范 URL，生产页 HTTP 200；`<title>` 为 `China Company Setup & Work Permit | StayChina`，canonical 指向该 URL，Yusuf、当前联系电话和 Gmail 均存在，旧联系人、旧号码和旧邮箱均不存在。当前页面与过期搜索快照不一致，且线上品牌 title 已正确；本轮没有改站点代码或重复提交整份 sitemap。
+
+**待办：**在已验证的 StayChina GSC 属性中对该 URL 做一次 URL Inspection 实时测试，确认 Google 读取到当前页面后，若可索引则仅请求一次重新抓取；随后等搜索引擎更新摘要，再复核搜索结果标题和联系人。当前浏览器的 Search Console 报表标签连接超时，本轮未能发出 GSC 请求。[被抽查的规范生产页](https://www.staychina.org/en/china-setup)当前状态已如上实测；本次公开搜索摘要只作为滞后快照记录，不能当作稳定排名或当前源站内容。
