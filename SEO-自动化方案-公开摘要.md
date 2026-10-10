@@ -198,4 +198,4 @@ GitHub Actions 最近一次生产巡检对 StayChina 的五种未经验证 disco
 
 同日直接读取该规范 URL，生产页 HTTP 200；`<title>` 为 `China Company Setup & Work Permit | StayChina`，canonical 指向该 URL，Yusuf、当前联系电话和 Gmail 均存在，旧联系人、旧号码和旧邮箱均不存在。当前页面与过期搜索快照不一致，且线上品牌 title 已正确；本轮没有改站点代码或重复提交整份 sitemap。
 
-**待办：**在已验证的 StayChina GSC 属性中对该 URL 做一次 URL Inspection 实时测试，确认 Google 读取到当前页面后，若可索引则仅请求一次重新抓取；随后等搜索引擎更新摘要，再复核搜索结果标题和联系人。当前浏览器的 Search Console 报表标签连接超时，本轮未能发出 GSC 请求。[被抽查的规范生产页](https://www.staychina.org/en/china-setup)当前状态已如上实测；本次公开搜索摘要只作为滞后快照记录，不能当作稳定排名或当前源站内容。
+已在已验证的 StayChina GSC 属性中完成该 URL 的处理：索引检查原状态为“网址已编入 Google 索引”；2026-10-10 09:31 的实时测试显示“网址可编入 Google 索引”，并确认 Google 实时读取到的 HTML 标题为 `China Company Setup & Work Permit | StayChina`、canonical 为该规范 URL。随后对该 URL 提交了一次重新抓取请求，GSC 确认“已将网址添加到优先抓取队列中”。这不保证 Google 何时重新抓取或何时更新摘要；不重复提交该 URL。后续等待搜索结果刷新后，再核对标题和联系人。[被抽查的规范生产页](https://www.staychina.org/en/china-setup)当前状态如上实测；公开搜索摘要仍只作为滞后快照记录，不能当作稳定排名或当前源站内容。
