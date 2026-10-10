@@ -199,3 +199,7 @@ GitHub Actions 最近一次生产巡检对 StayChina 的五种未经验证 disco
 同日直接读取该规范 URL，生产页 HTTP 200；`<title>` 为 `China Company Setup & Work Permit | StayChina`，canonical 指向该 URL，Yusuf、当前联系电话和 Gmail 均存在，旧联系人、旧号码和旧邮箱均不存在。当前页面与过期搜索快照不一致，且线上品牌 title 已正确；本轮没有改站点代码或重复提交整份 sitemap。
 
 已在已验证的 StayChina GSC 属性中完成该 URL 的处理：索引检查原状态为“网址已编入 Google 索引”；2026-10-10 09:31 的实时测试显示“网址可编入 Google 索引”，并确认 Google 实时读取到的 HTML 标题为 `China Company Setup & Work Permit | StayChina`、canonical 为该规范 URL。随后对该 URL 提交了一次重新抓取请求，GSC 确认“已将网址添加到优先抓取队列中”。这不保证 Google 何时重新抓取或何时更新摘要；不重复提交该 URL。后续等待搜索结果刷新后，再核对标题和联系人。[被抽查的规范生产页](https://www.staychina.org/en/china-setup)当前状态如上实测；公开搜索摘要仍只作为滞后快照记录，不能当作稳定排名或当前源站内容。
+
+## 2026-10-10 GSC 三站搜索与生成式 AI 数据回读
+
+本轮当前可读数据更新到 2026-10-06：StayChina 实际窗口为 2026-07-07 至 10-06，2 clicks、52 impressions、平均排名 23.4；`guide to teaching in china` 为 28 展示、平均位置 25，落在 `/en/guides`；`company setup in china` 为 2 展示、平均位置 35.5，唯一报告页是 noindex 的 `/es` 回退页，而非规范 `/en/china-setup`。Xiaodu 当前图表仅覆盖 2026-09-30 至 10-06，5 展示、平均位置 54.8；Pomerol 同样只有这 7 天数据，157 展示、1 点击、平均位置 72.6；可见 50 条查询中没有精确 `china sourcing agent`。三个站的 Google 生成式 AI Performance 分别为 Xiaodu 0 展示、StayChina 1（`/ru` 回退页）、Pomerol 0。不要把新属性短窗口当作完整三个月，也不要把相关长尾词或回退页展示当成商业 head term 排名。详情见 [GSC 三站搜索与 AI 表现记录](SEO-GSC三站搜索与AI表现-2026-10-10.md)。
