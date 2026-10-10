@@ -24,19 +24,26 @@ StayChina 的 `/en/china-setup` 在线页面现已显示 Yusuf 联系方式且�
 - 搜索结果中仍有旧缓存：`/en/contact` 结果显示 Nicole/旧电话/163 邮箱（标记约一个月前抓取），中文 `/zh-cn/kindergarten-foreign-teacher-recruitment` 结果也显示旧联系人（标记约三个月前）。但同一搜索服务打开 StayChina 首页时已返回 Yusuf 新资料，且最近抓取的英语指南摘要也已更新。进一步按当前 sitemap 对全部 24 个 StayChina URL 逐一用 Googlebot UA 直连：24/24 均返回成功，源码均含 Yusuf、新电话和新 Gmail，未发现 Nicole、旧电话或 163 邮箱。综合证据表明，旧信息只存在于尚未刷新的一部分搜索快照；本轮未访问 GSC，因此没有重复请求抓取。
 - 三站 `/robots.txt`、`/sitemap.xml`、`/llms.txt` 均返回 200。当前 `robots.txt` 明确允许 OAI-SearchBot、Claude-SearchBot、PerplexityBot、Applebot 等 AI 搜索抓取，且都设置 `Content-Signal: search=yes, ai-input=yes, ai-train=no`；这是允许搜索索引、同时声明不用于训练的组合。
 
-## 推荐的 Cloudflare Redirect Rule
+## 已部署的 Cloudflare Redirect Rule
 
-在 `pomerol.trade` Zone 建一条 Single Redirect：
+已在 `pomerol.trade` Zone 部署 Single Redirect，规则 ID：`53ca05df4fc6450984512acc8f2ff0f3`，规则名称 `Pomerol WWW paths to apex`：
 
-- 匹配表达式：`http.host eq "www.pomerol.trade"`
+- 匹配表达式：`http.host eq "www.pomerol.trade" and http.request.uri.path ne "/"`
 - 目标 URL：`concat("https://pomerol.trade", http.request.uri.path)`
 - 状态码：`301`
 - 保留查询字符串：开启
+- Cloudflare 控制台状态：活动
 
-这会把 `www` 全路径永久归并到已声明 canonical 的裸域，并保留原 path/query。Cloudflare 官方示例说明可将一个主机的所有路径 301 到另一 HTTPS 主机并保留路径及查询参数：[Redirect requests to a different hostname](https://developers.cloudflare.com/rules/url-forwarding/examples/redirect-all-different-hostname/)。
+此规则将非根路径的 `www` 请求永久归并到已声明 canonical 的裸域，并保留原 path/query。根路径刻意排除，因此首页继续由原有规则以 308 跳转到 `https://pomerol.trade/en/`。Cloudflare 官方示例说明可将一个主机的路径 301 到另一 HTTPS 主机并保留路径及查询参数：[Redirect requests to a different hostname](https://developers.cloudflare.com/rules/url-forwarding/examples/redirect-all-different-hostname/)。
 
 ## 状态与验收
 
-缺少可用的 Cloudflare API 凭据和 Wrangler 登录配置；本轮桌面自动化又无法可靠确认当前浏览器 URL，因此**尚未创建或启用 Cloudflare 规则**。
+部署后以不自动跟随重定向的外部 HTTP GET 验证：
 
-规则应用后应抽查 `www.pomerol.trade/`、`www.pomerol.trade/china-sourcing-agent/` 与带查询参数的 URL：均应永久重定向至 `pomerol.trade` 对应 URL，路径和查询参数保留；裸域目标应返回 200 且 canonical 自指。随后复跑三站主机/canonical 全站审计。
+| 请求 | 响应 | 验收 |
+|---|---|---|
+| `https://www.pomerol.trade/china-sourcing-agent/?seo_probe=cf-rule` | HTTP 301，`Location: https://pomerol.trade/china-sourcing-agent/?seo_probe=cf-rule` | 深层路径与查询参数均保留 |
+| `https://www.pomerol.trade/` | HTTP 308，`Location: https://pomerol.trade/en/` | 原有首页语言跳转保持有效 |
+| `https://pomerol.trade/china-sourcing-agent/?seo_probe=cf-rule` | HTTP 200；canonical 为 `https://pomerol.trade/china-sourcing-agent/` | 裸域目标正常且 canonical 自指 |
+
+主机别名问题已修复。后续可复跑三站主机/canonical 全站审计，确认没有其他深层路径别名。
