@@ -17,6 +17,7 @@ The live website code remains in each site's own repository. This repository hol
 ## Latest verified checkpoints
 
 - [Google real-time broad-query and AI Overview sample (2026-10-10)](SEO-Google%E5%AE%9E%E6%97%B6%E5%AE%BD%E8%AF%8D%E4%B8%8EAI%E6%A6%82%E8%A7%88%E6%8A%BD%E6%A0%B7-2026-10-10.md)
+- [Cloudflare three-site AI/search crawler review (2026-10-10)](SEO-Cloudflare%E4%B8%89%E7%AB%99AI%E7%88%AC%E8%99%AB%E4%B8%83%E6%97%A5%E5%A4%8D%E6%A0%B8-2026-10-10.md)
 - [Pomerol canonical host and www alias audit (2026-10-10)](SEO-Pomerol%E8%A7%84%E8%8C%83%E4%B8%BB%E6%9C%BA%E4%B8%8Ewww%E5%88%AB%E5%90%8D%E5%A4%8D%E6%A0%B8-2026-10-10.md)
 
 - [Pomerol 新工具页发现与收录状态（2026-10-10）](SEO-Pomerol%E6%96%B0%E5%B7%A5%E5%85%B7%E9%A1%B5%E5%8F%91%E7%8E%B0%E4%B8%8E%E6%94%B6%E5%BD%95%E7%8A%B6%E6%80%81-2026-10-10.md)
