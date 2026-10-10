@@ -26,6 +26,7 @@ The live website code remains in each site's own repository. This repository hol
 
 - [GitHub SEO weekly audit workflows (2026-10-10)](SEO-GitHub%E5%91%A8%E5%AE%A1%E8%AE%A1%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%8A%B6%E6%80%81-2026-10-10.md)
 - [Google Search Console search and AI performance (2026-10-10)](SEO-GSC%E4%B8%89%E7%AB%99%E6%90%9C%E7%B4%A2%E4%B8%8EAI%E8%A1%A8%E7%8E%B0-2026-10-10.md)
+- [Three-site broad-keyword SERP competition snapshot (2026-10-10)](SEO-%E4%B8%89%E7%AB%99%E5%AE%BD%E8%AF%8DSERP%E7%AB%9E%E4%BA%89%E5%BF%AB%E7%85%A7-2026-10-10.md)
 - [Three-site full production SEO audit (2026-10-10)](SEO-%E4%B8%89%E7%AB%99%E5%85%A8%E7%AB%99%E7%BA%BF%E4%B8%8A%E5%AE%A1%E8%AE%A1-2026-10-10.md)
 
 - [Free mobile Lighthouse weekly audit and first run (2026-10-08)](SEO-Lighthouse-免费移动端周审计-2026-10-08.md)
@@ -96,5 +97,6 @@ These reports separate technical crawl health, search-engine indexing evidence, 
 Submission drafts are not evidence of registration, approval, indexing, or ranking. Follow each platform's current rules and publish only verified business information.
 
 - [Xiaodu Automation List submission profile](SEO-Xiaodu-Automation-List-申请资料-2026-10.md) — prepared from verifiable production-site claims; pending required acceptance of the directory listing guidelines.
+
 
 
