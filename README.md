@@ -99,3 +99,4 @@ Submission drafts are not evidence of registration, approval, indexing, or ranki
 - [Xiaodu Automation-List submission profile and review status](SEO-Xiaodu-Automation-List-申请资料-2026-10.md) — updated 2026-10-10; not approved because the directory requires evidence of actually delivered engineering work. See the [directory roadmap](SEO-%E7%9B%AE%E5%BD%95%E6%8F%90%E4%BA%A4%E8%B7%AF%E7%BA%BF%E5%9B%BE-2026-10.md) before considering a future submission.
 
 
+
