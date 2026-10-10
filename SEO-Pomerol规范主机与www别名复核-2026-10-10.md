@@ -21,7 +21,7 @@ StayChina 的 `/en/china-setup` 在线页面现已显示 Yusuf 联系方式且�
 
 - Pomerol www 首页直接响应 `308 Location: https://pomerol.trade/en/`；www 的 `/china-sourcing-agent/` 路径及带查询参数版本仍为 `200`，规范 URL 为裸域。缺口只在深层路径，不应再描述为首页也未归一化。
 - 三站已复查的主要入口均返回 200，并输出正确联系资料：Xiaodu 英文 solutions、StayChina 英文首页/公司设立页/联系页、Pomerol sourcing 服务页均显示 Yusuf 和新电话/邮箱；StayChina 同时显示 `contact@staychina.org`。
-- 搜索索引快照仍可见 StayChina 首页旧联系人 Nicole、旧电话号码和 163 邮箱；该快照标记为约一个月前抓取，且网站品牌显示为 “StayChina · Pomerol International”。这与本轮 Googlebot UA 直接读取线上页面的结果不同，应视为索引快照滞后，不能据此认定当前线上联系信息错误。本轮未访问 GSC，因此没有重新请求抓取。
+- 搜索结果中仍有旧缓存：`/en/contact` 结果显示 Nicole/旧电话/163 邮箱（标记约一个月前抓取），中文 `/zh-cn/kindergarten-foreign-teacher-recruitment` 结果也显示旧联系人（标记约三个月前）。但同一搜索服务打开 StayChina 首页时已返回 Yusuf 新资料，且最近抓取的英语指南摘要也已更新。进一步按当前 sitemap 对全部 24 个 StayChina URL 逐一用 Googlebot UA 直连：24/24 均返回成功，源码均含 Yusuf、新电话和新 Gmail，未发现 Nicole、旧电话或 163 邮箱。综合证据表明，旧信息只存在于尚未刷新的一部分搜索快照；本轮未访问 GSC，因此没有重复请求抓取。
 - 三站 `/robots.txt`、`/sitemap.xml`、`/llms.txt` 均返回 200。当前 `robots.txt` 明确允许 OAI-SearchBot、Claude-SearchBot、PerplexityBot、Applebot 等 AI 搜索抓取，且都设置 `Content-Signal: search=yes, ai-input=yes, ai-train=no`；这是允许搜索索引、同时声明不用于训练的组合。
 
 ## 推荐的 Cloudflare Redirect Rule
