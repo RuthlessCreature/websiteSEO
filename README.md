@@ -16,6 +16,8 @@ The live website code remains in each site's own repository. This repository hol
 
 ## Latest verified checkpoints
 
+- [Three-site full production SEO audit (2026-10-10)](SEO-%E4%B8%89%E7%AB%99%E5%85%A8%E7%AB%99%E7%BA%BF%E4%B8%8A%E5%AE%A1%E8%AE%A1-2026-10-10.md)
+
 - [Free mobile Lighthouse weekly audit and first run (2026-10-08)](SEO-Lighthouse-免费移动端周审计-2026-10-08.md)
 
 - [Contact details live but search result stale; refresh checklist (2026-10-08)](SEO-%E4%B8%89%E7%AB%99%E8%81%94%E7%B3%BB%E6%96%B9%E5%BC%8F%E7%B4%A2%E5%BC%95%E6%BB%9E%E5%90%8E%E5%A4%8D%E6%A0%B8%E4%B8%8E%E5%88%B7%E6%96%B0%E6%B8%85%E5%8D%95-2026-10-08.md)
