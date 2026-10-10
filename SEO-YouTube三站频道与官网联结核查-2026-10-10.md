@@ -15,4 +15,3 @@
 1. 继续维护 StayChina 与 Xiaodu 已有频道资料，使频道简介、官网链接和站点 Organization / `sameAs` 中的品牌实体保持一致。
 2. 在 YouTube 正式允许新频道创建后，再建立 Pomerol Trade 品牌频道，并补充 `https://pomerol.trade/` 的官网链接和原创品牌内容。当前不把 404 链接写入 Pomerol 的站点实体资料。
 3. 频道存在、公开帖子和官网链接只形成品牌发现入口；不能据此声称 YouTube 搜索排名、Google 搜索排名或 AI 引用已经提升。
-

@@ -32,7 +32,7 @@ Pomerol Cloudflare Worker 部署运行 [#37755603958](https://github.com/Ruthles
 
 1. 等待已排队的 GSC 请求处理后，用 GSC 正常 URL 检查界面复核抓取时间与最终索引状态；不要重复提交同一请求。
 2. GSC 确认索引后，在 `china supplier verification` 查询过滤下检查页面维度。当前 12 次展示主要说明主题已获得有限搜索需求信号，并不证明新工具页承接了这 12 次展示。
-3. Bing Webmaster 的 URL Inspection 当前浏览器页无法访问；部署日志证明 IndexNow 已接受这 155 个 URL，但不证明 Bing 已抓取或收录。待 Bing 页面可访问时核对 IndexNow history 与该 URL 的索引状态。
+3. Bing Webmaster 的 URL Inspection 当前浏览器页无法访问；部署日志证明 IndexNow 已接受这 155 个 URL，但不能据此推断 Bing 已抓取或收录。待 Bing 页面可访问时核对 IndexNow history 与该 URL 的索引状态。
 
 ## 边界
 
