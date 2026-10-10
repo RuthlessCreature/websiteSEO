@@ -180,3 +180,14 @@ GitHub Actions 最近一次生产巡检对 StayChina 的五种未经验证 disco
 公开搜索服务仍缓存上月的 StayChina 旧联系人摘要；当前 `/en` 生产页 HTTP 200，已展示 Yusuf 当前信息且不含旧联系人标记。规范首页在 sitemap 内，最近一次部署已将 24 个 sitemap URL 通知给 IndexNow（HTTP 200 接收回执）。因此不重复通知；待 GSC 可读后对 `/en` 进行 URL 级重新抓取请求并监控摘要刷新。详细对照见[实时巡检记录](SEO-实时巡检-2026-10-08.md)。
 
 补充核验：StayChina sitemap 的 `/en` 首页 `lastmod` 为 `2026-10-07T06:00:00Z`，且该首页随 24 个 sitemap URL 一起获 IndexNow 接收回执。当前站点、sitemap 与通知状态已一致；陈旧摘要等待搜索服务重抓，不能靠重复发送同一通知来证明已更新。
+
+## 2026-10-10 Yandex 与百度站长平台登录状态复核
+
+本次在当前浏览器直接打开 Yandex Webmaster 与百度搜索资源平台入口，核查是否已有可用的站长后台会话：
+
+| 平台 | 本次看到的状态 | 三站可确认的接入情况 | 下一步 |
+|---|---|---|---|
+| Yandex Webmaster | 打开站点添加入口后跳转到 Yandex ID 登录页；当前浏览器没有已登录的 Webmaster 会话 | 不能从本次页面确认任何站点已在该账号下验证或提交 sitemap。三站 robots.txt 已公开 sitemap 声明；另有 2026-10-08 对三站各提交 IndexNow URL 通知并取得 HTTP 202 的记录 | 用站点所有者的 Yandex 账号登录后，逐站确认验证、sitemap 与抓取报告；IndexNow 接收回执不等于已抓取/收录 |
+| 百度搜索资源平台 | 打开 `ziyuan.baidu.com` 后显示登录入口；当前浏览器没有已登录的搜索资源平台会话 | 本次无法读取站点验证、提交工具、配额或抓取报告；robots.txt 中可发现 sitemap 只证明公开发现路径，不代表百度已接收 sitemap | 通过已有百度站长账号验证三站，再按后台实际提供的提交能力操作；不要把公开 sitemap 或 API/手动提交流程说明记作已提交 |
+
+以上是当前浏览器会话状态，并不证明用户从未拥有相应账号。没有登录/站点验证证据时，不把平台标为“已接入”，也不声称搜索引擎已索引或排名。Google Search Console 与 Bing Webmaster 的既有状态和历史数据继续见[站长平台与 AI 效果核查](SEO-站长平台与AI效果核查-2026-10-06.md)。
