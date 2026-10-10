@@ -16,6 +16,7 @@ The live website code remains in each site's own repository. This repository hol
 
 ## Latest verified checkpoints
 
+- [Three-site full live crawl audit (2026-10-10)](SEO-%E4%B8%89%E7%AB%99%E5%85%A8%E7%AB%99%E5%AE%9E%E6%97%B6%E7%88%AC%E5%8F%96%E5%A4%8D%E6%A0%B8-2026-10-10.md)
 - [YouTube channels and site links across three brands (2026-10-10)](SEO-YouTube%E4%B8%89%E7%AB%99%E9%A2%91%E9%81%93%E4%B8%8E%E5%AE%98%E7%BD%91%E8%81%94%E7%BB%93%E6%A0%B8%E6%9F%A5-2026-10-10.md)
 - [GitHub SEO weekly audit workflows (2026-10-10)](SEO-GitHub%E5%91%A8%E5%AE%A1%E8%AE%A1%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%8A%B6%E6%80%81-2026-10-10.md)
 - [Google Search Console search and AI performance (2026-10-10)](SEO-GSC%E4%B8%89%E7%AB%99%E6%90%9C%E7%B4%A2%E4%B8%8EAI%E8%A1%A8%E7%8E%B0-2026-10-10.md)
