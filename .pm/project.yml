@@ -1,0 +1,25 @@
+name: websiteSEO
+summary: Three-site SEO planning and free email outreach for Xiaodu, StayChina, and Pomerol.
+status: active
+phase: first-outreach-in-progress
+last_reviewed: '2026-10-25'
+progress:
+  - Prepared a dated 30-day plan, outreach SOP, 24 organization research seeds, and LUNA Goal handoff.
+  - Sent two manually qualified editorial inquiries through publicly listed official addresses; message evidence and exact bodies are private.
+  - Added three unpublished resource drafts and a dated outreach status report; no live website was changed.
+  - Separated private mail threads and contact records from public repository materials.
+blockers:
+  - Fresh Search Console data and current production-site checks remain unavailable in this turn.
+  - Historical search baseline is stale; latest available recorded GSC data ends on 2026-10-06.
+  - The Xiaodu technical reviewer and StayChina qualified China legal reviewer are not yet confirmed.
+  - Pomerol's RFQ draft must be compared with the current live tool and service claims before linking or pitching.
+next_actions:
+  - Check replies to both sent inquiries on or after 2026-10-30; do not auto-follow-up.
+  - Refresh Search Console and production-site baselines when access works.
+  - Qualify the next outreach cohort and verify official contact route, cost, authorship and a live resource for every prospect.
+  - Complete evidence review for one reference asset per site before publication or pitching.
+links:
+  plan: SEO-新阶段计划-2026-10-25.md
+  handoff: LUNA-GOAL-SEO-交接-2026-10-25.md
+  outreach: SEO-邮件外联执行规范-2026-10-25.md
+  progress: SEO-外联进展-2026-10-25.md

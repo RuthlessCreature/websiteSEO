@@ -17,6 +17,10 @@ The live website code remains in each site's own repository. This repository hol
 
 ## Latest verified checkpoints
 
+- [New 30-day SEO and outreach plan (2026-10-25)](SEO-新阶段计划-2026-10-25.md) — current planning handoff; old technical/search results remain historical.
+- [LUNA Goal execution handoff](LUNA-GOAL-SEO-交接-2026-10-25.md), [email SOP and templates](SEO-邮件外联执行规范-2026-10-25.md), and the 28-organization research queue (including two sent inquiries) are tracked in [the candidate CSV](SEO-外联候选研究队列-2026-10-25.csv). Unsent rows are not verified recipients. Private outreach records are stored outside this repository.
+- [Outreach progress (2026-10-25)](SEO-外联进展-2026-10-25.md) — two editorial inquiries sent after official-channel checks; both await replies. The three resource drafts remain unpublished.
+
 - [Google real-time broad-query and AI Overview sample (2026-10-10)](SEO-Google%E5%AE%9E%E6%97%B6%E5%AE%BD%E8%AF%8D%E4%B8%8EAI%E6%A6%82%E8%A7%88%E6%8A%BD%E6%A0%B7-2026-10-10.md)
 - [Content depth and case-page differentiation — 2026-10-10 production recheck](SEO-%E5%86%85%E5%AE%B9%E6%B7%B1%E5%BA%A6%E4%B8%8E%E6%A1%88%E4%BE%8B%E5%8C%BA%E5%88%86%E5%A4%8D%E6%A0%B8-2026-10-07.md)
 - [Three-site live search discovery and stale contact snippet review (2026-10-10)](SEO-%E4%B8%89%E7%AB%99%E5%AE%9E%E6%97%B6%E6%A3%80%E7%B4%A2%E5%8F%91%E7%8E%B0%E4%B8%8E%E8%81%94%E7%B3%BB%E4%BA%BA%E6%91%98%E8%A6%81%E5%B7%AE%E5%BC%82-2026-10-10.md)
