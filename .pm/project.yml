@@ -1,78 +1,45 @@
 name: websiteSEO
-summary: Three-site SEO planning and free, individualized outreach for Xiaodu, StayChina, and Pomerol.
+summary: Three-site search, AI visibility, social distribution, and individualized outreach for Xiaodu, StayChina, and Pomerol.
 status: active
 phase: evidence-led-outreach-and-search-analysis
-last_reviewed: '2026-10-26'
+last_reviewed: '2026-10-27'
 progress:
-  - Prepared a 30-day plan, outreach SOP, research queue and LUNA Goal handoff.
-  - Re-ran the production SEO audit: 349 sitemap pages, zero reported issues/warnings in audited fields; the latest host/canonical/sitemap sample aligns and is now weekly monitoring only.
-  - Sent and read back 23 first-contact attempts (3 editorial and 20 partner/supplier qualification, including one suppressed hard bounce); two editorial corrections are separate. SENT proves a sent record, not delivery or approval.
-  - Read Pomerol GSC report for 2026-09-30–10-23: 5 clicks, 1,349 impressions, 0.4% CTR and 43.5 property-average position. Three-site comparable query/page and AI Search reports remain outstanding.
-  - Reviewed existing resources and held overlapping drafts; the Xiaodu intake and StayChina Hengqin guide remain unpublished pending qualified review.
-  - Current queue is 86 organizations with unique IDs/names; eighteen are READY_TO_SEND and eighteen personalized qualification drafts are saved unsent: X24, P25, S03, S04, S09, S10, X25, X26, S21, S22, X35, S25, S26, P30, P31, P28, P33 and X37. P32 SCMR remains HOLD_AUTHOR_EVIDENCE.
-  - Restored the unchanged original 30-day scope: about 300 organizations researched, 120–180 qualified contact paths and 100–150 individually tailored first-contact emails, plus 3 resources, 3–6 core page improvements and 12–18 adapted platform posts. Current queue/drafts/sends are progress, not replacement targets.
-  - Added P30 Quality Digest editorial route from its official author guidelines; on hold pending an original non-overlapping, evidence-backed topic and verifiable author qualifications.
-  - Rechecked Yusuf Gmail on 2026-10-26 local evening: eight drafts were present at that checkpoint; after preparing S21 and S22, ten unsent drafts remain. Existing human partner replies have been handled. No further cold email was sent because the same-day cadence had been reached.
-  - Added X29 Vision Systems Design and P31 Supply Chain Connect official editorial routes (both held for author/asset readiness), and S12 Expat Listing's free directory route (held pending confirming one-city scope and the exact free website-link field).
-  - Added S13 Deel, S14 Remote and S15 Safeguard Global partner routes, each held for eligibility/commercial/privacy review. Safeguard's required form includes consent to marketing email and tracking pixels, so do not submit it. Added X30 Basler's specific innovation-pilot contact, held until a real compatible use case is confirmed.
-  - Screened ChinaYello (paid new listing), China Supply Chain Directory (registration not wired), HKTDC Databank (no confirmed public SEO profile), Expat.com (free profile lacks confirmed website link and requires address), and SmartShanghai (paid service listing).
-  - Prepared and Gmail-verified S03, S09, S10 and X25 drafts. Gmail shows additional 2026-10-26 outreach and replies; HROne and China Business Travel follow-ups have already been sent. No company licence or client data was shared. Private message IDs and bodies remain in the private outreach directory.
-  - Latest 2026-10-26 GSC UI read: current 28-day clicks/impressions are Xiaodu 1/72, StayChina 2/50 and Pomerol 6/1,570; AI Search impressions are 2/4/5, not citations. The 2026-10-26 snapshot contains only clicks/impressions and AI Search impressions; comparable query × page × country × device exports are not yet available.
-  - Latest Gmail local-day reconciliation: 17 sends on 2026-10-26 (15 new first contacts, 2 thread replies/follow-ups); 22 first-contact SENT records plus one suppressed hard bounce overall. Seventeen outreach drafts are unsent. First next-workday send batch is capped at five after fresh thread and suppression checks.
+  - The active LUNA Goal continues to follow the original 2026-10-25 plan; the execution window is 2026-10-26 through 2026-11-24 with targets of ~300 researched organizations, 120–180 qualified paths, 100–150 individualized first contacts, 3 resources, 3–6 page improvements, and 12–18 published platform-adapted posts.
+  - Latest GSC Web Search window (2026-09-30 to 2026-10-24): Xiaodu 1/72, StayChina 2/50, Pomerol 6/1,570 clicks/impressions. AI Search impressions were 2/4/5, not citations. Query×page is only mapped for Pomerol supplier verification; StayChina page rows are non-additive and require export verification. Previous period, country/device, full cross-tabs and AI Performance report remain outstanding.
+  - The 2026-10-25 production audit checked 349 sitemap URLs with zero reported issues/warnings in audited fields; weekly monitoring remains. No live site or Cloudflare setting changed during this continuation.
+  - Gmail reconciliation: 27 first-contact messages have SENT records, one separate address hard-bounced and is suppressed, two warm/editorial clarification threads are separately counted; the latest five first contacts were sent 2026-10-27 China time. SENT means submitted by Gmail, not delivered or published.
+  - Current outreach queue: 121 records / 120 unique organizations / 9 READY_TO_SEND. Gmail has 14 recipient-bearing qualification drafts (9 not marked HOLD, 5 explicitly held), plus 5 sent-copy drafts with recipients cleared and DO NOT SEND subjects.
+  - The 2026-10-27 fit review moved iWorld and FIIC to HOLD_BUSINESS_FIT because StayChina's China-inbound audience and their outbound settlement focus lack evidenced two-way demand. AIAG Supply Line moved to HOLD_TOPIC_FIT without verified automotive/trade author experience. Their Gmail draft subjects are marked HOLD.
+  - Added X50 Anjian Intelligent after checking its current official partner page and exact-recipient Gmail history. The page explicitly targets system integrators/solution providers, says no franchise fee, and lists partners@zhizao.cloud. A Chinese eligibility-only draft asks about automation/vision integrator fit, requirements and public partner links; it is unsent and contains no phone, customer data or attachments.
+  - Audited DOBOT and FIIC drafts and removed the unnecessary mobile number; readback confirmed the saved recipients/body and absence of the phone number. No mail was sent in this continuation.
+  - Added S33 China Daily Star as HOLD_AUTHOR_EVIDENCE and P42 Procurement Magazine as HOLD_COST; neither is a sendable path. Current sources and rationale are in the public queue and outreach log.
+  - Added P43 GTBP, P44 AcademyGlobal Insights and P45 SCM Globe as official-source research holds. Each requires a qualified human practitioner/author or human-authored original material that is not yet evidenced; no pitch or form was submitted.
+  - Live-HTML review captured current title, meta description and H1 for four commercial pages in SEO-核心页面SERP复核-2026-10-27.md. No metadata edit is justified without complete query×page and conversion evidence. StayChina's policy link check date remains 2026-10-08 and requires a qualified source-by-source update.
+  - Rechecked Gmail and public sources on 2026-10-27: no new replies, bounces, stop requests or duplicate history for the next batch. Moved S25 GBA News and P30 The Supply Chain Xchange to author-evidence HOLD; removed S25's unnecessary phone number and verified readback. Next candidate set is P28/X50/X25/X26/S26, with a maximum of five after a fresh suppression/source review on 2026-10-28.
+  - Rechecked Siemens X14: exact Gmail search returned only the 2026-10-25 sent inquiry and no reply. Its current partner application asks for company street address, annual revenue and employee counts; recorded this as a hard pre-application data gate. Added X51 MVTec Certified Integration Partner as HOLD_PRODUCT_EVIDENCE because MVTec handpicks engineering partners for its software and no HALCON/MERLIC project evidence is verified.
+  - Added X52 Mitsubishi Electric e-F@ctory Alliance as HOLD_PRODUCT_EVIDENCE: global sources invite system integrators, but China has a distinct sales entity and no China-specific alliance contact or Xiaodu Mitsubishi project evidence is verified.
+  - WFN/IFN's partner offer stated £595 for year one and £995 annual thereafter, with additional meeting/sponsorship options. Yusuf declined the paid package and asked whether a no-fee editorial/resource route exists. No application, payment, referral commitment or client information was sent.
+  - 2026-10-27 01:49 Asia/Shanghai Gmail reconciliation found Industrial Automation Monthly's reply to Xiaodu's unpaid article inquiry: its current route is paid Sponsored Content only. Closed as `CLOSED_PAID_ONLY`; no response or paid commitment. Updated the 2026-10-28 batch preflight. The five-cold-first-contact daily cap for 10/27 is reached, so no further first contacts today.
+  - 2026-10-27 01:52 Asia/Shanghai: the five proposed 10/28 draft recipients/subjects were rechecked and have one recipient with no attachment; no new replies or bounces for those prospects. The prior hard-bounce address remains suppressed. Existing HROne, China Business Travel and WFN/IFN replies already have thread responses.
+  - Added P46 Sourcing100 Sourcing Agent Network after checking its official homepage and directory. The site advertises free agent registration and has service-provider categories, but the currently displayed membership counts are zero and no public profile/indexability, outbound-link, lead-delivery or fee terms are established. Status is HOLD_PUBLIC_CONTACT_AND_VISIBILITY; no signup, application or email. Queue is now 120 records / 119 unique organizations / 9 READY_TO_SEND.
+  - 2026-10-27 01:59 Asia/Shanghai: read all five 10/28 batch draft bodies end-to-end; each is a one-recipient inquiry without attachments or unsupported credentials/customer data. Verified HKTDC's free-registration claim against the official registration page. The batch stays unsent until a fresh 10/28 preflight.
+  - Added X53 INOVANCE Overseas Service Partner Network after checking its official partner expectations and Xiaodu's live public service scope. INOVANCE offers training/support and content promotion, but expects 5+ years in automation, formal licenses, relevant repair/commissioning capability and product-specific expertise. Xiaodu's site does not establish these criteria; marked HOLD_SERVICE_PARTNER_ELIGIBILITY, no email, form or credentials submitted. Queue is now 121 records / 120 unique organizations / 9 READY_TO_SEND.
 blockers:
-  - Overview clicks/impressions and AI Search impressions were visible for all three properties on 2026-10-26, but comparable query × page × country × device exports and previous-period data are missing. Current Edge GSC tab is at the welcome page and its browser debugger is unattached; in-app navigation timed out.
-  - Xiaodu engineering review and StayChina qualified policy/process review remain unconfirmed.
-  - Pomerol's old RFQ draft overlaps live tools/guides and must not be pitched as a new resource.
+  - The GSC UI attempt through Windows Computer Use was stopped because the helper could not confidently determine the active browser URL. Required evidence still missing: full query×page for all sites, matched previous 28-day window, country/device slices and AI Performance. Do not change live pages/canonical/DNS based on incomplete rows.
+  - Xiaodu engineering review and StayChina policy/process review for draft resources remain unconfirmed; no named qualified author/evidence is established for several editorial routes.
+  - Pomerol's existing RFQ draft overlaps published tools/guides and is not a distinct resource.
 next_actions:
-  - On the next local workday, check inbox/thread status, official contact pages and account cadence before considering the ten unsent drafts; work toward the original 100–150 first-contact target at a pace the mailbox health supports.
-  - Research 12–15 unique organizations per working day from official public sources and qualify 6–9 actual contact routes; retain hold/disqualified records without treating them as send-ready.
-  - At the next authorized send window, re-check Gmail threads/suppressions and send individually reviewed emails only within the verified daily cadence; ten saved qualification drafts remain unsent.
-  - Keep researching until the active queue reaches the original ~300 unique organizations; do not count partner programs with form-only contacts as ready-to-send emails.
-  - Collect the previous 28-day Search Console comparison window with the same filters, export raw CSV if available, then prioritize changes using query × page evidence.
-  - Map Pomerol supplier-verification, inspection, QC and OEM/ODM queries to existing landing pages before considering a distinct resource.
-  - Review SourcingCanton form data use and commercial terms before any submission; do not accept fees, exclusivity or an agreement.
-  - Continue one-to-one research and outreach against the original 300/120–180/100–150 targets; never use bulk blasts or invent evidence to meet a volume target.
-  - Obtain technical/legal review of the two unpublished drafts before external use; no live sites were changed.
+  - On 2026-10-28, recheck inbox, sent threads, suppressions, current official pages and exact draft recipients; evaluate no more than five sends from P28 HKTDC, X50 Anjian, X25 DOBOT, X26 FALenses and S26 TIECEC. Send only those that pass every gate, individually, within recipient working hours.
+  - Research 12–15 new unique organizations per working day from official sources; target 6–9 qualified routes but keep any unsupported, paid or privacy-sensitive route on HOLD.
+  - Continue one-to-one email production and follow-up under the original 100–150 first-contact goal; do not use bulk blasts, BCC, guessed contacts or auto-follow-up after a reply.
+  - Collect the previous 28-day Search Console comparison with identical filters and export raw CSV if available; map Pomerol queries to landing pages before recommending page edits. The latest Edge UI attempt was again stopped because the Computer Use helper could not determine the active URL confidently; no browser input occurred.
+  - Build the three original resources and publish platform-adapted posts only after responsible human review; drafts do not count as published.
+  - Review costs, referral rules, rights and data use before any application; do not submit company licenses, financial/employee/address fields or customer data without explicit authorization.
 links:
-  plan: SEO-新阶段计划-2026-10-26.md
-  latest_evidence: SEO-执行计划补充-2026-10-26.md
+  plan: SEO-新阶段计划-2026-10-27.md
+  latest_evidence: SEO-GSC三站同口径搜索快照-2026-10-27.md
+  page_serp_review: SEO-核心页面SERP复核-2026-10-27.md
   handoff: LUNA-GOAL-SEO-交接-2026-10-25.md
   outreach: SEO-邮件外联执行规范-2026-10-25.md
   progress: SEO-外联进展-2026-10-25.md
-
-
-
-
-
-  - Screened eChinacities' official Zhuhai directory request route; it lists marketing@echinacities.com, so S04 is ready for a free-listing eligibility/price inquiry only. Added ChinaExpats S20 as HOLD_RIGHTS because its official terms and privacy notice grant broad material/data use; Expat Focus S07 remains HOLD_EXPERTISE because the email is Cloudflare-obfuscated and no named qualified expert is ready.
-
-  - Researched new industrial publishing and domestic channels: X31 Manufacturing.net (HOLD_HUMAN_AUTHOR; AI-generated copy prohibited), X32 Quality Magazine (HOLD_AUTHOR), X33 CA800 (HOLD_COST); queue now 70 after organization-level deduplication. Automation World was screened but not counted as a new organization because its publisher is already represented in the queue.
-
-  - At the post-dedup checkpoint on 2026-10-26, the queue was 72 distinct organizations with ten READY_TO_SEND routes; two later editorial research entries brought it to 74, and two local Zhuhai service-channel checks brought it to 76.
-
-  - Created a formatted, unsent S04 eChinacities eligibility draft after checking for an existing Gmail thread; private body/message ID recorded outside the public repository. Recheck inbox, suppressions and cadence before any send.
-
-  - Added S21 Chinalyse and S22 Institute for China Studies as qualification-only partner routes after official-source checks and bounded prior-thread searches; both are READY_TO_SEND, no applications sent. Queue 72, ten eligible inquiry routes, eight existing drafts.
-
-  - Latest 2026-10-26 evening reconciliation: queue 76 organizations / 76 unique IDs / 10 READY_TO_SEND; Gmail has 10 unsent qualification drafts. Two new StayChina partner drafts (S21/S22) were prepared; no send occurred after the daily cadence cap. Added P23 and X34 as editorial holds pending qualified human authorship; S23 and S24 are local business-service channel holds pending eligibility and official contact verification.
-
-  - Re-read Yusuf Gmail on 2026-10-26: no new partner replies since the existing HROne and China Business Travel messages, both answered in their original threads. China Business Travel's request for a business licence was met with a question about initial-review necessity and secure submission; no licence/client data sent.
-
-  - Added S23 Zhuhai Private and SME Service Alliance and S24 Zhuhai Association of Enterprises with Foreign Investment as research holds. S23 is a potential no-fee local services network but requires proof of Zhuhai registration and verification of an indexable public service profile; S24 has no verified email and current eligibility is unconfirmed.
-
-  - Added S26 TIECEC after official homepage research. Its catalog currently labels five entries as layout samples, so the value is unverified; created one unsent HTML qualification draft asking eligibility, live/searchable listing status, evidence, fees/referrals and client data handling. Queue 79 organizations / 13 READY_TO_SEND; Gmail has 13 drafts.
-
-  - Screened Axis Communications against its official partner criteria. Added X36 as HOLD_PRODUCT_EVIDENCE: Xiaodu's public material does not demonstrate Axis product integration, established GTM, and support requirements. No guessed email or application. Queue 80 organizations / 13 READY_TO_SEND.
-
-  - Added P30 The Supply Chain Xchange after reviewing its current editorial guide and Gmail exact-recipient history. Saved one unsent, non-promotional fit enquiry with no case claims. Queue 81 organizations / 14 READY_TO_SEND; Gmail has 14 drafts.
-
-  - Added P31 AIAG Supply Line after verifying the current 2026 no-fee, non-promotional editorial invitation and public managing-editor address. Saved a transparent, unsent topic/author-fit question; no auto-industry cases or customs-law expertise claimed. Queue 82 / 15 READY_TO_SEND; Gmail 15 drafts.
-
-  - Screened SCMR's current editorial requirements and added P32 as HOLD_AUTHOR_EVIDENCE: named author bio/headshot, AI-use disclosure and data/experience support are required; Pomerol's public scenarios are illustrative. Queue 83 / 15 READY_TO_SEND, Gmail 15 drafts.
-  - Added P28 HKTDC Company Databank as READY_TO_SEND after exact-recipient history check and saved one unsent HTML qualification draft. Free registration is confirmed, public/searchable profile and link are not; form requests turnover, staff and address and permits database/direct-marketing use, so no form or company data was submitted. Queue 83 / 16 READY_TO_SEND; Gmail 16 drafts.
-  - Added P33 ASEAN–China Connections after official membership and directory review. A separate 2026 trial requests a company logo and grants display rights; updated the unsent inquiry to clarify open tier, searchable public profile, site link, rights and required costs. No form submitted. Queue 84 / 17 READY_TO_SEND; Gmail 17 drafts.
-  - Added P34 Guangdong Procurement and Supply Chain Association as HOLD_PAID: official fee schedule lists CNY 3,000 annual dues at the lowest organization tier; public indexed listing/link not verified. No draft or application.
-  - Added X37 DigiKey Systems Integrator Network after confirming official no-cost integrator directory, search filters and NDA/indemnity requirement. Saved a qualification draft only after exact-recipient history check; no application or agreement accepted. Queue 86 / 18 READY_TO_SEND; Gmail 18 drafts.
-  - Prepared twelve platform-adapted social drafts across LinkedIn, Zhihu, WeChat and YouTube Shorts (four per brand). Expert/brand review is still pending; these twelve drafts are unpublished and count only after verification on the public platform.
-
-
+  next_mail_batch: SEO-邮件批次预审-2026-10-28.md
