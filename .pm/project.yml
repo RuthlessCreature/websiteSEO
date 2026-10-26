@@ -58,7 +58,7 @@ next_actions:
   - Review costs, referral rules, rights and data use before any application; do not submit company licenses, financial/employee/address fields or customer data without explicit authorization.
   - On 2026-10-27 05:40 Asia/Shanghai, reconciled the restored outreach queue against current Yusuf Gmail and dated batch files. The restored 93-row history had 18 obsolete READY_TO_SEND labels; all were reclassified as sent/waiting, hard-bounce-suppressed, dated-preflight hold, or evidence/fit hold. Removed duplicate candidate rows for Siemens/HCSG after matching them to existing X14/X23 and verified Oct 26 SENT threads. Added the three currently scheduled but missing candidates X50/X56/X57. Current CSV: 96 unique organizations, 0 READY_TO_SEND; dated batches remain 5 (10/28), 4 (10/29), and 3 (10/30), all unsent and not scheduled. Gmail has 22 drafts: 17 recipient-bearing (12 not marked HOLD, 5 explicitly HOLD) and five recipient-cleared sent copies. Today's first-contact cap of five is full. No unanswered human reply found; Industrial Automation Monthly is closed paid-only, WFN awaits a no-fee-route answer, and HROne/China Business Travel were answered. Search Console browser UI could not be safely observed because Computer Use could not determine the active URL; no fresh GSC data or browser changes. No new message was sent and no live site/Cloudflare setting changed.
 links:
-  plan: SEO-新阶段邮件推进与三站增长计划-2026-10-27.md
+  plan: SEO-LUNA-30天增长与外联作战计划-2026-10-27.md
   latest_evidence: SEO-GSC三站同口径搜索快照-2026-10-27.md
   page_serp_review: SEO-核心页面SERP复核-2026-10-27.md
   handoff: LUNA-GOAL-SEO-交接-2026-10-25.md
