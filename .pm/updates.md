@@ -7,3 +7,145 @@ Prepared a new 30-day SEO and free outreach plan for LUNA Goal handoff. Added an
 ## 2026-10-25 — first outreach execution
 
 Recovered official web research and checked current editorial criteria. Sent two individually tailored editorial inquiries: one to Industrial Automation Monthly for Xiaodu and one to China Economic Review for StayChina. Both used public official contact details, were checked for prior Gmail threads, and returned SENT. Private message IDs and exact bodies are stored outside the repository. No attachments, unlaunched URLs, backlink requests or paid placement requests were included. Pomerol outreach remains in research; resource drafts are still unpublished. Search Console and live site baselines remain unrefreshed.
+
+Expanded first outreach cohort to Pomerol: sent an eligibility inquiry to Inbound Logistics after checking its one-submission-per-company annual cap, non-promotional requirement and author details. A later audit found the proposed Xiaodu and Pomerol drafts overlap resources already live, so one clarification was sent in each thread; neither piece was submitted. The StayChina message hard-bounced with 550 5.1.1 and its address is suppressed. The active Xiaodu/Pomerol threads have no editor reply at the latest check. Current status and private evidence are separated in the progress report and private ledger. No additional SEO-only push occurred after the one authorized snapshot.
+
+## 2026-10-25 — measurement and outreach gate
+
+Added a bounded Google Search Console snapshot for `sc-domain:pomerol.trade`: 5 web-search clicks (date range unknown), 153 indexed / 23 not indexed pages, 68 HTTPS / 0 non-HTTPS pages, 29 valid / 0 invalid breadcrumb enhancements, and no Core Web Vitals data. The performance report timed out twice; Xiaodu and StayChina current GSC data remain outstanding. Updated the 30-day plan and outreach progress with this evidence and its limits. Additional candidate checks did not qualify new sends because topics overlap published resources or author/policy requirements are unmet. No new email, website edit, or push occurred.
+
+## 2026-10-25 — full-site production audit
+
+Retrieved and read the scheduled main-branch GitHub Actions artifact for full-site audit run #33 (commit `72553ff`). It checked 349 sitemap pages across Xiaodu, StayChina, and Pomerol with 0 issues and 0 warnings; homepage entity-graph checks passed on all three. The English content triage surfaced 43 low-word-count pages as manual review cues only, not errors. Added the evidence snapshot and reprioritized editorial review; no website source was changed and no push occurred.
+
+## 2026-10-25 — Xiaodu partnership outreach
+
+Verified official partner criteria and sent two tailored, first-contact qualification emails from Yusuf Gmail: Mstar Technologies machine-vision partner program and CENIT/FASTSUITE system-integrator program. Both describe Xiaodu’s current public solution scope and ask about required qualifications without claiming unverified project volume, customer references, FASTSUITE history, or robot/CNC brand experience. Sent messages were read back from Gmail; IDs and exact HTML bodies are in the ignored private ledger. The candidate queue now contains 31 organizations. No application, website change, or repository push occurred.
+
+## 2026-10-25 — Pomerol partner-network qualification
+
+Checked Yusuf Gmail for recent Mstar/CENIT replies; none were present. Researched SourcingCanton's official partner recruitment page and compared its stated China sourcing/QC network needs with Pomerol's current service page. Its published scenarios are explicitly illustrative, so the private application draft discloses that no verified customer project is being claimed. Added candidate P13 with the official form source and `FORM_PENDING` status. The form was not submitted because its live required fields and privacy/commercial terms have not been reviewed. No partner agreement, fee, or exclusivity was accepted; no website or repository was pushed.
+
+## 2026-10-25 — StayChina HR partner qualification
+
+Verified HROne's official partner program, which invites China market-entry advisors and global-mobility providers to explore corporate or referral partnerships, and checked StayChina's live service scope. After a bounded search found no prior thread, sent one tailored qualification email to HROne's officially listed contact and read back its Gmail SENT record. The note asks about partner eligibility, evidence/coverage and client-consent handling; it promises no referral, fee or commercial terms. Added public candidate S15. The queue now contains 34 organizations; no follow-up before 2026-10-30.
+
+## 2026-10-25 — Xiaodu machine-vision partner qualification
+
+Verified MindVision's official invitation to system integrators and OEMs, then compared it with Xiaodu's live machine-vision page. After a bounded search found no prior MindVision thread, sent a tailored email asking about South China integrator qualification, training, evaluation and project-evidence requirements; it explicitly discloses no prior MindVision deployment claim. Read back the Gmail SENT record and added candidate X12. The public queue now contains 35 organizations; no follow-up before 2026-10-30.
+
+## 2026-10-26 — StayChina travel-partner eligibility
+
+Checked China Business Travel's official Global Partner Program, which names overseas business consultants, chambers and related organizations as referral/co-organisation partners, against StayChina's public advisory audience. As StayChina is based in China while the program focuses on organizations abroad, sent one eligibility question to the official public email rather than asserting a qualified fit. Gmail body and SENT record were read back. Added public candidate S16; no client, trip or referral is claimed. No follow-up before 2026-10-31.
+
+## 2026-10-26 — live crawl and contact baseline
+
+Direct read-only production GETs returned HTTP 200 for all three robots files, sitemaps and English contact pages. Live sitemap counts were 170 Xiaodu, 24 StayChina and 155 Pomerol (349 total), matching the 2026-10-25 full-site CI run. Each robots file currently signals `search=yes`, `ai-input=yes`, `ai-train=no`; no indexing or AI-citation claim is inferred. Contact-page canonical paths and public brand aliases were checked against the approved Yusuf configuration. Search Console remains blocked by the browser tab binding timeout, so no comparable query-performance metrics have been produced.
+
+## 2026-10-26: additional qualification outreach
+
+- Sent and read back two tailored inquiries from Yusuf Gmail: Xiaodu to Overview AI's integrator program and StayChina to Global Mobility Journeys' supplier community. Both asked about fit/eligibility before any application; neither claims a prior project, customer reference or approval.
+- Review the latest thread on or after 2026-10-31. The GMJ thread asks whether profile or supplier participation is free; do not proceed with paid placement. The Overview thread asks China eligibility and evidence/training requirements.
+- Current first-touch count: 11 total (3 editorial, 8 partner/supplier qualification attempts; one editorial address has a confirmed hard bounce and remains suppressed). Two editorial corrections remain in their original threads.
+
+## 2026-10-26 continuation: Arlen partner qualification
+
+- Reviewed Arlen's current public partner criteria, confirmed the official partnerships inbox, and checked Yusuf Gmail for prior correspondence.
+- Sent and read back one StayChina qualification email. It asks about China-market coverage and required evidence, makes no client-referral or legal-credential claim, and carries no client data.
+- The contact thread and exact body are stored in the private ledger. Review after 2026-10-31 before further action.
+
+## 2026-10-26 continuation: QIMA qualification outreach
+
+- Added Pomerol candidate P15 after verifying QIMA's official operational/co-marketing partner models and separate affiliate route. A tailored qualification email was sent/read back; it makes no lead or client claim and accepts no commission/terms.
+- Candidate queue now contains 40 organizations; first-contact attempts total 13 (3 editorial, 10 partnership/supplier, including one permanently suppressed bounce). Follow-up/reply review for this thread is no earlier than 2026-10-31.
+
+## 2026-10-26 continuation: Siemens partner qualification
+
+- Verified the official Siemens Global Partner Program industrial-automation page and its published partner-management email. A bounded Yusuf Gmail search found no prior conversation.
+- Sent one tailored eligibility email asking about China route, revenue/staff/reference/certification thresholds; it makes no Siemens project, current opportunity or partner-status claim. Gmail SENT record and full body were read back.
+- Recheck after 2026-10-31 before further action; do not submit an application unless the published eligibility criteria are met.
+
+
+## 2026-10-26 continuation: IFN partner fit
+
+- Added Pomerol candidate P16 after verifying the official programme lists professional services/consulting but also mentions possible first-year fees and optional sponsorship/events. Sent a qualification-only email asking fit and all-in fees; no application or terms accepted. Gmail SENT record and full body were read back.
+- Public queue now contains 42 organizations; first-contact attempts total 15 (3 editorial, 12 partner/supplier, including one suppressed hard bounce). Review the thread after 2026-10-31.
+## 2026-10-26 continuation: HROne human response
+
+- HROne replied with exploratory interest in corporate or referral models and identified company background, scope, experience, geographic coverage and client consent as assessment topics. No partnership or fee terms were offered/accepted.
+- Rechecked StayChina's live service scope and sent a factual reply asking about eligibility evidence, China-entity requirement and city coverage; disclosed no independently verifiable case study is ready and no client is being referred. Gmail response and SENT reply were read back; await reply and do not follow up before 2026-10-31.
+## 2026-10-26 continuation: China Business Travel qualification review
+
+- China Business Travel requested a company profile, business registration certificate and website to review the StayChina partner inquiry. No approval was stated.
+- Sent the public site and factual scope, and asked whether the certificate is required at initial screening and for a secure submission/document-handling channel plus qualification criteria. No company certificate or client data was sent. Gmail incoming request and SENT reply were read back; wait for clarification.
+
+## 2026-10-26 continuation: live resource dedup inventory
+
+- Rechecked Xiaodu homepage, StayChina setup/teaching guide hubs and Pomerol resource toolkit/RFQ builder from live production pages. Found existing broad coverage that makes the proposed generic worksheets and buyer checklists duplicative.
+- Expanded the public dedup gate with each site's currently visible assets, explicit HOLD_OVERLAP topics, and evidence limitations. No website repositories were changed.
+- Search Console data remains unavailable: Windows computer-use access terminated because the helper could not determine the current browser URL with sufficient confidence. No credentials were entered and no account settings were changed. Continue with documented public evidence; do not claim query demand/ranking gaps from this observation.
+## 2026-10-26 continuation: partner-channel qualification gate
+
+- Checked live official Festo, Rockwell Automation, Omron and Basler partner pages against Xiaodu's public machine-vision scope. Did not send a Festo distributor inquiry because the public contact is for authorized sales partners and the visible Greater China criteria emphasize stable funding and an established automation background; did not submit Omron's Canada end-customer partner-matching form or Rockwell's SI program request flow as prospective-partner applications.
+- Added Basler's official innovation pilot contact as candidate X15 in `HOLD_EVIDENCE`: the program invites defined machine-vision pilot use cases, but no specific Basler-compatible application or relevant deployment evidence is currently on record. No email sent.
+- Rechecked recent Yusuf Gmail activity. HROne and China Business Travel replies were already answered in-thread; no additional human reply since those responses. New contacts remain inside the 10/31 review window.
+- No website code changed and no repository push occurred.
+
+## 2026-10-26 continuation: Xiaodu specialist asset draft
+
+- Created `resources/drafts/xiaodu-machine-vision-feasibility-intake.md` as an unpublished technical-review draft. It is narrower than the existing general project/FAT checklist: it focuses on image geometry, scene variation, error costs, measurement/read performance, sample-set governance and control-system recovery.
+- The live Xiaodu page confirms machine-vision scope (2D/3D, inline inspection, OCR/barcodes, positioning, robot guidance, traceability) and general delivery stages. This supports topic fit but does not validate each draft field as current company practice; an engineering owner must review it before publication.
+- No outreach uses this draft yet. The asset remains unpublished and unapproved; send nothing that describes it as available.
+
+## 2026-10-26 continuation: Omron SI eligibility
+
+- The official Omron page distinguishes its customer-to-integrator matching form from a separate route for companies seeking Certified Partner System Integrator status. The latter publishes technical training and proven Omron project experience as partner qualifications, and lists `SystemIntegrator-OAA@omron.com` as a contact.
+- After searching Yusuf's Gmail for Omron/domain history and finding no prior thread, sent one tailored qualification inquiry. It states the Xiaodu public site does not show an Omron reference, makes no partner claim, and asks whether a China-based integrator should contact that team for training/eligibility and the correct region route.
+- Gmail SENT message `1a1772adc87c925b` and full body were read back. Added candidate X16 and private ledger/contact entry W15. Review on/after 2026-10-31; no automatic application or follow-up.
+
+## 2026-10-26 continuation: ifm China SI eligibility
+
+- Verified ifm's official system-integrator program and its published criteria (in-depth product knowledge, industry expertise and customer-project experience); verified `info.cn@ifm.com` on ifm's China locations page.
+- A bounded Yusuf Gmail search found no ifm correspondence. Sent one Chinese qualification inquiry from Yusuf that says Xiaodu's public site has no ifm project reference and makes no partner-status claim; it asks whether the China team accepts pre-application training/eligibility questions and for the correct route.
+- Gmail SENT message `1a1773155457c11e` and full body were read back. Added candidate X17 and private contact W16; review on/after 2026-10-31. This is not an application, partnership approval or delivery claim.
+
+## 2026-10-26 continuation: Beckhoff China SPP eligibility
+
+- Verified Beckhoff's official Solution Provider Program, which says SPP partners must be nominated by the area team and recommends prospective partners consult local sales/support engineers; verified the Dongguan Sales Office email on Beckhoff's official China page.
+- A bounded Yusuf Gmail search found no Beckhoff/TwinCAT conversation. Sent one Chinese inquiry that explicitly says Xiaodu's public site has no Beckhoff/TwinCAT project reference and makes no partner-status claim; it asks only about China eligibility, training and regional nomination route.
+- Gmail SENT message `1a17736a4c7b5bf4` and complete body were read back. Added candidate X18 and private contact W17; review on/after 2026-10-31. No application or commitment submitted.
+
+## 2026-10-26 continuation: StayChina production contact and Hengqin draft
+
+- Directly fetched the current StayChina contact and China setup pages. Both contain Yusuf's approved contact details; the older Nicole snippet in public search is stale.
+- Parsed the live sitemap: the published English guides include China/Guangdong/city teaching topics and China setup, with no Hengqin registration guide.
+- Prepared `resources/drafts/staychina-hengqin-registration-2026.md` based on current official NDRC, MOFCOM and Hengqin sources. It focuses on the May 2026 form change, national access-rule layers and August 2026 agent-management notice. It includes scope boundaries and explicitly requires qualified review.
+- Draft is unpublished and not used in outreach. No website repository changed, no content was published, and no GitHub push occurred.
+
+## 2026-10-26 continuation: Xiaodu / ALSONTECH partner qualification email
+
+- Verified ALSONTECH's public partner programme and contact details from its official site; the programme invites integration/industry/technology partners. Public Xiaodu service scope is relevant, but no ALSONTECH deployment is claimed.
+- Searched Yusuf Gmail for prior ALSONTECH history and found none. Sent one tailored Chinese eligibility inquiry, expressly disclosing no public ALSONTECH reference, customer, distributor or certification status. Asked about China-based SI eligibility, prior-project evidence, training/demo evaluation and commercial requirements.
+- Gmail SENT record and full body read back: `1a177439422ae7f3`. Added public candidate X19 and private ledger/contact W18; earliest thread review 2026-10-31.
+- Campaign count now: 19 first-contact attempts (3 editorial, 16 partner/supplier qualification including 1 suppressed hard bounce), 2 editorial corrections; candidate queue 47 organizations. No application or commercial terms accepted.
+
+## 2026-10-26 continuation: two Xiaodu vision ecosystem enquiries
+
+- Verified Sanbo Vision's official invitation to automation integrators/partners and its published contact; sent a tailored Chinese fit/qualification inquiry after checking Gmail history. It makes no SANBOS V-CORE deployment, client or partner claim. Gmail SENT/body readback: `1a17749eaddfeb05`.
+- Verified BOT's official partnership invitation for system integrators/industry partners and its published partnership contact; sent a tailored English fit inquiry after checking Gmail history. It makes no BOT project/customer/partner claim. Gmail SENT/body readback: `1a1774dba97023f3`.
+- Added public candidates X20/X21 and private ledger contacts W19/W20. Both wait for reply review after 2026-10-31. Queue now has 49 organizations; 21 first-contact attempts (3 editorial, 18 partner/supplier including one suppressed bounce) and two editorial corrections. No application, fee or agreement accepted.
+
+## 2026-10-26 continuation: Hikrobot partner route research
+
+- Verified Hikrobot's current machine-vision ecosystem partner recruitment and the data its application requests (company, contact, region, product purchase scale, engineer certifications/training). Added candidate X22 with `HOLD_GMAIL_HISTORY`.
+- Gmail history search repeatedly failed with a transport error; no contact was sent and no application data were entered. Recheck existing Gmail threads when service recovers, then ask Hikrobot's official general inbox for the correct partner route.
+- Candidate queue is now 50; sent first-contact count remains 21.
+
+## 2026-10-26 continuation: Hikrobot ecosystem qualification email
+
+- Gmail recovered. Checked recent inbox: messages were previously logged HROne and China Business Travel responses, plus the suppressed China Economic Review delivery failure; no new human reply surfaced. Gmail history search showed no Hikrobot thread.
+- Sent a Chinese eligibility inquiry to Hikrobot's official general contact, asking for the correct partner route, product/project criteria, and engineer certification/training requirements. It discloses no Hikrobot project/customer/partner status and gives no invented purchase or engineer figures.
+- Gmail SENT and full body read back: `1a17762ab09932fb`. Added X22 and private W21; review after 2026-10-31. No formal application or commercial terms accepted.
+- Campaign now has 22 first-contact attempts (3 editorial; 19 partner/supplier, including one suppressed hard bounce) plus two editorial corrections; candidate queue 50.
+- On 2026-10-26, read a live Pomerol GSC Search report (2026-09-30–10-23 visible chart dates): 5 clicks, 1,349 impressions, 0.4% CTR, 43.5 property-average position. Top visible supplier verification, inspection, QC and OEM/ODM queries had zero clicks and 11–48 impressions each; no keyword-level position conclusion is drawn.
+- On 2026-10-26, verified HCSG's official Hainan partner programme, checked Yusuf Gmail history, sent and read back one StayChina eligibility inquiry that states registration/Hainan capability are unverified; queue 51, campaign 23 first-contact attempts (one bounce suppressed), two corrections.

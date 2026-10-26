@@ -2,22 +2,29 @@ name: websiteSEO
 summary: Three-site SEO planning and free email outreach for Xiaodu, StayChina, and Pomerol.
 status: active
 phase: first-outreach-in-progress
-last_reviewed: '2026-10-25'
+last_reviewed: '2026-10-26'
 progress:
   - Prepared a dated 30-day plan, outreach SOP, 24 organization research seeds, and LUNA Goal handoff.
-  - Sent two manually qualified editorial inquiries through publicly listed official addresses; message evidence and exact bodies are private.
-  - Added three unpublished resource drafts and a dated outreach status report; no live website was changed.
-  - Separated private mail threads and contact records from public repository materials.
+  - Attempted three manually qualified editorial inquiries; two corrective replies clarified overlaps with live content, and one hard-bounced address is suppressed.
+  - Audited current resource pages; proposed editorial assets are held where they overlap live content.
+  - Kept private mail threads and contact records outside public repository materials.
+  - Retrieved the 2026-10-25 full-site production audit artifact: 349 sitemap pages, zero issues/warnings, and homepage entity checks passing; low-word-count cues remain editorial review items only.
+  - Sent and read back 23 first-contact attempts (3 editorial and 20 partner/supplier qualification, including one suppressed hard bounce); two editorial corrections are separate. The latest is a candid StayChina/HCSG eligibility question; SENT is not proof of delivery.
+  - Public candidate queue has 51 organizations. Private thread IDs and message bodies remain outside the repository.
+  - Read the Pomerol GSC Search report for 2026-09-30–10-23: 5 clicks, 1,349 impressions, 0.4% CTR and 43.5 property-average position; query rows are topic signals only, not keyword rank evidence.
+  - Verified robots.txt, sitemaps and contact pages for all three sites; no website code changed or published in this phase.
+  - Prepared an unpublished Xiaodu machine-vision feasibility intake draft and an unpublished StayChina Hengqin 2026 guide; each requires qualified review before use.
 blockers:
-  - Fresh Search Console data and current production-site checks remain unavailable in this turn.
-  - Historical search baseline is stale; latest available recorded GSC data ends on 2026-10-06.
-  - The Xiaodu technical reviewer and StayChina qualified China legal reviewer are not yet confirmed.
-  - Pomerol's RFQ draft must be compared with the current live tool and service claims before linking or pitching.
+  - Comparable query/page/country/device data for all three sites remain outstanding; Pomerol's AI performance report is not yet read and its current Search baseline is a screen-read snapshot without verified export.
+  - Xiaodu engineering review and StayChina qualified China legal/process review remain unconfirmed.
+  - Pomerol's older RFQ draft overlaps live tools/guides; do not pitch or publish it as new.
 next_actions:
-  - Check replies to both sent inquiries on or after 2026-10-30; do not auto-follow-up.
-  - Refresh Search Console and production-site baselines when access works.
-  - Qualify the next outreach cohort and verify official contact route, cost, authorship and a live resource for every prospect.
-  - Complete evidence review for one reference asset per site before publication or pitching.
+  - Read due Gmail threads after 2026-10-30/31 before considering follow-ups; handle replies and stop requests first. Never retry the suppressed China Economic Review address.
+  - Collect comparable Search Console query/page/country/device data and the AI Search report for all three properties when the signed-in UI is accessible.
+  - Map Pomerol supplier-verification, inspection, QC and OEM/ODM queries to existing landing pages before considering a distinct new resource.
+  - Review the SourcingCanton form's data use and commercial terms before any submission; do not accept fees, exclusivity or an agreement.
+  - Qualify the next outreach cohort against official partner/editor requirements and live content; continue one-to-one mail, not broad blasts.
+  - Obtain technical/legal review of the two unpublished drafts before external use; no live sites were changed.
 links:
   plan: SEO-新阶段计划-2026-10-25.md
   handoff: LUNA-GOAL-SEO-交接-2026-10-25.md

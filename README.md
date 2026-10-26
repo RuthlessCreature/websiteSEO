@@ -17,9 +17,12 @@ The live website code remains in each site's own repository. This repository hol
 
 ## Latest verified checkpoints
 
+- [Three-site full-site production audit snapshot (2026-10-25)](SEO-三站全站审计快照-2026-10-25.md) — scheduled main-branch run #33 checked 349 sitemap pages with 0 reported issues and 0 warnings; editorial triage cues are documented separately from technical failures.
+
 - [New 30-day SEO and outreach plan (2026-10-25)](SEO-新阶段计划-2026-10-25.md) — current planning handoff; old technical/search results remain historical.
-- [LUNA Goal execution handoff](LUNA-GOAL-SEO-交接-2026-10-25.md), [email SOP and templates](SEO-邮件外联执行规范-2026-10-25.md), and the 28-organization research queue (including two sent inquiries) are tracked in [the candidate CSV](SEO-外联候选研究队列-2026-10-25.csv). Unsent rows are not verified recipients. Private outreach records are stored outside this repository.
-- [Outreach progress (2026-10-25)](SEO-外联进展-2026-10-25.md) — two editorial inquiries sent after official-channel checks; both await replies. The three resource drafts remain unpublished.
+- [LUNA Goal execution handoff](LUNA-GOAL-SEO-交接-2026-10-25.md), [email SOP and templates](SEO-邮件外联执行规范-2026-10-25.md), and the 51-organization candidate queue (including twenty-three first-contact attempts, two corrections, one suppressed bounce, targeted Xiaodu vision/automation partners, Pomerol logistics/QC, StayChina HR/travel/mobility inquiries, one Basler pilot lead held for a specific use case, Hikrobot qualification sent, and an HCSG eligibility inquiry) are tracked in [the candidate CSV](SEO-外联候选研究队列-2026-10-25.csv). Unsent rows are not verified recipients. Private outreach records are stored outside this repository.
+- [Outreach progress (updated 2026-10-26)](SEO-外联进展-2026-10-25.md) — twenty-three first-contact attempts across editorial and partner-fit channels; one China Economic Review hard bounce is suppressed; two overlap corrections were sent in Xiaodu/Pomerol editorial threads; recent qualification inquiries cover Xiaodu vision/automation, Pomerol logistics/QC, and StayChina HR/travel/mobility partners. SourcingCanton partner form remains unsubmitted; no article was submitted.
+- [Editorial outreach content dedup gate (2026-10-25)](SEO-外联内容去重门禁-2026-10-25.md) — the three offline ideas overlap live resources; a hard bounce and two clarification replies are reflected in current status.
 
 - [Google real-time broad-query and AI Overview sample (2026-10-10)](SEO-Google%E5%AE%9E%E6%97%B6%E5%AE%BD%E8%AF%8D%E4%B8%8EAI%E6%A6%82%E8%A7%88%E6%8A%BD%E6%A0%B7-2026-10-10.md)
 - [Content depth and case-page differentiation — 2026-10-10 production recheck](SEO-%E5%86%85%E5%AE%B9%E6%B7%B1%E5%BA%A6%E4%B8%8E%E6%A1%88%E4%BE%8B%E5%8C%BA%E5%88%86%E5%A4%8D%E6%A0%B8-2026-10-07.md)
@@ -106,6 +109,3 @@ These reports separate technical crawl health, search-engine indexing evidence, 
 Submission drafts are not evidence of registration, approval, indexing, or ranking. Follow each platform's current rules and publish only verified business information.
 
 - [Xiaodu Automation-List submission profile and review status](SEO-Xiaodu-Automation-List-申请资料-2026-10.md) — updated 2026-10-10; not approved because the directory requires evidence of actually delivered engineering work. See the [directory roadmap](SEO-%E7%9B%AE%E5%BD%95%E6%8F%90%E4%BA%A4%E8%B7%AF%E7%BA%BF%E5%9B%BE-2026-10.md) before considering a future submission.
-
-
-
