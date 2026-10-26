@@ -157,3 +157,65 @@
 - New StayChina candidate X23 / HCSG. Official programme reviewed; Yusuf Gmail history had no prior thread. Sent a candid partner-eligibility email to the official address and read back SENT/body (thread `1a1776fb37794dbd`). It discloses the unverified registration and Hainan-delivery requirements; no documents, referral claims or commercial terms were sent/accepted. Review after 2026-10-31.
 - Public queue now has 51 organizations; 23 first-contact attempts (3 editorial, 20 partner/supplier, including one suppressed hard bounce), plus two same-thread corrections. Do not send more cold email today; allow the daily account volume to cool and resume with one-to-one qualified contacts.
 - Browser binding to the GSC tab timed out on read attempt. Avoid repeated UI retries; proceed on the recorded snapshot, then collect comparable data for all three sites and GSC's AI Search report when the signed-in report UI is accessible.
+
+## 2026-10-26 continuation — page mapping and next qualified send
+
+- Search topic/page map for Pomerol is recorded in the progress report. The actual GSC page dimension remains missing, so mappings are editorial hypotheses. Current live pages already cover PSI, supplier verification/QC and OEM/ODM; do not author another generic overlapping guide.
+- Secondary-host HTTP checks: `www` and apex homepages return 200 across all three sites, with canonical selection Xiaodu/Pomerol apex and StayChina `www`. No routing/DNS changes. Verify representative nested routes and sitemap consistency before deciding whether to normalize aliases.
+- EU SME Centre X24 is a new official directory-listing lead for StayChina. Gmail history showed no prior thread. Draft at private `outreach/x24-20261027-v1.html`; send after the daily cool-down, after a fresh history check, and ask about listing eligibility, required evidence and fees. No message sent yet.
+- One-day Gmail inbox check found no new HROne/China Business Travel reply beyond the replies already logged and answered.
+- GSC UI read attempt timed out; stop repeating the same tab bind for this turn. Continue with independent work and collect the report when the UI becomes responsive.
+
+## 2026-10-26 新阶段执行计划
+
+- 当前执行入口改为 [三站 SEO 新阶段执行计划（2026-10-26）](SEO-执行计划-2026-10-26.md)，涵盖 10/27–11/24，细化搜索数据、内容/页面、AI 搜索、Cloudflare 技术核验、平台分发和邮件节奏。
+- 当前公开候选队列为 52 家：20 家已首触、2 家原线程澄清、1 个硬退信已抑制、1 家 READY_TO_SEND；其余多数仍待研究或证据核验。不得把队列总数写成合格名单。
+- 本轮日发送量已达到内部节奏范围，不再追加同日冷邮件。下一封优先 X24 EU SME Centre：发送前复查 Gmail 历史/最新回复、官方联系入口和当日量；之后恢复每日 5–10 封个性化首触。
+- 三站 GSC 同窗口 query × page × country × device 与 AI Search 数据仍缺。Pomerol 现有供应商核验、PSI、OEM/ODM 内容已覆盖可见查询主题，先拿页面维度证据再做摘要/内链优化，不再造泛指南。
+- www/apex 首页响应与 canonical 选择存在差异，列为需查子页、sitemap、redirect chain 的技术项；目前不改 DNS/线上路由。
+- 新计划已落盘；站点代码、DNS 与外联私人资料未修改或推送。
+
+## 2026-10-26 verified production and outreach updates
+
+The latest full crawl using the repository production audit script reconfirms 349 sitemap pages (Xiaodu 170 / StayChina 24 / Pomerol 155), with zero issues and warnings in audited fields. Pomerol's raw sitemap contains 144 image locations in addition to its 155 page URLs. The www/apex home and key-route aliases end at the selected canonical URL for each site, and sitemap hosts agree; DNS/Cloudflare changes are not justified. A new evidence note is in `SEO-三站实时生产审计-2026-10-26.md`.
+
+Official outreach research also removed two unsuitable approaches: the U.S. Commercial Service BSP directory has a published $480 foreign-firm listing fee plus renewal, so it is outside the free plan; Robotics and Automation News has no ready free Xiaodu pitch without an engineering-reviewed, distinctive technical story, so X05 is held on evidence. X24 EU SME Centre remains the next candidate with a Gmail draft that is not sent.
+
+2026-10-26 follow-up: The current 30-day plan now includes P25 ForGlobal as a second send-ready free-directory enquiry. Two Gmail drafts are ready for X24 and P25, neither sent. Candidate queue size is 53; one more research item (Control Engineering) has been held for overlap; SDCExec is held because its current expert-column rules prohibit company links and require non-commercial calendar fit. See the current execution plan for next-day ordering and cadence.
+
+Additional free-channel screening (2026-10-26): JETRO's free Experts Finder is for providers serving companies setting up in Japan; ASEAN Access is for ASEAN-market service providers; Clutch's free profile does not include a website link, which is a paid-tier benefit. GTR does not publish zero-fee listing terms on the current submission page, and its older directory media kits indicate paid listing packages. These are not treated as free, qualified SEO outreach targets. Sources: https://www.jetro.go.jp/en/invest/setting_up/directory/regist.html ; https://www.aseanaccess.com/service-list.html ; https://clutch.co/get-listed ; https://www.gtreview.com/gtr-directory/.
+
+## Latest authoritative state — 2026-10-26
+
+Use [SEO-执行计划-2026-10-26.md](SEO-执行计划-2026-10-26.md) as the current runbook. It supersedes older counts and open technical items above: 53 candidates; 2 send-ready drafts (X24 EU SME Centre and P25 ForGlobal), both unsent; no new cold email sent today. All three domains' sampled apex/www, canonical and sitemap hosts have been checked; weekly monitoring only, no DNS/Cloudflare repair indicated. Search Console query × page and AI Search comparison are still missing. Automation.com is a verified editorial possibility only after a named-author bio and engineering-reviewed non-promotional technical asset are ready; it is not a free directory or guaranteed placement. Next local day, check mailbox/cadence and official contact details, then send only qualified individualized messages; 5–10/day is a ceiling for the initial batch, not a quota.
+
+2026-10-26 directory screen: current queue is 56 organizations, with 2 unsent READY_TO_SEND drafts. Added P26 ChinaYello (`HOLD_PAID`; current company listing starts at US$20 promo), P27 China Supply Chain Directory (`HOLD_PLATFORM_NOT_LIVE`; register page says auth is not wired), and P28 HKTDC Company Databank (`HOLD_PUBLIC_PROFILE_UNCONFIRMED`; free registration is confirmed but a public indexed company profile/link is not). These increase research count only, not qualified sends. Official sources and rationale are in the latest execution plan.
+
+2026-10-26: Additional StayChina channels. The Beijinger officially lists listings@thebeijinger.com for events/directory queries; drafted a one-to-one qualification email asking whether a China-wide online consulting service fits, whether a free listing carries a website link, and whether a Beijing address is required. Unsent. S03 is the third READY_TO_SEND candidate. Expat.com's basic free account has unverified outbound-site-link value and its review requires a valid physical address absent from StayChina's public contact page; hold. SmartShanghai service listings start at RMB 80/month; hold paid. Current queue remains 56, three ready drafts, no email sent in this continuation.
+
+2026-10-26: Fourth qualified unsent draft added — S09 iWorld partner programme. The official programme accepts consulting firms/service partners for global immigration and company-registration referrals; partner contact is partners@iworld.com. A truthful qualification email asks about China-based partner eligibility, written fees/commission conditions, regional scope and client-consent handling. No referral, client data, application or agreement was submitted. Queue now has 57 organizations and four unsent READY_TO_SEND drafts (X24/P25/S03/S09); no new email sent.
+
+Latest handoff correction (2026-10-26): candidate queue is 57 organizations; four unsent READY_TO_SEND drafts are recorded: X24 EU SME Centre, P25 ForGlobal, S03 The Beijinger directory inquiry, S09 iWorld partner eligibility. All are drafts, not sends or approvals. See current execution plan and private send ledger for evidence.
+
+2026-10-26 update: FIIC / 友诚国际 was verified as a possible channel partner and one unsent qualification draft was added (S10). Its official page recruits channel partners; StayChina inbound China support could complement its outbound services, but fit is unproven. Queue is now 58 organizations and five unsent qualification drafts (X24/P25/S03/S09/S10). Gmail also shows replies from HROne and China Business Travel with follow-ups already sent; no licence or client data was shared. See the current execution plan and private ledger.
+
+2026-10-26 continuation: Added X25 for a DOBOT system-integrator eligibility inquiry after checking official partnership/contact information and Yusuf Gmail history. A tailored draft is saved and remains unsent; no DOBOT project, authorization, customer volume or referral is claimed. The queue now has 59 organizations and six unsent qualification drafts (X24/P25/S03/S09/S10/X25). Recheck inbox, contact source, and daily cadence before sending.
+
+Latest count correction (2026-10-26): DOBOT X25 added for Xiaodu after official policy/contact review and Gmail dedup. Six qualification drafts remain unsent. Current queue count is 59; use `SEO-执行计划-2026-10-26.md` and latest progress/log entries over older historical counts.
+
+## 2026-10-26 LUNA Goal 最新状态
+
+继续沿用当前 active goal，不另建重复 goal。权威执行文件为 [SEO-执行计划-2026-10-26.md](SEO-执行计划-2026-10-26.md) 及 [最新实绩补充](SEO-执行计划补充-2026-10-26.md)。三站 GSC 最近 28 天 clicks/impressions：Xiaodu 1/72、StayChina 2/50、Pomerol 6/1,570。AI Search impressions 为 2/4/5，不等于 AI 引用；原始 CSV 与 query × page 仍待取得。Pomerol `/zh/cases/` 为 0/414，搜索快照称采购情境示例而页面名仍写案例库，先统一“示例”表述再决定是否改线上页。
+
+邮件核对：Gmail 当前 7 封资格草稿均未发送；日期搜索窗返回 12 条 SENT（10 首触、2 原线程跟进，需按原始 Date 时区头归一）。HROne 与 China Business Travel 已回复且跟进已发；China Economic Review 地址硬退 550 5.1.1 并已抑制。今天停止新增首触；下一工作日先复查回复、退信、停止请求与 suppression，首批最多 5 封。编辑投稿须等具名作者与真实原创工程证据。
+
+媒体投稿新增三条研究记录 P29/X27/X28，现候选研究队列为 63 家；三家均因内容/作者证据不足保持 HOLD，不是待发邮件。现有 7 封资格草稿未变。
+
+
+## LUNA continuation — 2026-10-26 scope fidelity
+
+The original 30-day targets from `SEO-新阶段计划-2026-10-25.md` remain controlling: about 300 researched organizations, 120–180 qualified contact paths and 100–150 individualized first-contact emails, plus three resources, 3–6 page improvements and 12–18 adapted posts. The execution plan had mistakenly narrowed the numbers and is corrected. Current candidate/draft/send counts are progress only. P30 Quality Digest is a new official-source editorial lead on hold for author/topic qualification. No send was made in this continuation; continue next local workday after inbox, suppression and account-health checks, while research proceeds.
+
+### 2026-10-26 evening continuation
+
+Gmail recheck confirms the seven tracked qualification drafts remain unsent and the current sent messages/reply threads match the private log; no more cold email was sent after the already reached daily cadence. Public queue has grown from 64 to 67 unique records with X29 Vision Systems Design, P31 Supply Chain Connect, and S12 Expat Listing. All three are on hold pending a truly original/qualified author asset or exact free-directory scope; no email, form, or application was submitted. Continue researching official sources against the original goal and resume sending only after a fresh next-day inbox, suppression and cadence review.

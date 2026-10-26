@@ -1,32 +1,45 @@
 name: websiteSEO
-summary: Three-site SEO planning and free email outreach for Xiaodu, StayChina, and Pomerol.
+summary: Three-site SEO planning and free, individualized outreach for Xiaodu, StayChina, and Pomerol.
 status: active
-phase: first-outreach-in-progress
+phase: evidence-led-outreach-and-search-analysis
 last_reviewed: '2026-10-26'
 progress:
-  - Prepared a dated 30-day plan, outreach SOP, 24 organization research seeds, and LUNA Goal handoff.
-  - Attempted three manually qualified editorial inquiries; two corrective replies clarified overlaps with live content, and one hard-bounced address is suppressed.
-  - Audited current resource pages; proposed editorial assets are held where they overlap live content.
-  - Kept private mail threads and contact records outside public repository materials.
-  - Retrieved the 2026-10-25 full-site production audit artifact: 349 sitemap pages, zero issues/warnings, and homepage entity checks passing; low-word-count cues remain editorial review items only.
-  - Sent and read back 23 first-contact attempts (3 editorial and 20 partner/supplier qualification, including one suppressed hard bounce); two editorial corrections are separate. The latest is a candid StayChina/HCSG eligibility question; SENT is not proof of delivery.
-  - Public candidate queue has 51 organizations. Private thread IDs and message bodies remain outside the repository.
-  - Read the Pomerol GSC Search report for 2026-09-30–10-23: 5 clicks, 1,349 impressions, 0.4% CTR and 43.5 property-average position; query rows are topic signals only, not keyword rank evidence.
-  - Verified robots.txt, sitemaps and contact pages for all three sites; no website code changed or published in this phase.
-  - Prepared an unpublished Xiaodu machine-vision feasibility intake draft and an unpublished StayChina Hengqin 2026 guide; each requires qualified review before use.
+  - Prepared a 30-day plan, outreach SOP, research queue and LUNA Goal handoff.
+  - Re-ran the production SEO audit: 349 sitemap pages, zero reported issues/warnings in audited fields; the latest host/canonical/sitemap sample aligns and is now weekly monitoring only.
+  - Sent and read back 23 first-contact attempts (3 editorial and 20 partner/supplier qualification, including one suppressed hard bounce); two editorial corrections are separate. SENT proves a sent record, not delivery or approval.
+  - Read Pomerol GSC report for 2026-09-30–10-23: 5 clicks, 1,349 impressions, 0.4% CTR and 43.5 property-average position. Three-site comparable query/page and AI Search reports remain outstanding.
+  - Reviewed existing resources and held overlapping drafts; the Xiaodu intake and StayChina Hengqin guide remain unpublished pending qualified review.
+  - Current queue is 69 organizations, all IDs unique, with seven unsent qualification drafts: X24 EU SME Centre, P25 ForGlobal, S03 The Beijinger, S09 iWorld, S10 FIIC, X25 DOBOT and X26 FALenses.
+  - Restored the unchanged original 30-day scope: about 300 organizations researched, 120–180 qualified contact paths and 100–150 individually tailored first-contact emails, plus 3 resources, 3–6 core page improvements and 12–18 adapted platform posts. Current queue/drafts/sends are progress, not replacement targets.
+  - Added P30 Quality Digest editorial route from its official author guidelines; on hold pending an original non-overlapping, evidence-backed topic and verifiable author qualifications.
+  - Rechecked Yusuf Gmail on 2026-10-26 local evening: seven unsent drafts remain; recent sent messages are the already logged messages, and the two existing human partner threads have been replied to. No further cold email was sent because the same-day sending cadence had been reached.
+  - Added X29 Vision Systems Design and P31 Supply Chain Connect official editorial routes (both held for author/asset readiness), and S12 Expat Listing's free directory route (held pending confirming one-city scope and the exact free website-link field).
+  - Added S13 Deel, S14 Remote and S15 Safeguard Global partner routes, each held for eligibility/commercial/privacy review. Safeguard's required form includes consent to marketing email and tracking pixels, so do not submit it. Added X30 Basler's specific innovation-pilot contact, held until a real compatible use case is confirmed.
+  - Screened ChinaYello (paid new listing), China Supply Chain Directory (registration not wired), HKTDC Databank (no confirmed public SEO profile), Expat.com (free profile lacks confirmed website link and requires address), and SmartShanghai (paid service listing).
+  - Prepared and Gmail-verified S03, S09, S10 and X25 drafts. Gmail shows additional 2026-10-26 outreach and replies; HROne and China Business Travel follow-ups have already been sent. No company licence or client data was shared. Private message IDs and bodies remain in the private outreach directory.
+  - Latest 2026-10-26 GSC UI read: current 28-day clicks/impressions are Xiaodu 1/72, StayChina 2/50 and Pomerol 6/1,570; AI Search impressions are 2/4/5, not citations. The supplemental execution plan contains page-level metrics and prioritized actions.
+  - Gmail date-window review returned 12 SENT messages (10 new first contacts, 2 thread follow-ups) and confirmed seven unsent drafts, two active replies with follow-ups and one globally suppressed hard bounce. First next-workday send batch is capped at five after fresh thread and suppression checks.
 blockers:
-  - Comparable query/page/country/device data for all three sites remain outstanding; Pomerol's AI performance report is not yet read and its current Search baseline is a screen-read snapshot without verified export.
-  - Xiaodu engineering review and StayChina qualified China legal/process review remain unconfirmed.
-  - Pomerol's older RFQ draft overlaps live tools/guides; do not pitch or publish it as new.
+  - Current 28-day queries/pages/countries/devices and AI Search UI snapshots are collected for all three properties; previous-period comparison, exportable raw CSV and query × page attribution remain outstanding.
+  - Xiaodu engineering review and StayChina qualified policy/process review remain unconfirmed.
+  - Pomerol's old RFQ draft overlaps live tools/guides and must not be pitched as a new resource.
 next_actions:
-  - Read due Gmail threads after 2026-10-30/31 before considering follow-ups; handle replies and stop requests first. Never retry the suppressed China Economic Review address.
-  - Collect comparable Search Console query/page/country/device data and the AI Search report for all three properties when the signed-in UI is accessible.
-  - Map Pomerol supplier-verification, inspection, QC and OEM/ODM queries to existing landing pages before considering a distinct new resource.
-  - Review the SourcingCanton form's data use and commercial terms before any submission; do not accept fees, exclusivity or an agreement.
-  - Qualify the next outreach cohort against official partner/editor requirements and live content; continue one-to-one mail, not broad blasts.
+  - On the next local workday, check inbox/thread status, official contact pages and account cadence before considering the seven unsent drafts; work toward the original 100–150 first-contact target at a pace the mailbox health supports.
+  - Research 12–15 unique organizations per working day from official public sources and qualify 6–9 actual contact routes; retain hold/disqualified records without treating them as send-ready.
+  - At the next authorized send window, re-check Gmail threads/suppressions and send individually reviewed emails only within the verified daily cadence; seven saved qualification drafts remain unsent.
+  - Keep researching until the active queue reaches the original ~300 unique organizations; do not count partner programs with form-only contacts as ready-to-send emails.
+  - Collect the previous 28-day Search Console comparison window with the same filters, export raw CSV if available, then prioritize changes using query × page evidence.
+  - Map Pomerol supplier-verification, inspection, QC and OEM/ODM queries to existing landing pages before considering a distinct resource.
+  - Review SourcingCanton form data use and commercial terms before any submission; do not accept fees, exclusivity or an agreement.
+  - Continue one-to-one research and outreach against the original 300/120–180/100–150 targets; never use bulk blasts or invent evidence to meet a volume target.
   - Obtain technical/legal review of the two unpublished drafts before external use; no live sites were changed.
 links:
-  plan: SEO-新阶段计划-2026-10-25.md
+  plan: SEO-执行计划-2026-10-26.md
+  latest_evidence: SEO-执行计划补充-2026-10-26.md
   handoff: LUNA-GOAL-SEO-交接-2026-10-25.md
   outreach: SEO-邮件外联执行规范-2026-10-25.md
   progress: SEO-外联进展-2026-10-25.md
+
+
+
+
