@@ -470,6 +470,58 @@ Latest queue update: two official Zhuhai business-service channels were screened
 
 - Draft-pagination check on 2026-10-27 05:42 Asia/Shanghai found a second page with the Chinalyse and Institute for China Studies drafts. Correct inventory: 22 total, 17 recipient-bearing (12 not marked HOLD and 5 held), plus 5 recipient-cleared sent copies. Both 10/29 candidates remain unsent and gated to Oct 29 preflight.
 
+# 2026-10-27 05:51 Asia/Shanghai — production route and contact recheck
+
+- Direct HTTPS checks confirmed robots.txt and sitemap.xml return 200 on all three sites. Sitemap page counts are 170 Xiaodu, 24 StayChina and 155 Pomerol; root/www redirects and canonical hosts match each sitemap.
+- Verified current contact details on the site pages and checked active inquiry routes. Invalid empty requests returned the expected 400 validation errors; no valid lead payload was submitted, so no lead row or email notification was created.
+- GitHub `main` source and Worker config identify Yusuf's Gmail as the notification target on each email-enabled route. Live production delivery remains unconfirmed because no real form submission was present and this read-only check did not inspect Cloudflare's runtime binding or send a synthetic lead.
+- Updated the detailed live audit. SEO-only branch commit `b46abe6869bd24419fb04f2bf6e5de348c6757e0` contains the report; no domain, DNS, Worker setting, website repository or GSC configuration was changed.
+- Search Console query×page export and AI Search report remain outstanding. The 10/27 five-first-contact cap remains full; next candidate batch is still gated to 10/28 preflight.
+
+# 2026-10-27 06:02 Asia/Shanghai — social draft link audit and GSC access state
+
+- Checked all 10 unique destinations used by the 12 social drafts; every URL returned HTTP 200. Rechecked the live Xiaodu vision page, StayChina company-setup page, three Pomerol resource pages, SAMR registration measure and MOFCOM's 2025 investment guide. The capital-contribution post includes the official five-year rule and transitional caveat.
+- Updated `SEO-社媒平台适配首批12条-2026-10-27.md` with link/source audit results. All 12 remain drafts; Xiaodu engineering review, StayChina policy review and Pomerol visual/scope review/video production remain outstanding, so no item is counted as published.
+- Current GSC attempt: Edge displays `sc-domain:xiaodu.tech` as “not verified”; the in-app browser still lists two identical StayChina page-report tabs, but reading one timed out after 60 seconds. No new GSC metrics, export or permission change resulted. The existing 2026-09-30–10-24 data remain the latest verified baseline.
+- Corrected the workday state: it is 2026-10-27 06:02 Asia/Shanghai, so today's five-first-contact cap is full and the Oct 28 batch still awaits its send-day preflight. No email or social post was sent in this update.
+
+# 2026-10-27 06:10 Asia/Shanghai — plan handoff, case-trust check, and outreach sourcing
+
+- Continued the existing active LUNA Goal; no duplicate goal was created. The 2026-10-27 plan remains the current SEO/outreach runbook.
+- Verified the public Pomerol `/cases/` library identifies 36 sourcing scenarios as illustrative. The sampled first case explains that the client name/details may be pseudonymized or illustrative and that the described controls are representative examples, not necessarily work performed for a named client or shipment. Keep these as methods examples only; do not describe them as verified client projects or actual results in outreach/social/sales material. No website code or production page was changed.
+- Screened two new apparent outreach sources from their official pages. Corporation China’s free company-directory form is paired with a terms page containing unrelated modelling/casting provisions and photo-use terms; no company data was submitted and the route was rejected for trust/privacy inconsistency. SourcingCanton invites local QC/sourcing partners on a revenue-sharing basis while selling substantially overlapping sourcing and verification services; held out due direct service overlap and sensitive application data.
+- Current authoritative outreach snapshot remains the reconciled 05:40 queue and Gmail inventory: 96 candidate rows / 96 unique organizations / 0 READY; 22 drafts total, 17 recipient-bearing (12 not marked HOLD and 5 held), plus 5 recipient-cleared sent copies. Today’s 10/27 five-first-contact cap is full. The 10/28 (up to 5), 10/29 (up to 4), and 10/30 (up to 3) batches remain unsent and gated to their send-day preflight. This continuation sent no email or social post and submitted no form.
+- Next action: on 10/28, recheck full inbox/thread history, NDR/suppression, official routes/terms, draft bodies, and recipient local time; send qualifying candidates one at a time only, read back Gmail SENT, and stop the remaining batch on a reply, bounce, stop request, or material mismatch.
+
+# 2026-10-27 06:40 Asia/Shanghai — inbox, warm-thread and batch-ledger reconciliation
+
+- Re-read the open threads for Industrial Automation Monthly, WFN/SFN/IFN, HROne and China Business Travel. IAH confirmed unpaid editorial is unavailable; Yusuf declined sponsored content and closed the thread. WFN quoted £595 in year one / £995 annual renewal; Yusuf declined and asked if a separate no-fee editorial or organic listing route exists. No fee, application, referral or partner terms accepted.
+- HROne's corporate/referral options were read; Yusuf selected corporate fit for preliminary review and requested qualification evidence. China Business Travel requested company profile/business licence; Yusuf sent only the public website/scope and asked whether the licence is needed for initial review and requested a secure channel/handling notice. No client data or registration document sent. Both wait for replies.
+- Updated private ledger and candidate statuses. Mirrored remote X59 JINSYS and X60 Basler into the goal worktree's queue; both unsent qualification drafts are gated to 2026-11-02. Queue is 98 unique / 0 READY_TO_SEND. Gmail inventory is 24 drafts total / 19 recipient-bearing (5 marked HOLD) / 5 recipient-cleared sent copies. Today's five-first-contact cap is full. No new email was sent in this reconciliation.
+
+# 2026-10-27 — SEO plan refresh and Oct 28 outreach preflight
+
+- Reconciled the authoritative `.pm`-linked growth/outreach plan and the dated 10/27 derivative with the current evidence: Pomerol has the largest GSC impression base but weak CTR and average position; Xiaodu and StayChina remain low-sample. Continue query×page-first diagnosis, keep StayChina host/canonical changes on hold until raw exports explain URL-row anomalies, and count AI citations only when a retrievable citation URL is recorded.
+- Re-read all five Oct 28 Gmail drafts and verified official sources. Corrected the HKTDC draft to remove an unsupported claim that company registration is free. Its official mainland/Taiwan form requests address, staff, turnover, business and named contact data, and permits HKTDC database/direct-marketing/business-matching use; the draft now only asks about public listing and data visibility and submits no company data.
+- Reclassified TIECEC S26 to `HOLD_AUDIENCE_FIT`: its catalog is described as serving Chinese firms seeking overseas partners, while its China market-entry / company setup services overlap StayChina. Updated the public candidate queue and private Oct 28 batch card. The dated batch is now four remaining candidates, not five.
+- Confirmed FALenses publicly lists global-agent recruitment and the partner mailbox; DOBOT's official contact page lists the sales address and distributor recruitment; Anjian lists systems integrators as a partner type and publishes its no-joining-fee statement. These remain unsent qualification inquiries, not applications or accepted commercial terms.
+- No Oct 28 candidate was sent early. No account registration, partner application, client information, financial data or company documents were submitted. On 10/28, re-run full inbox/thread/SENT/NDR/suppression and local-time preflight before deciding on each of the remaining four.
+
+# 2026-10-27 — StayChina source freshness review
+
+- Opened the live `/en/china-setup` page and checked its linked official policy sources. The 2025 Market Access Negative List and 2024 Foreign Investment Negative List links are current official publications; the Hengqin official registration explanation is dated 2024-11-22, and the linked NIA English residence-permit guide is dated 2021-04-01. Found a multi-ministry 2025 Foreign Business Guide for comparison. This confirms a source-maintenance action, not that the old guide is legally invalid.
+- Created `SEO-StayChina政策来源复核-2026-10-27.md` with source dates, applicability and verification limits, and linked it from both SEO plans. No legal copy, source list, publication or displayed check date changed; a qualified editor must confirm applicable province/case details first.
+- Search Console in-app tabs remain unobservable through CUA (two 30-second binding timeouts in this turn); Edge shows the Xiaodu property as not verified. Used current GSC snapshots already on disk and did not infer new rankings. No further browser attempts this turn.
+
+### 2026-10-27 07:05 Asia/Shanghai — 10/30 批次草稿对账
+
+- Reconciled the public queue, the private 10/30 batch CSV, and its public preflight card. Verified the Yuguo draft directly in Yusuf Gmail (to the official editorial address; private message references remain in the private outreach ledger) and added it to the private batch; the batch now has 3 rows. All remain HOLD_UNTIL_2026-10-30_PREFLIGHT.
+- Queue count after reconciliation: 98 rows / 98 unique organizations. P06 now carries the official submission/contact page and contact address.
+- Inbox scan (in:inbox newer_than:1d) surfaced only already handled Industrial Automation Monthly, WFN, HROne, and China Business Travel threads; no new candidate response appeared. No message was sent.
+- Official page refresh: Chinalyse says its partner program has no onboarding fee and is open to individuals/companies; ICS describes an affiliate program for relevant-audience organizations with commission on qualifying enrollments; ACEC states business membership is free and directory descriptions/logos need manual approval. Cognex's partner page returned 502 and Kylin's page yielded no extractable text; those routes remain gated for a fresh source check on the send date.
+
+
+
 ### 2026-10-27 07:06 Asia/Shanghai — 10/30 草稿和队列对账
 
 - 确认 P06 雨果跨境资格草稿已存在，并把官方投稿联系页和邮箱补入公开候选队列；对应草稿引用只保留在仓库外的私有批次 CSV。10/30 批次现有三封候选，均仍为日期 HOLD。
