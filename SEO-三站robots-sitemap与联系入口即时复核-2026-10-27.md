@@ -39,3 +39,33 @@ robots.txt 是站点发布的抓取指令，不证明 Cloudflare 安全规则对
 2. Pomerol sitemap 的 155 条已与 10-25 审计一致；无需以 10-08 的旧快照重复追查该增量。
 3. GSC 同窗 query/page 导出仍需单独完成。此次生产页检查不能代替搜索性能证据。
 4. 所有请求均为只读 GET；没有部署、DNS、Crawler Hints 或邮件更改。
+
+## 补充生产复核（2026-10-27 05:50 Asia/Shanghai）
+
+本次使用 HTTPS GET 和未通过字段校验的空 POST，对主机跳转、联系页及表单 API 做一次只读式复核。空 POST 在服务端校验失败后停止；没有创建线索、写入业务表、发送通知邮件或变更线上设置。
+
+### 主机规范化与抓取入口
+
+| 站点 | 主机检查 | Sitemap 页面 URL 主机 | 结论 |
+|---|---|---:|---|
+| Xiaodu | `http://xiaodu.tech/` → HTTPS；`www` 和 apex 首页均 308 到 `https://xiaodu.tech/zh-cn/` | 170/170 `xiaodu.tech` | canonical、首页跳转和 sitemap 对齐 |
+| StayChina | apex HTTPS 308 到 `www`；`www` 首页 307 到 `/en` | 24/24 `www.staychina.org` | `www` 是已实施的规范主机，旧 GSC 页面行混杂不能归因于 DNS/重定向故障 |
+| Pomerol | HTTP → HTTPS；`www` 首页 308 到 `https://pomerol.trade/en/` | 155/155 `pomerol.trade` | canonical、首页跳转和 sitemap 对齐 |
+
+三个 robots.txt 与 sitemap.xml 均返回 HTTP 200。AI/search 指令仍为 `search=yes, ai-input=yes, ai-train=no`；指定搜索与 AI 搜索 user-agent 获准抓取，训练 user-agent 仍按当前产品策略被禁止。robots 许可本身仍不证明已抓取、收录或 AI 引用。
+
+### 联系入口及表单路由
+
+| 站点 | 当前生产入口 | 在线检查结果 | 邮件交付证据边界 |
+|---|---|---|---|
+| Xiaodu | [英文联系页](https://xiaodu.tech/en/contact/) | HTTP 200，自 canonical；表单前端提交到 `POST /api/inquiry`。`/__health` 返回 HTTP 200 和版本 `redirect-loop-fix-20260930`；空表单 API 请求按预期返回 400 `validation_error`。 | 当前 GitHub `main` 的 Worker 在 `EMAIL.send` 可用时发到 Yusuf Gmail；`wrangler.jsonc` 声明 `EMAIL` 绑定。页面另含失败后手动邮件 fallback 文案。配置/路由存在不等于本次证明了生产环境绑定或成功投递；未做会创建真实线索的有效表单提交。 |
+| StayChina | [英文联系页](https://www.staychina.org/en/contact)；[公司设立咨询表单](https://www.staychina.org/en/china-setup) | 联系页 HTTP 200、自 canonical，并展示 Yusuf、电话、Gmail 和 `contact@staychina.org`；联系页没有 HTML 表单。`/en/china-setup` 有表单，提交到 `POST /api/growth/leads`；空 JSON 请求按预期返回 400 `Invalid form submission`。 | 当前 GitHub `main` 的 Worker 使用 `PORTAL_EMAIL`、`PORTAL_ADMIN_EMAIL` 和 `PORTAL_EMAIL_REPLY_TO`，配置目标为 Yusuf。API 校验通过后的真实投递未由本轮确认；没有提交有效数据或写入线索记录。 |
+| Pomerol | [联系/RFQ 页面](https://pomerol.trade/contact/) | HTTP 200、自 canonical；存在询价表单，`POST /api/inquiry` 的空 JSON 请求按预期返回 400 `validation_error`。工具页仅本地生成 RFQ 草稿，不提交或保存买家字段。 | 当前 GitHub `main` Worker 有 `EMAIL.send` 时发到 Yusuf Gmail；`wrangler.jsonc` 声明对应绑定。空请求只验证路由和字段校验；本轮没有证明生产环境邮件送达，也未制造测试线索。 |
+
+三个联系页的公开联系信息均是 Yusuf、`+86 132 4269 4270`、对应站点的 `contact@域名` 和 Gmail。实际收到业务表单通知仍以 Gmail 实收为准；本轮检查未使用虚构数据触发真实邮件，故不把“配置指定收件箱”写成“端到端收件成功”。
+
+### 后续执行
+
+1. 搜索/AI 抓取方面：无需因主机混杂样本改 DNS、canonical 或 sitemap；保留 sitemap 监测，并继续争取取得 GSC 同口径 query × page 导出。
+2. 表单方面：联系入口、API 路由与配置目标已核实，下一步只在出现真实提交时核对对应邮件是否进入 Yusuf 收件箱；若实际未投递，再按站点查看 Cloudflare Worker 邮件 binding 与生产日志，不制造假线索。
+3. 联系入口本身已足够清楚，暂不做网站改动；页面优化继续由 GSC 查询/落地页证据驱动。
