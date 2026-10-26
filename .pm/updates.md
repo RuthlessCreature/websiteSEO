@@ -17,3 +17,10 @@
 - A bounded Yusuf Gmail search for non-sent mail in the last 24 hours returned only the already triaged Industrial Automation Monthly, WFN, HROne and China Business Travel threads; no new reply from the 10/28–30 batch candidates or new delivery failure/stop notice appeared in those results.
 - Industrial Automation Monthly remains closed as paid-only; Yusuf declined the WFN paid package and asked whether a no-cost route exists; HROne and China Business Travel had already received Yusuf's replies. No company licence, client data, referral, application or fee commitment was sent in those replies.
 - The 10/27 first-contact cap remains full. No new email was sent; 10/28–30 batches remain gated, and X59 remains an unsent draft for 11/02 preflight.
+
+# 2026-10-27 06:32 Asia/Shanghai — LUNA plan refresh and X60
+
+- Added SEO-LUNA-30天增长与外联作战计划-2026-10-27.md with the 30-day three-site SEO, social distribution and individualized outreach operating plan.
+- Basler's official Open Innovation page explicitly invites customer/partner projects and lists innovation@baslerweb.com for partnership/project requests. Checked Xiaodu's public service pages and Yusuf Gmail history, then created/read back one qualification-only HTML draft asking whether China-based system integrators are in scope and what evidence is required. No Basler capability, project, or certification claim; no attachment.
+- Added X60 to the public research queue as HOLD_UNTIL_2026-11-02_PREFLIGHT. Queue is now 98 unique organizations / 0 READY_TO_SEND. Yusuf Gmail drafts are 24 total / 19 recipient-bearing / 5 held. 10/27's first-contact cap remains full; 10/28–30 batches remain unchanged and gated. No email, form, application, or public post was sent/submitted.
+- Official sources: https://www.baslerweb.com/en-us/company/innovation/open-innovation/ ; https://www.universal-robots.com/partner/partner-program/ ; https://automation.omron.com/en/us/system-integrator-request
