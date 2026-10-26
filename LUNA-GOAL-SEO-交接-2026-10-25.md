@@ -219,3 +219,47 @@ The original 30-day targets from `SEO-新阶段计划-2026-10-25.md` remain cont
 ### 2026-10-26 evening continuation
 
 Gmail recheck confirms the seven tracked qualification drafts remain unsent and the current sent messages/reply threads match the private log; no more cold email was sent after the already reached daily cadence. Public queue has grown from 64 to 67 unique records with X29 Vision Systems Design, P31 Supply Chain Connect, and S12 Expat Listing. All three are on hold pending a truly original/qualified author asset or exact free-directory scope; no email, form, or application was submitted. Continue researching official sources against the original goal and resume sending only after a fresh next-day inbox, suppression and cadence review.
+
+### 2026-10-26 continuation: industrial publishing and China channels
+
+- Added X31 Manufacturing.net (`HOLD_HUMAN_AUTHOR`): its current official contributor page accepts manufacturing insight but explicitly rejects AI-generated content, requires a named author and headshot, and expects non-promotional industry-wide perspective. No eligible human-authored technical piece is available.
+- Added X32 Quality Magazine (`HOLD_AUTHOR`): current editorial scope includes metrology, quality management and Vision & Sensors; its official contact page was not accessible for email verification, and no distinct, engineering-reviewed Xiaodu asset is ready.
+- Added X33 CA800 China Automation Network (`HOLD_COST`): the official registration page describes enterprise publishing permissions, while the site sells broader marketing services. Current free account/posting and link rules are unclear, and historical contest notices are not treated as current submission policy.
+- Screened Automation World but did not count a new organization because it shares Endeavor Business Media with existing Supply Chain Connect / Vision Systems Design records. Its AI-authorship and 90-day exclusivity rules also require a human technical author before any pitch.
+- The deduplicated outlet queue now has 73 records and 73 unique organization names. S04 eChinacities is one of eight `READY_TO_SEND` candidates; send only after next-workday inbox, suppression and cadence checks. Today's local-day email limit remains reached.
+- Sources: [Manufacturing.net contributor rules](https://www.manufacturing.net/page/mnet-about-us), [Quality Magazine editorial scope/contact](https://www.qualitymag.com/contactus), [CA800 member registration](https://www.ca800.com/register/register_setp1.aspx), [Automation World contributor rules](https://www.automationworld.com/about-us), [Supply Chain Connect publisher/about](https://www.supplychainconnect.com/about-us), [Vision Systems Design publisher/about](https://www.vision-systems.com/about-us).
+
+### Final organization-level deduplication — 2026-10-26
+
+A second audit compared names after removing outlet suffixes and grouping repeat records. Merged the duplicate Quality Digest editorial route P30 into P01, merged the duplicate Basler pilot X30 into X15, and merged Manufacturing.net X31 into its existing P07 row. This removes three duplicate rows; the current queue is **70 rows / 70 unique organization names**. X32 Quality Magazine and X33 CA800 are new distinct records, and S20 ChinaExpats remains a rights/privacy hold. S04 eChinacities is still one of eight ready-to-send routes. Historical sections that show 73 are a temporary pre-dedup count. No email was sent after the 2026-10-26 local-day cadence limit.
+
+### S04 eChinacities email prepared — 2026-10-26
+
+Verified the official Zhuhai directory's request route and listed marketing contact, then searched Yusuf Gmail for prior eChinacities correspondence (no result). Created one concise HTML qualification draft asking about Zhuhai online-service-provider eligibility, a no-cost tier, clickable site link, required address evidence and search visibility. It explicitly avoids implying a storefront or local office. The draft remains unsent; exact body and Gmail draft/thread IDs are in the private ledger. On the next local workday, recheck replies, suppression and daily cadence before sending. Total tracked unsent outreach drafts: eight; today's cold-email cadence remains reached.
+
+### 2026-10-26: two additional StayChina partner routes
+
+- Added S21 Chinalyse / APAC Management Consultancy as `READY_TO_SEND` for one narrowly scoped eligibility email. Its official partnership page advertises no onboarding fee and visible or white-label cooperation, training and marketing support; the route is also commercially adjacent to StayChina's company-formation scope. The email must confirm the programme is current, define referrals/white-label boundaries, and check all non-onboarding costs before any commitment.
+- Added S22 Institute for China Studies as `READY_TO_SEND` for one affiliate qualification email. Its official programme welcomes China/business consultants, service providers and content/media partners, with commission on qualifying enrolments; fees, minimum performance, approval and disclosure rules are not stated.
+- Bounded prior Gmail searches found no existing thread for either organization. Neither application was submitted; no customer leads, traffic, referrals or results are claimed.
+- Queue now contains 72 distinct organization names and 10 ready-to-send qualification routes. Eight Gmail drafts remain unsent. No additional email was sent after the 2026-10-26 local-day cadence limit. Sources: [Chinalyse partnership program](https://www.chinalyse.com/partnership-program/), [Chinalyse contact](https://www.chinalyse.com/contact-us/), [Institute for China Studies affiliate program](https://china-studies.org/affiliates/).
+
+## Latest continuation state — 2026-10-26 evening
+
+- Live queue reconciliation: 74 unique organization IDs/names; 10 `READY_TO_SEND`. The older totals in dated entries are historical snapshots.
+- Yusuf Gmail contains 10 unsent outreach drafts for S03, S04, X24, P25, S09, S10, X25, X26, S21 and S22. S21/S22 were just created with tailored HTML; Gmail draft IDs and private bodies are only in the private outreach ledger.
+- No further email was sent on 2026-10-26 after the account's same-day cadence was reached. At the next local workday, first read new replies/bounces/stops, search each recipient's latest thread, confirm suppression and count sent messages that day; then send no more than the cadence plan permits.
+- Added P23 ACT International Media Group and X34 Chinese Association of Automation as `HOLD_AUTHOR`, not send-ready. Verify submission policy, human author qualifications and any membership/fee conditions before outreach.
+- Active original 30-day goal remains about 300 organizations researched, 120–180 qualified routes and 100–150 individually tailored first touches, plus three evidence-backed resources, 3–6 page improvements and 12–18 platform-adapted posts. Never fabricate proof, buy lists, bulk send, or treat a draft/SENT record as delivered or accepted.
+
+### 2026-10-26 local channel update
+
+Current research queue is 76 unique organizations / 76 unique IDs; 10 routes remain ready-to-send and 10 personalized drafts remain in Gmail unsent. Added S23, Zhuhai Private and SME Service Alliance, as `HOLD_REGISTRATION_PROOF`: no-fee membership is stated, but StayChina's Zhuhai registration and a public indexable profile must be confirmed first. Added S24, Zhuhai Association of Enterprises with Foreign Investment, as `HOLD_OFFICIAL_CONTACT`: an official government source gives phone/site but no email, and its site timed out. Do not guess contact emails or submit registration documents. Same-day Gmail cadence remains closed after 17 sends on 2026-10-26 (15 first contacts, 2 thread replies/follow-ups).
+
+## 当前接手状态 — 2026-10-26 晚间
+
+- 当前基准计划：[SEO-新阶段计划-2026-10-26.md](SEO-新阶段计划-2026-10-26.md)。仍按三站 query×page 数据、页面改进、可信行业渠道与个性化邮件推进。
+- 公开队列 78 家独立机构，12 条 READY_TO_SEND；Yusuf Gmail 12 封草稿未发送。已确认 local-day 冷邮件节奏已达到，不继续发送。
+- 新增 X35 Industrial Automation Business Index。官方公开页面说明基本入驻免费、目录类目覆盖 Services & Solutions 与 Sensor & Vision，但表格要求街道地址。资格询问草稿已建、收件地址精确历史搜索只检出该草稿；未提交目录表格或地址。
+- 22 条首触 SENT、1 个硬退抑制地址、2 条编辑澄清和 2 条编辑沟通记录留在私有台账。发送记录不等于送达或合作。
+- 下一工作日先复核收件箱、退信、停止请求、已有线程和抑制表，再考虑不超过 5 封。所有联系人、正文、Gmail IDs 只在私有目录。

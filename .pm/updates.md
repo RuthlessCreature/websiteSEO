@@ -220,3 +220,109 @@ Direct read-only production GETs returned HTTP 200 for all three robots files, s
 - Next send window: refresh the inbox, thread history, suppression ledger and actual sent count, then process up to five individually qualified messages from the existing drafts. Continue building the research queue toward the unchanged 300 / 120–180 / 100–150 objectives.
   - Candidate queue reconciled to 71 rows / 71 unique IDs; Safeguard Global uses unused ID S19 after the audit found existing sequential IDs through S18. Seven drafts remain unsent.
   - Audited unique organizations, merged duplicate media records into P03/P10, removed duplicate rows P29/P31. Current queue is 69 independent organizations / 69 unique IDs; the 300-organization target remains unchanged.
+
+## 2026-10-26 continuation: China-focused expat channels
+
+- eChinacities' official Zhuhai business directory exposes a request-to-add-venue form and lists `marketing@echinacities.com` for enquiries. StayChina has a public Zhuhai base and China-market services, so candidate S04 is now `READY_TO_SEND` for one email asking about eligibility, free listing scope, website-link/indexing rules and address evidence. No venue or physical office claim is made. The inquiry is queued for the next local workday after mailbox/thread checks.
+- Expat Focus says it accepts articles and expert advice, but the live contact page masks its address through Cloudflare and the current content would need a named, verifiable expert. S07 remains `HOLD_EXPERTISE`; no address was guessed.
+- ChinaExpats is a relevant expat community, but its terms grant broad perpetual, sublicensable content rights, and its privacy statement says contact details may be used in promotional material. Added S20 as `HOLD_RIGHTS`; no account, post or contact form was submitted.
+- Unique queue count is now 70. No email was sent after the 2026-10-26 local-day cadence limit. Official sources: [eChinacities Zhuhai listing](https://listings.echinacities.com/Zhuhai/Business), [Expat Focus editorial invitation](https://www.expatfocus.com/about), [Expat Focus contact page](https://www.expatfocus.com/contact), [ChinaExpats terms](https://www.chinaexpats.com/terms-conditions/), [ChinaExpats privacy policy](https://www.chinaexpats.com/privacy-policy/).
+
+### 2026-10-26 continuation: industrial publishing and China channels
+
+- Added X31 Manufacturing.net (`HOLD_HUMAN_AUTHOR`): its current official contributor page accepts manufacturing insight but explicitly rejects AI-generated content, requires a named author and headshot, and expects non-promotional industry-wide perspective. No eligible human-authored technical piece is available.
+- Added X32 Quality Magazine (`HOLD_AUTHOR`): current editorial scope includes metrology, quality management and Vision & Sensors; its official contact page was not accessible for email verification, and no distinct, engineering-reviewed Xiaodu asset is ready.
+- Added X33 CA800 China Automation Network (`HOLD_COST`): the official registration page describes enterprise publishing permissions, while the site sells broader marketing services. Current free account/posting and link rules are unclear, and historical contest notices are not treated as current submission policy.
+- Screened Automation World but did not count a new organization because it shares Endeavor Business Media with existing Supply Chain Connect / Vision Systems Design records. Its AI-authorship and 90-day exclusivity rules also require a human technical author before any pitch.
+- The deduplicated outlet queue now has 73 records and 73 unique organization names. S04 eChinacities is one of eight `READY_TO_SEND` candidates; send only after next-workday inbox, suppression and cadence checks. Today's local-day email limit remains reached.
+- Sources: [Manufacturing.net contributor rules](https://www.manufacturing.net/page/mnet-about-us), [Quality Magazine editorial scope/contact](https://www.qualitymag.com/contactus), [CA800 member registration](https://www.ca800.com/register/register_setp1.aspx), [Automation World contributor rules](https://www.automationworld.com/about-us), [Supply Chain Connect publisher/about](https://www.supplychainconnect.com/about-us), [Vision Systems Design publisher/about](https://www.vision-systems.com/about-us).
+
+### Final organization-level deduplication — 2026-10-26
+
+A second audit compared names after removing outlet suffixes and grouping repeat records. Merged the duplicate Quality Digest editorial route P30 into P01, merged the duplicate Basler pilot X30 into X15, and merged Manufacturing.net X31 into its existing P07 row. This removes three duplicate rows; the current queue is **70 rows / 70 unique organization names**. X32 Quality Magazine and X33 CA800 are new distinct records, and S20 ChinaExpats remains a rights/privacy hold. S04 eChinacities is still one of eight ready-to-send routes. Historical sections that show 73 are a temporary pre-dedup count. No email was sent after the 2026-10-26 local-day cadence limit.
+
+### S04 eChinacities email prepared — 2026-10-26
+
+Verified the official Zhuhai directory's request route and listed marketing contact, then searched Yusuf Gmail for prior eChinacities correspondence (no result). Created one concise HTML qualification draft asking about Zhuhai online-service-provider eligibility, a no-cost tier, clickable site link, required address evidence and search visibility. It explicitly avoids implying a storefront or local office. The draft remains unsent; exact body and Gmail draft/thread IDs are in the private ledger. On the next local workday, recheck replies, suppression and daily cadence before sending. Total tracked unsent outreach drafts: eight; today's cold-email cadence remains reached.
+
+### 2026-10-26: two additional StayChina partner routes
+
+- Added S21 Chinalyse / APAC Management Consultancy as `READY_TO_SEND` for one narrowly scoped eligibility email. Its official partnership page advertises no onboarding fee and visible or white-label cooperation, training and marketing support; the route is also commercially adjacent to StayChina's company-formation scope. The email must confirm the programme is current, define referrals/white-label boundaries, and check all non-onboarding costs before any commitment.
+- Added S22 Institute for China Studies as `READY_TO_SEND` for one affiliate qualification email. Its official programme welcomes China/business consultants, service providers and content/media partners, with commission on qualifying enrolments; fees, minimum performance, approval and disclosure rules are not stated.
+- Bounded prior Gmail searches found no existing thread for either organization. Neither application was submitted; no customer leads, traffic, referrals or results are claimed.
+- Queue now contains 72 distinct organization names and 10 ready-to-send qualification routes. Eight Gmail drafts remain unsent. No additional email was sent after the 2026-10-26 local-day cadence limit. Sources: [Chinalyse partnership program](https://www.chinalyse.com/partnership-program/), [Chinalyse contact](https://www.chinalyse.com/contact-us/), [Institute for China Studies affiliate program](https://china-studies.org/affiliates/).
+
+### 2026-10-26 late continuation
+
+Verified the live queue at 74 unique organizations and 10 READY_TO_SEND. Created two additional individually tailored HTML qualification drafts for S21 Chinalyse and S22 Institute for China Studies after official source and prior-thread checks; Gmail now holds ten unsent outreach drafts. No email was sent after today's cadence cap. Added P23 ACT International Media Group and X34 Chinese Association of Automation as author-readiness holds, not send-ready targets. Corrected the active plan to distinguish current counts from older dated snapshots.
+
+### 2026-10-26 live Gmail audit correction
+
+A fresh local-date Gmail search found 17 sent messages on 2026-10-26 China time (15 first contacts and 2 existing-thread replies/follow-ups). Cumulative private ledger: 22 successful first-contact SENT records, one suppressed hard bounce, plus two separate editorial clarifications. Inbox has no new partner response; HROne and China Business Travel replies have been handled in-thread. China Business Travel's requested business license has not been shared; the reply asks if it is needed for initial screening and for a secure channel. Ten outreach drafts remain unsent; stopped further cold sending for the day.
+
+Latest queue update: two official Zhuhai business-service channels were screened on 2026-10-26 and added as S23/S24 holds. Queue is now 76 unique organizations, still 10 READY_TO_SEND and 10 unsent drafts. No email address was guessed; no membership or document submission was made.
+
+## 2026-10-26 — 新阶段 SEO 计划与邮件推进
+
+- 建立 [SEO-新阶段计划-2026-10-26.md](../SEO-新阶段计划-2026-10-26.md)，将当前重点固定为三站同口径 GSC/AI 数据、query×page 页面优先级、证据型页面/工具改进，以及逐机构资格邮件；维持 30 天 300 机构研究、120–180 合格路径、100–150 一对一首触目标。
+- 公开候选队列新增 X35 Industrial Automation Business Index，官方目录说明基础入驻免费并覆盖 Services & Solutions、Sensor & Vision。申请表要求街道地址，而 Xiaodu 官网未公开；只准备资格询问，不提交表格或地址。
+- Yusuf Gmail 新建第 11 封未发送资格询问草稿。Exact recipient 搜索仅检出该草稿；私有账本已登记正文版本、来源和 Gmail IDs。当天不继续发送冷邮件。
+- 最新公开队列为 77 家唯一机构、11 家 READY_TO_SEND；Gmail 11 封草稿未发送。候选数量不代表已刊登、送达或合作。
+
+## 2026-10-26 — 大湾区媒体外联资格草稿
+
+- 新增 S25 GBA News，官方联系页确认编辑邮箱 `editor@greaterbayarea.news` 接受投稿/合作询问。Gmail 精确地址搜索无历史线程后，建立一封关于大湾区、政府一手来源解释稿和作者披露标准的资格询问草稿；不声称记者身份或提交稿件。
+- 外联队列更新为 78 家唯一机构、12 条 READY_TO_SEND；Gmail 有 12 封草稿待审，均未发送。详见新阶段计划与私有外联台账。
+
+## 2026-10-26 — TIECEC 准入询问准备
+
+- 新增 S26 TIECEC，官方首页列有 Global→China 市场准入、服务伙伴与 T-Catalog；目录当前展示的五项被标为版式样例，故只建立资格询问草稿，不将其算作已验证曝光渠道。
+- Yusuf Gmail 成功新增一封格式化 HTML 草稿，问服务商资格、真实目录开放/搜索状态、核验材料、费用/转介、客户同意和数据处理。邮件未发送。候选队列增至 79 家、13 条 READY_TO_SEND、13 封待审草稿。
+- 下一工作日先处理新增回复、硬退和抑制项，逐封复核后再从草稿中择优发送；维持每工作日常态 5–8 封的节奏，不批量群发。
+
+## 2026-10-26 — Xiaodu 工业伙伴资格筛查
+
+- 核对 Axis 官方计划：Technology Integration Partner 要求 Axis 产品兼容的商业方案、销售渠道、主动推广和客户支持；系统集成商应走 Channel Partner Program。Xiaodu 目前的公开证据不足以证明这些准入条件，故新增 X36 为 HOLD_PRODUCT_EVIDENCE，不猜邮箱、不建草稿、不申请。队列现为 80 家、13 条 READY_TO_SEND。
+
+## 2026-10-26 — Pomerol 供应链编辑资格草稿
+
+- 新增 P30 The Supply Chain Xchange。官方指南接受供应链主题提案，但要求教育性、非促销、作者资历说明和提纲。Gmail 精确收件人检索未发现历史线程后，建立了一封未发送的资格询问，主题是规格/样品签核、过程检查、出货验收的三段质量放行逻辑；不使用客户案例或宣传性论断。
+- 队列现有 81 家机构、14 条 READY_TO_SEND；Gmail 有 14 封未发送个性化草稿。今天没有再发首触邮件。
+
+## 2026-10-26 — AIAG 编辑适配资格草稿
+
+- 新增 P31 AIAG Supply Line。官方 2026 邀请接受不收费、非促销的供应链文章，但 AIAG 汽车行业适配和 Yusuf 的作者资历尚未核实；草稿只询问选题/作者资格，不声称汽车项目或海关法律专长。
+- Gmail 精确收件人搜索无历史线程，资格草稿已保存、未发送。队列现 82 家、15 条 READY_TO_SEND；Gmail 15 封草稿待审。
+
+## 2026-10-26 — SCMR 资历与证据门禁
+
+- 新增 P32 Supply Chain Management Review 为 HOLD_AUTHOR_EVIDENCE。其官方稿件指南要求作者简介/头像、非促销观点、AI 使用披露以及经验或数据支持；Pomerol 公开场景为说明性而非核实案例。没有可验证作者/研究依据前不联系、不把展示型场景当成业绩。
+- 候选队列现 83 家、15 条 READY_TO_SEND；Gmail 15 封未发送草稿。
+
+## 2026-10-26 — HKTDC Databank 公开性资格询问
+
+- HKTDC 官方资料确认内地企业可免费登记，但表格涉及办公地址、员工数、年营业额和联系人资料，并含数据库/直接营销用途；公开可索引企业页及可点击网站链接未获证实。未提交表格或企业资料。
+- Gmail 精确收件人检索未发现旧线程；已保存资格询问草稿，具体正文和 Gmail ID 留在私有台账。
+- 队列现为 83 家 / 16 条 READY_TO_SEND；Gmail 有 16 封未发送草稿。首批次工作日上限仍为 5 封，发送前逐封复核回复、线程、抑制名单和账户状态。
+
+## 2026-10-26 — P33 ACEC 东盟—中国会员目录资格草稿
+
+- ACEC 官方页面明确为有真实东盟—中国业务兴趣的专业服务机构提供免费会员；企业目录资料另需人工审批，咨询、门票、差旅可能收费。公开搜索状态、可点击网站字段和准入资质仍需核实。
+- Gmail 精确地址搜索无既往往来；已为 Pomerol 建立未发送 HTML 资格草稿。未申请会员、未提交企业文件。正文和 Gmail ID 留在私有台账。
+- 候选队列现为 84 家 / 17 条 READY_TO_SEND；Gmail 有 17 封待审草稿。
+
+## 2026-10-26 — P34 广东省采购与供应链协会费用筛查
+
+- 官方章程和收费公示显示单位会员需缴年费，理事单位最低 CNY 3,000；公开会员名录跳转到微信公众号，未核实可索引的公开企业页/网站链接。鉴于免费优先，P34 记 HOLD_PAID，不申请、不写发送草稿。
+- 公开候选队列现 85 家，17 条 READY_TO_SEND；Gmail 仍有 17 封草稿。
+
+## 2026-10-26 — X37 DigiKey 集成商网络资格草稿
+
+- DigiKey 官方说明目录免费、按行业/地点/制造伙伴搜索，但加入需 NDA 与 indemnity release；中国企业资格和官网链接字段未知。为 Xiaodu 建立资格询问草稿，未申请、未签协议，也未声称 DigiKey 集成或授权关系。
+- 队列现 86 家 / 18 条 READY_TO_SEND；Gmail 有 18 封草稿。
+
+## 2026-10-26 — 首批 12 条社媒平台适配稿
+
+- 将旧双语首发包进一步拆成平台适配内容，新增 LinkedIn、知乎、微信公众号和 YouTube Shorts 共 12 条，三站各 4 条。涉及工程及公司登记规则的文案标明专业复核要求；StayChina 注册资本稿使用市场监管总局当前官方实施办法来源。
+- 新稿仅为待审素材，尚未公开发布；发布前还需核对各品牌账号状态。
+
