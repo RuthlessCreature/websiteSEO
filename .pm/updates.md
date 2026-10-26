@@ -461,3 +461,11 @@ Latest queue update: two official Zhuhai business-service channels were screened
 - Official-route sweep reaffirmed Supply Chain Connect as free editorial but still blocked by missing named qualified author and original evidence; Automation-List previously rejected Xiaodu for missing real delivery evidence; MedinChina's service-partner route has no public email and its partner flow asks for personal contact details, so it was not sent or submitted. No new candidate was promoted to READY_TO_SEND.
 - Linked the new plan in `.pm/project.yml`. No website, Cloudflare setting, GSC property, public social post or paid service was changed.
 
+# 2026-10-27 05:40 Asia/Shanghai — queue and inbox reconciliation
+
+- The restored 93-row research CSV had 18 obsolete READY_TO_SEND labels; all were reclassified using current Gmail and batch evidence as sent/waiting, hard-bounce-suppressed, dated-preflight hold, or evidence/fit hold. Siemens and HCSG were matched to existing X14/X23 rows after confirming prior Oct 26 sends; duplicate rows were removed. Added missing active candidates X50, X56 and X57. The current CSV has 96 unique organizations and 0 READY_TO_SEND.
+- The dated mail batches remain unsent and unscheduled: up to 5 on Oct 28, 4 on Oct 29, and 3 on Oct 30. Gmail has 20 drafts: 15 with recipients (10 not marked HOLD; 5 explicitly HOLD) and five sent copies with recipients cleared. The Oct 27 five-first-contact cap is full; no email was sent in this reconciliation.
+- Current threads: Industrial Automation Monthly is closed as paid-only; WFN has Yusuf's no-fee-route question pending; HROne and China Business Travel have already been answered. No unanswered human reply or stop request was found in the latest check.
+- Search Console remains an evidence gap. Computer Use stopped because it could not determine the active browser URL confidently; no browser input or GSC data extraction occurred.
+
+- Draft-pagination check on 2026-10-27 05:42 Asia/Shanghai found a second page with the Chinalyse and Institute for China Studies drafts. Correct inventory: 22 total, 17 recipient-bearing (12 not marked HOLD and 5 held), plus 5 recipient-cleared sent copies. Both 10/29 candidates remain unsent and gated to Oct 29 preflight.
