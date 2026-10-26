@@ -11,3 +11,9 @@
 
 - The JINSYS candidate X59 stays an unsent Gmail draft. Because 2026-10-31 is Saturday, moved its preflight/send-day candidate date to Monday 2026-11-02, after the current 10/28–30 batches. Created a private send-batch-20261102.csv row with UNSENT and HOLD_UNTIL_2026-11-02_PREFLIGHT; it is not scheduled.
 - The public queue records the same 11/02 preflight gate. No email was sent and no form/application was submitted.
+
+# 2026-10-27 06:26 Asia/Shanghai — inbound and thread-state check
+
+- A bounded Yusuf Gmail search for non-sent mail in the last 24 hours returned only the already triaged Industrial Automation Monthly, WFN, HROne and China Business Travel threads; no new reply from the 10/28–30 batch candidates or new delivery failure/stop notice appeared in those results.
+- Industrial Automation Monthly remains closed as paid-only; Yusuf declined the WFN paid package and asked whether a no-cost route exists; HROne and China Business Travel had already received Yusuf's replies. No company licence, client data, referral, application or fee commitment was sent in those replies.
+- The 10/27 first-contact cap remains full. No new email was sent; 10/28–30 batches remain gated, and X59 remains an unsent draft for 11/02 preflight.
