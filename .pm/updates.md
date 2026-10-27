@@ -662,3 +662,8 @@ Latest queue update: two official Zhuhai business-service channels were screened
 - 核验 Sihovision 官方伙伴页公开合作入口及 `info@sihovision.com`；Gmail 精确地址历史搜索与私人 suppression 均无命中。
 - 建立 X67 个性化资格询问草稿并读回：询问技术集成商准入、费用/销售或库存义务及公开伙伴档案；明确没有 Sihovision 项目/伙伴关系，不提交申请表、企业证件或客户信息。草稿排至 11/03 当天复核，未发送。
 - 公开队列增加至 107 家唯一机构 / 0 READY_TO_SEND。Yusuf Gmail 草稿清点为 27 封（22 带收件人，其中 7 HOLD；5 封是收件人已清空的已发送副本）。10/27 首触五封上限已满。
+## 2026-10-27 14:40 — Pomerol 投稿资格预审与外联筛查
+
+- 核验 Purchasing & Procurement Center 官方投稿规则：邀请原创、非商业 how-to 文章；要求披露商业利益；无稿酬的投稿与 Sponsored Opportunities 分开。Gmail 收件人历史和 suppression 无匹配。建立并读回 P40 资格询问草稿，门控至 11/04；不附文章、客户案例或附件，不发送。
+- 新增 X68 Delta 系统集成计划（官方只开放美国/加拿大，HOLD_REGION）；X69 Inovako（无公开邮件入口且缺 Xiaodu 适配案例证据，HOLD）；P41 Sixth Tone（公开投稿邮箱但无具名合格作者/可核验故事，HOLD）。
+- 队列更新为 111 家唯一机构、0 READY_TO_SEND。Yusuf Gmail 草稿为 28 封（23 带收件人，其中 7 HOLD；5 封已发送副本收件人已清空）。10/27 五封首触上限已满，本轮未发送邮件。
