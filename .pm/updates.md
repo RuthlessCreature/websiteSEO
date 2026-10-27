@@ -527,3 +527,133 @@ Latest queue update: two official Zhuhai business-service channels were screened
 - 确认 P06 雨果跨境资格草稿已存在，并把官方投稿联系页和邮箱补入公开候选队列；对应草稿引用只保留在仓库外的私有批次 CSV。10/30 批次现有三封候选，均仍为日期 HOLD。
 - 当前公开队列 98 条 / 98 家 / 0 READY_TO_SEND；10/28 剩四个日期候选，TIECEC 保持受众适配 HOLD。近 24 小时收件箱查询未见新批次回复。本次没有发送。
 - Chinalyse、Institute for China Studies、ACEC 官方伙伴/affiliate/会员页面已刷新；Cognex 官方伙伴页返回错误，麒麟页无法提取正文，均留待发送日重新验证。
+
+### 2026-10-27 07:17 Asia/Shanghai — new official-channel research
+
+- Added four deduplicated organizations after checking current official pages: WorkFlex, Schneider Electric Alliance, Festo China and ISM. All are HOLD for commercial/data terms, engineering/project evidence, form-only partner routes, or missing author/topic evidence. Updated Future of Sourcing P09 to require a qualified named author and a distinct asset.
+- Public queue is 102 unique organizations / 0 READY_TO_SEND. Yusuf Gmail draft inventory is 25 total / 20 recipient-bearing (6 explicitly held) plus five recipient-cleared sent copies. Created and fully read back one Pomerol/ISM eligibility-only draft; it is HOLD and listed privately for 2026-11-02 preflight.
+- The 10/27 first-contact cap was already full. No email, application, editorial submission, or form data was sent.
+
+### 2026-10-27 07:26 Asia/Shanghai — 对照历史队列后的去重更正
+
+- 重新核对完整交接与 CSV 后发现，本轮拟加入的 Automation.com、Quality Digest 分别已经存在于 X04、P01；Corporation China 先前已因目录条款混用无关模特/照片授权和隐私用途而淘汰。
+- 已删除新添的重复 X63/P38 行和误重提的 P37；将 Automation.com 当前投稿格式/作者/审校要求合并入 X04，将 Quality Digest 现行作者资历/照片/AI 使用要求合并入 P01。P01/X04 均继续 HOLD。
+- 当前队列 102 条 / 102 家 / 0 READY_TO_SEND。今天首触额度已满，未发送邮件、提交申请或公开资料。该更正以 CSV 当前内容为准。
+
+### 2026-10-27 07:26 Asia/Shanghai — authoritative outreach state reconciliation
+
+- Public outreach CSV is 102 rows / 102 unique organizations / 0 READY_TO_SEND. The three apparent additions in the current turn were reconciled against prior history: Automation.com is existing X04, Quality Digest is existing P01, and Corporation China was previously rejected for conflicting publication/privacy terms.
+- Updated X04 and P01 with current official editorial requirements; removed duplicate candidate rows and did not reintroduce Corporation China. No mail or form was submitted. The October 27 first-contact cap remains full; October 28–30 batches stay day-gated.
+- GSC query/page and AI Performance exports remain incomplete; no production website settings or content changed.
+
+### 2026-10-27 07:31 Asia/Shanghai — additional editorial-channel research
+
+- Added two deduplicated official opportunities: Automation World (X64) and ASQ Quality Progress (P39). Both remain HOLD for missing qualified named authors, distinct evidence-led material and review. Automation World requires first-run human-led articles, AI disclosure/limits, a professional bio/headshot and a 90-day exclusivity agreement; ASQ asks authors to write what they know, disclose substantial AI use and transfer copyright before publication.
+- Outreach queue is now 104 unique organizations / 0 READY_TO_SEND. Oct 27 first-contact cap is full. No email, submission, form, agreement or personal information was sent.
+
+### 2026-10-27 07:33 Asia/Shanghai — warm-thread reconciliation
+
+- Re-read the latest WFN, HROne, China Business Travel and Industrial Automation Monthly messages in Yusuf's mailbox. WFN's £595 first-year / £995 renewal programme was declined; the only remaining question is whether a no-fee editorial/resource route exists. Industrial Automation Monthly confirmed it offers no unpaid consideration, so its thread is closed as paid-only.
+- HROne and China Business Travel have already received replies in-thread and are awaiting their answers. No company license, client data, referral promise, fee, or agreement was sent or accepted. No duplicate follow-up is due.
+- Public queue remains 104 unique organizations / 0 READY_TO_SEND. Oct 27's five first-contact cap is full. Oct 28 has up to four unsent, date-gated candidates; recheck every recipient, full thread, bounce/suppression state, official source, and local working time before any send. No email sent in this update.
+
+### 2026-10-27 07:38 Asia/Shanghai — refreshed editorial eligibility and queue count
+
+- Re-read the official IndustryWeek and Manufacturing.net contribution rules and updated existing X27/P07 records. IndustryWeek requires first-run, non-promotional expert content and limits AI-derived wording to 10% with disclosure; Manufacturing.net accepts no AI-generated articles. Both require an authorized named human author, which is not yet verified. No submission or pitch sent.
+- Recounted the CSV by organization and website domain: 104 rows / 104 unique organizations / 0 READY_TO_SEND. Oct 27's daily first-contact cap remains full.
+- Attempted read-only Search Console inspection in the Windows browser. The computer-use helper stopped because it could not verify the current Edge URL; no click or input occurred. No GSC data was read or changed.
+
+### 2026-10-27 07:40 Asia/Shanghai — corrected the Oct 28 batch and Gmail draft state
+
+- Reconciled the outreach CSV with the 2026-10-28 batch card and Yusuf Gmail drafts. Corrected S26 TIECEC to `HOLD_AUDIENCE_FIT` and removed it from the send batch because the audience overlap does not support the proposed StayChina partnership. Its existing draft subject now begins `[HOLD — AUDIENCE FIT]` and says do not send.
+- Verified the four actual Oct 28 candidates (HKTDC, Anjian, DOBOT, FALenses) each have a draft with one recipient, no CC/BCC, and no attachment. This was a metadata-only check; day-of full-body and inbox/history/suppression/source/time-zone checks remain required.
+- Recounted the public CSV at 104 unique organizations / 0 READY_TO_SEND. No email sent; today's five-first-contact cap remains full.
+
+### 2026-10-27 07:46 Asia/Shanghai — preflighted draft content and removed unnecessary phone data
+
+- Read the full body of all four Oct 28 drafts (HKTDC, Anjian, DOBOT and FALenses). Each is a narrow eligibility question with an explicit exit line; no unverified partnership, certification, project-result or client claim, sensitive document, or attachment was included.
+- Reviewed the seven Oct 29–30 candidate draft bodies/metadata. All 11 dated candidates have one recipient each, no CC/BCC, and no attachment. Full day-of inbox/thread/bounce/suppression/source/time-zone checks remain required.
+- Removed Yusuf's mobile number from the Oct 30 Kylin Software draft because it was unnecessary for eligibility and fit questions. Read the saved draft back and confirmed it now contains only the company description and website. One earlier update using an outdated draft ID returned 404 and changed nothing; the correction succeeded with the current ID.
+- Public research queue remains 104 unique organizations / 0 READY_TO_SEND. Oct 27 cap remains full; no email was sent.
+
+### 2026-10-27 07:52 Asia/Shanghai — public AI discovery files and contact routes
+
+- Read-only GET confirmed all three domains return HTTP 200 for `llms.txt` and `ai-overview.md`; measured sizes: Xiaodu 1,952/1,331 bytes, StayChina 2,235/2,522, Pomerol 7,825/1,575. Availability does not establish AI ingestion, citation or ranking impact.
+- Parsed sitemap totals remain Xiaodu 170, StayChina 24, Pomerol 155. StayChina `/en/jobs` is linked from `llms.txt` but absent from the sitemap; the page returns 200, has a self canonical and `noindex, follow`, and currently has no employer-authorized public vacancies, so this is consistent with its index policy.
+- Rechecked all three contact pages: 200, self-canonical, and displaying the corresponding `contact@` address, Yusuf Gmail and phone. Paths: Xiaodu `/en/contact/`, StayChina `/en/contact`, Pomerol `/contact/`.
+- StayChina `llms.txt` still claims contact and sitemap routing were last verified on 2026-10-06. Today’s checks supersede that date. Record a source change for the next authorized site release; no production edit, website-repository push, or email send occurred.
+- GSC query×page and AI Performance evidence remain outstanding; public-file availability is not a substitute.
+
+### 2026-10-27 07:54 Asia/Shanghai — resumed main-plan execution
+
+- Read-only Yusuf Gmail query `in:inbox after:2026/10/27 -category:promotions -category:social` returned no new inbound messages as of 07:54. Oct 27 first-contact cap is full. Do not send before the Oct 28 date gate; the four scheduled candidates remain subject to full day-of preflight.
+- Reconfirmed the current public queue count at 104 unique organizations / 0 READY_TO_SEND. No email or form was sent in this continuation.
+- Read-only public checks show all three `llms.txt` and `ai-overview.md` endpoints are HTTP 200; sitemap counts are 170/24/155, contact pages are self-canonical and expose the requested contact routes. StayChina `/en/jobs` is intentionally `noindex, follow` with no authorized public vacancies. Its `llms.txt` verification note still says 2026-10-06 and should be updated in the next authorized site release; no site repo was edited or pushed.
+- Comparable three-site GSC query×page and AI Performance data remain missing. Production SEO content was not changed without that evidence. See the main plan's 07:54 execution note.
+
+### 2026-10-27 07:56 Asia/Shanghai — researched CIMON SI route
+
+- Added deduplicated candidate X65 after checking CIMON's official partner and contact pages and searching Yusuf Gmail history. CIMON offers a System Integrator partner path but does not publish partner cost, China eligibility or a partner email; its route is a form requesting personal/company details. No submission was made.
+- X65 is held for geography, commercial terms, company-subject qualification and product evidence. It is not READY and is not part of the Oct 28 batch. The queue count is now 105 unique organizations / 0 READY_TO_SEND.
+
+### 2026-10-27 07:58 Asia/Shanghai — 10/28 drafts re-read before the send date
+
+- Re-read all four private 10/28 draft bodies against their official sources. Each is an individual eligibility question with one recipient, no attachment, no sensitive documents or customer claims.
+- Rechecked current suppression records; none of the four recipient/domain pairs is suppressed. Existing hard-bounce addresses remain suppressed and untouched.
+- The calendar gate has not opened; all four messages remain drafts. Re-run complete checks on 10/28 local work hours before sending, and skip any candidate whose status is unclear.
+
+### 2026-10-27 08:03 Asia/Shanghai — added SICK Vision Partner route
+
+- Added X66 after verifying SICK’s official Vision Partner Program and SICK China contact email and confirming there is no prior Gmail thread or suppression match.
+- Created and read back one tailored qualification draft asking about China-region eligibility, the right local team, and prior SICK project/training requirements. The draft claims no SICK deployment or partner status and has no attachment.
+- Queue is now 106 unique organizations / 0 READY_TO_SEND. X66 is date-gated to 2026-11-02; no email was sent.
+
+### 2026-10-27 08:04 Asia/Shanghai — GSC browser access attempt
+
+- Edge's Xiaodu GSC URL resolved to Google `not-verified` for `sc-domain:xiaodu.tech`. The in-app browser inventory showed two already-open StayChina 28-day page-breakdown reports, but both binding/opening routes timed out. No page control or data export occurred.
+- Do not infer query/page performance from the URL or title. Three-site GSC/AI Performance exports remain outstanding; stop retrying this browser route for this session and continue independent work.
+
+## 2026-10-27 08:08 Asia/Shanghai — social URL repair
+
+- Link-preflighted the two existing social copy packs. Fixed one stale Pomerol URL in `社媒首发内容包.md`: `/en/services/` returned 404; `/services/` returns 200 and is the English services page.
+- Other linked Xiaodu pages, StayChina setup pages, official policy references, and the English/Chinese Pomerol guides returned HTTP 200. Legal/policy and technical claims still require qualified human review.
+- This was an offline copy correction only. No post/video was published. The GSC browser route remains unavailable this session; no SEO ranking inference or live site change was made.
+
+## 2026-10-27 08:12 LUNA 状态刷新
+
+- 重新计数队列为 106 家 / 0 READY；10/28 四个日期候选，10/29 四个，10/30 三个，11/02 有 JINSYS、Basler、SICK 三个候选，ISM HOLD。
+- 近 24 小时 Gmail Inbox 只有已处理暖线程，没有新的待答复首触；10/27 五封首触上限已满，10/28 尚未到日期门。
+- 刷新 LUNA 30 天计划，补入 10/28–11/02 批次序列、GSC 缺项、三站本周增长动作与停发/升量门槛。没有发信、发布社媒或更改网站生产环境。
+
+## 2026-10-27 08:15 宽词内容竞争样本
+
+- 使用网页搜索服务检索三站宽泛主题，并打开 Pomerol、Xiaodu、上海政府和竞品页面；工具未提供可验证引擎/地区/排名，按内容发现样本记录，未作排名推断。
+- Pomerol 现有指南已覆盖 supplier verification、factory audit、PSI 决策环节及范围限制；下一步核对三页内链与 CTA，不建重复通用指南。
+- Xiaodu 未见足以证明需增页的真实工程证据；StayChina 需由专业人员按官方来源补足地域/政策边界。
+- 新增报告 `SEO-宽词搜索竞争发现与页面差距-2026-10-27.md`。未改线上网站、未发信、未创建新联系人。
+
+## 2026-10-27 08:16 Pomerol 联系方式提取复核
+
+- 搜索/阅读器纯文本曾把 Pomerol 页脚的电话、业务邮箱、直邮链接显示成连续文本。回读生产 HTML 可见它们是各自独立的 `tel:` / `mailto:` / WhatsApp 锚点；当前 `/assets/site.css` 对 `.footer a` 明确设置 `display:block` 与上下间距，因此这是纯文本抽取器去除 CSS 后的排版效果，不能判为用户实际看到的格式故障。
+- 仅记录结论，无需据此修改页面或联系标记。
+
+## 2026-10-27 08:19 主计划状态摘要校正
+
+- 更新主计划首页 GSC 与外联摘要，替换仍显示 10/23、23 次首触的旧快照；保留已证实的窗口/计数和明确的数据缺口。
+- 私人台账：55 条，30 条已发出类状态、27 家去重机构；队列 106 家 / 0 READY；10/27 五封首触额度已满，10/28 批次仍未到日期门。
+- 补入 08:19 执行摘要并指向最近 GSC 快照、内容竞争报告和 10/28–11/02 邮件门控。没有发送新邮件或修改生产网站。
+
+## 2026-10-27 08:20 主计划邮件节奏统一
+
+- 将 10/25 主计划中仍写着“起步 5–10、之后 10–15”的旧发送建议改为当前已执行的逐步升量规则（5→8→10，满足邮件健康与回复处理门槛后再评估）；首触+跟进 20 封/日保持为硬上限，不是配额。
+- 与 10/27 LUNA 计划一致；没有改变 Gmail 发信或日期批次状态。
+## 2026-10-27 08:25 — 新阶段计划与 Gmail 发送门复核
+
+- 新增 `SEO-LUNA-新阶段执行计划-2026-10-27.md`，把三站增长优先级、GSC 数据缺口、邮件研究/发送节奏、10/28–11/02 日期批次及逐封前置门统一到当前证据。
+- Yusuf Gmail 草稿列表与 Inbox 复查确认 HKTDC、安健、DOBOT、FALenses 四封 10/28 草稿仍可读、单收件人、无附件。10/27 首触五封已满；没有在发送日之前发送或定时。
+- 复查的相关合作/媒体对象存在既有邮件历史，排除重复联系。候选队列 106 家、0 READY_TO_SEND；不因“扩大邮件量”降低资格门槛。
+- 本轮未发送邮件、未改生产站、未发社媒。
+## 2026-10-27 08:26 — DOBOT 联系链接修正
+
+- 将 10/28 DOBOT 资格询问草稿所引用的官方联系页由西班牙语路径改为英文官方联系页；Gmail 读回确认草稿内容与收件人正确，未发送。
+- 私有邮件台账、批次卡和 v2 HTML 记录已同步。发送日仍须完整重查后逐封决定。
