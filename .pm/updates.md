@@ -657,3 +657,8 @@ Latest queue update: two official Zhuhai business-service channels were screened
 
 - 将 10/28 DOBOT 资格询问草稿所引用的官方联系页由西班牙语路径改为英文官方联系页；Gmail 读回确认草稿内容与收件人正确，未发送。
 - 私有邮件台账、批次卡和 v2 HTML 记录已同步。发送日仍须完整重查后逐封决定。
+## 2026-10-27 08:34 — Sihovision 外联资格草稿
+
+- 核验 Sihovision 官方伙伴页公开合作入口及 `info@sihovision.com`；Gmail 精确地址历史搜索与私人 suppression 均无命中。
+- 建立 X67 个性化资格询问草稿并读回：询问技术集成商准入、费用/销售或库存义务及公开伙伴档案；明确没有 Sihovision 项目/伙伴关系，不提交申请表、企业证件或客户信息。草稿排至 11/03 当天复核，未发送。
+- 公开队列增加至 107 家唯一机构 / 0 READY_TO_SEND。Yusuf Gmail 草稿清点为 27 封（22 带收件人，其中 7 HOLD；5 封是收件人已清空的已发送副本）。10/27 首触五封上限已满。
